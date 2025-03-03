@@ -1,0 +1,32 @@
+{
+  "name": "zork-web",
+  "version": "1.0.0",
+  "description": "A web-based clone of the classic text adventure game Zork",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev:script": "./start-dev.sh",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "test-server": "cd server && npm test",
+    "test-client": "cd client && npm test -- --watchAll=false",
+    "process:start": "node processManager.js start",
+    "process:stop": "node processManager.js stop",
+    "process:list": "node processManager.js list",
+    "process:clean": "node processManager.js clean"
+  },
+  "keywords": [
+    "zork",
+    "text-adventure",
+    "game",
+    "react",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
