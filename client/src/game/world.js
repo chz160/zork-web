@@ -153,6 +153,13 @@ const rooms = {
 
 // Define items with descriptions and properties
 const items = {
+  'house': {
+    name: 'house',
+    description: 'There is a white house here.',
+    takeable: false,
+    examine: 'The house is a beautiful colonial house which is painted white. It is clear that the owners must have been quite wealthy.',
+    isGlobal: true  // Special flag to indicate this item is visible from multiple locations
+  },
   'mailbox': {
     name: 'mailbox',
     description: 'There is a small mailbox here.',

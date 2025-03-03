@@ -39,6 +39,10 @@ const hasLightSource = (gameState) => {
 // Check if the player can see in the current room
 const canSeeInRoom = (gameState) => {
   const room = getCurrentRoom(gameState);
+  // Handle case where room is undefined
+  if (!room) {
+    return true; // Default to visible if room is undefined
+  }
   // Can see if room is not dark or player has a lit lantern
   return !room.dark || hasLightSource(gameState);
 };

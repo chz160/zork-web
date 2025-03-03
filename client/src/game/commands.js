@@ -360,6 +360,26 @@ const handleExamine = (gameState, itemName) => {
     itemToExamine = roomItems.find(item => item.name.toLowerCase() === itemName.toLowerCase());
   }
   
+  // If still not found, check for global items
+  if (!itemToExamine) {
+    // Check if it's a house-related location
+    const currentRoomId = gameState.currentRoom;
+    const houseLocations = ['west-of-house', 'north-of-house', 'south-of-house', 'east-of-house', 'kitchen', 'living-room'];
+    
+    if (houseLocations.includes(currentRoomId) && itemName.toLowerCase() === 'house') {
+      itemToExamine = items['house'];
+    } else {
+      // Check if it's a global item (like the house)
+      const globalItem = Object.values(items).find(
+        item => item.name.toLowerCase() === itemName.toLowerCase() && item.isGlobal
+      );
+      
+      if (globalItem) {
+        itemToExamine = globalItem;
+      }
+    }
+  }
+  
   if (!itemToExamine) {
     return {
       newState: gameState,
