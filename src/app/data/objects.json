@@ -1,0 +1,1831 @@
+{
+  "objects": [
+    {
+      "id": "board",
+      "name": "board",
+      "aliases": ["boards", "board"],
+      "description": "board",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "teeth",
+      "name": "set of teeth",
+      "aliases": ["overboard", "teeth"],
+      "description": "set of teeth",
+      "portable": false,
+      "visible": true,
+      "location": "global-objects"
+    },
+    {
+      "id": "wall",
+      "name": "Wall",
+      "aliases": ["wall", "walls", "surrounding wall", "surrounding walls"],
+      "description": "The wall is solid rock and cannot be passed.",
+      "portable": false,
+      "visible": true,
+      "location": "global-objects"
+    },
+    {
+      "id": "granite-wall",
+      "name": "granite wall",
+      "aliases": ["wall", "granite wall"],
+      "description": "granite wall",
+      "portable": false,
+      "visible": true,
+      "location": "global-objects"
+    },
+    {
+      "id": "songbird",
+      "name": "songbird",
+      "aliases": ["bird", "songbird", "song bird", "song songbird"],
+      "description": "songbird",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "white-house",
+      "name": "white house",
+      "aliases": ["house", "white house", "beauti house", "coloni house"],
+      "description": "white house",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "forest",
+      "name": "forest",
+      "aliases": ["forest", "trees", "pines", "hemlocks"],
+      "description": "forest",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "tree",
+      "name": "tree",
+      "aliases": [
+        "tree",
+        "branch",
+        "large storm ;\"-tossed\" tree",
+        "large storm ;\"-tossed\" branch"
+      ],
+      "description": "The trees are large hardwood trees, impossible to climb.",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "mountain-range",
+      "name": "mountain range",
+      "aliases": [
+        "mountain",
+        "range",
+        "impassable mountain",
+        "impassable range",
+        "flathead mountain",
+        "flathead range"
+      ],
+      "description": "mountain range",
+      "portable": false,
+      "visible": true,
+      "location": "mountains"
+    },
+    {
+      "id": "global-water",
+      "name": "water",
+      "aliases": ["water", "quantity"],
+      "description": "water",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "water",
+      "name": "kitchen window",
+      "aliases": ["window", "kitchen window", "small window"],
+      "description": "kitchen window",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals",
+      "properties": {
+        "isOpen": false,
+        "isLocked": false
+      }
+    },
+    {
+      "id": "chimney",
+      "name": "chimney",
+      "aliases": ["chimney", "dark chimney", "narrow chimney"],
+      "description": "chimney",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "ghosts",
+      "name": "number of ghosts",
+      "aliases": [
+        "ghosts",
+        "spirits",
+        "fiends",
+        "force",
+        "invisible ghosts",
+        "invisible spirits",
+        "invisible fiends",
+        "invisible force",
+        "evil ghosts",
+        "evil spirits",
+        "evil fiends",
+        "evil force"
+      ],
+      "description": "number of ghosts",
+      "portable": false,
+      "visible": true,
+      "location": "entrance-to-hades"
+    },
+    {
+      "id": "skull",
+      "name": "crystal skull",
+      "aliases": ["skull", "head", "treasure", "crystal skull", "crystal head", "crystal treasure"],
+      "description": "It,appears,to,be,grinning,at,you,rather,nastily.\"",
+      "portable": true,
+      "visible": true,
+      "location": "land-of-living-dead",
+      "properties": {
+        "value": 10
+      }
+    },
+    {
+      "id": "lowered-basket",
+      "name": "basket",
+      "aliases": [
+        "cage",
+        "dumbwaiter",
+        "basket",
+        "lowered cage",
+        "lowered dumbwaiter",
+        "lowered basket"
+      ],
+      "description": "From the chain is suspended a basket.",
+      "portable": true,
+      "visible": true,
+      "location": "lower-shaft"
+    },
+    {
+      "id": "raised-basket",
+      "name": "basket",
+      "aliases": ["cage", "dumbwaiter", "basket"],
+      "description": "At the end of the chain is a basket.",
+      "portable": true,
+      "visible": true,
+      "location": "shaft-room",
+      "properties": {
+        "isOpen": true,
+        "contains": [],
+        "capacity": 50
+      }
+    },
+    {
+      "id": "lunch",
+      "name": "lunch",
+      "aliases": [
+        "food",
+        "sandwich",
+        "lunch",
+        "dinner",
+        "hot food",
+        "hot sandwich",
+        "hot lunch",
+        "hot dinner",
+        "pepper food",
+        "pepper sandwich",
+        "pepper lunch",
+        "pepper dinner"
+      ],
+      "description": "lunch",
+      "portable": true,
+      "visible": true,
+      "location": "sandwich-bag"
+    },
+    {
+      "id": "bat",
+      "name": "bat",
+      "aliases": [
+        "bat",
+        "vampire",
+        "vampire bat",
+        "vampire vampire",
+        "deranged bat",
+        "deranged vampire"
+      ],
+      "description": "A hot pepper sandwich is here.\")>",
+      "portable": true,
+      "visible": true,
+      "location": "bat-room"
+    },
+    {
+      "id": "bell",
+      "name": "brass bell",
+      "aliases": ["bell", "small bell", "brass bell"],
+      "description": "brass bell",
+      "portable": true,
+      "visible": true,
+      "location": "north-temple"
+    },
+    {
+      "id": "hot-bell",
+      "name": "red hot brass bell",
+      "aliases": ["bell", "brass bell", "hot bell", "red bell", "small bell"],
+      "description": "red hot brass bell",
+      "portable": true,
+      "visible": true,
+      "location": "unknown"
+    },
+    {
+      "id": "axe",
+      "name": "bloody axe",
+      "aliases": ["axe", "ax", "bloody axe", "bloody ax"],
+      "description": "On the ground is a red hot bell.\")>",
+      "portable": true,
+      "visible": true,
+      "location": "troll",
+      "properties": {
+        "isWeapon": true
+      }
+    },
+    {
+      "id": "bolt",
+      "name": "bolt",
+      "aliases": ["bolt", "nut", "metal bolt", "metal nut", "large bolt", "large nut"],
+      "description": "The bolt is too rusty to move.",
+      "portable": true,
+      "visible": true,
+      "location": "dam-room"
+    },
+    {
+      "id": "bubble",
+      "name": "green bubble",
+      "aliases": ["bubble", "small bubble", "green bubble", "plastic bubble"],
+      "description": "green bubble",
+      "portable": true,
+      "visible": true,
+      "location": "dam-room"
+    },
+    {
+      "id": "altar",
+      "name": "altar",
+      "aliases": ["altar"],
+      "description": "altar",
+      "portable": false,
+      "visible": true,
+      "location": "south-temple",
+      "properties": {
+        "isOpen": true,
+        "contains": [],
+        "capacity": 50
+      }
+    },
+    {
+      "id": "book",
+      "name": "black book",
+      "aliases": [
+        "book",
+        "prayer",
+        "page",
+        "books",
+        "large book",
+        "large prayer",
+        "large page",
+        "large books",
+        "black book",
+        "black prayer",
+        "black page",
+        "black books"
+      ],
+      "description": "On the altar is a large black book, open to page 569.",
+      "portable": true,
+      "visible": true,
+      "location": "altar",
+      "properties": {
+        "isOpen": false,
+        "contains": []
+      }
+    },
+    {
+      "id": "broken-lamp",
+      "name": "broken lantern",
+      "aliases": ["lamp", "lantern", "broken lamp", "broken lantern"],
+      "description": "broken lantern",
+      "portable": true,
+      "visible": true,
+      "location": "unknown"
+    },
+    {
+      "id": "sceptre",
+      "name": "sceptre",
+      "aliases": [
+        "sceptre",
+        "scepter",
+        "treasure",
+        "sharp sceptre",
+        "sharp scepter",
+        "sharp treasure",
+        "egyptian sceptre",
+        "egyptian scepter",
+        "egyptian treasure",
+        "ancient sceptre",
+        "ancient scepter",
+        "ancient treasure",
+        "enameled sceptre",
+        "enameled scepter",
+        "enameled treasure"
+      ],
+      "description": "sceptre,is,ornamented,with,colored,enamel,,and,tapers,to,a,sharp,point.\"",
+      "portable": true,
+      "visible": true,
+      "location": "coffin",
+      "properties": {
+        "isWeapon": true,
+        "value": 4
+      }
+    },
+    {
+      "id": "timbers",
+      "name": "chute",
+      "aliases": [
+        "chute",
+        "ramp",
+        "slide",
+        "steep chute",
+        "steep ramp",
+        "steep slide",
+        "metal chute",
+        "metal ramp",
+        "metal slide",
+        "twisting chute",
+        "twisting ramp",
+        "twisting slide"
+      ],
+      "description": "chute",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "kitchen-table",
+      "name": "kitchen table",
+      "aliases": ["table", "kitchen table"],
+      "description": "kitchen table",
+      "portable": false,
+      "visible": true,
+      "location": "kitchen",
+      "properties": {
+        "isOpen": true,
+        "contains": [],
+        "capacity": 50
+      }
+    },
+    {
+      "id": "attic-table",
+      "name": "table",
+      "aliases": ["table"],
+      "description": "table",
+      "portable": false,
+      "visible": true,
+      "location": "attic",
+      "properties": {
+        "isOpen": true,
+        "contains": [],
+        "capacity": 40
+      }
+    },
+    {
+      "id": "sandwich-bag",
+      "name": "brown sack",
+      "aliases": [
+        "bag",
+        "sack",
+        "brown bag",
+        "brown sack",
+        "elongated bag",
+        "elongated sack",
+        "smelly bag",
+        "smelly sack"
+      ],
+      "description": "brown sack",
+      "portable": true,
+      "visible": true,
+      "location": "kitchen-table",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 9
+      }
+    },
+    {
+      "id": "tool-chest",
+      "name": "group of tool chests",
+      "aliases": [
+        "chest",
+        "chests",
+        "group",
+        "toolchests",
+        "tool chest",
+        "tool chests",
+        "tool group",
+        "tool toolchests"
+      ],
+      "description": "group of tool chests",
+      "portable": true,
+      "visible": true,
+      "location": "maintenance-room",
+      "properties": {
+        "isOpen": true,
+        "contains": []
+      }
+    },
+    {
+      "id": "yellow-button",
+      "name": "yellow button",
+      "aliases": ["button", "switch", "yellow button", "yellow switch"],
+      "description": "yellow button",
+      "portable": false,
+      "visible": true,
+      "location": "maintenance-room"
+    },
+    {
+      "id": "brown-button",
+      "name": "brown button",
+      "aliases": ["button", "switch", "brown button", "brown switch"],
+      "description": "brown button",
+      "portable": false,
+      "visible": true,
+      "location": "maintenance-room"
+    },
+    {
+      "id": "red-button",
+      "name": "red button",
+      "aliases": ["button", "switch", "red button", "red switch"],
+      "description": "red button",
+      "portable": false,
+      "visible": true,
+      "location": "maintenance-room"
+    },
+    {
+      "id": "blue-button",
+      "name": "blue button",
+      "aliases": ["button", "switch", "blue button", "blue switch"],
+      "description": "blue button",
+      "portable": false,
+      "visible": true,
+      "location": "maintenance-room"
+    },
+    {
+      "id": "trophy-casefirstobjsolrdesclooksright",
+      "name": "trophy case",
+      "aliases": ["case", "trophy case"],
+      "description": "trophy case",
+      "portable": true,
+      "visible": true,
+      "location": "living-room",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 10000
+      }
+    },
+    {
+      "id": "rug",
+      "name": "carpet",
+      "aliases": ["rug", "carpet", "large rug", "large carpet", "oriental rug", "oriental carpet"],
+      "description": "carpet",
+      "portable": true,
+      "visible": true,
+      "location": "living-room"
+    },
+    {
+      "id": "chalice",
+      "name": "chalice",
+      "aliases": [
+        "chalice",
+        "cup",
+        "silver",
+        "treasure",
+        "silver engravings) ;\"engravings exists...\" chalice",
+        "silver engravings) ;\"engravings exists...\" cup",
+        "silver engravings) ;\"engravings exists...\" silver",
+        "silver engravings) ;\"engravings exists...\" treasure"
+      ],
+      "description": "There is a silver chalice, intricately engraved, here.",
+      "portable": true,
+      "visible": true,
+      "location": "treasure-room",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 5,
+        "value": 10
+      }
+    },
+    {
+      "id": "garlic",
+      "name": "clove of garlic",
+      "aliases": ["garlic", "clove"],
+      "description": "clove of garlic",
+      "portable": true,
+      "visible": true,
+      "location": "sandwich-bag"
+    },
+    {
+      "id": "trident",
+      "name": "crystal trident",
+      "aliases": [
+        "trident",
+        "fork",
+        "treasure",
+        "poseidon trident",
+        "poseidon fork",
+        "poseidon treasure",
+        "own trident",
+        "own fork",
+        "own treasure",
+        "crystal trident",
+        "crystal fork",
+        "crystal treasure"
+      ],
+      "description": "On the shore lies Poseidon's own crystal trident.",
+      "portable": true,
+      "visible": true,
+      "location": "atlantis-room",
+      "properties": {
+        "value": 4
+      }
+    },
+    {
+      "id": "cyclops",
+      "name": "cyclops",
+      "aliases": [
+        "cyclops",
+        "monster",
+        "eye",
+        "hungry cyclops",
+        "hungry monster",
+        "hungry eye",
+        "giant cyclops",
+        "giant monster",
+        "giant eye"
+      ],
+      "description": "cyclops",
+      "portable": true,
+      "visible": true,
+      "location": "cyclops-room"
+    },
+    {
+      "id": "dam",
+      "name": "dam",
+      "aliases": ["dam", "gate", "gates", "fcd\\#3"],
+      "description": "The dam is extremely solid and cannot be disturbed.",
+      "portable": true,
+      "visible": true,
+      "location": "dam-room"
+    },
+    {
+      "id": "trap-door",
+      "name": "trap door",
+      "aliases": [
+        "door",
+        "trapdoor",
+        "trap-door",
+        "cover",
+        "trap door",
+        "trap trapdoor",
+        "trap trap-door",
+        "trap cover",
+        "dusty door",
+        "dusty trapdoor",
+        "dusty trap-door",
+        "dusty cover"
+      ],
+      "description": "trap door",
+      "portable": false,
+      "visible": false,
+      "location": "living-room",
+      "properties": {
+        "isOpen": false,
+        "isLocked": false
+      }
+    },
+    {
+      "id": "boarded-window",
+      "name": "boarded window",
+      "aliases": ["window", "boarded window"],
+      "description": "boarded window",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "front-door",
+      "name": "door",
+      "aliases": ["door", "front door", "boarded door"],
+      "description": "The door is boarded up and cannot be opened.",
+      "portable": false,
+      "visible": true,
+      "location": "west-of-house",
+      "properties": {
+        "isOpen": false,
+        "isLocked": false
+      }
+    },
+    {
+      "id": "barrow-door",
+      "name": "stone door",
+      "aliases": ["door", "huge door", "stone door"],
+      "description": "stone door",
+      "portable": false,
+      "visible": true,
+      "location": "stone-barrow",
+      "properties": {
+        "isOpen": true,
+        "isLocked": false
+      }
+    },
+    {
+      "id": "barrow",
+      "name": "stone barrow",
+      "aliases": ["barrow", "tomb", "massive barrow", "massive tomb", "stone barrow", "stone tomb"],
+      "description": "stone barrow",
+      "portable": false,
+      "visible": true,
+      "location": "stone-barrow"
+    },
+    {
+      "id": "bottle",
+      "name": "glass bottle",
+      "aliases": [
+        "bottle",
+        "container",
+        "clear bottle",
+        "clear container",
+        "glass bottle",
+        "glass container"
+      ],
+      "description": "A bottle is sitting on the table.",
+      "portable": true,
+      "visible": true,
+      "location": "kitchen-table",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 4
+      }
+    },
+    {
+      "id": "crack",
+      "name": "crack",
+      "aliases": ["crack", "narrow crack"],
+      "description": "crack",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "coffin",
+      "name": "gold coffin",
+      "aliases": [
+        "coffin",
+        "casket",
+        "treasure",
+        "solid coffin",
+        "solid casket",
+        "solid treasure",
+        "gold coffin",
+        "gold casket",
+        "gold treasure"
+      ],
+      "description": "gold coffin",
+      "portable": true,
+      "visible": true,
+      "location": "egypt-room",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 35,
+        "value": 10
+      }
+    },
+    {
+      "id": "grate",
+      "name": "grating",
+      "aliases": ["grate", "grating"],
+      "description": "grating",
+      "portable": false,
+      "visible": false,
+      "location": "local-globals",
+      "properties": {
+        "isOpen": false,
+        "isLocked": false
+      }
+    },
+    {
+      "id": "pump",
+      "name": "hand-held air pump",
+      "aliases": [
+        "pump",
+        "air-pump",
+        "tool",
+        "tools",
+        "small pump",
+        "small air-pump",
+        "small tool",
+        "small tools",
+        "hand-held pump",
+        "hand-held air-pump",
+        "hand-held tool",
+        "hand-held tools"
+      ],
+      "description": "hand-held air pump",
+      "portable": true,
+      "visible": true,
+      "location": "reservoir-north"
+    },
+    {
+      "id": "diamond",
+      "name": "huge diamond",
+      "aliases": [
+        "diamond",
+        "treasure",
+        "huge diamond",
+        "huge treasure",
+        "enormous diamond",
+        "enormous treasure"
+      ],
+      "description": "There is an enormous diamond (perfectly cut) here.",
+      "portable": true,
+      "visible": true,
+      "location": "unknown",
+      "properties": {
+        "value": 10
+      }
+    },
+    {
+      "id": "jade",
+      "name": "jade figurine",
+      "aliases": [
+        "figurine",
+        "treasure",
+        "exquisite figurine",
+        "exquisite treasure",
+        "jade figurine",
+        "jade treasure"
+      ],
+      "description": "There is an exquisite jade figurine here.",
+      "portable": true,
+      "visible": true,
+      "location": "bat-room",
+      "properties": {
+        "value": 5
+      }
+    },
+    {
+      "id": "knife",
+      "name": "nasty knife",
+      "aliases": [
+        "knives",
+        "knife",
+        "blade",
+        "nasty knives",
+        "nasty knife",
+        "nasty blade",
+        "unrusty knives",
+        "unrusty knife",
+        "unrusty blade"
+      ],
+      "description": "On a table is a nasty-looking knife.",
+      "portable": true,
+      "visible": true,
+      "location": "attic-table",
+      "properties": {
+        "isWeapon": true
+      }
+    },
+    {
+      "id": "bones",
+      "name": "skeleton",
+      "aliases": ["bones", "skeleton", "body"],
+      "description": "skeleton",
+      "portable": true,
+      "visible": true,
+      "location": "maze-5"
+    },
+    {
+      "id": "burned-out-lantern",
+      "name": "burned-out lantern",
+      "aliases": [
+        "lantern",
+        "lamp",
+        "rusty lantern",
+        "rusty lamp",
+        "burned lantern",
+        "burned lamp",
+        "dead lantern",
+        "dead lamp",
+        "useless lantern",
+        "useless lamp"
+      ],
+      "description": "The deceased adventurer's useless lantern is here.",
+      "portable": true,
+      "visible": true,
+      "location": "maze-5"
+    },
+    {
+      "id": "bag-of-coins",
+      "name": "leather bag of coins",
+      "aliases": [
+        "bag",
+        "coins",
+        "treasure",
+        "old bag",
+        "old coins",
+        "old treasure",
+        "leather bag",
+        "leather coins",
+        "leather treasure"
+      ],
+      "description": "An old leather bag, bulging with coins, is here.",
+      "portable": true,
+      "visible": true,
+      "location": "maze-5",
+      "properties": {
+        "value": 10
+      }
+    },
+    {
+      "id": "lamp",
+      "name": "brass lantern",
+      "aliases": ["lamp", "lantern", "light", "brass lamp", "brass lantern", "brass light"],
+      "description": "There is a brass lantern (battery-powered) here.",
+      "portable": true,
+      "visible": true,
+      "location": "living-room",
+      "properties": {
+        "isLight": true,
+        "isLit": false
+      }
+    },
+    {
+      "id": "emerald",
+      "name": "large emerald",
+      "aliases": ["emerald", "treasure", "large emerald", "large treasure"],
+      "description": "large emerald",
+      "portable": true,
+      "visible": true,
+      "location": "buoy",
+      "properties": {
+        "value": 5
+      }
+    },
+    {
+      "id": "advertisement",
+      "name": "leaflet",
+      "aliases": [
+        "advertisement",
+        "leaflet",
+        "booklet",
+        "mail",
+        "small advertisement",
+        "small leaflet",
+        "small booklet",
+        "small mail"
+      ],
+      "description": "A small leaflet is on the ground.",
+      "portable": true,
+      "visible": true,
+      "location": "mailbox"
+    },
+    {
+      "id": "leak",
+      "name": "leak",
+      "aliases": ["leak", "drip", "pipe"],
+      "description": "The leak is too small to escape through.",
+      "portable": false,
+      "visible": false,
+      "location": "maintenance-room"
+    },
+    {
+      "id": "machine",
+      "name": "machine",
+      "aliases": ["machine", "pdp10", "dryer", "lid"],
+      "description": "machine",
+      "portable": true,
+      "visible": true,
+      "location": "machine-room",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 50
+      }
+    },
+    {
+      "id": "inflated-boat",
+      "name": "magic boat",
+      "aliases": [
+        "boat",
+        "raft",
+        "inflat boat",
+        "inflat raft",
+        "magic boat",
+        "magic raft",
+        "plastic boat",
+        "plastic raft",
+        "seaworthy boat",
+        "seaworthy raft"
+      ],
+      "description": "magic boat",
+      "portable": true,
+      "visible": true,
+      "location": "unknown"
+    },
+    {
+      "id": "mailbox",
+      "name": "small mailbox",
+      "aliases": ["mailbox", "box", "small mailbox", "small box"],
+      "description": "small mailbox",
+      "portable": true,
+      "visible": true,
+      "location": "west-of-house",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 10
+      }
+    },
+    {
+      "id": "match",
+      "name": "matchbook",
+      "aliases": [
+        "match",
+        "matches",
+        "matchbook",
+        "match match",
+        "match matches",
+        "match matchbook"
+      ],
+      "description": "matchbook",
+      "portable": true,
+      "visible": true,
+      "location": "dam-lobby"
+    },
+    {
+      "id": "mirror-2",
+      "name": "mirror",
+      "aliases": ["reflection", "mirror", "enormous"],
+      "description": "mirror",
+      "portable": true,
+      "visible": true,
+      "location": "mirror-room-2"
+    },
+    {
+      "id": "mirror-1",
+      "name": "mirror",
+      "aliases": ["reflection", "mirror", "enormous"],
+      "description": "mirror",
+      "portable": true,
+      "visible": true,
+      "location": "mirror-room-1"
+    },
+    {
+      "id": "painting",
+      "name": "painting",
+      "aliases": [
+        "painting",
+        "art",
+        "canvas",
+        "treasure",
+        "beauti painting",
+        "beauti art",
+        "beauti canvas",
+        "beauti treasure"
+      ],
+      "description": "A painting by a neglected genius is here.",
+      "portable": true,
+      "visible": true,
+      "location": "gallery",
+      "properties": {
+        "value": 4
+      }
+    },
+    {
+      "id": "candles",
+      "name": "pair of candles",
+      "aliases": ["candles", "pair", "burning candles", "burning pair"],
+      "description": "On the two ends of the altar are burning candles.",
+      "portable": true,
+      "visible": true,
+      "location": "south-temple",
+      "properties": {
+        "isLight": true,
+        "isLit": true
+      }
+    },
+    {
+      "id": "gunk",
+      "name": "small piece of vitreous slag",
+      "aliases": [
+        "gunk",
+        "piece",
+        "slag",
+        "small gunk",
+        "small piece",
+        "small slag",
+        "vitreous gunk",
+        "vitreous piece",
+        "vitreous slag"
+      ],
+      "description": "small piece of vitreous slag",
+      "portable": true,
+      "visible": true,
+      "location": "unknown"
+    },
+    {
+      "id": "bodies",
+      "name": "pile of bodies",
+      "aliases": [
+        "bodies",
+        "body",
+        "remains",
+        "pile",
+        "mangled bodies",
+        "mangled body",
+        "mangled remains",
+        "mangled pile"
+      ],
+      "description": "pile of bodies",
+      "portable": true,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "leaves",
+      "name": "pile of leaves",
+      "aliases": ["leaves", "leaf", "pile"],
+      "description": "On the ground is a pile of leaves.",
+      "portable": true,
+      "visible": true,
+      "location": "grating-clearing"
+    },
+    {
+      "id": "punctured-boat",
+      "name": "punctured boat",
+      "aliases": [
+        "boat",
+        "pile",
+        "plastic",
+        "plastic boat",
+        "plastic pile",
+        "plastic plastic",
+        "puncture boat",
+        "puncture pile",
+        "puncture plastic",
+        "large boat",
+        "large pile",
+        "large plastic"
+      ],
+      "description": "punctured boat",
+      "portable": true,
+      "visible": true,
+      "location": "unknown"
+    },
+    {
+      "id": "inflatable-boat",
+      "name": "pile of plastic",
+      "aliases": [
+        "boat",
+        "pile",
+        "plastic",
+        "valve",
+        "plastic boat",
+        "plastic pile",
+        "plastic plastic",
+        "plastic valve",
+        "inflat boat",
+        "inflat pile",
+        "inflat plastic",
+        "inflat valve"
+      ],
+      "description": "attached.",
+      "portable": true,
+      "visible": true,
+      "location": "dam-base"
+    },
+    {
+      "id": "bar",
+      "name": "platinum bar",
+      "aliases": [
+        "bar",
+        "platinum",
+        "treasure",
+        "platinum bar",
+        "platinum platinum",
+        "platinum treasure",
+        "large bar",
+        "large platinum",
+        "large treasure"
+      ],
+      "description": "On the ground is a large platinum bar.",
+      "portable": true,
+      "visible": true,
+      "location": "loud-room",
+      "properties": {
+        "value": 10
+      }
+    },
+    {
+      "id": "pot-of-gold",
+      "name": "pot of gold",
+      "aliases": ["pot", "gold", "treasure", "gold pot", "gold gold", "gold treasure"],
+      "description": "At the end of the rainbow is a pot of gold.",
+      "portable": true,
+      "visible": false,
+      "location": "end-of-rainbow",
+      "properties": {
+        "value": 10
+      }
+    },
+    {
+      "id": "prayer",
+      "name": "prayer",
+      "aliases": [
+        "prayer",
+        "inscription",
+        "ancient prayer",
+        "ancient inscription",
+        "old prayer",
+        "old inscription"
+      ],
+      "description": "prayer",
+      "portable": false,
+      "visible": true,
+      "location": "north-temple"
+    },
+    {
+      "id": "railing",
+      "name": "wooden railing",
+      "aliases": ["railing", "rail", "wooden railing", "wooden rail"],
+      "description": "wooden railing",
+      "portable": false,
+      "visible": true,
+      "location": "dome-room"
+    },
+    {
+      "id": "rainbow",
+      "name": "rainbow",
+      "aliases": ["rainbow"],
+      "description": "rainbow",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "river",
+      "name": "river",
+      "aliases": ["river", "frigid river"],
+      "description": "river",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "buoy",
+      "name": "red buoy",
+      "aliases": ["buoy", "red buoy"],
+      "description": "There is a red buoy here (probably a warning).",
+      "portable": true,
+      "visible": true,
+      "location": "river-4",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 20
+      }
+    },
+    {
+      "id": "rope",
+      "name": "rope",
+      "aliases": ["rope", "hemp", "coil", "large rope", "large hemp", "large coil"],
+      "description": "A large coil of rope is lying in the corner.",
+      "portable": true,
+      "visible": true,
+      "location": "attic"
+    },
+    {
+      "id": "rusty-knife",
+      "name": "rusty knife",
+      "aliases": ["knives", "knife", "rusty knives", "rusty knife"],
+      "description": "Beside the skeleton is a rusty knife.",
+      "portable": true,
+      "visible": true,
+      "location": "maze-5",
+      "properties": {
+        "isWeapon": true
+      }
+    },
+    {
+      "id": "sand",
+      "name": "sand",
+      "aliases": ["sand"],
+      "description": "The sand is fine and runs through your fingers.",
+      "portable": false,
+      "visible": true,
+      "location": "sandy-cave"
+    },
+    {
+      "id": "bracelet",
+      "name": "sapphire-encrusted bracelet",
+      "aliases": [
+        "bracelet",
+        "jewel",
+        "sapphire",
+        "treasure",
+        "sapphire bracelet",
+        "sapphire jewel",
+        "sapphire sapphire",
+        "sapphire treasure"
+      ],
+      "description": "sapphire-encrusted bracelet",
+      "portable": true,
+      "visible": true,
+      "location": "gas-room",
+      "properties": {
+        "value": 5
+      }
+    },
+    {
+      "id": "screwdriver",
+      "name": "screwdriver",
+      "aliases": [
+        "screwdriver",
+        "tool",
+        "tools",
+        "driver",
+        "screw screwdriver",
+        "screw tool",
+        "screw tools",
+        "screw driver"
+      ],
+      "description": "screwdriver",
+      "portable": true,
+      "visible": true,
+      "location": "maintenance-room"
+    },
+    {
+      "id": "keys",
+      "name": "skeleton key",
+      "aliases": ["key", "skeleton key"],
+      "description": "skeleton key",
+      "portable": true,
+      "visible": true,
+      "location": "maze-5"
+    },
+    {
+      "id": "shovel",
+      "name": "shovel",
+      "aliases": ["shovel", "tool", "tools"],
+      "description": "shovel",
+      "portable": true,
+      "visible": true,
+      "location": "sandy-beach"
+    },
+    {
+      "id": "coal",
+      "name": "small pile of coal",
+      "aliases": ["coal", "pile", "heap", "small coal", "small pile", "small heap"],
+      "description": "small pile of coal",
+      "portable": true,
+      "visible": true,
+      "location": "dead-end-5"
+    },
+    {
+      "id": "ladder",
+      "name": "wooden ladder",
+      "aliases": ["ladder", "wooden ladder", "rickety ladder", "narrow ladder"],
+      "description": "wooden ladder",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "scarab",
+      "name": "beautiful jeweled scarab",
+      "aliases": [
+        "scarab",
+        "bug",
+        "beetle",
+        "treasure",
+        "beauti scarab",
+        "beauti bug",
+        "beauti beetle",
+        "beauti treasure",
+        "carved scarab",
+        "carved bug",
+        "carved beetle",
+        "carved treasure",
+        "jeweled scarab",
+        "jeweled bug",
+        "jeweled beetle",
+        "jeweled treasure"
+      ],
+      "description": "beautiful jeweled scarab",
+      "portable": true,
+      "visible": false,
+      "location": "sandy-cave",
+      "properties": {
+        "value": 5
+      }
+    },
+    {
+      "id": "large-bag",
+      "name": "large bag",
+      "aliases": ["bag", "large bag", "thiefs bag"],
+      "description": "large bag",
+      "portable": true,
+      "visible": true,
+      "location": "thief"
+    },
+    {
+      "id": "stiletto",
+      "name": "stiletto",
+      "aliases": ["stiletto", "vicious stiletto"],
+      "description": "stiletto",
+      "portable": true,
+      "visible": true,
+      "location": "thief",
+      "properties": {
+        "isWeapon": true
+      }
+    },
+    {
+      "id": "machine-switch",
+      "name": "switch",
+      "aliases": ["switch"],
+      "description": "switch",
+      "portable": false,
+      "visible": true,
+      "location": "machine-room"
+    },
+    {
+      "id": "wooden-door",
+      "name": "wooden door",
+      "aliases": [
+        "door",
+        "lettering",
+        "writing",
+        "wooden door",
+        "wooden lettering",
+        "wooden writing",
+        "gothic door",
+        "gothic lettering",
+        "gothic writing",
+        "strange door",
+        "strange lettering",
+        "strange writing",
+        "west door",
+        "west lettering",
+        "west writing"
+      ],
+      "description": "wooden door",
+      "portable": false,
+      "visible": true,
+      "location": "living-room",
+      "properties": {
+        "isOpen": false,
+        "isLocked": false
+      }
+    },
+    {
+      "id": "sword",
+      "name": "sword",
+      "aliases": [
+        "sword",
+        "orcrist",
+        "glamdring",
+        "blade",
+        "elvish sword",
+        "elvish orcrist",
+        "elvish glamdring",
+        "elvish blade",
+        "old sword",
+        "old orcrist",
+        "old glamdring",
+        "old blade",
+        "antique sword",
+        "antique orcrist",
+        "antique glamdring",
+        "antique blade"
+      ],
+      "description": "sword",
+      "portable": true,
+      "visible": true,
+      "location": "living-room",
+      "properties": {
+        "isWeapon": true
+      }
+    },
+    {
+      "id": "map",
+      "name": "ancient map",
+      "aliases": [
+        "parchment",
+        "map",
+        "antique parchment",
+        "antique map",
+        "old parchment",
+        "old map",
+        "ancient parchment",
+        "ancient map"
+      ],
+      "description": "ancient map",
+      "portable": true,
+      "visible": false,
+      "location": "trophy-case"
+    },
+    {
+      "id": "boat-label",
+      "name": "tan label",
+      "aliases": [
+        "label",
+        "fineprint",
+        "print",
+        "tan label",
+        "tan fineprint",
+        "tan print",
+        "fine label",
+        "fine fineprint",
+        "fine print"
+      ],
+      "description": "tan label",
+      "portable": true,
+      "visible": true,
+      "location": "inflated-boat"
+    },
+    {
+      "id": "thief",
+      "name": "thief",
+      "aliases": [
+        "thief",
+        "robber",
+        "man",
+        "person",
+        "shady thief",
+        "shady robber",
+        "shady man",
+        "shady person",
+        "suspicious thief",
+        "suspicious robber",
+        "suspicious man",
+        "suspicious person",
+        "seedy thief",
+        "seedy robber",
+        "seedy man",
+        "seedy person"
+      ],
+      "description": "against,one,wall.,He,is,armed,with,a,deadly,stiletto.\"",
+      "portable": true,
+      "visible": false,
+      "location": "round-room",
+      "properties": {
+        "isOpen": true,
+        "contains": []
+      }
+    },
+    {
+      "id": "pedestal",
+      "name": "pedestal",
+      "aliases": ["pedestal", "white pedestal", "marble pedestal"],
+      "description": "pedestal",
+      "portable": false,
+      "visible": true,
+      "location": "torch-room",
+      "properties": {
+        "isOpen": true,
+        "contains": [],
+        "capacity": 30
+      }
+    },
+    {
+      "id": "torch",
+      "name": "torch",
+      "aliases": [
+        "torch",
+        "ivory",
+        "treasure",
+        "flaming torch",
+        "flaming ivory",
+        "flaming treasure",
+        "ivory torch",
+        "ivory ivory",
+        "ivory treasure"
+      ],
+      "description": "Sitting on the pedestal is a flaming torch, made of ivory.",
+      "portable": true,
+      "visible": true,
+      "location": "pedestal",
+      "properties": {
+        "isLight": true,
+        "isLit": true,
+        "value": 14
+      }
+    },
+    {
+      "id": "guide",
+      "name": "tour guidebook",
+      "aliases": [
+        "guide",
+        "book",
+        "books",
+        "guidebooks",
+        "tour guide",
+        "tour book",
+        "tour books",
+        "tour guidebooks",
+        "guide guide",
+        "guide book",
+        "guide books",
+        "guide guidebooks"
+      ],
+      "description": "desk.",
+      "portable": true,
+      "visible": true,
+      "location": "dam-lobby"
+    },
+    {
+      "id": "troll",
+      "name": "troll",
+      "aliases": ["troll", "nasty troll"],
+      "description": "out,of,the,room.\"",
+      "portable": true,
+      "visible": true,
+      "location": "troll-room"
+    },
+    {
+      "id": "trunk",
+      "name": "trunk of jewels",
+      "aliases": [
+        "trunk",
+        "chest",
+        "jewels",
+        "treasure",
+        "old trunk",
+        "old chest",
+        "old jewels",
+        "old treasure"
+      ],
+      "description": "There is an old trunk here, bulging with assorted jewels.",
+      "portable": true,
+      "visible": false,
+      "location": "reservoir",
+      "properties": {
+        "value": 15
+      }
+    },
+    {
+      "id": "tube",
+      "name": "tube",
+      "aliases": ["tube", "tooth", "paste"],
+      "description": "The tube is a large metal pipe.",
+      "portable": true,
+      "visible": true,
+      "location": "maintenance-room",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 7
+      }
+    },
+    {
+      "id": "putty",
+      "name": "viscous material",
+      "aliases": ["material", "gunk", "viscous material", "viscous gunk"],
+      "description": "viscous material",
+      "portable": true,
+      "visible": true,
+      "location": "tube"
+    },
+    {
+      "id": "engravings",
+      "name": "wall with engravings",
+      "aliases": [
+        "wall",
+        "engravings",
+        "inscription",
+        "old wall",
+        "old engravings",
+        "old inscription",
+        "ancient wall",
+        "ancient engravings",
+        "ancient inscription"
+      ],
+      "description": "There are old engravings on the walls here.",
+      "portable": false,
+      "visible": true,
+      "location": "engravings-cave"
+    },
+    {
+      "id": "owners-manual",
+      "name": "ZORK owner's manual",
+      "aliases": [
+        "manual",
+        "piece",
+        "paper",
+        "zork manual",
+        "zork piece",
+        "zork paper",
+        "owners manual",
+        "owners piece",
+        "owners paper",
+        "small manual",
+        "small piece",
+        "small paper"
+      ],
+      "description": "Loosely attached to a wall is a small piece of paper.",
+      "portable": true,
+      "visible": true,
+      "location": "studio"
+    },
+    {
+      "id": "climbable-cliff",
+      "name": "cliff",
+      "aliases": [
+        "wall",
+        "cliff",
+        "walls",
+        "ledge",
+        "rocky wall",
+        "rocky cliff",
+        "rocky walls",
+        "rocky ledge",
+        "sheer wall",
+        "sheer cliff",
+        "sheer walls",
+        "sheer ledge"
+      ],
+      "description": "cliff",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "white-cliff",
+      "name": "white cliffs",
+      "aliases": ["cliff", "cliffs", "white cliff", "white cliffs"],
+      "description": "white cliffs",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "wrench",
+      "name": "wrench",
+      "aliases": ["wrench", "tool", "tools"],
+      "description": "wrench",
+      "portable": true,
+      "visible": true,
+      "location": "maintenance-room"
+    },
+    {
+      "id": "control-panel",
+      "name": "control panel",
+      "aliases": ["panel", "control panel"],
+      "description": "control panel",
+      "portable": false,
+      "visible": true,
+      "location": "dam-room"
+    },
+    {
+      "id": "nest",
+      "name": "bird's nest",
+      "aliases": ["nest", "birds nest"],
+      "description": "Beside you on the branch is a small bird's nest.",
+      "portable": true,
+      "visible": true,
+      "location": "up-a-tree",
+      "properties": {
+        "isOpen": true,
+        "contains": [],
+        "capacity": 20
+      }
+    },
+    {
+      "id": "egg",
+      "name": "jewel-encrusted egg",
+      "aliases": [
+        "egg",
+        "treasure",
+        "birds egg",
+        "birds treasure",
+        "encrusted egg",
+        "encrusted treasure",
+        "jeweled egg",
+        "jeweled treasure"
+      ],
+      "description": "apparently,scavenged,by,a,childless,songbird.,The,egg,is,covered,with,fine,gold,inlay,,and,ornamented,in,lapis,lazuli,and,mother-of-pearl.,Unlike,most,eggs,,this,one,is,hinged,and,closed,with,a,delicate,looking,clasp.,The,egg,appears,extremely,fragile.\")>",
+      "portable": true,
+      "visible": true,
+      "location": "nest",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 6,
+        "value": 5
+      }
+    },
+    {
+      "id": "broken-egg",
+      "name": "broken jewel-encrusted egg",
+      "aliases": [
+        "egg",
+        "treasure",
+        "broken egg",
+        "broken treasure",
+        "birds egg",
+        "birds treasure",
+        "encrusted egg",
+        "encrusted treasure",
+        "jewel egg",
+        "jewel treasure"
+      ],
+      "description": "broken jewel-encrusted egg",
+      "portable": true,
+      "visible": true,
+      "location": "unknown",
+      "properties": {
+        "isOpen": true,
+        "contains": [],
+        "capacity": 6
+      }
+    },
+    {
+      "id": "bauble",
+      "name": "beautiful brass bauble",
+      "aliases": [
+        "bauble",
+        "treasure",
+        "brass bauble",
+        "brass treasure",
+        "beauti bauble",
+        "beauti treasure"
+      ],
+      "description": "There is a somewhat ruined egg here.\")>",
+      "portable": true,
+      "visible": true,
+      "location": "unknown",
+      "properties": {
+        "value": 1
+      }
+    },
+    {
+      "id": "canary",
+      "name": "golden clockwork canary",
+      "aliases": [
+        "canary",
+        "treasure",
+        "clockwork canary",
+        "clockwork treasure",
+        "gold canary",
+        "gold treasure",
+        "golden canary",
+        "golden treasure"
+      ],
+      "description": "eyes,and,a,silver,beak.,Through,a,crystal,window,below,its,left,wing,you,can,see,intricate,machinery,inside.,It,appears,to,have,wound,down.\")>",
+      "portable": true,
+      "visible": true,
+      "location": "egg",
+      "properties": {
+        "value": 6
+      }
+    },
+    {
+      "id": "broken-canary",
+      "name": "broken clockwork canary",
+      "aliases": [
+        "canary",
+        "treasure",
+        "broken canary",
+        "broken treasure",
+        "clockwork canary",
+        "clockwork treasure",
+        "gold canary",
+        "gold treasure",
+        "golden canary",
+        "golden treasure"
+      ],
+      "description": "have,recently,had,a,bad,experience.,The,mountings,for,its,jewel-like,eyes,are,empty,,and,its,silver,beak,is,crumpled.,Through,a,cracked,crystal,window,below,its,left,wing,you,can,see,the,remains,of,intricate,machinery.,It,is,not,clear,what,result,winding,it,would,have,,as,the,mainspring,seems,sprung.\")>",
+      "portable": true,
+      "visible": true,
+      "location": "broken-egg"
+    }
+  ]
+}
