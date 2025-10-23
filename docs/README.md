@@ -144,6 +144,25 @@ Complete game transcripts for testing and reference:
 
 ## 🛠️ Tools & Utilities
 
+### Data Conversion Tool
+
+Convert legacy Zork source code (ZIL format) to TypeScript/JSON:
+
+- **[Data Conversion Tool Documentation](CONVERTER.md)** - Complete usage guide
+- **[Conversion Examples](CONVERSION-EXAMPLE.md)** - Sample input/output
+- **[Data Conversion Status](DATA-CONVERSION-STATUS.md)** ⚠️ *Important: Tool status and next steps*
+- **[Next Issue Template](NEXT-ISSUE-DATA-CONVERSION.md)** - GitHub issue for actual conversion work
+
+```bash
+# Convert ZIL source files to JSON
+npm run convert -- --source docs/original-src-1980 --output src/app/data
+
+# Or convert specific files
+npm run convert -- -s docs/original-src-1980/1dungeon.zil -o data -v
+```
+
+**Note**: The conversion tool has been implemented and tested, but the actual data conversion work has not been performed yet. See [DATA-CONVERSION-STATUS.md](DATA-CONVERSION-STATUS.md) for details.
+
 ### Validation
 
 ```bash
