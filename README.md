@@ -204,6 +204,175 @@ The `GameEngineService` is the heart of the game, managing:
 - Immutable state updates for predictability
 - Command pattern for extensible verb handling
 - Save/restore game state to browser storage
+- Structured command output for UI rendering
+
+**Public API:**
+
+```typescript
+class GameEngineService {
+  // State signals (read-only)
+  readonly player: Signal<Player>;
+  readonly currentRoom: Signal<Room | null>;
+  readonly output: Signal<string[]>;
+
+  // Initialization
+  initializeGame(): void;
+  resetGame(): void;
+
+  // Command execution
+  executeCommand(parserResult: ParserResult): CommandOutput;
+
+  // Room management
+  addRoom(room: Room): void;
+  moveToRoom(roomId: string): void;
+  getCurrentRoom(): Room | null;
+
+  // Object management
+  addObject(obj: GameObject): void;
+  getObject(objectId: string): GameObject | null;
+
+  // Persistence
+  saveGame(): string;
+  loadGame(saveData: string): void;
+}
+```
+
+**CommandOutput Interface:**
+
+The `executeCommand` method returns a `CommandOutput` object with structured information:
+
+```typescript
+interface CommandOutput {
+  messages: string[];      // Text messages to display
+  success: boolean;        // Whether command succeeded
+  type?: OutputType;       // Semantic type for UI styling
+  metadata?: Record<string, unknown>; // Optional additional data
+}
+
+type OutputType = 'info' | 'error' | 'success' | 'description' 
+                | 'inventory' | 'help' | 'system';
+```
+
+**Supported Commands:**
+
+The GameEngine processes the following command types through `executeCommand`:
+
+1. **Navigation Commands:**
+   - `go [direction]` - Move to another room
+   - `look` - Describe current room with full details
+   - `examine [object]` - Examine an object closely
+
+2. **Inventory Commands:**
+   - `take [object]` - Pick up a portable object
+   - `drop [object]` - Drop an object from inventory
+   - `inventory` - List items being carried
+
+3. **Object Interaction:**
+   - `open [object]` - Open a container
+   - `close [object]` - Close a container
+   - `unlock [object] with [key]` - Unlock with a key
+   - `lock [object] with [key]` - Lock with a key
+   - `read [object]` - Read text on an object
+   - `put [object] in [container]` - Place object in container
+
+4. **Light Source Commands:**
+   - `light [object]` - Light a light source
+   - `extinguish [object]` - Put out a light
+
+5. **Combat Commands:**
+   - `attack [target]` - Attack something
+   - `attack [target] with [weapon]` - Attack with a weapon
+
+6. **Utility Commands:**
+   - `use [object]` - Generic use action
+   - `help` - Display available commands
+
+7. **System Commands:**
+   - `save` - Save game state
+   - `load` - Load saved game
+   - `quit` - Exit the game
+
+**Usage Example:**
+
+```typescript
+import { GameEngineService, CommandParserService } from './core/services';
+
+@Component({...})
+export class GameComponent {
+  constructor(
+    private engine: GameEngineService,
+    private parser: CommandParserService
+  ) {}
+
+  ngOnInit() {
+    this.engine.initializeGame();
+  }
+
+  processInput(input: string) {
+    // Parse the command
+    const parserResult = this.parser.parse(input);
+    
+    // Execute through engine
+    const output = this.engine.executeCommand(parserResult);
+    
+    // Handle the output
+    if (output.success) {
+      console.log('Success:', output.messages);
+    } else {
+      console.error('Failed:', output.messages);
+    }
+    
+    // Access reactive state
+    const player = this.engine.player();
+    console.log('Score:', player.score);
+    console.log('Moves:', player.moveCount);
+  }
+}
+```
+
+**State Management:**
+
+The GameEngine uses Angular signals for reactive state management:
+
+- **player** - Player state (location, inventory, score, moves, flags)
+- **currentRoom** - Current room details
+- **output** - History of game output messages
+
+All state updates are immutable, ensuring predictable behavior and enabling time-travel debugging.
+
+**Game World Setup:**
+
+```typescript
+// Add rooms
+engine.addRoom({
+  id: 'west-of-house',
+  name: 'West of House',
+  description: 'You are standing in an open field west of a white house...',
+  shortDescription: 'West of House',
+  exits: new Map([
+    ['north', 'north-of-house'],
+    ['south', 'south-of-house'],
+    ['east', 'behind-house']
+  ]),
+  objectIds: ['mailbox'],
+  visited: false
+});
+
+// Add objects
+engine.addObject({
+  id: 'mailbox',
+  name: 'small mailbox',
+  aliases: ['mailbox', 'box'],
+  description: 'The small mailbox is closed.',
+  portable: false,
+  visible: true,
+  location: 'west-of-house',
+  properties: {
+    isOpen: false,
+    contains: ['leaflet']
+  }
+});
+```
 
 #### CommandParser Service
 
