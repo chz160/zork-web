@@ -19,6 +19,15 @@
       "location": "global-objects"
     },
     {
+      "id": "wall",
+      "name": "Wall",
+      "aliases": ["wall", "walls", "surrounding wall", "surrounding walls"],
+      "description": "The wall is solid rock and cannot be passed.",
+      "portable": false,
+      "visible": true,
+      "location": "global-objects"
+    },
+    {
       "id": "granite-wall",
       "name": "granite wall",
       "aliases": ["wall", "granite wall"],
@@ -50,6 +59,20 @@
       "name": "forest",
       "aliases": ["forest", "trees", "pines", "hemlocks"],
       "description": "forest",
+      "portable": false,
+      "visible": true,
+      "location": "local-globals"
+    },
+    {
+      "id": "tree",
+      "name": "tree",
+      "aliases": [
+        "tree",
+        "branch",
+        "large storm ;\"-tossed\" tree",
+        "large storm ;\"-tossed\" branch"
+      ],
+      "description": "The trees are large hardwood trees, impossible to climb.",
       "portable": false,
       "visible": true,
       "location": "local-globals"
@@ -232,6 +255,15 @@
       "properties": {
         "isWeapon": true
       }
+    },
+    {
+      "id": "bolt",
+      "name": "bolt",
+      "aliases": ["bolt", "nut", "metal bolt", "metal nut", "large bolt", "large nut"],
+      "description": "The bolt is too rusty to move.",
+      "portable": true,
+      "visible": true,
+      "location": "dam-room"
     },
     {
       "id": "bubble",
@@ -552,6 +584,15 @@
       "location": "cyclops-room"
     },
     {
+      "id": "dam",
+      "name": "dam",
+      "aliases": ["dam", "gate", "gates", "fcd\\#3"],
+      "description": "The dam is extremely solid and cannot be disturbed.",
+      "portable": true,
+      "visible": true,
+      "location": "dam-room"
+    },
+    {
       "id": "trap-door",
       "name": "trap door",
       "aliases": [
@@ -585,6 +626,19 @@
       "portable": false,
       "visible": true,
       "location": "local-globals"
+    },
+    {
+      "id": "front-door",
+      "name": "door",
+      "aliases": ["door", "front door", "boarded door"],
+      "description": "The door is boarded up and cannot be opened.",
+      "portable": false,
+      "visible": true,
+      "location": "west-of-house",
+      "properties": {
+        "isOpen": false,
+        "isLocked": false
+      }
     },
     {
       "id": "barrow-door",
@@ -851,6 +905,15 @@
       "portable": true,
       "visible": true,
       "location": "mailbox"
+    },
+    {
+      "id": "leak",
+      "name": "leak",
+      "aliases": ["leak", "drip", "pipe"],
+      "description": "The leak is too small to escape through.",
+      "portable": false,
+      "visible": false,
+      "location": "maintenance-room"
     },
     {
       "id": "machine",
@@ -1169,6 +1232,15 @@
       "properties": {
         "isWeapon": true
       }
+    },
+    {
+      "id": "sand",
+      "name": "sand",
+      "aliases": ["sand"],
+      "description": "The sand is fine and runs through your fingers.",
+      "portable": false,
+      "visible": true,
+      "location": "sandy-cave"
     },
     {
       "id": "bracelet",
@@ -1517,6 +1589,20 @@
       "location": "reservoir",
       "properties": {
         "value": 15
+      }
+    },
+    {
+      "id": "tube",
+      "name": "tube",
+      "aliases": ["tube", "tooth", "paste"],
+      "description": "The tube is a large metal pipe.",
+      "portable": true,
+      "visible": true,
+      "location": "maintenance-room",
+      "properties": {
+        "isOpen": false,
+        "contains": [],
+        "capacity": 7
       }
     },
     {

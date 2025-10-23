@@ -130,6 +130,32 @@
       "isDark": false
     },
     {
+      "id": "up-a-tree",
+      "name": "Up A Tree",
+      "description": "You are about 10 feet above the ground nestled among some large branches. The nearest branch above you is above your reach.",
+      "shortDescription": "Up a Tree",
+      "exits": {
+        "in": "rooms",
+        "up": "youcannotclimbanyhigher"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "grating-clearing",
+      "name": "Grating Clearing",
+      "description": "You are in a clearing, with a forest surrounding you on all sides. A path leads south.",
+      "shortDescription": "Clearing",
+      "exits": {
+        "in": "rooms",
+        "north": "theforestbecomesimpenetrabletothenorth"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
       "id": "clearing",
       "name": "Clearing",
       "description": "extends,to,the,east,and,west.\"",
@@ -137,6 +163,19 @@
       "exits": {
         "in": "rooms",
         "up": "thereisnotreeheresuitableforclimbing"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "description": "You are in the kitchen of the white house. A table seems to have been used recently for the preparation of food.",
+      "shortDescription": "Kitchen",
+      "exits": {
+        "in": "rooms",
+        "down": "tostudioiffalse-flagelse"
       },
       "objectIds": [],
       "visited": false,
@@ -162,6 +201,18 @@
       "exits": {
         "in": "rooms",
         "west": "tostrange-passageifmagic-flagelsethedoorisnailedshut"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "cellar",
+      "name": "Cellar",
+      "description": "You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south.",
+      "shortDescription": "Cellar",
+      "exits": {
+        "in": "rooms"
       },
       "objectIds": [],
       "visited": false,
@@ -507,6 +558,19 @@
       "isDark": false
     },
     {
+      "id": "reservoir",
+      "name": "Reservoir",
+      "description": "You are in a long room on the south shore of a large reservoir. A path leads from the west around the north edge of the water.",
+      "shortDescription": "Reservoir",
+      "exits": {
+        "in": "rooms",
+        "down": "thedamblocksyourway"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
       "id": "reservoir-north",
       "name": "Reservoir North",
       "description": "Reservoir North",
@@ -703,6 +767,18 @@
       "isDark": false
     },
     {
+      "id": "loud-room",
+      "name": "Loud Room",
+      "description": "This is a large room with a ceiling which cannot be detected from the ground. There is a narrow passage from east to west and a stone stairway leading upward.",
+      "shortDescription": "Loud Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
       "id": "ns-passage",
       "name": "Ns Passage",
       "description": "North-South Passage",
@@ -774,6 +850,18 @@
       "isDark": false
     },
     {
+      "id": "dome-roomwasdome",
+      "name": "Dome Roomwasdome",
+      "description": "You are at the periphery of a large dome, which forms the ceiling of another room below.",
+      "shortDescription": "Dome Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
       "id": "torch-room",
       "name": "Torch Room",
       "description": "Torch Room",
@@ -803,6 +891,18 @@
       "name": "South Templewastemp2",
       "description": "appears,to,be,an,altar.,In,one,corner,is,a,small,hole,in,the,floor,which,leads,into,darkness.,You,probably,could,not,get,back,up,it.\"",
       "shortDescription": "Altar",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dam-roomwasdam",
+      "name": "Dam Roomwasdam",
+      "description": "You are standing on the top of the Flood Control Dam #3, which was quite likely the last one built.",
+      "shortDescription": "Dam",
       "exits": {
         "in": "rooms"
       },
@@ -1065,6 +1165,18 @@
       "name": "Squeeky Roomwassquee",
       "description": "from,the,passage,at,the,north,end.,You,may,also,escape,to,the,east.\"",
       "shortDescription": "Squeaky Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "bat-roomwasbats",
+      "name": "Bat Roomwasbats",
+      "description": "You are in a small room which has doors only to the east and south.",
+      "shortDescription": "Bat Room",
       "exits": {
         "in": "rooms"
       },
