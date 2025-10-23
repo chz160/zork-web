@@ -1,30 +1,3 @@
-[Skip to content](https://pr-if.org/event/play-zork/transcript-zork/#wp--skip-link--target)
-[The People's Republic of Interactive Fiction](https://pr-if.org)
-  * [About](https://pr-if.org/about/)
-  * [Documents](https://pr-if.org/doc/)
-    * [How To Play Interactive Fiction](https://pr-if.org/doc/play-if-card/)
-    * [How to Run an IF Public Reading](https://pr-if.org/doc/if-reading/)
-    * [The PAX USB Puzzle Collection](https://pr-if.org/doc/paxeast-usb/)
-  * [Event Policy](https://pr-if.org/event-policy/)
-  * [Events](https://pr-if.org/event/)
-    * [Apollo 18+20](https://pr-if.org/event/apollo-18/)
-    * [Boston FIG 2013](https://pr-if.org/event/boston-fig-2013/)
-    * [Boston FIG 2014](https://pr-if.org/event/boston-fig-2014/)
-    * [IF Readings 2017](https://pr-if.org/event/if-readings-2017/)
-      * [Color the Truth](https://pr-if.org/event/if-readings-2017/color-the-truth/)
-      * [Detectiveland](https://pr-if.org/event/if-readings-2017/detectiveland/)
-      * [Stone Harbor](https://pr-if.org/event/if-readings-2017/stone-harbor/)
-    * [PAX East 2010](https://pr-if.org/event/pax-2010/)
-    * [PAX East 2011](https://pr-if.org/event/pax-2011/)
-    * [The Hat Mystery](https://pr-if.org/event/hat-mystery/)
-    * [Zork](https://pr-if.org/event/play-zork/)
-      * [Transcript: Zork](https://pr-if.org/event/play-zork/transcript-zork/)
-    * [Lost Pig](https://pr-if.org/event/play-lostpig/)
-      * [Transcript: Lost Pig](https://pr-if.org/event/play-lostpig/transcript-lost-pig/)
-    * [The Lurking Horror](https://pr-if.org/event/play-lurkinghorror/)
-      * [Transcript: The Lurking Horror](https://pr-if.org/event/play-lurkinghorror/transcript-the-lurking-horror/)
-
-
 # Transcript: Zork
 _The first few moves were not recorded in this transcript. We begin around the back of the house._
 Start of a transcript of  
@@ -3894,4 +3867,3 @@ You hear in the distance the chirping of a song bird.
 >**sing**  
 That’s not a verb I recognise.
 >
-Designed very hastily with [WordPress](https://wordpress.org)
