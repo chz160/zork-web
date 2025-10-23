@@ -1,0 +1,1245 @@
+{
+  "rooms": [
+    {
+      "id": "west-of-house",
+      "name": "West Of House",
+      "description": "West of House",
+      "shortDescription": "West of House",
+      "exits": {
+        "east": "thedoorisboardedandyoucantremovetheboards"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "stone-barrow",
+      "name": "Stone Barrow",
+      "description": "is,a,huge,stone,door,which,is,open.,You,cannot,see,into,the,dark,of,the,tomb.\"",
+      "shortDescription": "Stone Barrow",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "north-of-house",
+      "name": "North Of House",
+      "description": "and,all,the,windows,are,boarded,up.,To,the,north,a,narrow,path,winds,through,the,trees.\"",
+      "shortDescription": "North of House",
+      "exits": {
+        "in": "rooms",
+        "south": "thewindowsareallboarded"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "south-of-house",
+      "name": "South Of House",
+      "description": "and,all,the,windows,are,boarded.\"",
+      "shortDescription": "South of House",
+      "exits": {
+        "in": "rooms",
+        "north": "thewindowsareallboarded"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "east-of-house",
+      "name": "East Of House",
+      "description": "Behind House",
+      "shortDescription": "Behind House",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "forest-1",
+      "name": "Forest 1",
+      "description": "there,appears,to,be,sunlight.\"",
+      "shortDescription": "Forest",
+      "exits": {
+        "in": "rooms",
+        "up": "thereisnotreeheresuitableforclimbing",
+        "west": "youwouldneedamachetetogofurtherwest"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "forest-2",
+      "name": "Forest 2",
+      "description": "This is a dimly lit forest, with large trees all around.",
+      "shortDescription": "Forest",
+      "exits": {
+        "in": "rooms",
+        "up": "thereisnotreeheresuitableforclimbing",
+        "north": "theforestbecomesimpenetrabletothenorth"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mountains",
+      "name": "Mountains",
+      "description": "The forest thins out, revealing impassable mountains.",
+      "shortDescription": "Forest",
+      "exits": {
+        "in": "rooms",
+        "up": "themountainsareimpassable",
+        "east": "themountainsareimpassable"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "forest-3",
+      "name": "Forest 3",
+      "description": "This is a dimly lit forest, with large trees all around.",
+      "shortDescription": "Forest",
+      "exits": {
+        "in": "rooms",
+        "up": "thereisnotreeheresuitableforclimbing",
+        "east": "therankundergrowthpreventseastwardmovement",
+        "south": "storm-tossedtreesblockyourway"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "path",
+      "name": "Path",
+      "description": "north-south,here.,One,particularly,large,tree,with,some,low,branches,stands,at,the,edge,of,the,path.\"",
+      "shortDescription": "Forest Path",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "clearing",
+      "name": "Clearing",
+      "description": "extends,to,the,east,and,west.\"",
+      "shortDescription": "Clearing",
+      "exits": {
+        "in": "rooms",
+        "up": "thereisnotreeheresuitableforclimbing"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "attic",
+      "name": "Attic",
+      "description": "This is the attic. The only exit is a stairway leading down.",
+      "shortDescription": "Attic",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "living-room",
+      "name": "Living Room",
+      "description": "Living Room",
+      "shortDescription": "Living Room",
+      "exits": {
+        "in": "rooms",
+        "west": "tostrange-passageifmagic-flagelsethedoorisnailedshut"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "troll-room",
+      "name": "Troll Room",
+      "description": "forbidding hole leading west. Bloodstains and deep scratches",
+      "shortDescription": "The Troll Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "east-of-chasm",
+      "name": "East Of Chasm",
+      "description": "seen.,A,narrow,passage,goes,north,,and,the,path,you,are,on,continues,to,the,east.\"",
+      "shortDescription": "East of Chasm",
+      "exits": {
+        "in": "rooms",
+        "down": "thechasmprobablyleadsstraighttotheinfernalregions"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "gallery",
+      "name": "Gallery",
+      "description": "vandals,with,exceptional,taste.,The,vandals,left,through,either,the,north,or,west,exits.\"",
+      "shortDescription": "Gallery",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "studio",
+      "name": "Studio",
+      "description": "splattered with paints of 69 different colors. Strangely enough, nothing of value is hanging here. At the south end of the room is an open door",
+      "shortDescription": "Studio",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-1",
+      "name": "Maze 1",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-2",
+      "name": "Maze 2",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms",
+        "down": "permaze-diodestomaze-4"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-3",
+      "name": "Maze 3",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-4",
+      "name": "Maze 4",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dead-end-1",
+      "name": "Dead End 1",
+      "description": "You have come to a dead end in the maze.",
+      "shortDescription": "Dead End",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-5",
+      "name": "Maze 5",
+      "description": "This is part of a maze of twisty little passages, all alike. A skeleton, probably the remains of a luckless adventurer, lies here.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dead-end-2",
+      "name": "Dead End 2",
+      "description": "You have come to a dead end in the maze.",
+      "shortDescription": "Dead End",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-6",
+      "name": "Maze 6",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-7",
+      "name": "Maze 7",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms",
+        "down": "permaze-diodestodead-end-1"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-8",
+      "name": "Maze 8",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dead-end-3",
+      "name": "Dead End 3",
+      "description": "You have come to a dead end in the maze.",
+      "shortDescription": "Dead End",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-9",
+      "name": "Maze 9",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms",
+        "down": "permaze-diodestomaze-11"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-10",
+      "name": "Maze 10",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-11",
+      "name": "Maze 11",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "grating-room",
+      "name": "Grating Room",
+      "description": "Grating Room",
+      "shortDescription": "Grating Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-12",
+      "name": "Maze 12",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms",
+        "down": "permaze-diodestomaze-5"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dead-end-4",
+      "name": "Dead End 4",
+      "description": "You have come to a dead end in the maze.",
+      "shortDescription": "Dead End",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-13",
+      "name": "Maze 13",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-14",
+      "name": "Maze 14",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maze-15",
+      "name": "Maze 15",
+      "description": "This is part of a maze of twisty little passages, all alike.",
+      "shortDescription": "Maze",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "cyclops-room",
+      "name": "Cyclops Room",
+      "description": "Cyclops Room",
+      "shortDescription": "Cyclops Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "strange-passage",
+      "name": "Strange Passage",
+      "description": "east,there,is,an,old,wooden,door,,with,a,large,opening,in,it,(about,cyclops,sized).\"",
+      "shortDescription": "Strange Passage",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "treasure-room",
+      "name": "Treasure Room",
+      "description": "of,discarded,bags,,which,crumble,at,your,touch,,are,scattered,about,on,the,floor.,There,is,an,exit,down,a,staircase.\"",
+      "shortDescription": "Treasure Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "reservoir-south",
+      "name": "Reservoir South",
+      "description": "Reservoir South",
+      "shortDescription": "Reservoir South",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "reservoir-north",
+      "name": "Reservoir North",
+      "description": "Reservoir North",
+      "shortDescription": "Reservoir North",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "stream-view",
+      "name": "Stream View",
+      "description": "follows,the,stream,,which,flows,from,west,to,east.\"",
+      "shortDescription": "Stream View",
+      "exits": {
+        "in": "rooms",
+        "west": "thestreamemergesfromaspottoosmallforyoutoenter"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "in-stream",
+      "name": "In Stream",
+      "description": "to,navigate,,and,the,downstream,route,is,invisible,due,to,twisting,walls.,There,is,a,narrow,beach,to,land,on.\"",
+      "shortDescription": "Stream",
+      "exits": {
+        "in": "rooms",
+        "up": "thechannelistoonarrow",
+        "west": "thechannelistoonarrow"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mirror-room-1",
+      "name": "Mirror Room 1",
+      "description": "Mirror Room",
+      "shortDescription": "Mirror Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mirror-room-2",
+      "name": "Mirror Room 2",
+      "description": "Mirror Room",
+      "shortDescription": "Mirror Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "small-cave",
+      "name": "Small Cave",
+      "description": "leading,down.\"",
+      "shortDescription": "Cave",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "tiny-cave",
+      "name": "Tiny Cave",
+      "description": "forbidding,staircase,leading,down.\"",
+      "shortDescription": "Cave",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "cold-passage",
+      "name": "Cold Passage",
+      "description": "turns,into,a,southward,path.\"",
+      "shortDescription": "Cold Passage",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "narrow-passage",
+      "name": "Narrow Passage",
+      "description": "briefly,narrows,even,further.\"",
+      "shortDescription": "Narrow Passage",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "winding-passage",
+      "name": "Winding Passage",
+      "description": "on,the,east,and,north.\"",
+      "shortDescription": "Winding Passage",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "twisting-passage",
+      "name": "Twisting Passage",
+      "description": "on,the,east,and,north.\"",
+      "shortDescription": "Twisting Passage",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "atlantis-room",
+      "name": "Atlantis Room",
+      "description": "the,south,and,a,staircase,leading,up.\"",
+      "shortDescription": "Atlantis Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "ew-passage",
+      "name": "Ew Passage",
+      "description": "leading,down,at,the,north,end,of,the,room.\"",
+      "shortDescription": "East-West Passage",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "round-room",
+      "name": "Round Room",
+      "description": "of,them,have,unfortunately,been,blocked,by,cave-ins.\"",
+      "shortDescription": "Round Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "deep-canyon",
+      "name": "Deep Canyon",
+      "description": "Deep Canyon",
+      "shortDescription": "Deep Canyon",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "damp-cave",
+      "name": "Damp Cave",
+      "description": "the,south.,The,earth,is,particularly,damp,here.\"",
+      "shortDescription": "Damp Cave",
+      "exits": {
+        "in": "rooms",
+        "south": "itistoonarrowformostinsects"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "ns-passage",
+      "name": "Ns Passage",
+      "description": "North-South Passage",
+      "shortDescription": "North-South Passage",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "chasm-room",
+      "name": "Chasm Room",
+      "description": "on,the,south,side,of,the,chasm,,where,a,crack,opens,into,a,passage.\"",
+      "shortDescription": "Chasm",
+      "exits": {
+        "in": "rooms",
+        "down": "areyououtofyourmind"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "entrance-to-hades",
+      "name": "Entrance To Hades",
+      "description": "Entrance to Hades",
+      "shortDescription": "Entrance to Hades",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "land-of-living-dead",
+      "name": "Land Of Living Dead",
+      "description": "can,be,heard,weeping,and,moaning.,In,the,corner,are,stacked,the,remains,of,dozens,of,previous,adventurers,less,fortunate,than,yourself.,A,passage,exits,to,the,north.\"",
+      "shortDescription": "Land of the Dead",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "engravings-cavewascave4",
+      "name": "Engravings Cavewascave4",
+      "description": "Engravings Cave",
+      "shortDescription": "Engravings Cave",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "egypt-roomwasegypt",
+      "name": "Egypt Roomwasegypt",
+      "description": "ascending,staircase,to,the,west.\"",
+      "shortDescription": "Egyptian Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "torch-room",
+      "name": "Torch Room",
+      "description": "Torch Room",
+      "shortDescription": "Torch Room",
+      "exits": {
+        "in": "rooms",
+        "up": "youcannotreachtherope"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "north-templewastemp1",
+      "name": "North Templewastemp1",
+      "description": "ancient,inscription,,probably,a,prayer,in,a,long-forgotten,language.,Below,the,prayer,is,a,staircase,leading,down.,The,west,wall,is,solid,granite.,The,exit,to,the,north,end,of,the,room,is,through,huge,marble,pillars.\"",
+      "shortDescription": "Temple",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "south-templewastemp2",
+      "name": "South Templewastemp2",
+      "description": "appears,to,be,an,altar.,In,one,corner,is,a,small,hole,in,the,floor,which,leads,into,darkness.,You,probably,could,not,get,back,up,it.\"",
+      "shortDescription": "Altar",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dam-lobbywaslobby",
+      "name": "Dam Lobbywaslobby",
+      "description": "the,dam.,There,are,open,doorways,here,to,the,north,and,east,marked,\\\"Private\\\",,and,there,is,a,path,leading,south,over,the,top,of,the,dam.\"",
+      "shortDescription": "Dam Lobby",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "maintenance-roomwasmaint",
+      "name": "Maintenance Roomwasmaint",
+      "description": "Control,Dam,#3.,Apparently,,this,room,has,been,ransacked,recently,,for,most,of,the,valuable,equipment,is,gone.,On,the,wall,in,front,of,you,is,a,group,of,buttons,colored,blue,,yellow,,brown,,and,red.,There,are,doorways,to,the,west,and,south.\"",
+      "shortDescription": "Maintenance Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dam-basewasdock",
+      "name": "Dam Basewasdock",
+      "description": "and,to,the,north.,The,river,Frigid,is,flowing,by,here.,Along,the,river,are,the,White,Cliffs,which,seem,to,form,giant,walls,stretching,from,north,to,south,along,the,shores,of,the,river,as,it,winds,its,way,downstream.\"",
+      "shortDescription": "Dam Base",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "river-1wasrivr1",
+      "name": "River 1wasrivr1",
+      "description": "flows,quietly,here.,There,is,a,landing,on,the,west,shore.\"",
+      "shortDescription": "Frigid River",
+      "exits": {
+        "in": "rooms",
+        "up": "youcannotgoupstreamduetostrongcurrents",
+        "east": "thewhitecliffspreventyourlandinghere"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "river-2wasrivr2",
+      "name": "River 2wasrivr2",
+      "description": "Dam.,The,White,Cliffs,loom,on,the,east,bank,and,large,rocks,prevent,landing,on,the,west.\"",
+      "shortDescription": "Frigid River",
+      "exits": {
+        "in": "rooms",
+        "up": "youcannotgoupstreamduetostrongcurrents",
+        "east": "thewhitecliffspreventyourlandinghere",
+        "west": "justintimeyousteerawayfromtherocks"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "river-3wasrivr3",
+      "name": "River 3wasrivr3",
+      "description": "west,shore,below,the,cliffs.,In,the,distance,a,faint,rumbling,can,be,heard.\"",
+      "shortDescription": "Frigid River",
+      "exits": {
+        "in": "rooms",
+        "up": "youcannotgoupstreamduetostrongcurrents"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "white-cliffs-northwaswclf1",
+      "name": "White Cliffs Northwaswclf1",
+      "description": "White,Cliffs.,There,is,a,narrow,path,heading,south,along,the,Cliffs,and,a,tight,passage,leading,west,into,the,cliffs,themselves.\"",
+      "shortDescription": "White Cliffs Beach",
+      "exits": {
+        "in": "rooms",
+        "south": "towhite-cliffs-southifdeflateelsethepathistoonarrow",
+        "west": "todamp-caveifdeflateelsethepathistoonarrow"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "white-cliffs-southwaswclf2",
+      "name": "White Cliffs Southwaswclf2",
+      "description": "narrow,path,leads,north,along,the,shore.\"",
+      "shortDescription": "White Cliffs Beach",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "river-4wasrivr4",
+      "name": "River 4wasrivr4",
+      "description": "that,of,rushing,water.,On,the,east,shore,is,a,sandy,beach.,A,small,area,of,beach,can,also,be,seen,below,the,cliffs,on,the,west,shore.\"",
+      "shortDescription": "Frigid River",
+      "exits": {
+        "in": "rooms",
+        "up": "youcannotgoupstreamduetostrongcurrents"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "river-5wasrivr5",
+      "name": "River 5wasrivr5",
+      "description": "shore,is,a,large,landing,area.\"",
+      "shortDescription": "Frigid River",
+      "exits": {
+        "in": "rooms",
+        "up": "youcannotgoupstreamduetostrongcurrents"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "shorewasfante",
+      "name": "Shorewasfante",
+      "description": "treacherous.,A,path,travels,from,north,to,south,here,,the,south,end,quickly,turning,around,a,sharp,corner.\"",
+      "shortDescription": "Shore",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "sandy-beachwasbeach",
+      "name": "Sandy Beachwasbeach",
+      "description": "flowing,quickly,by.,A,path,runs,beside,the,river,to,the,south,here,,and,a,passage,is,partially,buried,in,sand,to,the,northeast.\"",
+      "shortDescription": "Sandy Beach",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "sandy-cavewastcave",
+      "name": "Sandy Cavewastcave",
+      "description": "Sandy Cave",
+      "shortDescription": "Sandy Cave",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "aragain-fallswasfalls",
+      "name": "Aragain Fallswasfalls",
+      "description": "Aragain Falls",
+      "shortDescription": "Aragain Falls",
+      "exits": {
+        "in": "rooms",
+        "down": "itsalongway"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "on-rainbowwasrainb",
+      "name": "On Rainbowwasrainb",
+      "description": "on,a,rainbow),,with,a,magnificent,view,of,the,Falls.,The,rainbow",
+      "shortDescription": "On the Rainbow",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "end-of-rainbowwaspog",
+      "name": "End Of Rainbowwaspog",
+      "description": "River,past,the,Falls.,The,beach,is,narrow,due,to,the,presence,of,the,White,Cliffs.,The,river,canyon,opens,here,and,sunlight,shines,in,from,above.,A,rainbow,crosses,over,the,falls,to,the,east,and,a,narrow,path,continues,to,the,southwest.\"",
+      "shortDescription": "End of Rainbow",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "canyon-bottomwasclbot",
+      "name": "Canyon Bottomwasclbot",
+      "description": "here.,The,lesser,part,of,the,runoff,of,Aragain,Falls,flows,by,below.,To,the,north,is,a,narrow,path.\"",
+      "shortDescription": "Canyon Bottom",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "cliff-middlewasclmid",
+      "name": "Cliff Middlewasclmid",
+      "description": "You,can,see,from,here,that,the,main,flow,from,Aragain,Falls,twists,along,a,passage,which,it,is,impossible,for,you,to,enter.,Below,you,is,the,canyon,bottom.,Above,you,is,more,cliff,,which,appears,climbable.\"",
+      "shortDescription": "Rocky Ledge",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "canyon-viewwascltop",
+      "name": "Canyon Viewwascltop",
+      "description": "there,is,a,marvelous,view,of,the,canyon,and,parts,of,the,Frigid,River,upstream.,Across,the,canyon,,the,walls,of,the,White,Cliffs,join,the,mighty,ramparts,of,the,Flathead,Mountains,to,the,east.,Following,the,Canyon,upstream,to,the,north,,Aragain,Falls,may,be,seen,,complete,with,rainbow.,The,mighty,Frigid,River,flows,out,from,a,great,dark,cavern.,To,the,west,and,south,can,be,seen,an,immense,forest,,stretching,for,miles,around.,A,path,leads,northwest.,It,is,possible,to,climb,down,into,the,canyon,from,here.\"",
+      "shortDescription": "Canyon View",
+      "exits": {
+        "in": "rooms",
+        "south": "storm-tossedtreesblockyourway"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mine-entrancewasentra",
+      "name": "Mine Entrancewasentra",
+      "description": "The,shaft,enters,the,west,wall,,and,there,is,another,exit,on,the,south,end,of,the,room.\"",
+      "shortDescription": "Mine Entrance",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "squeeky-roomwassquee",
+      "name": "Squeeky Roomwassquee",
+      "description": "from,the,passage,at,the,north,end.,You,may,also,escape,to,the,east.\"",
+      "shortDescription": "Squeaky Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "shaft-roomwastshaf",
+      "name": "Shaft Roomwastshaf",
+      "description": "descending,through,the,floor,into,darkness,below.,To,the,west,and,the,north,are,exits,from,this,room.,Constructed,over,the,top,of,the,shaft,is,a,metal,framework,to,which,a,heavy,iron,chain,is,attached.\"",
+      "shortDescription": "Shaft Room",
+      "exits": {
+        "in": "rooms",
+        "down": "youwouldntfitandwoulddieifyoucould"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "smelly-roomwassmell",
+      "name": "Smelly Roomwassmell",
+      "description": "of,a,small,descending,staircase,a,foul,odor,can,be,detected.,To,the,south,is,a,narrow,tunnel.\"",
+      "shortDescription": "Smelly Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "gas-roomwasboom",
+      "name": "Gas Roomwasboom",
+      "description": "short,climb,up,some,stairs,and,a,narrow,tunnel,leading,east.\"",
+      "shortDescription": "Gas Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "ladder-topwastladd",
+      "name": "Ladder Topwastladd",
+      "description": "ladder,,leading,downward.,It,might,be,safe,to,descend.,There,is,also,a,staircase,leading,upward.\"",
+      "shortDescription": "Ladder Top",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "ladder-bottomwasbladd",
+      "name": "Ladder Bottomwasbladd",
+      "description": "narrow,wooden,ladder.,To,the,west,and,the,south,are,passages,leaving,the,room.\"",
+      "shortDescription": "Ladder Bottom",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "dead-end-5wasdead7",
+      "name": "Dead End 5wasdead7",
+      "description": "You have come to a dead end in the mine.",
+      "shortDescription": "Dead End",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "timber-roomwastimbe",
+      "name": "Timber Roomwastimbe",
+      "description": "timbers.,A,wide,passage,comes,from,the,east,and,turns,at,the,west,end,of,the,room,into,a,very,narrow,passageway.,From,the,west,comes,a,strong,draft.\"",
+      "shortDescription": "Timber Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "lower-shaftwasbshaf",
+      "name": "Lower Shaftwasbshaf",
+      "description": "shaft.,To,the,south,is,a,passageway,and,to,the,east,a,very,narrow,passage.,In,the,shaft,can,be,seen,a,heavy,iron,chain.\"",
+      "shortDescription": "Drafty Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "machine-roomwasmachi",
+      "name": "Machine Roomwasmachi",
+      "description": "Machine Room",
+      "shortDescription": "Machine Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mine-1wasmine1",
+      "name": "Mine 1wasmine1",
+      "description": "This is a nondescript part of a coal mine.",
+      "shortDescription": "Coal Mine",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mine-2wasmine2",
+      "name": "Mine 2wasmine2",
+      "description": "This is a nondescript part of a coal mine.",
+      "shortDescription": "Coal Mine",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mine-3wasmine3",
+      "name": "Mine 3wasmine3",
+      "description": "This is a nondescript part of a coal mine.",
+      "shortDescription": "Coal Mine",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "mine-4wasmine4",
+      "name": "Mine 4wasmine4",
+      "description": "This is a nondescript part of a coal mine.",
+      "shortDescription": "Coal Mine",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    },
+    {
+      "id": "slide-roomwasslide",
+      "name": "Slide Roomwasslide",
+      "description": "coal,mine.,On,the,south,wall,of,the,chamber,the,letters,\\\"Granite,Wall\\\",are,etched,in,the,rock.,To,the,east,is,a,long,passage,,and,there,is,a,steep,metal,slide,twisting,downward.,To,the,north,is,a,small,opening.\"",
+      "shortDescription": "Slide Room",
+      "exits": {
+        "in": "rooms"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false
+    }
+  ]
+}
