@@ -532,6 +532,26 @@ The engine follows best practices:
 - **Immutability** for reliable state management
 - **Testability** with comprehensive unit tests
 
+## Data Conversion Tool
+
+A conversion tool is provided to transform legacy Zork source code (ZIL format) into TypeScript/JSON schema compatible with the game engine. See **[Converter Documentation](docs/CONVERTER.md)** for details.
+
+### Quick Start
+
+```bash
+# Convert ZIL source files to JSON
+npm run convert -- --source docs/original-src-1980 --output src/app/data
+
+# Or convert specific entity types
+npm run convert -- -s docs/original-src-1980/1dungeon.zil -o data/converted -e objects -v
+```
+
+The converter supports:
+- **Rooms**: Location definitions with descriptions and exits
+- **Objects**: Interactive game items with properties and flags
+- **Validation**: Automatic validation against JSON schemas
+- **Incremental conversion**: Convert specific files or entity types
+
 ## Game Commands
 
 Once the game is implemented, the following commands will be available:
