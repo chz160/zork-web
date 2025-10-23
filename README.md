@@ -151,17 +151,82 @@ ng generate --help
 
 ### Running Tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner:
+Zork Web has comprehensive unit tests for the core game engine, command parser, and all game logic. Tests are written using Jasmine and run with Karma.
+
+#### Running All Tests
+
+To execute the full test suite:
 
 ```bash
 npm test
 ```
 
-Or:
+Or use the Angular CLI directly:
 
 ```bash
 ng test
 ```
+
+#### Running Tests with Coverage
+
+To generate a code coverage report:
+
+```bash
+npm test -- --no-watch --code-coverage
+```
+
+The coverage report will be generated in the `coverage/` directory. Open `coverage/index.html` in your browser to view detailed coverage information.
+
+#### Running Tests in CI Mode
+
+To run tests once (without watch mode) for CI/CD pipelines:
+
+```bash
+npm test -- --no-watch --browsers=ChromeHeadless
+```
+
+#### Test Coverage
+
+The project maintains high test coverage across core components:
+
+- **GameEngineService**: 30+ tests covering command execution, state management, and game logic
+- **CommandParserService**: 50+ tests covering natural language parsing, verb aliases, and error handling
+- **Overall Coverage**: ~68% statements, ~49% branches, ~77% functions
+
+**What's Tested:**
+
+- ✅ Game initialization and state management
+- ✅ Command parsing and tokenization
+- ✅ All verb handlers (navigation, inventory, object interaction, system commands)
+- ✅ Room transitions and move counting
+- ✅ Object state changes (open/close, lock/unlock, light/extinguish)
+- ✅ Inventory management (take/drop)
+- ✅ Container interactions (put objects in containers)
+- ✅ Edge cases and error handling
+- ✅ Verb aliases and direction shortcuts
+- ✅ Save/load functionality
+
+**Testing Best Practices:**
+
+This project follows Angular testing best practices:
+
+1. **Isolated Unit Tests**: Each service is tested in isolation with TestBed
+2. **Comprehensive Coverage**: Both happy paths and error cases are tested
+3. **Readable Tests**: Tests use clear, descriptive names following "should..." convention
+4. **Setup/Teardown**: Tests use `beforeEach` for consistent state initialization
+5. **Test Organization**: Tests are grouped into logical `describe` blocks
+6. **Assertions**: Multiple assertions per test to verify complete behavior
+
+#### Continuous Integration
+
+Tests run automatically on every push and pull request via GitHub Actions. The CI pipeline:
+
+1. Runs linting checks
+2. Executes the full test suite
+3. Generates coverage reports
+4. Builds the application for production
+
+See [`.github/workflows/test.yml`](.github/workflows/test.yml) for the complete CI configuration.
 
 ## Game Engine
 

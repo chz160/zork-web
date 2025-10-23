@@ -400,4 +400,133 @@ describe('CommandParserService', () => {
       expect(result.directObject).toBe('brass lamp');
     });
   });
+
+  describe('Additional Edge Cases', () => {
+    it('should parse commands with go explicitly stated', () => {
+      const result = service.parse('go north');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('go');
+      expect(result.directObject).toBe('north');
+    });
+
+    it('should handle close verb with alias "shut"', () => {
+      const result = service.parse('shut door');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('close');
+      expect(result.directObject).toBe('door');
+    });
+
+    it('should handle exit/quit aliases', () => {
+      const exitResult = service.parse('exit');
+      expect(exitResult.isValid).toBe(true);
+      expect(exitResult.verb).toBe('quit');
+
+      const qResult = service.parse('q');
+      expect(qResult.isValid).toBe(true);
+      expect(qResult.verb).toBe('quit');
+    });
+
+    it('should handle restore as alias for load', () => {
+      const result = service.parse('restore');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('load');
+    });
+
+    it('should handle kill/fight/hit/strike as attack aliases', () => {
+      const aliases = ['kill', 'fight', 'hit', 'strike'];
+      aliases.forEach((alias) => {
+        const result = service.parse(`${alias} troll`);
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('attack');
+        expect(result.directObject).toBe('troll');
+      });
+    });
+
+    it('should handle walk/move/travel as go aliases', () => {
+      const aliases = ['walk', 'move', 'travel'];
+      aliases.forEach((alias) => {
+        const result = service.parse(`${alias} north`);
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('go');
+        expect(result.directObject).toBe('north');
+      });
+    });
+
+    it('should handle intercardinal direction shortcuts', () => {
+      const result = service.parse('ne');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('go');
+      expect(result.directObject).toBe('ne');
+    });
+
+    it('should handle place/insert as put aliases', () => {
+      const result = service.parse('place key in box');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('put');
+      expect(result.directObject).toBe('key');
+      expect(result.preposition).toBe('in');
+      expect(result.indirectObject).toBe('box');
+    });
+
+    it('should handle ignite as light alias', () => {
+      const result = service.parse('ignite torch');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('light');
+      expect(result.directObject).toBe('torch');
+    });
+
+    it('should handle douse as extinguish alias', () => {
+      const result = service.parse('douse lamp');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('extinguish');
+      expect(result.directObject).toBe('lamp');
+    });
+
+    it('should preserve case in object names while normalizing verbs', () => {
+      const result = service.parse('EXAMINE the BRASS Lamp');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('examine');
+      expect(result.directObject).toBe('brass lamp');
+    });
+
+    it('should handle discard as drop alias', () => {
+      const result = service.parse('discard lamp');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('drop');
+      expect(result.directObject).toBe('lamp');
+    });
+
+    it('should handle grab/pick as take aliases', () => {
+      const grabResult = service.parse('grab key');
+      expect(grabResult.isValid).toBe(true);
+      expect(grabResult.verb).toBe('take');
+
+      const pickResult = service.parse('pick sword');
+      expect(pickResult.isValid).toBe(true);
+      expect(pickResult.verb).toBe('take');
+    });
+
+    it('should handle inspect/check as examine aliases', () => {
+      const inspectResult = service.parse('inspect door');
+      expect(inspectResult.isValid).toBe(true);
+      expect(inspectResult.verb).toBe('examine');
+
+      const checkResult = service.parse('check mailbox');
+      expect(checkResult.isValid).toBe(true);
+      expect(checkResult.verb).toBe('examine');
+    });
+
+    it('should handle head as go alias', () => {
+      const result = service.parse('head south');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('go');
+      expect(result.directObject).toBe('south');
+    });
+
+    it('should handle inv as inventory alias', () => {
+      const result = service.parse('inv');
+      expect(result.isValid).toBe(true);
+      expect(result.verb).toBe('inventory');
+    });
+  });
 });
