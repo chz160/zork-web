@@ -1,0 +1,20 @@
+# Build outputs
+dist
+build
+out-tsc
+.angular
+
+# Dependencies
+node_modules
+
+# Coverage
+coverage
+
+# Generated files
+*.log
+*.lock
+package-lock.json
+
+# System files
+.DS_Store
+Thumbs.db

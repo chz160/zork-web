@@ -58,6 +58,61 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 ## Development
 
+### Code Quality and Linting
+
+This project uses ESLint and Prettier to enforce code quality and consistent formatting.
+
+#### Running Linting and Formatting
+
+- **Lint code:** Check for code quality issues
+  ```bash
+  npm run lint
+  ```
+
+- **Auto-fix linting issues:** Automatically fix fixable linting issues
+  ```bash
+  npm run lint:fix
+  ```
+
+- **Format code:** Format all source files with Prettier
+  ```bash
+  npm run format
+  ```
+
+- **Check formatting:** Verify if files are formatted correctly
+  ```bash
+  npm run format:check
+  ```
+
+#### Pre-commit Hooks
+
+This project uses Husky to run pre-commit hooks that automatically lint and format your code before each commit. The hooks will:
+
+1. Run ESLint on staged `.ts` and `.html` files
+2. Run Prettier on staged `.ts`, `.html`, `.css`, and `.json` files
+3. Automatically fix issues when possible
+
+If the hooks detect unfixable issues, the commit will be blocked until you resolve them.
+
+#### Code Style Guidelines
+
+- **TypeScript:** Follow the Angular style guide and TypeScript best practices
+  - Use `const` for constants and immutable values
+  - Avoid `var` - use `let` or `const`
+  - Prefix unused function parameters with `_`
+  - Use single quotes for strings
+  - Maximum line length: 100 characters
+
+- **Angular Components:**
+  - Component selectors: Use kebab-case with `app-` prefix
+  - Directive selectors: Use camelCase with `app` prefix
+  - Use standalone components
+  - Default to OnPush change detection
+
+- **HTML Templates:**
+  - Follow accessibility best practices
+  - Use semantic HTML elements
+
 ### Project Structure
 
 This project uses:
