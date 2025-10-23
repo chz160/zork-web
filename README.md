@@ -163,6 +163,58 @@ Or:
 ng test
 ```
 
+## Game Engine
+
+Zork Web features a modern, well-architected game engine built with TypeScript and Angular 20. The engine is designed following SOLID principles with a focus on maintainability, testability, and extensibility.
+
+### Architecture
+
+The game engine uses a layered architecture:
+
+- **Domain Layer**: Core game models (Room, GameObject, Player, Verb, ParserResult)
+- **Application Layer**: Game logic services (GameEngine, CommandParser)
+- **Presentation Layer**: Angular components for terminal UI
+- **Infrastructure Layer**: Storage and data loading services
+
+For detailed architecture documentation, see [docs/architecture.md](docs/architecture.md).
+
+### Core Components
+
+#### Domain Models
+
+The engine defines clear TypeScript interfaces for all game entities:
+
+- **Room**: Locations in the game world with descriptions, exits, and objects
+- **GameObject**: Interactive items with properties like portable, visible, and state
+- **Player**: Player state including location, inventory, score, and flags
+- **Verb**: Available commands/actions with aliases and requirements
+- **ParserResult**: Parsed command structure with verb and objects
+
+#### GameEngine Service
+
+The `GameEngineService` is the heart of the game, managing:
+
+- **State management** using Angular signals for reactive updates
+- **Command execution** to process player actions
+- **Game flow** controlling room transitions and interactions
+- **Persistence** for save/load functionality
+
+**Key Features:**
+- Signals-based reactive state for optimal performance
+- Immutable state updates for predictability
+- Command pattern for extensible verb handling
+- Save/restore game state to browser storage
+
+### Design Principles
+
+The engine follows best practices:
+
+- **SOLID principles** for maintainable, extensible code
+- **DRY (Don't Repeat Yourself)** with shared models and utilities
+- **KISS (Keep It Simple)** with clear separation of concerns
+- **Immutability** for reliable state management
+- **Testability** with comprehensive unit tests
+
 ## Game Commands
 
 Once the game is implemented, the following commands will be available:
