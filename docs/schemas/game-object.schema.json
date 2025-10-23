@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/chz160/zork-web/schemas/game-object.schema.json",
+  "title": "Zork Game Object",
+  "description": "An interactive object in the Zork game world",
+  "type": "object",
+  "required": ["id", "name", "aliases", "description", "portable", "visible", "location"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier in kebab-case",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "examples": ["brass-lamp", "small-mailbox", "elvish-sword"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the object",
+      "minLength": 1,
+      "examples": ["brass lamp", "small mailbox", "elvish sword"]
+    },
+    "aliases": {
+      "type": "array",
+      "description": "Alternative names the player can use to refer to this object",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "examples": [
+        ["lamp", "lantern", "light", "brass lantern"],
+        ["mailbox", "box"],
+        ["sword", "blade", "elvish blade"]
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description when examined",
+      "minLength": 5,
+      "examples": [
+        "A battery-powered brass lantern is here.",
+        "The small mailbox is closed.",
+        "The elvish sword glows with a faint blue light."
+      ]
+    },
+    "portable": {
+      "type": "boolean",
+      "description": "Whether the object can be picked up by the player"
+    },
+    "visible": {
+      "type": "boolean",
+      "description": "Whether the object is currently visible to the player"
+    },
+    "location": {
+      "type": "string",
+      "description": "Current location: room ID or 'inventory' if carried",
+      "examples": ["living-room", "inventory", "west-of-house"]
+    },
+    "properties": {
+      "type": "object",
+      "description": "Additional state properties for the object",
+      "properties": {
+        "isOpen": {
+          "type": "boolean",
+          "description": "Whether a container is open"
+        },
+        "isLocked": {
+          "type": "boolean",
+          "description": "Whether an object is locked"
+        },
+        "contains": {
+          "type": "array",
+          "description": "IDs of objects contained within (for containers)",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true
+        },
+        "isLight": {
+          "type": "boolean",
+          "description": "Whether the object can be used as a light source"
+        },
+        "isLit": {
+          "type": "boolean",
+          "description": "Whether a light source is currently lit"
+        },
+        "batteryLife": {
+          "type": "number",
+          "description": "Remaining battery life in turns (for lights)",
+          "minimum": 0
+        },
+        "durability": {
+          "type": "number",
+          "description": "Remaining uses/turns for consumable items",
+          "minimum": 0
+        },
+        "consumable": {
+          "type": "boolean",
+          "description": "Whether the item is consumed with use"
+        },
+        "acceptsPrepositions": {
+          "type": "array",
+          "description": "Prepositions this container accepts",
+          "items": {
+            "type": "string",
+            "enum": ["in", "on", "under", "behind"]
+          }
+        },
+        "isNPC": {
+          "type": "boolean",
+          "description": "Whether this object is a non-player character"
+        },
+        "npcState": {
+          "type": "string",
+          "description": "Current state of an NPC",
+          "enum": ["idle", "hostile", "dead", "friendly", "asleep"]
+        },
+        "glowsNearEnemies": {
+          "type": "boolean",
+          "description": "Special property for elvish sword"
+        },
+        "value": {
+          "type": "number",
+          "description": "Point value for treasures",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "examples": [
+    {
+      "id": "brass-lamp",
+      "name": "brass lamp",
+      "aliases": ["lamp", "lantern", "light"],
+      "description": "A battery-powered brass lantern is here.",
+      "portable": true,
+      "visible": true,
+      "location": "living-room",
+      "properties": {
+        "isLight": true,
+        "isLit": false,
+        "batteryLife": 330
+      }
+    },
+    {
+      "id": "small-mailbox",
+      "name": "small mailbox",
+      "aliases": ["mailbox", "box"],
+      "description": "The small mailbox is closed.",
+      "portable": false,
+      "visible": true,
+      "location": "west-of-house",
+      "properties": {
+        "isOpen": false,
+        "contains": ["leaflet"],
+        "acceptsPrepositions": ["in"]
+      }
+    },
+    {
+      "id": "elvish-sword",
+      "name": "elvish sword",
+      "aliases": ["sword", "blade", "elvish blade"],
+      "description": "Above the fireplace hangs an elvish sword of great antiquity.",
+      "portable": true,
+      "visible": true,
+      "location": "living-room",
+      "properties": {
+        "glowsNearEnemies": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/chz160/zork-web/schemas/verb.schema.json",
+  "title": "Zork Verb",
+  "description": "An action the player can perform in the game",
+  "type": "object",
+  "required": ["name", "aliases", "requiresObject", "allowsIndirectObject"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Primary verb name (canonical form)",
+      "pattern": "^[a-z]+( [a-z]+)?$",
+      "examples": ["take", "examine", "light", "turn on", "put"]
+    },
+    "aliases": {
+      "type": "array",
+      "description": "Synonyms for this verb",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]+( [a-z]+)?$"
+      },
+      "uniqueItems": true,
+      "examples": [
+        ["get", "pick up", "grab", "carry"],
+        ["x", "inspect", "describe"],
+        ["i", "inv"]
+      ]
+    },
+    "requiresObject": {
+      "type": "boolean",
+      "description": "Whether the verb requires a direct object"
+    },
+    "allowsIndirectObject": {
+      "type": "boolean",
+      "description": "Whether the verb can take an indirect object (e.g., 'put X in Y')"
+    },
+    "description": {
+      "type": "string",
+      "description": "Help text explaining what the verb does",
+      "examples": [
+        "Pick up an object and add it to your inventory",
+        "Examine an object or location in detail",
+        "Display a list of items you are carrying"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "name": "take",
+      "aliases": ["get", "pick up", "grab", "carry"],
+      "requiresObject": true,
+      "allowsIndirectObject": false,
+      "description": "Pick up an object and add it to your inventory"
+    },
+    {
+      "name": "examine",
+      "aliases": ["x", "inspect", "describe"],
+      "requiresObject": true,
+      "allowsIndirectObject": false,
+      "description": "Examine an object or location in detail"
+    },
+    {
+      "name": "inventory",
+      "aliases": ["i", "inv"],
+      "requiresObject": false,
+      "allowsIndirectObject": false,
+      "description": "Display a list of items you are carrying"
+    },
+    {
+      "name": "put",
+      "aliases": ["place", "insert"],
+      "requiresObject": true,
+      "allowsIndirectObject": true,
+      "description": "Place an object in or on a container"
+    },
+    {
+      "name": "unlock",
+      "aliases": ["open lock"],
+      "requiresObject": true,
+      "allowsIndirectObject": true,
+      "description": "Unlock an object with a key"
+    }
+  ]
+}

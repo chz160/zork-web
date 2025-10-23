@@ -13,7 +13,14 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 This project includes valuable reference materials in the `/docs` folder:
 
-- **Original Zork Source Code** (`/docs/original-src/`) - The 1977 MIT source code for Zork, written in MDL for the PDP-10. This historical code serves as a reference for understanding the original game mechanics, world design, and command parsing. See the [README](docs/original-src/README.md) for details about the file organization and rights.
+- **Entity Mapping Guide** (`/docs/entity-mapping.md`) - Comprehensive mapping from original Zork entities (rooms, objects, verbs) to TypeScript/JSON schema. This is the primary reference for implementing game content and includes:
+  - Complete catalog of 110+ rooms, 150+ objects, and 109 verbs
+  - TypeScript/JSON schema mapping for each entity type
+  - Edge case handling strategies (containers, light/darkness, NPCs)
+  - Implementation phases and data organization plan
+  - JSON schemas for validation (`/docs/schemas/`)
+
+- **Original Zork Source Code** (`/docs/original-src-1977/`, `/docs/original-src-1980/`, `/docs/original-src-c/`) - The 1977-1980 MIT source code for Zork, written in MDL for the PDP-10. This historical code serves as a reference for understanding the original game mechanics, world design, and command parsing. See the [README](docs/original-src-1977/README.md) for details about the file organization and rights.
 
 - **Game Walkthroughs** (`/docs/walkthrough1.md`, `/docs/walkthrough2.md`, `/docs/walkthrough3.md`) - Complete game transcripts showing different approaches to solving Zork. These are useful for:
   - Testing game implementation completeness
@@ -21,7 +28,9 @@ This project includes valuable reference materials in the `/docs` folder:
   - Understanding the full scope of the game world
   - Reference for implementing game logic and responses
 
-Contributors should reference these resources when implementing game features to ensure authenticity to the original Zork experience.
+- **Architecture Documentation** (`/docs/architecture.md`) - Detailed system architecture, design patterns, and component interactions for the game engine.
+
+Contributors should reference these resources when implementing game features to ensure authenticity to the original Zork experience. Start with the Entity Mapping Guide for implementing new game content.
 
 ## Prerequisites
 

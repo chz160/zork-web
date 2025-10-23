@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/chz160/zork-web/schemas/room.schema.json",
+  "title": "Zork Room",
+  "description": "A location in the Zork game world",
+  "type": "object",
+  "required": ["id", "name", "description", "exits", "objectIds", "visited"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier in kebab-case",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "examples": ["west-of-house", "living-room", "entrance-to-hades"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the room",
+      "minLength": 1,
+      "examples": ["West of House", "Living Room", "Kitchen"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Full description shown on first visit or when looking",
+      "minLength": 10,
+      "examples": [
+        "You are standing in an open field west of a white house, with a boarded front door.",
+        "You are in the kitchen of the white house. A table seems to have been used recently for the preparation of food."
+      ]
+    },
+    "shortDescription": {
+      "type": "string",
+      "description": "Brief description for revisits (optional)",
+      "examples": ["West of House", "Kitchen"]
+    },
+    "exits": {
+      "type": "object",
+      "description": "Available exits from this room",
+      "additionalProperties": {
+        "type": "string",
+        "description": "Target room ID",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "propertyNames": {
+        "enum": [
+          "north",
+          "south",
+          "east",
+          "west",
+          "northeast",
+          "northwest",
+          "southeast",
+          "southwest",
+          "up",
+          "down",
+          "in",
+          "out"
+        ]
+      },
+      "examples": [
+        {
+          "north": "north-of-house",
+          "south": "south-of-house",
+          "east": "behind-house"
+        }
+      ]
+    },
+    "objectIds": {
+      "type": "array",
+      "description": "IDs of objects currently in this room",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "uniqueItems": true,
+      "examples": [["mailbox"], ["trophy-case", "brass-lamp", "elvish-sword"]]
+    },
+    "visited": {
+      "type": "boolean",
+      "description": "Whether the player has visited this room before",
+      "default": false
+    },
+    "isDark": {
+      "type": "boolean",
+      "description": "Room is dark without a light source",
+      "default": false
+    },
+    "properties": {
+      "type": "object",
+      "description": "Additional custom properties for special rooms",
+      "additionalProperties": true
+    }
+  },
+  "examples": [
+    {
+      "id": "west-of-house",
+      "name": "West of House",
+      "description": "You are standing in an open field west of a white house, with a boarded front door. There is a small mailbox here.",
+      "shortDescription": "West of House",
+      "exits": {
+        "north": "north-of-house",
+        "south": "south-of-house",
+        "east": "behind-house"
+      },
+      "objectIds": ["mailbox"],
+      "visited": false
+    },
+    {
+      "id": "attic",
+      "name": "Attic",
+      "description": "This is the attic. The only exit is stairs that lead down. There is a square brick here which feels like clay. A large coil of rope is lying in the corner. On a table is a nasty-looking knife.",
+      "shortDescription": "Attic",
+      "exits": {
+        "down": "kitchen"
+      },
+      "objectIds": ["brick", "rope", "knife"],
+      "visited": false
+    }
+  ]
+}
