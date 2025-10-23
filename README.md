@@ -205,6 +205,80 @@ The `GameEngineService` is the heart of the game, managing:
 - Command pattern for extensible verb handling
 - Save/restore game state to browser storage
 
+#### CommandParser Service
+
+The `CommandParserService` handles natural language parsing of player commands into structured actions.
+
+**Features:**
+- **Tokenization**: Breaks down raw input into meaningful tokens
+- **Verb-Noun-Prep-Noun Grammar**: Supports complex command structures like "put lamp in mailbox"
+- **Noise Word Filtering**: Automatically removes articles (a, an, the) and other filler words
+- **Verb Aliases**: Recognizes synonyms (e.g., "get" → "take", "x" → "examine")
+- **Direction Shortcuts**: Handles abbreviated directions (n, s, e, w, etc.)
+- **Error Handling**: Provides clear error messages for invalid commands
+- **Preposition Support**: Handles complex interactions with indirect objects
+
+**Supported Command Patterns:**
+
+1. **Simple Verbs** (no object required)
+   ```
+   look, inventory (or i), help, save, quit
+   ```
+
+2. **Verb + Direct Object**
+   ```
+   take lamp
+   examine mailbox
+   open door
+   read leaflet
+   ```
+
+3. **Verb + Object + Preposition + Indirect Object**
+   ```
+   put lamp in mailbox
+   unlock door with key
+   attack troll with sword
+   ```
+
+4. **Direction Commands**
+   ```
+   north (or n)
+   go east
+   southeast (or se)
+   ```
+
+**API Methods:**
+
+- `parse(rawInput: string): ParserResult` - Parse raw user input into a structured command
+- `getAvailableVerbs(): Verb[]` - Get list of all recognized verbs with descriptions
+- `isVerb(word: string): boolean` - Check if a word is a recognized verb or alias
+- `isDirection(word: string): boolean` - Check if a word is a recognized direction
+
+**Example Usage:**
+
+```typescript
+import { CommandParserService } from './core/services';
+
+// In your component
+constructor(private parser: CommandParserService) {}
+
+parseCommand(input: string) {
+  const result = this.parser.parse(input);
+  
+  if (result.isValid) {
+    // Process valid command
+    console.log('Verb:', result.verb);
+    console.log('Direct Object:', result.directObject);
+    console.log('Preposition:', result.preposition);
+    console.log('Indirect Object:', result.indirectObject);
+  } else {
+    // Show error to user
+    console.error(result.errorMessage);
+  }
+}
+```
+
+
 ### Design Principles
 
 The engine follows best practices:
