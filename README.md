@@ -35,7 +35,7 @@ Contributors should reference these resources when implementing game features to
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (version 18.19 or later)
+- [Node.js](https://nodejs.org/) (version 24.0 or later)
 - [npm](https://www.npmjs.com/) (comes with Node.js)
 
 ## Getting Started
