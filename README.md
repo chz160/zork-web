@@ -9,6 +9,20 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 - Game state saved in browser's storage
 - Classic Zork-inspired world to explore
 
+## Documentation Resources
+
+This project includes valuable reference materials in the `/docs` folder:
+
+- **Original Zork Source Code** (`/docs/original-src/`) - The 1977 MIT source code for Zork, written in MDL for the PDP-10. This historical code serves as a reference for understanding the original game mechanics, world design, and command parsing. See the [README](docs/original-src/README.md) for details about the file organization and rights.
+
+- **Game Walkthroughs** (`/docs/walkthrough1.md`, `/docs/walkthrough2.md`, `/docs/walkthrough3.md`) - Complete game transcripts showing different approaches to solving Zork. These are useful for:
+  - Testing game implementation completeness
+  - Verifying correct behavior of puzzles and interactions
+  - Understanding the full scope of the game world
+  - Reference for implementing game logic and responses
+
+Contributors should reference these resources when implementing game features to ensure authenticity to the original Zork experience.
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
