@@ -211,6 +211,118 @@ describe('GameEngineService', () => {
     });
   });
 
+  describe('edge cases and state transitions', () => {
+    it('should handle multiple state changes correctly', () => {
+      const room1: Room = {
+        id: 'room1',
+        name: 'Room 1',
+        description: 'First room',
+        exits: new Map([['east', 'room2']]),
+        objectIds: [],
+        visited: false,
+      };
+
+      const room2: Room = {
+        id: 'room2',
+        name: 'Room 2',
+        description: 'Second room',
+        exits: new Map([['west', 'room1']]),
+        objectIds: [],
+        visited: false,
+      };
+
+      service.addRoom(room1);
+      service.addRoom(room2);
+      service.moveToRoom('room1');
+      service.moveToRoom('room2');
+
+      expect(service.player().currentRoomId).toBe('room2');
+      expect(service.player().moveCount).toBe(2);
+    });
+
+    it('should handle finding object by alias', () => {
+      const obj: GameObject = {
+        id: 'obj-1',
+        name: 'brass lamp',
+        aliases: ['lamp', 'lantern', 'light'],
+        description: 'A brass lamp',
+        portable: true,
+        visible: true,
+        location: 'start',
+      };
+
+      service.addObject(obj);
+
+      const takeCommand: ParserResult = {
+        verb: 'take',
+        directObject: 'lantern',
+        indirectObject: null,
+        preposition: null,
+        rawInput: 'take lantern',
+        isValid: true,
+      };
+
+      const result = service.executeCommand(takeCommand);
+      expect(result.success).toBe(true);
+      expect(service.player().inventory).toContain('obj-1');
+    });
+
+    it('should not increment move count for non-movement commands', () => {
+      const initialMoves = service.player().moveCount;
+
+      const lookCommand: ParserResult = {
+        verb: 'look',
+        directObject: null,
+        indirectObject: null,
+        preposition: null,
+        rawInput: 'look',
+        isValid: true,
+      };
+
+      service.executeCommand(lookCommand);
+      expect(service.player().moveCount).toBe(initialMoves);
+
+      const helpCommand: ParserResult = {
+        verb: 'help',
+        directObject: null,
+        indirectObject: null,
+        preposition: null,
+        rawInput: 'help',
+        isValid: true,
+      };
+
+      service.executeCommand(helpCommand);
+      expect(service.player().moveCount).toBe(initialMoves);
+    });
+
+    it('should handle invisible objects correctly', () => {
+      const obj: GameObject = {
+        id: 'hidden',
+        name: 'hidden object',
+        aliases: ['hidden'],
+        description: 'A hidden object',
+        portable: true,
+        visible: false,
+        location: 'start',
+      };
+
+      service.addObject(obj);
+
+      const examineCommand: ParserResult = {
+        verb: 'examine',
+        directObject: 'hidden',
+        indirectObject: null,
+        preposition: null,
+        rawInput: 'examine hidden',
+        isValid: true,
+      };
+
+      const result = service.executeCommand(examineCommand);
+      expect(result.success).toBe(false);
+      expect(result.messages[0]).toContain("don't see");
+    });
+  });
+
   describe('command handlers', () => {
     beforeEach(() => {
       // Set up a basic room
