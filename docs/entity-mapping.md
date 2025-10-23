@@ -14,6 +14,8 @@
 6. [Edge Cases and Ambiguities](#edge-cases-and-ambiguities)
 7. [Implementation Strategy](#implementation-strategy)
 
+> **📌 Important**: See also **[Entity Mapping Addendum](entity-mapping-addendum.md)** for analysis of the 1980 ZIL and C source code, which provides enhanced features, confirms the full 110-room game structure, and extends the property system with backward-compatible additions.
+
 ---
 
 ## Overview
@@ -842,15 +844,20 @@ See [Verbs](#cataloged-verbs-by-category) section above.
 ## References
 
 1. **Original Source**: `/docs/original-src-1977/` - 1977 MDL source code
-2. **Walkthroughs**: 
+2. **1980 ZIL Source**: `/docs/original-src-1980/` - Commercial Infocom ZIL version
+3. **C Port Source**: `/docs/original-src-c/` - C port of Dungeon/Zork
+4. **Walkthroughs**: 
    - `/docs/walkthrough1.md` - Basic playthrough
    - `/docs/walkthrough2.md` - Detailed ClubFloyd transcript
    - `/docs/walkthrough3.md` - Alternative approach
-3. **Architecture**: `/docs/architecture.md` - Engine design
-4. **Models**: `/src/app/core/models/` - TypeScript interfaces
+5. **Architecture**: `/docs/architecture.md` - Engine design
+6. **Models**: `/src/app/core/models/` - TypeScript interfaces
+7. **Addendum**: `/docs/entity-mapping-addendum.md` - 1980 ZIL & C analysis with enhanced features
 
 ---
 
 **Last Updated**: October 23, 2025  
 **Maintainer**: Zork Web Team  
 **Status**: Living document - update as implementation progresses
+
+> **See Also**: [Entity Mapping Addendum](entity-mapping-addendum.md) for 1980 ZIL enhancements

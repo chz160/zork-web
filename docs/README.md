@@ -20,6 +20,12 @@ New to the project? Start here:
   - Edge case handling strategies (containers, light/darkness, NPCs)
   - Implementation phases and data organization plan
 
+- **[Entity Mapping Addendum](entity-mapping-addendum.md)** 🆕 *1980 ZIL & C Source Analysis*
+  - Confirms 110 rooms (complete game), 122 objects, 264 verbs
+  - Enhanced property system (transparency, capacity, actors)
+  - Advanced features: conditional exits, NPC system, multiple light types
+  - Backward-compatible extensions to original mapping
+
 - **[Sample Data](sample-data.md)** - Working examples of JSON data files
   - House area rooms (starting location)
   - Starting items and containers
