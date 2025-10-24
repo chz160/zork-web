@@ -1,15 +1,45 @@
 import { Injectable } from '@angular/core';
 import { ParserResult, Verb, VerbType } from '../models';
+import synonymsData from '../../data/synonyms.json';
 
 /**
- * Command parser service that tokenizes and parses user input into actionable commands.
+ * Configuration for phrasal verbs loaded from synonyms.json
+ */
+interface PhrasalVerbConfig {
+  intent: string;
+  preposition?: string;
+}
+
+/**
+ * Synonyms configuration loaded from data file
+ */
+interface SynonymsConfig {
+  verbs: Record<string, string[]>;
+  phrasalVerbs: Record<string, PhrasalVerbConfig>;
+  pronouns: string[];
+  determiners: string[];
+  prepositions: string[];
+  objectAliases: Record<string, string[]>;
+}
+
+/**
+ * Enhanced conversational command parser service that tokenizes and parses user input
+ * into actionable commands with support for natural language patterns.
  *
  * Supports verb-noun-prep-noun grammar patterns such as:
  * - Simple verbs: "look", "inventory"
  * - Verb + direct object: "take lamp", "examine mailbox"
  * - Verb + object + preposition + object: "put lamp in mailbox", "unlock door with key"
+ * - Phrasal verbs: "look in mailbox", "pick up lamp", "open up door"
+ * - Pronouns: "look at it", "take them"
+ * - Conversational patterns: "look inside the mailbox", "pick up the leaflet"
  *
  * Features:
+ * - Data-driven synonym support from JSON configuration
+ * - Phrasal verb recognition ("look in", "pick up", etc.)
+ * - Pronoun resolution with context tracking
+ * - Fuzzy object matching with suggestions
+ * - Friendly error messages with helpful hints
  * - Tokenization of raw input
  * - Verb and object recognition with alias support
  * - Preposition handling for complex commands
@@ -20,24 +50,26 @@ import { ParserResult, Verb, VerbType } from '../models';
   providedIn: 'root',
 })
 export class CommandParserService {
-  /** Common prepositions used in Zork commands */
-  private readonly prepositions = new Set([
-    'with',
-    'using',
-    'in',
-    'into',
-    'on',
-    'onto',
-    'under',
-    'behind',
-    'through',
-    'from',
-    'to',
-    'at',
-  ]);
+  /** Loaded synonyms configuration */
+  private readonly synonyms: SynonymsConfig = synonymsData;
 
-  /** Articles and noise words to filter out */
-  private readonly noiseWords = new Set(['a', 'an', 'the', 'my', 'at', 'to', 'some']);
+  /** Last referenced object for pronoun resolution */
+  private lastReferencedObject: string | null = null;
+
+  /** Common prepositions used in Zork commands - loaded from config */
+  private get prepositions(): Set<string> {
+    return new Set(this.synonyms.prepositions);
+  }
+
+  /** Articles and noise words to filter out - loaded from config */
+  private get noiseWords(): Set<string> {
+    return new Set(this.synonyms.determiners);
+  }
+
+  /** Pronouns for context resolution - loaded from config */
+  private get pronouns(): Set<string> {
+    return new Set(this.synonyms.pronouns);
+  }
 
   /** Map of verbs with their configurations */
   private readonly verbs = new Map<string, Verb>([
@@ -273,6 +305,7 @@ export class CommandParserService {
 
   /**
    * Parse a raw input string into a structured command.
+   * Enhanced with phrasal verb support, pronoun resolution, and better error messages.
    * @param rawInput The raw user input string
    * @returns A ParserResult containing the parsed command or error
    */
@@ -289,12 +322,57 @@ export class CommandParserService {
       return this.createErrorResult(rawInput, 'Please enter a command.');
     }
 
+    // Handle pronoun-only input (e.g., "it", "them")
+    if (tokens.length === 1 && this.pronouns.has(tokens[0].toLowerCase())) {
+      if (this.lastReferencedObject) {
+        return {
+          verb: 'examine',
+          directObject: this.lastReferencedObject,
+          indirectObject: null,
+          preposition: null,
+          rawInput,
+          isValid: true,
+          tokens,
+        };
+      } else {
+        return this.createErrorResult(
+          rawInput,
+          "I'm not sure what you're referring to. Try being more specific."
+        );
+      }
+    }
+
     // Handle direction commands specially
     if (this.directions.has(tokens[0].toLowerCase())) {
       return this.parseDirectionCommand(tokens, rawInput);
     }
 
-    // Extract verb
+    // Try to match phrasal verbs first (e.g., "look in", "pick up")
+    const phrasalMatch = this.matchPhrasalVerb(tokens);
+    if (phrasalMatch) {
+      const { intent, preposition, restTokens } = phrasalMatch;
+      const verbResult = this.findVerb(intent);
+
+      if (verbResult) {
+        // Parse the rest of the command with the resolved verb
+        const result = this.parseCommandTokens(
+          restTokens,
+          verbResult.verb,
+          verbResult.verbName,
+          rawInput
+        );
+
+        // Add phrasal verb's preposition if provided and not already set
+        if (preposition && !result.preposition) {
+          result.preposition = preposition;
+        }
+
+        result.tokens = tokens;
+        return result;
+      }
+    }
+
+    // Extract verb (fallback to single-word verb)
     const verbResult = this.findVerb(tokens[0]);
     if (!verbResult) {
       return this.createErrorResult(rawInput, `I don't understand the word "${tokens[0]}".`);
@@ -353,6 +431,49 @@ export class CommandParserService {
   }
 
   /**
+   * Match phrasal verbs from the beginning of token array.
+   * Tries to match 2-3 word phrasal verbs from synonyms config.
+   * @param tokens The token array
+   * @returns Matched phrasal verb config with remaining tokens, or null
+   */
+  private matchPhrasalVerb(
+    tokens: string[]
+  ): { intent: string; preposition?: string; restTokens: string[] } | null {
+    // Try matching 3-word phrasal verbs first, then 2-word
+    for (let len = Math.min(3, tokens.length); len >= 2; len--) {
+      const phrase = tokens.slice(0, len).join(' ').toLowerCase();
+      const config = this.synonyms.phrasalVerbs[phrase];
+
+      if (config) {
+        return {
+          intent: config.intent,
+          preposition: config.preposition,
+          restTokens: tokens.slice(len),
+        };
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Set the last referenced object for pronoun resolution.
+   * Called by the game engine when an object is mentioned.
+   * @param objectName The object name to remember
+   */
+  setLastReferencedObject(objectName: string | null): void {
+    this.lastReferencedObject = objectName;
+  }
+
+  /**
+   * Get the last referenced object.
+   * @returns The last referenced object name, or null
+   */
+  getLastReferencedObject(): string | null {
+    return this.lastReferencedObject;
+  }
+
+  /**
    * Parse a direction command (e.g., "north", "n").
    * @param tokens The command tokens
    * @param rawInput The original input
@@ -368,11 +489,13 @@ export class CommandParserService {
       preposition: null,
       rawInput,
       isValid: true,
+      tokens,
     };
   }
 
   /**
    * Parse command tokens to extract objects and prepositions.
+   * Enhanced with pronoun resolution support.
    * @param tokens Tokens after the verb
    * @param verb The verb configuration
    * @param verbName The canonical verb name
@@ -385,13 +508,16 @@ export class CommandParserService {
     verbName: VerbType,
     rawInput: string
   ): ParserResult {
+    // Replace pronouns in tokens if we have a last referenced object
+    const resolvedTokens = this.resolvePronounsInTokens(tokens);
+
     // If verb requires object but none provided
-    if (verb.requiresObject && tokens.length === 0) {
+    if (verb.requiresObject && resolvedTokens.length === 0) {
       return this.createErrorResult(rawInput, `What do you want to ${verbName}?`);
     }
 
     // If verb doesn't require object and none provided (e.g., "look", "inventory")
-    if (!verb.requiresObject && tokens.length === 0) {
+    if (!verb.requiresObject && resolvedTokens.length === 0) {
       return {
         verb: verbName,
         directObject: null,
@@ -399,6 +525,7 @@ export class CommandParserService {
         preposition: null,
         rawInput,
         isValid: true,
+        tokens,
       };
     }
 
@@ -406,10 +533,10 @@ export class CommandParserService {
     let prepIndex = -1;
     let preposition: string | null = null;
 
-    for (let i = 0; i < tokens.length; i++) {
-      if (this.prepositions.has(tokens[i])) {
+    for (let i = 0; i < resolvedTokens.length; i++) {
+      if (this.prepositions.has(resolvedTokens[i])) {
         prepIndex = i;
-        preposition = tokens[i];
+        preposition = resolvedTokens[i];
         break;
       }
     }
@@ -417,7 +544,7 @@ export class CommandParserService {
     // Parse based on whether we found a preposition
     if (prepIndex === -1) {
       // Simple verb + object command
-      const directObject = tokens.join(' ');
+      const directObject = resolvedTokens.join(' ');
       return {
         verb: verbName,
         directObject,
@@ -425,6 +552,7 @@ export class CommandParserService {
         preposition: null,
         rawInput,
         isValid: true,
+        tokens,
       };
     } else {
       // Complex command with preposition
@@ -436,9 +564,11 @@ export class CommandParserService {
       }
 
       // Extract direct and indirect objects
-      const directObject = prepIndex > 0 ? tokens.slice(0, prepIndex).join(' ') : null;
+      const directObject = prepIndex > 0 ? resolvedTokens.slice(0, prepIndex).join(' ') : null;
       const indirectObject =
-        prepIndex < tokens.length - 1 ? tokens.slice(prepIndex + 1).join(' ') : null;
+        prepIndex < resolvedTokens.length - 1
+          ? resolvedTokens.slice(prepIndex + 1).join(' ')
+          : null;
 
       // Validate we have both objects
       if (!directObject) {
@@ -459,17 +589,43 @@ export class CommandParserService {
         preposition,
         rawInput,
         isValid: true,
+        tokens,
       };
     }
   }
 
   /**
+   * Resolve pronouns in tokens by replacing them with the last referenced object.
+   * @param tokens The tokens to process
+   * @returns Tokens with pronouns replaced
+   */
+  private resolvePronounsInTokens(tokens: string[]): string[] {
+    if (!this.lastReferencedObject) {
+      return tokens;
+    }
+
+    return tokens.map((token) => {
+      if (this.pronouns.has(token.toLowerCase())) {
+        return this.lastReferencedObject as string;
+      }
+      return token;
+    });
+  }
+
+  /**
    * Create an error result for invalid commands.
+   * Enhanced with support for suggestions.
    * @param rawInput The original input
    * @param errorMessage The error message to display
+   * @param suggestions Optional suggestions for the player
    * @returns A ParserResult marked as invalid
    */
-  private createErrorResult(rawInput: string, errorMessage: string): ParserResult {
+  private createErrorResult(
+    rawInput: string,
+    errorMessage: string,
+    suggestions?: string[]
+  ): ParserResult {
+    const tokens = this.tokenize(rawInput);
     return {
       verb: null,
       directObject: null,
@@ -478,6 +634,8 @@ export class CommandParserService {
       rawInput,
       isValid: false,
       errorMessage,
+      suggestions,
+      tokens,
     };
   }
 
