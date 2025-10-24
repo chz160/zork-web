@@ -363,6 +363,146 @@ The following features have been fully implemented and integrated:
    - Context tracking for "it", "them", etc.
    - Automatic object reference updates
 
+7. **Disambiguation & Autocorrect UI Components** ✅ (Phase 6)
+   - Interactive disambiguation prompts when multiple objects match
+   - Autocorrect confirmation for fuzzy matches
+   - Accessible keyboard navigation (1-5 for disambiguation, y/n for autocorrect)
+   - ARIA roles and screen reader support
+   - Telemetry logging for user choices
+
+## UI Components
+
+### Disambiguation Component
+
+The DisambiguationComponent appears when the parser encounters ambiguous input (e.g., "take lamp" when multiple lamps exist).
+
+**Features:**
+- Displays top-N candidates with context (location, description)
+- Numeric keyboard shortcuts (1-5) for quick selection
+- Click/tap selection support
+- Escape to cancel
+- Full accessibility with ARIA roles and labels
+
+**Example Flow:**
+```
+> take lamp
+[Disambiguation prompt appears]
+Which lamp do you mean?
+1. brass lamp (here) - 95% match
+2. lamp post (in the street) - 85% match
+3. oil lamp (in inventory) - 80% match
+
+Press 1-3 to select, or Esc to cancel
+```
+
+**API Usage:**
+```typescript
+// Game engine calls disambiguation when needed
+const candidates: ObjectCandidate[] = [
+  { id: 'brass-lamp', displayName: 'brass lamp', score: 0.95, context: 'here' },
+  { id: 'lamp-post', displayName: 'lamp post', score: 0.85, context: 'in the street' },
+];
+
+const selected = await gameEngine.requestDisambiguation(candidates, 'Which lamp?');
+if (selected) {
+  // User made a selection
+  console.log('User selected:', selected.displayName);
+} else {
+  // User cancelled
+  console.log('User cancelled disambiguation');
+}
+```
+
+### Autocorrect Confirmation Component
+
+The AutocorrectConfirmationComponent appears when the parser detects a likely typo with medium confidence (70-85%).
+
+**Features:**
+- Inline display of original input vs suggested correction
+- Accept/decline buttons with keyboard shortcuts (y/n, Escape)
+- Shows confidence percentage
+- Non-blocking UI positioned at bottom of screen
+- Full accessibility with ARIA roles and labels
+
+**Example Flow:**
+```
+> mailbax
+[Autocorrect prompt appears]
+Did you mean "mailbox"?
+(You typed: "mailbax")
+[Y]es  [N]o
+Confidence: 92%
+```
+
+**API Usage:**
+```typescript
+// Game engine calls autocorrect confirmation when fuzzy match is found
+const accepted = await gameEngine.requestAutocorrectConfirmation(
+  'mailbax',  // original input
+  'mailbox',  // suggestion
+  0.92        // confidence (0-1)
+);
+
+if (accepted) {
+  // User accepted the suggestion, use "mailbox"
+  console.log('Autocorrect accepted');
+} else {
+  // User rejected, use original "mailbax"
+  console.log('Autocorrect rejected');
+}
+```
+
+### Integration with Game Engine
+
+The UI components are integrated with the GameEngineService via callbacks:
+
+```typescript
+// Set up callbacks (typically in App component)
+gameEngine.setDisambiguationCallback((candidates, prompt) => {
+  return new Promise((resolve) => {
+    // Show disambiguation UI
+    // Wait for user selection
+    // Resolve with selected candidate or null
+  });
+});
+
+gameEngine.setAutocorrectCallback((originalInput, suggestion, confidence) => {
+  return new Promise((resolve) => {
+    // Show autocorrect UI
+    // Wait for user decision
+    // Resolve with true (accepted) or false (rejected)
+  });
+});
+```
+
+The game engine will automatically pause command execution and wait for user input when disambiguation or autocorrect is needed.
+
+### Accessibility Features
+
+Both components implement full accessibility:
+
+- **Keyboard Navigation:**
+  - Disambiguation: 1-9 for selection, Escape to cancel, Tab/Enter/Space for button navigation
+  - Autocorrect: Y for accept, N for reject, Escape for reject
+
+- **ARIA Roles and Labels:**
+  - `role="dialog"` and `role="alert"` for proper semantics
+  - `aria-label` and `aria-modal` attributes
+  - `aria-live` regions for screen reader announcements
+
+- **Focus Management:**
+  - Auto-focus on appearance for immediate keyboard access
+  - Proper tab order and focus trapping
+
+- **Responsive Design:**
+  - Mobile-friendly layouts
+  - Touch-friendly hit targets
+  - Readable on all screen sizes
+
+- **Reduced Motion:**
+  - Respects `prefers-reduced-motion` media query
+  - Animations disabled when requested
+
 ### 🔜 Future Enhancements
 
 The following features are planned but not yet implemented:

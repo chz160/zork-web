@@ -4,24 +4,47 @@ import { CommonModule } from '@angular/common';
 import { Console } from './console/console';
 import { Input } from './input/input';
 import { GameService } from './core/services/game.service';
+import { GameEngineService } from './core/services/game-engine.service';
+import { DisambiguationComponent } from './ui/disambiguation/disambiguation';
+import { AutocorrectConfirmationComponent } from './ui/autocorrect-confirmation/autocorrect-confirmation';
+import { ObjectCandidate } from './core/models';
 
 type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Console, Input, CommonModule],
+  imports: [
+    RouterOutlet,
+    Console,
+    Input,
+    CommonModule,
+    DisambiguationComponent,
+    AutocorrectConfirmationComponent,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App implements OnInit {
   protected readonly title = signal('zork-web');
   private readonly gameService = inject(GameService);
+  private readonly gameEngine = inject(GameEngineService);
 
   /** Current font size setting */
   protected readonly fontSize = signal<FontSize>('medium');
 
   /** Show/hide controls panel */
   protected readonly showControls = signal(false);
+
+  /** Disambiguation UI state */
+  protected readonly disambiguationCandidates = signal<ObjectCandidate[] | null>(null);
+  protected readonly disambiguationPrompt = signal<string>('');
+  private disambiguationResolve: ((candidate: ObjectCandidate | null) => void) | null = null;
+
+  /** Autocorrect UI state */
+  protected readonly autocorrectOriginalInput = signal<string>('');
+  protected readonly autocorrectSuggestion = signal<string>('');
+  protected readonly autocorrectConfidence = signal<number>(0.85);
+  private autocorrectResolve: ((accepted: boolean) => void) | null = null;
 
   ngOnInit(): void {
     // Initialize the game via GameService
@@ -32,6 +55,9 @@ export class App implements OnInit {
     if (savedFontSize) {
       this.setFontSize(savedFontSize);
     }
+
+    // Wire up UI callbacks to game engine
+    this.setupUICallbacks();
   }
 
   /**
@@ -106,5 +132,73 @@ export class App implements OnInit {
       xlarge: 'Extra Large',
     };
     return labels[this.fontSize()];
+  }
+
+  /**
+   * Setup UI callbacks for disambiguation and autocorrect
+   */
+  private setupUICallbacks(): void {
+    // Set up disambiguation callback
+    this.gameEngine.setDisambiguationCallback((candidates, prompt) => {
+      return new Promise<ObjectCandidate | null>((resolve) => {
+        this.disambiguationCandidates.set(candidates);
+        this.disambiguationPrompt.set(prompt);
+        this.disambiguationResolve = resolve;
+      });
+    });
+
+    // Set up autocorrect callback
+    this.gameEngine.setAutocorrectCallback((originalInput, suggestion, confidence) => {
+      return new Promise<boolean>((resolve) => {
+        this.autocorrectOriginalInput.set(originalInput);
+        this.autocorrectSuggestion.set(suggestion);
+        this.autocorrectConfidence.set(confidence);
+        this.autocorrectResolve = resolve;
+      });
+    });
+  }
+
+  /**
+   * Handle disambiguation selection
+   */
+  onDisambiguationSelected(candidate: ObjectCandidate): void {
+    if (this.disambiguationResolve) {
+      this.disambiguationResolve(candidate);
+      this.disambiguationResolve = null;
+    }
+    this.disambiguationCandidates.set(null);
+  }
+
+  /**
+   * Handle disambiguation cancellation
+   */
+  onDisambiguationCancelled(): void {
+    if (this.disambiguationResolve) {
+      this.disambiguationResolve(null);
+      this.disambiguationResolve = null;
+    }
+    this.disambiguationCandidates.set(null);
+  }
+
+  /**
+   * Handle autocorrect acceptance
+   */
+  onAutocorrectAccepted(): void {
+    if (this.autocorrectResolve) {
+      this.autocorrectResolve(true);
+      this.autocorrectResolve = null;
+    }
+    this.autocorrectOriginalInput.set('');
+  }
+
+  /**
+   * Handle autocorrect rejection
+   */
+  onAutocorrectRejected(): void {
+    if (this.autocorrectResolve) {
+      this.autocorrectResolve(false);
+      this.autocorrectResolve = null;
+    }
+    this.autocorrectOriginalInput.set('');
   }
 }

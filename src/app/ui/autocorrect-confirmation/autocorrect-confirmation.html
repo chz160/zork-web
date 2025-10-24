@@ -1,0 +1,57 @@
+@if (isVisible()) {
+  <div
+    #confirmationContainer
+    class="autocorrect-confirmation"
+    role="alert"
+    [attr.aria-label]="getAriaLabel()"
+    tabindex="-1"
+    (keydown)="onKeyDown($event)"
+  >
+    <div class="autocorrect-icon">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+        <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <div class="autocorrect-content">
+      <p class="autocorrect-message">
+        Did you mean
+        <span class="autocorrect-suggestion">"{{ suggestion() }}"</span>?
+      </p>
+      <p class="autocorrect-original">
+        (You typed: <span class="autocorrect-input">"{{ originalInput() }}"</span>)
+      </p>
+    </div>
+
+    <div class="autocorrect-actions">
+      <button
+        type="button"
+        class="autocorrect-button autocorrect-button--accept"
+        aria-label="Accept suggestion"
+        (click)="accept()"
+      >
+        <span class="autocorrect-button-key">Y</span>es
+      </button>
+      <button
+        type="button"
+        class="autocorrect-button autocorrect-button--reject"
+        aria-label="Reject suggestion"
+        (click)="reject()"
+      >
+        <span class="autocorrect-button-key">N</span>o
+      </button>
+    </div>
+
+    @if (confidence() < 1) {
+      <div class="autocorrect-confidence">Confidence: {{ getConfidencePercent() }}</div>
+    }
+  </div>
+}
