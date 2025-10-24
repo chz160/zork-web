@@ -2,6 +2,8 @@ import { Injectable, signal, inject } from '@angular/core';
 import { Player, Room, GameObject, ParserResult, CommandOutput, Direction } from '../models';
 import { DataLoaderService } from './data-loader.service';
 import { CommandParserService } from './command-parser.service';
+import { ObjectResolverService, ResolutionContext } from './object-resolver.service';
+import { TelemetryService } from './telemetry.service';
 
 /**
  * Core game engine service that manages game state and processes commands.
@@ -19,6 +21,8 @@ import { CommandParserService } from './command-parser.service';
 export class GameEngineService {
   private readonly dataLoader = inject(DataLoaderService);
   private readonly commandParser = inject(CommandParserService);
+  private readonly objectResolver = inject(ObjectResolverService);
+  private readonly telemetry = inject(TelemetryService);
 
   /** Current player state */
   private readonly playerState = signal<Player>({
@@ -1073,14 +1077,67 @@ export class GameEngineService {
   // ===== Helper Methods =====
 
   /**
+   * Resolve an object name using the ObjectResolverService with fuzzy matching and disambiguation.
+   * @param name The object name to resolve
+   * @param allowInventoryOnly If true, only search inventory (for commands like drop)
+   * @returns The resolved object or null if not found/ambiguous
+   */
+  private resolveObject(name: string, allowInventoryOnly = false): GameObject | null {
+    const currentRoomId = this.playerState().currentRoomId;
+    const inventory = this.playerState().inventory;
+
+    // Build context for resolution
+    const roomObjects = Array.from(this.gameObjects().values()).filter(
+      (obj) => obj.location === currentRoomId && obj.visible
+    );
+    const inventoryObjects = inventory
+      .map((id) => this.gameObjects().get(id))
+      .filter((obj): obj is GameObject => obj !== undefined);
+
+    const context: ResolutionContext = {
+      roomObjects: allowInventoryOnly ? [] : roomObjects,
+      inventoryObjects,
+      allObjects: Array.from(this.gameObjects().values()),
+    };
+
+    // Use object resolver
+    const result = this.objectResolver.resolve(name, context);
+
+    // Handle disambiguation
+    if (result.needsDisambiguation && result.candidates.length > 0) {
+      this.telemetry.logDisambiguationShown({
+        input: name,
+        candidates: result.candidates.map((c) => c.displayName),
+      });
+      // For now, return null and let the caller handle it
+      // In the future, we could prompt the player to choose
+      return null;
+    }
+
+    if (result.isResolved && result.resolvedObject) {
+      if (result.fuzzyMatch) {
+        this.telemetry.logFuzzyMatch({
+          input: name,
+          matched: result.resolvedObject.name,
+          score: result.fuzzyMatch.score,
+        });
+      }
+      return result.resolvedObject;
+    }
+
+    return null;
+  }
+
+  /**
    * Find an object by name or alias in the current room or inventory.
+   * First tries exact matching, then falls back to fuzzy matching via ObjectResolver.
    */
   private findObject(name: string): GameObject | null {
     const lowerName = name.toLowerCase();
     const currentRoomId = this.playerState().currentRoomId;
     const inventory = this.playerState().inventory;
 
-    // Search in current room and inventory
+    // Search in current room and inventory with exact matching
     for (const obj of this.gameObjects().values()) {
       const nameMatch = obj.name.toLowerCase() === lowerName;
       const aliasMatch = obj.aliases.some((alias) => alias.toLowerCase() === lowerName);
@@ -1093,16 +1150,19 @@ export class GameEngineService {
       }
     }
 
-    return null;
+    // Fall back to fuzzy matching via ObjectResolver
+    return this.resolveObject(name, false);
   }
 
   /**
    * Find an object in the player's inventory.
+   * First tries exact matching, then falls back to fuzzy matching via ObjectResolver.
    */
   private findObjectInInventory(name: string): GameObject | null {
     const lowerName = name.toLowerCase();
     const inventory = this.playerState().inventory;
 
+    // Try exact match first
     for (const objId of inventory) {
       const obj = this.gameObjects().get(objId);
       if (!obj) continue;
@@ -1115,7 +1175,8 @@ export class GameEngineService {
       }
     }
 
-    return null;
+    // Fall back to fuzzy matching via ObjectResolver (inventory only)
+    return this.resolveObject(name, true);
   }
 
   /**

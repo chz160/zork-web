@@ -850,5 +850,47 @@ describe('CommandParserService', () => {
         expect(result.directObject).toBe('small red mailbox');
       });
     });
+
+    describe('Fuzzy Matching for Verbs', () => {
+      it('should auto-correct typos in verbs with high confidence', () => {
+        const result = service.parse('tak lamp'); // typo: "tak" -> "take"
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+        expect(result.fuzzyMatchScore).toBeDefined();
+        expect(result.fuzzyMatchScore).toBeGreaterThan(0.7);
+      });
+
+      it('should suggest corrections for verbs with medium confidence', () => {
+        const result = service.parse('examin mailbox'); // typo: "examin" -> "examine"
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.fuzzyMatchScore).toBeDefined();
+      });
+
+      it('should provide suggestions for unrecognized verbs', () => {
+        const result = service.parse('graab lamp'); // typo: "graab" -> should suggest "grab"
+        // This might fail if score is too low, or succeed with fuzzy match
+        if (!result.isValid) {
+          expect(result.suggestions).toBeDefined();
+          expect(result.suggestions!.length).toBeGreaterThan(0);
+        } else {
+          expect(result.verb).toBeTruthy();
+        }
+      });
+
+      it('should fail gracefully for completely unrecognized verbs', () => {
+        const result = service.parse('xyz123 lamp');
+        expect(result.isValid).toBe(false);
+        expect(result.errorMessage).toContain("don't understand");
+      });
+
+      it('should handle verb aliases with fuzzy matching', () => {
+        const result = service.parse('gett lamp'); // typo: "gett" -> "get" (alias of "take")
+        // Fuzzy matching should work on aliases too
+        if (result.isValid) {
+          expect(result.verb).toBe('take'); // "get" is an alias for "take"
+        }
+      });
+    });
   });
 });

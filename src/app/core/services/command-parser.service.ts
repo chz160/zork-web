@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ParserResult, Verb, VerbType } from '../models';
 import commandConfigData from '../../data/command-config.json';
+import { findBestMatch, findMatches } from '../utils/fuzzy-matcher';
+import { TelemetryService } from './telemetry.service';
 
 /**
  * Configuration for phrasal verbs loaded from synonyms.json
@@ -62,6 +64,8 @@ interface CommandConfig {
   providedIn: 'root',
 })
 export class CommandParserService {
+  private readonly telemetry = inject(TelemetryService);
+
   /** Loaded command configuration */
   private readonly config: CommandConfig = commandConfigData;
 
@@ -399,14 +403,44 @@ export class CommandParserService {
     // Extract verb (fallback to single-word verb)
     const verbResult = this.findVerb(tokens[0]);
     if (!verbResult) {
-      return this.createErrorResult(rawInput, `I don't understand the word "${tokens[0]}".`);
+      // Try to get suggestions for the unknown verb
+      const allVerbNames = Array.from(this.verbs.keys());
+      const allAliases = Array.from(this.verbs.values()).flatMap((v) => v.aliases);
+      const candidates = [...allVerbNames, ...allAliases];
+      const suggestions = findMatches(
+        tokens[0],
+        candidates,
+        this.config.parserSettings.fuzzyMatchThreshold,
+        3
+      ).map((m) => m.matched);
+
+      this.telemetry.logParseFailure({
+        rawInput,
+        errorMessage: `I don't understand the word "${tokens[0]}".`,
+        suggestions,
+      });
+
+      return this.createErrorResult(
+        rawInput,
+        `I don't understand the word "${tokens[0]}".`,
+        suggestions.length > 0 ? suggestions : undefined
+      );
     }
 
-    const { verb, verbName } = verbResult;
+    const { verb, verbName, fuzzyMatchScore, autoCorrectSuggestion } = verbResult;
 
     // Parse the rest of the command based on verb requirements
     const result = this.parseCommandTokens(tokens.slice(1), verb, verbName, rawInput);
     result.tokens = tokens; // Set full tokens array
+
+    // Add fuzzy match metadata if present
+    if (fuzzyMatchScore !== undefined) {
+      result.fuzzyMatchScore = fuzzyMatchScore;
+    }
+    if (autoCorrectSuggestion) {
+      result.autoCorrectSuggestion = autoCorrectSuggestion;
+    }
+
     return result;
   }
 
@@ -433,23 +467,100 @@ export class CommandParserService {
   }
 
   /**
-   * Find a verb by name or alias.
+   * Find a verb by name or alias with fuzzy matching support.
    * @param token The token to match against verbs
+   * @param allowFuzzy Whether to allow fuzzy matching (default: true)
    * @returns The matched verb and its canonical name, or null if not found
    */
-  private findVerb(token: string): { verb: Verb; verbName: VerbType } | null {
+  private findVerb(
+    token: string,
+    allowFuzzy = true
+  ): {
+    verb: Verb;
+    verbName: VerbType;
+    fuzzyMatchScore?: number;
+    autoCorrectSuggestion?: string;
+  } | null {
     const lowerToken = token.toLowerCase();
 
     // Check for exact verb match
     const exactMatch = this.verbs.get(lowerToken);
     if (exactMatch) {
+      this.telemetry.logParseSuccess(lowerToken);
       return { verb: exactMatch, verbName: lowerToken as VerbType };
     }
 
     // Check aliases
     for (const [verbName, verb] of this.verbs.entries()) {
       if (verb.aliases.includes(lowerToken)) {
+        this.telemetry.logParseSuccess(lowerToken);
         return { verb, verbName: verbName as VerbType };
+      }
+    }
+
+    // If no exact match and fuzzy matching is enabled, try fuzzy matching
+    if (allowFuzzy) {
+      const allVerbNames = Array.from(this.verbs.keys());
+      const allAliases = Array.from(this.verbs.values()).flatMap((v) => v.aliases);
+      const candidates = [...allVerbNames, ...allAliases];
+
+      const fuzzyMatch = findBestMatch(
+        lowerToken,
+        candidates,
+        this.config.parserSettings.fuzzyMatchThreshold
+      );
+
+      if (fuzzyMatch) {
+        this.telemetry.logFuzzyMatch({
+          input: lowerToken,
+          matched: fuzzyMatch.matched,
+          score: fuzzyMatch.score,
+        });
+
+        // Find the canonical verb for this match
+        let matchedVerb: Verb | undefined;
+        let matchedVerbName: VerbType | undefined;
+
+        // Check if it's a direct verb name
+        if (this.verbs.has(fuzzyMatch.matched)) {
+          matchedVerb = this.verbs.get(fuzzyMatch.matched);
+          matchedVerbName = fuzzyMatch.matched as VerbType;
+        } else {
+          // It's an alias, find the verb it belongs to
+          for (const [verbName, verb] of this.verbs.entries()) {
+            if (verb.aliases.includes(fuzzyMatch.matched)) {
+              matchedVerb = verb;
+              matchedVerbName = verbName as VerbType;
+              break;
+            }
+          }
+        }
+
+        if (matchedVerb && matchedVerbName) {
+          // Check if we should auto-correct or just suggest
+          if (fuzzyMatch.score >= this.config.parserSettings.autoCorrectThreshold) {
+            // Auto-accept with high confidence
+            this.telemetry.logAutocorrectAccepted(lowerToken, fuzzyMatch.matched);
+            return {
+              verb: matchedVerb,
+              verbName: matchedVerbName,
+              fuzzyMatchScore: fuzzyMatch.score,
+            };
+          } else {
+            // Suggest but don't auto-correct
+            this.telemetry.logAutocorrectSuggestion(
+              lowerToken,
+              fuzzyMatch.matched,
+              fuzzyMatch.score
+            );
+            return {
+              verb: matchedVerb,
+              verbName: matchedVerbName,
+              fuzzyMatchScore: fuzzyMatch.score,
+              autoCorrectSuggestion: fuzzyMatch.matched,
+            };
+          }
+        }
       }
     }
 
