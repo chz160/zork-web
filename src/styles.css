@@ -82,9 +82,8 @@ html[data-font-size='xlarge'] {
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  overflow: hidden;
   font-family: var(--zork-font-family);
   background-color: var(--zork-background-dark);
 }
