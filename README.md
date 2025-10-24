@@ -698,9 +698,175 @@ Run the console tests with:
 npm test -- --include='**/console.spec.ts' --no-watch --browsers=ChromeHeadless
 ```
 
+## Input UI Component
+
+The InputComponent allows players to enter commands to the game engine in Angular. It supports keyboard navigation, command history, focus management, and input validation. The component is designed to be accessible and mobile-friendly.
+
+### Features
+
+- **Command Submission**: Enter key submits commands to the game engine
+- **Command History Navigation**: Use Up/Down arrow keys to cycle through previously entered commands
+- **Focus Management**: Automatically focuses the input field on load and after command submission
+- **Input Validation**: Prevents submission of empty or whitespace-only commands
+- **Keyboard Shortcuts**: 
+  - **Enter**: Submit command
+  - **Up Arrow**: Navigate to previous command in history
+  - **Down Arrow**: Navigate to next command in history
+  - **Escape**: Clear current input
+- **Accessibility**: Full ARIA labels, roles, and screen reader support
+- **Mobile-Friendly**: Responsive design with touch-friendly input
+- **Classic Terminal Aesthetics**: Matches the console theme with green-on-black styling
+
+### Usage
+
+Import and use the input component in your Angular component:
+
+```typescript
+import { Input } from './input/input';
+import { GameEngineService } from './core/services/game-engine.service';
+
+@Component({
+  selector: 'app-game',
+  imports: [Input],
+  template: `
+    <div class="game-container">
+      <app-input />
+    </div>
+  `,
+})
+export class GameComponent implements OnInit {
+  private gameEngine = inject(GameEngineService);
+
+  ngOnInit() {
+    this.gameEngine.initializeGame();
+  }
+}
+```
+
+The InputComponent automatically parses commands using the CommandParserService and executes them through the GameEngineService.
+
+### Command History
+
+The input component maintains a history of up to 100 previously entered commands:
+
+- **Navigate Up**: Press Up Arrow to move backwards through command history
+- **Navigate Down**: Press Down Arrow to move forwards through command history
+- **Preserve Current Input**: When you start navigating history with text in the input, that text is preserved and restored when you navigate past the end of history
+- **No Duplicates**: Consecutive duplicate commands are not added to history
+- **Persistent**: History is maintained for the duration of the session
+
+### Keyboard Shortcuts
+
+- **Enter**: Submit the current command
+- **Up Arrow**: Navigate to previous command in history
+- **Down Arrow**: Navigate to next command in history
+- **Escape**: Clear the current input field
+
+### Accessibility Features
+
+- **ARIA Labels**: Proper labeling for screen readers
+- **ARIA Roles**: Form role for semantic structure
+- **Screen Reader Instructions**: Hidden instructions for keyboard navigation
+- **Auto-focus**: Input field is automatically focused on component load
+- **Focus Retention**: Focus is maintained after command submission
+- **High Contrast Support**: Enhanced styling in high contrast mode
+
+### Responsive Design
+
+The input adapts to different screen sizes:
+
+- **Desktop** (>768px): 16px font, full padding, 2px border
+- **Tablet** (≤768px): 14px font, reduced padding, 1px border
+- **Mobile** (≤480px): 13px font, minimal padding
+
+### Styling
+
+The input component matches the console theme:
+
+- Green text on black background (#00ff00 on #000)
+- Green border with glow effect
+- Monospace font (Courier New)
+- Green prompt indicator (">")
+- Transparent input background
+- Green caret/cursor
+
+### Testing
+
+The InputComponent includes comprehensive unit tests covering:
+
+- Command submission and validation
+- Command history navigation (Up/Down arrows)
+- Keyboard shortcuts (Enter, Escape)
+- Focus management
+- Input change handling
+- Accessibility features
+- Empty input handling
+- History limit (100 commands)
+
+Run the input tests with:
+
+```bash
+npm test -- --include='**/input.spec.ts' --no-watch --browsers=ChromeHeadless
+```
+
+### Integration Example
+
+A complete example showing Console and Input working together:
+
+```typescript
+import { Component, OnInit, inject } from '@angular/core';
+import { Console } from './console/console';
+import { Input } from './input/input';
+import { GameEngineService } from './core/services/game-engine.service';
+
+@Component({
+  selector: 'app-game',
+  imports: [Console, Input],
+  template: `
+    <div class="game-container">
+      <div class="console-wrapper">
+        <app-console />
+        <app-input />
+      </div>
+    </div>
+  `,
+  styles: [`
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      padding: 1rem;
+      background-color: #1a1a1a;
+    }
+    
+    .console-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  `]
+})
+export class GameComponent implements OnInit {
+  private gameEngine = inject(GameEngineService);
+
+  ngOnInit() {
+    this.gameEngine.initializeGame();
+  }
+}
+```
+
+This setup provides a complete interactive terminal interface where:
+1. The Console displays game output
+2. The Input captures player commands
+3. Commands are automatically parsed and executed through the GameEngine
+4. Output is displayed in real-time in the Console
+
 ## Game Commands
 
-Once the game is implemented, the following commands will be available:
+The Zork Web application provides an interactive command-line interface through the InputComponent. Players can enter commands using the input field at the bottom of the screen.
+
+### Available Commands
 
 - **Direction commands:** north, south, east, west (or n, s, e, w)
 - **look:** Look around the current location
@@ -710,6 +876,16 @@ Once the game is implemented, the following commands will be available:
 - **examine [item]:** Look at an item in detail
 - **open/close [item]:** Open or close certain objects
 - **help:** Display a list of available commands
+
+### Using the Command Input
+
+1. Click in the input field at the bottom of the screen (it auto-focuses on page load)
+2. Type your command
+3. Press **Enter** to submit
+4. Use **Up/Down arrow keys** to navigate through command history
+5. Press **Escape** to clear the current input
+
+The input component remembers up to 100 previous commands, allowing you to easily repeat or modify earlier commands.
 
 ## Additional Resources
 

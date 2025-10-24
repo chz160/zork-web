@@ -1,11 +1,12 @@
 import { Component, signal, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Console } from './console/console';
+import { Input } from './input/input';
 import { GameEngineService } from './core/services/game-engine.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Console],
+  imports: [RouterOutlet, Console, Input],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
