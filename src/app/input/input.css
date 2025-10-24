@@ -1,0 +1,154 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #000;
+  border: 2px solid #00ff00;
+  border-radius: 4px;
+  box-shadow:
+    0 0 10px rgba(0, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-prompt {
+  color: #00ff00;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.command-input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  padding: 0.25rem 0;
+  caret-color: #00ff00;
+}
+
+.command-input::placeholder {
+  color: #00ff0066;
+  opacity: 1;
+}
+
+.command-input:focus {
+  outline: none;
+  background-color: rgba(0, 255, 0, 0.02);
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .input-container {
+    padding: 0.5rem 0.75rem;
+    border-width: 1px;
+  }
+
+  .input-prompt {
+    font-size: 14px;
+  }
+
+  .command-input {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-container {
+    padding: 0.375rem 0.5rem;
+  }
+
+  .input-prompt {
+    font-size: 13px;
+  }
+
+  .command-input {
+    font-size: 13px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .input-container {
+    border-width: 3px;
+  }
+
+  .input-prompt,
+  .command-input {
+    font-weight: bold;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.input-container:focus-within {
+  outline: 2px solid #00ff00;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .input-container {
+    display: none;
+  }
+}
+
+/* Disable text selection on prompt */
+.input-prompt::selection {
+  background-color: transparent;
+}
+
+/* Animation for input appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .input-container {
+    animation: none;
+  }
+}
