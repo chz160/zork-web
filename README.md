@@ -20,6 +20,8 @@ This project includes valuable reference materials in the `/docs` folder:
   - Implementation phases and data organization plan
   - JSON schemas for validation (`/docs/schemas/`)
 
+- **Transcript Verification** (`/docs/TRANSCRIPT-VERIFICATION.md`) - Documentation of test results comparing engine output against legacy Zork transcripts. Includes known discrepancies, edge cases discovered, and compatibility summary.
+
 - **Original Zork Source Code** (`/docs/original-src-1977/`, `/docs/original-src-1980/`, `/docs/original-src-c/`) - The 1977-1980 MIT source code for Zork, written in MDL for the PDP-10. This historical code serves as a reference for understanding the original game mechanics, world design, and command parsing. See the [README](docs/original-src-1977/README.md) for details about the file organization and rights.
 
 - **Game Walkthroughs** (`/docs/walkthrough1.md`, `/docs/walkthrough2.md`, `/docs/walkthrough3.md`) - Complete game transcripts showing different approaches to solving Zork. These are useful for:
@@ -27,6 +29,7 @@ This project includes valuable reference materials in the `/docs` folder:
   - Verifying correct behavior of puzzles and interactions
   - Understanding the full scope of the game world
   - Reference for implementing game logic and responses
+  - Transcript-driven regression testing
 
 - **Architecture Documentation** (`/docs/architecture.md`) - Detailed system architecture, design patterns, and component interactions for the game engine.
 
@@ -160,7 +163,7 @@ ng generate --help
 
 ### Running Tests
 
-Zork Web has comprehensive unit tests for the core game engine, command parser, and all game logic. Tests are written using Jasmine and run with Karma.
+Zork Web has comprehensive unit tests for the core game engine, command parser, and all game logic. Tests are written using Jasmine and run with Karma. The test suite also includes transcript verification tests that compare engine output against legacy Zork transcripts.
 
 #### Running All Tests
 
@@ -194,12 +197,23 @@ To run tests once (without watch mode) for CI/CD pipelines:
 npm test -- --no-watch --browsers=ChromeHeadless
 ```
 
+#### Running Transcript Verification Tests
+
+To run only the transcript verification tests that compare engine output with legacy Zork transcripts:
+
+```bash
+npm test -- --include='**/transcript-verification.spec.ts' --no-watch --browsers=ChromeHeadless
+```
+
+See [docs/TRANSCRIPT-VERIFICATION.md](docs/TRANSCRIPT-VERIFICATION.md) for detailed results and known discrepancies.
+
 #### Test Coverage
 
 The project maintains high test coverage across core components:
 
 - **GameEngineService**: 30+ tests covering command execution, state management, and game logic
 - **CommandParserService**: 50+ tests covering natural language parsing, verb aliases, and error handling
+- **Transcript Verification**: 17+ tests comparing engine output with legacy Zork transcripts
 - **Overall Coverage**: ~68% statements, ~49% branches, ~77% functions
 
 **What's Tested:**
@@ -214,6 +228,7 @@ The project maintains high test coverage across core components:
 - ✅ Edge cases and error handling
 - ✅ Verb aliases and direction shortcuts
 - ✅ Save/load functionality
+- ✅ **Output parity with legacy Zork transcripts**
 
 **Testing Best Practices:**
 
