@@ -1238,24 +1238,16 @@ export class GameEngineService {
       messages.push(room.description);
     }
 
-    // List visible objects in the room
+    // List visible portable objects in the room (canonical Zork shows portable items with LDESC)
+    // Fixed/scenery objects are typically mentioned in the room description itself
     const roomObjects = Array.from(this.gameObjects().values()).filter(
-      (obj) => obj.location === room.id && obj.visible
+      (obj) => obj.location === room.id && obj.visible && obj.portable
     );
 
     if (roomObjects.length > 0) {
-      messages.push('');
-      messages.push('You can see:');
       roomObjects.forEach((obj) => {
-        messages.push(`  ${obj.name}`);
+        messages.push(obj.description);
       });
-    }
-
-    // List exits
-    if (room.exits.size > 0) {
-      messages.push('');
-      const exitList = Array.from(room.exits.keys()).join(', ');
-      messages.push(`Exits: ${exitList}`);
     }
 
     return messages;

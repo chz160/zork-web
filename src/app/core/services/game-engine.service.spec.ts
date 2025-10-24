@@ -26,6 +26,60 @@ describe('GameEngineService', () => {
       expect(output.length).toBeGreaterThan(0);
       expect(output[0]).toBe('Welcome to Zork!');
     });
+
+    it('should display the starting room name only once', () => {
+      service.initializeGame();
+      const output = service.output();
+
+      // Find lines that contain "West Of House"
+      const roomNameLines = output.filter((line) => line === 'West Of House');
+
+      // Should appear exactly once (the room name, not duplicated as description)
+      expect(roomNameLines.length).toBe(1);
+    });
+
+    it('should display the full room description after room name', () => {
+      service.initializeGame();
+      const output = service.output();
+
+      // Find the index of "West Of House"
+      const roomNameIndex = output.findIndex((line) => line === 'West Of House');
+      expect(roomNameIndex).toBeGreaterThanOrEqual(0);
+
+      // The next line should be the full room description
+      if (roomNameIndex >= 0 && roomNameIndex + 1 < output.length) {
+        const description = output[roomNameIndex + 1];
+
+        // Should be a proper description, not just repeating the room name
+        expect(description).not.toBe('West Of House');
+        expect(description).not.toBe('West of House');
+
+        // Should contain descriptive content
+        expect(description.length).toBeGreaterThan(20);
+      }
+    });
+
+    it('should display canonical West Of House description on startup', () => {
+      service.initializeGame();
+      const output = service.output();
+
+      // The canonical description should include key elements
+      const fullOutput = output.join('\n');
+
+      // Should contain the main description text
+      expect(fullOutput).toContain('open field');
+      expect(fullOutput).toContain('white house');
+      expect(fullOutput).toContain('boarded front door');
+    });
+
+    it('should mention the mailbox in the location description', () => {
+      service.initializeGame();
+      const output = service.output();
+      const fullOutput = output.join('\n').toLowerCase();
+
+      // Mailbox should be mentioned (either in room desc or as a visible object)
+      expect(fullOutput).toContain('mailbox');
+    });
   });
 
   describe('player state', () => {
