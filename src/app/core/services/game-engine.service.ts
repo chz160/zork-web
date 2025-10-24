@@ -1,5 +1,13 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { Player, Room, GameObject, ParserResult, CommandOutput, Direction } from '../models';
+import {
+  Player,
+  Room,
+  GameObject,
+  ParserResult,
+  CommandOutput,
+  Direction,
+  ObjectCandidate,
+} from '../models';
 import { DataLoaderService } from './data-loader.service';
 import { CommandParserService } from './command-parser.service';
 import { ObjectResolverService, ResolutionContext } from './object-resolver.service';
@@ -1251,5 +1259,121 @@ export class GameEngineService {
     }
 
     return messages;
+  }
+
+  /**
+   * Disambiguation and autocorrect UI integration
+   */
+
+  /** Callback for disambiguation requests */
+  private disambiguationCallback:
+    | ((candidates: ObjectCandidate[], prompt: string) => Promise<ObjectCandidate | null>)
+    | null = null;
+
+  /** Callback for autocorrect confirmation requests */
+  private autocorrectCallback:
+    | ((originalInput: string, suggestion: string, confidence: number) => Promise<boolean>)
+    | null = null;
+
+  /**
+   * Set the callback function for handling disambiguation requests.
+   * This should be called by the UI layer to provide a way to prompt the user.
+   *
+   * @param callback Function that shows disambiguation UI and returns user selection
+   */
+  setDisambiguationCallback(
+    callback: (candidates: ObjectCandidate[], prompt: string) => Promise<ObjectCandidate | null>
+  ): void {
+    this.disambiguationCallback = callback;
+  }
+
+  /**
+   * Set the callback function for handling autocorrect confirmation requests.
+   * This should be called by the UI layer to provide a way to prompt the user.
+   *
+   * @param callback Function that shows autocorrect UI and returns user decision
+   */
+  setAutocorrectCallback(
+    callback: (originalInput: string, suggestion: string, confidence: number) => Promise<boolean>
+  ): void {
+    this.autocorrectCallback = callback;
+  }
+
+  /**
+   * Request disambiguation from the user when multiple object candidates match.
+   * This method should be called by the parser when it encounters ambiguous input.
+   *
+   * @param candidates List of candidate objects to choose from
+   * @param prompt Custom prompt text (optional)
+   * @returns Promise that resolves to the selected candidate or null if cancelled
+   */
+  async requestDisambiguation(
+    candidates: ObjectCandidate[],
+    prompt?: string
+  ): Promise<ObjectCandidate | null> {
+    const promptText = prompt || 'Which one do you mean?';
+
+    // Log disambiguation event
+    this.telemetry.logDisambiguationShown({
+      input: promptText,
+      candidates: candidates.map((c) => c.displayName),
+    });
+
+    // If no callback is set, return the first candidate (fallback)
+    if (!this.disambiguationCallback) {
+      return candidates.length > 0 ? candidates[0] : null;
+    }
+
+    // Call the UI callback and wait for user selection
+    const selected = await this.disambiguationCallback(candidates, promptText);
+
+    // Log user's selection
+    if (selected) {
+      const selectedIndex = candidates.findIndex((c) => c.id === selected.id);
+      this.telemetry.logDisambiguationSelected({
+        input: promptText,
+        candidates: candidates.map((c) => c.displayName),
+        selectedIndex,
+      });
+    }
+
+    return selected;
+  }
+
+  /**
+   * Request autocorrect confirmation from the user when a fuzzy match is found.
+   * This method should be called by the parser when it detects a likely typo.
+   *
+   * @param originalInput The original input text with potential typo
+   * @param suggestion The suggested correction
+   * @param confidence Confidence score (0-1) of the suggestion
+   * @returns Promise that resolves to true if accepted, false if rejected
+   */
+  async requestAutocorrectConfirmation(
+    originalInput: string,
+    suggestion: string,
+    confidence: number
+  ): Promise<boolean> {
+    // Log autocorrect suggestion
+    this.telemetry.logAutocorrectSuggestion(originalInput, suggestion, confidence);
+
+    // If no callback is set, auto-accept high-confidence suggestions
+    if (!this.autocorrectCallback) {
+      const accepted = confidence >= 0.85;
+      if (accepted) {
+        this.telemetry.logAutocorrectAccepted(originalInput, suggestion);
+      }
+      return accepted;
+    }
+
+    // Call the UI callback and wait for user decision
+    const accepted = await this.autocorrectCallback(originalInput, suggestion, confidence);
+
+    // Log user's decision
+    if (accepted) {
+      this.telemetry.logAutocorrectAccepted(originalInput, suggestion);
+    }
+
+    return accepted;
   }
 }

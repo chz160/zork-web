@@ -1,15 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { GameEngineService } from './game-engine.service';
-import { Room, GameObject, ParserResult } from '../models';
+import { Room, GameObject, ParserResult, ObjectCandidate } from '../models';
+import { TelemetryService } from './telemetry.service';
 
 describe('GameEngineService', () => {
   let service: GameEngineService;
+  let telemetryService: TelemetryService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [GameEngineService],
     });
     service = TestBed.inject(GameEngineService);
+    telemetryService = TestBed.inject(TelemetryService);
   });
 
   it('should be created', () => {
@@ -774,6 +777,224 @@ describe('GameEngineService', () => {
         expect(result.success).toBe(true);
         expect(result.messages[0]).toContain('You put the');
         expect(service.player().inventory).not.toContain('key');
+      });
+    });
+  });
+
+  describe('UI Integration Methods', () => {
+    describe('disambiguation', () => {
+      it('should set disambiguation callback', () => {
+        const callback = jasmine
+          .createSpy('disambiguationCallback')
+          .and.returnValue(Promise.resolve(null));
+        service.setDisambiguationCallback(callback);
+
+        // Callback should be set (tested indirectly through requestDisambiguation)
+        expect(callback).toBeDefined();
+      });
+
+      it('should request disambiguation and call callback', async () => {
+        const candidates: ObjectCandidate[] = [
+          { id: 'lamp1', displayName: 'brass lamp', score: 0.9, context: 'here' },
+          { id: 'lamp2', displayName: 'oil lamp', score: 0.8, context: 'in inventory' },
+        ];
+
+        const selectedCandidate = candidates[0];
+        const callback = jasmine
+          .createSpy('disambiguationCallback')
+          .and.returnValue(Promise.resolve(selectedCandidate));
+
+        service.setDisambiguationCallback(callback);
+
+        const result = await service.requestDisambiguation(candidates, 'Which lamp?');
+
+        expect(callback).toHaveBeenCalledWith(candidates, 'Which lamp?');
+        expect(result).toEqual(selectedCandidate);
+      });
+
+      it('should use default prompt if not provided', async () => {
+        const candidates: ObjectCandidate[] = [
+          { id: 'lamp1', displayName: 'brass lamp', score: 0.9, context: 'here' },
+        ];
+
+        const callback = jasmine
+          .createSpy('disambiguationCallback')
+          .and.returnValue(Promise.resolve(candidates[0]));
+
+        service.setDisambiguationCallback(callback);
+
+        await service.requestDisambiguation(candidates);
+
+        expect(callback).toHaveBeenCalledWith(candidates, 'Which one do you mean?');
+      });
+
+      it('should return first candidate if no callback is set', async () => {
+        const candidates: ObjectCandidate[] = [
+          { id: 'lamp1', displayName: 'brass lamp', score: 0.9, context: 'here' },
+          { id: 'lamp2', displayName: 'oil lamp', score: 0.8, context: 'in inventory' },
+        ];
+
+        const result = await service.requestDisambiguation(candidates);
+
+        expect(result).toEqual(candidates[0]);
+      });
+
+      it('should return null if candidates list is empty and no callback', async () => {
+        const result = await service.requestDisambiguation([]);
+        expect(result).toBeNull();
+      });
+
+      it('should handle user cancellation', async () => {
+        const candidates: ObjectCandidate[] = [
+          { id: 'lamp1', displayName: 'brass lamp', score: 0.9, context: 'here' },
+        ];
+
+        const callback = jasmine
+          .createSpy('disambiguationCallback')
+          .and.returnValue(Promise.resolve(null));
+
+        service.setDisambiguationCallback(callback);
+
+        const result = await service.requestDisambiguation(candidates);
+
+        expect(result).toBeNull();
+      });
+
+      it('should log disambiguation shown event', async () => {
+        const candidates: ObjectCandidate[] = [
+          { id: 'lamp1', displayName: 'brass lamp', score: 0.9, context: 'here' },
+        ];
+
+        spyOn(telemetryService, 'logDisambiguationShown');
+
+        await service.requestDisambiguation(candidates, 'Select one');
+
+        expect(telemetryService.logDisambiguationShown).toHaveBeenCalledWith({
+          input: 'Select one',
+          candidates: ['brass lamp'],
+        });
+      });
+
+      it('should log disambiguation selected event', async () => {
+        const candidates: ObjectCandidate[] = [
+          { id: 'lamp1', displayName: 'brass lamp', score: 0.9, context: 'here' },
+          { id: 'lamp2', displayName: 'oil lamp', score: 0.8, context: 'in inventory' },
+        ];
+
+        const callback = jasmine
+          .createSpy('disambiguationCallback')
+          .and.returnValue(Promise.resolve(candidates[1]));
+
+        service.setDisambiguationCallback(callback);
+
+        spyOn(telemetryService, 'logDisambiguationSelected');
+
+        await service.requestDisambiguation(candidates, 'Pick one');
+
+        expect(telemetryService.logDisambiguationSelected).toHaveBeenCalledWith({
+          input: 'Pick one',
+          candidates: ['brass lamp', 'oil lamp'],
+          selectedIndex: 1,
+        });
+      });
+    });
+
+    describe('autocorrect confirmation', () => {
+      it('should set autocorrect callback', () => {
+        const callback = jasmine
+          .createSpy('autocorrectCallback')
+          .and.returnValue(Promise.resolve(true));
+        service.setAutocorrectCallback(callback);
+
+        // Callback should be set (tested indirectly through requestAutocorrectConfirmation)
+        expect(callback).toBeDefined();
+      });
+
+      it('should request autocorrect confirmation and call callback', async () => {
+        const callback = jasmine
+          .createSpy('autocorrectCallback')
+          .and.returnValue(Promise.resolve(true));
+
+        service.setAutocorrectCallback(callback);
+
+        const result = await service.requestAutocorrectConfirmation('mailbax', 'mailbox', 0.92);
+
+        expect(callback).toHaveBeenCalledWith('mailbax', 'mailbox', 0.92);
+        expect(result).toBe(true);
+      });
+
+      it('should auto-accept high confidence suggestions if no callback', async () => {
+        const result = await service.requestAutocorrectConfirmation('mailbax', 'mailbox', 0.9);
+        expect(result).toBe(true);
+      });
+
+      it('should auto-reject low confidence suggestions if no callback', async () => {
+        const result = await service.requestAutocorrectConfirmation('abc', 'xyz', 0.7);
+        expect(result).toBe(false);
+      });
+
+      it('should handle user accepting suggestion', async () => {
+        const callback = jasmine
+          .createSpy('autocorrectCallback')
+          .and.returnValue(Promise.resolve(true));
+
+        service.setAutocorrectCallback(callback);
+
+        const result = await service.requestAutocorrectConfirmation('tak', 'take', 0.88);
+
+        expect(result).toBe(true);
+      });
+
+      it('should handle user rejecting suggestion', async () => {
+        const callback = jasmine
+          .createSpy('autocorrectCallback')
+          .and.returnValue(Promise.resolve(false));
+
+        service.setAutocorrectCallback(callback);
+
+        const result = await service.requestAutocorrectConfirmation('tak', 'take', 0.88);
+
+        expect(result).toBe(false);
+      });
+
+      it('should log autocorrect suggestion event', async () => {
+        spyOn(telemetryService, 'logAutocorrectSuggestion');
+
+        await service.requestAutocorrectConfirmation('mailbax', 'mailbox', 0.92);
+
+        expect(telemetryService.logAutocorrectSuggestion).toHaveBeenCalledWith(
+          'mailbax',
+          'mailbox',
+          0.92
+        );
+      });
+
+      it('should log autocorrect accepted event when accepted', async () => {
+        const callback = jasmine
+          .createSpy('autocorrectCallback')
+          .and.returnValue(Promise.resolve(true));
+
+        service.setAutocorrectCallback(callback);
+
+        spyOn(telemetryService, 'logAutocorrectAccepted');
+
+        await service.requestAutocorrectConfirmation('tak', 'take', 0.88);
+
+        expect(telemetryService.logAutocorrectAccepted).toHaveBeenCalledWith('tak', 'take');
+      });
+
+      it('should not log autocorrect accepted event when rejected', async () => {
+        const callback = jasmine
+          .createSpy('autocorrectCallback')
+          .and.returnValue(Promise.resolve(false));
+
+        service.setAutocorrectCallback(callback);
+
+        spyOn(telemetryService, 'logAutocorrectAccepted');
+
+        await service.requestAutocorrectConfirmation('tak', 'take', 0.88);
+
+        expect(telemetryService.logAutocorrectAccepted).not.toHaveBeenCalled();
       });
     });
   });
