@@ -223,6 +223,9 @@ describe('CommandParserService', () => {
     });
 
     it('should reject incomplete prepositional phrases - missing direct object', () => {
+      // With phrasal verb support, "put in box" is interpreted as phrasal verb "put in"
+      // with object "box", but puts the preposition back, making it "put [in box]"
+      // Since "in" is at the start, directObject is null
       const result = service.parse('put in box');
       expect(result.isValid).toBe(false);
       expect(result.errorMessage).toContain('What do you want to put?');
@@ -527,6 +530,325 @@ describe('CommandParserService', () => {
       const result = service.parse('inv');
       expect(result.isValid).toBe(true);
       expect(result.verb).toBe('inventory');
+    });
+  });
+
+  describe('Conversational Enhancements', () => {
+    describe('Phrasal Verb Support', () => {
+      it('should parse "look in mailbox" as examine with preposition', () => {
+        const result = service.parse('look in mailbox');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('mailbox');
+        expect(result.preposition).toBe('in');
+      });
+
+      it('should parse "look inside the mailbox"', () => {
+        const result = service.parse('look inside the mailbox');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('mailbox');
+        expect(result.preposition).toBe('in');
+      });
+
+      it('should parse "look at mailbox"', () => {
+        const result = service.parse('look at mailbox');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('mailbox');
+        expect(result.preposition).toBe('at');
+      });
+
+      it('should parse "look under table"', () => {
+        const result = service.parse('look under table');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('table');
+        expect(result.preposition).toBe('under');
+      });
+
+      it('should parse "pick up lamp"', () => {
+        const result = service.parse('pick up lamp');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+        expect(result.directObject).toBe('lamp');
+      });
+
+      it('should parse "pick up the brass lantern"', () => {
+        const result = service.parse('pick up the brass lantern');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+        expect(result.directObject).toBe('brass lantern');
+      });
+
+      it('should parse "open up door"', () => {
+        const result = service.parse('open up door');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('open');
+        expect(result.directObject).toBe('door');
+      });
+
+      it('should parse "put down lamp"', () => {
+        const result = service.parse('put down lamp');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('drop');
+        expect(result.directObject).toBe('lamp');
+      });
+
+      it('should parse "put lamp in mailbox"', () => {
+        const result = service.parse('put lamp in mailbox');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('put');
+        expect(result.directObject).toBe('lamp');
+        expect(result.preposition).toBe('in');
+        expect(result.indirectObject).toBe('mailbox');
+      });
+
+      it('should parse "turn on lamp"', () => {
+        const result = service.parse('turn on lamp');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('light');
+        expect(result.directObject).toBe('lamp');
+      });
+
+      it('should parse "turn off lamp"', () => {
+        const result = service.parse('turn off lamp');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('extinguish');
+        expect(result.directObject).toBe('lamp');
+      });
+
+      it('should handle multi-word objects with phrasal verbs', () => {
+        const result = service.parse('look in the small mailbox');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('small mailbox');
+        expect(result.preposition).toBe('in');
+      });
+    });
+
+    describe('Pronoun Resolution', () => {
+      it('should resolve "it" to last referenced object in simple command', () => {
+        service.setLastReferencedObject('mailbox');
+        const result = service.parse('it');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('mailbox');
+      });
+
+      it('should resolve "it" in "examine it"', () => {
+        service.setLastReferencedObject('lamp');
+        const result = service.parse('examine it');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('lamp');
+      });
+
+      it('should resolve "it" in "take it"', () => {
+        service.setLastReferencedObject('sword');
+        const result = service.parse('take it');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+        expect(result.directObject).toBe('sword');
+      });
+
+      it('should resolve "it" in "look at it"', () => {
+        service.setLastReferencedObject('door');
+        const result = service.parse('look at it');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('door');
+        expect(result.preposition).toBe('at');
+      });
+
+      it('should resolve "it" in "open it"', () => {
+        service.setLastReferencedObject('chest');
+        const result = service.parse('open it');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('open');
+        expect(result.directObject).toBe('chest');
+      });
+
+      it('should resolve "it" in complex commands with prepositions', () => {
+        service.setLastReferencedObject('key');
+        const result = service.parse('unlock door with it');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('unlock');
+        expect(result.directObject).toBe('door');
+        expect(result.preposition).toBe('with');
+        expect(result.indirectObject).toBe('key');
+      });
+
+      it('should handle "them" as pronoun', () => {
+        service.setLastReferencedObject('coins');
+        const result = service.parse('take them');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+        expect(result.directObject).toBe('coins');
+      });
+
+      it('should handle "that" as pronoun', () => {
+        service.setLastReferencedObject('book');
+        const result = service.parse('read that');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('read');
+        expect(result.directObject).toBe('book');
+      });
+
+      it('should return error when no object was previously referenced', () => {
+        service.setLastReferencedObject(null);
+        const result = service.parse('it');
+        expect(result.isValid).toBe(false);
+        expect(result.errorMessage).toContain("I'm not sure what you're referring to");
+      });
+
+      it('should resolve pronouns in multiple positions', () => {
+        service.setLastReferencedObject('leaflet');
+        const result = service.parse('put it in mailbox');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('put');
+        expect(result.directObject).toBe('leaflet');
+        expect(result.preposition).toBe('in');
+        expect(result.indirectObject).toBe('mailbox');
+      });
+    });
+
+    describe('Data-Driven Configuration', () => {
+      it('should load synonyms from JSON configuration', () => {
+        // Test that the parser recognizes verbs from the config
+        const result = service.parse('grab lamp');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+      });
+
+      it('should support all loaded determiners', () => {
+        const result = service.parse('take the lamp');
+        expect(result.isValid).toBe(true);
+        expect(result.directObject).toBe('lamp');
+      });
+
+      it('should support all loaded prepositions', () => {
+        const result = service.parse('put lamp on table');
+        expect(result.isValid).toBe(true);
+        expect(result.preposition).toBe('on');
+      });
+    });
+
+    describe('Enhanced Token Support', () => {
+      it('should include tokens in successful parse results', () => {
+        const result = service.parse('take the lamp');
+        expect(result.tokens).toBeDefined();
+        expect(result.tokens).toContain('take');
+        expect(result.tokens).toContain('lamp');
+      });
+
+      it('should include tokens in error results', () => {
+        const result = service.parse('invalidverb lamp');
+        expect(result.tokens).toBeDefined();
+        expect(result.isValid).toBe(false);
+      });
+
+      it('should filter determiners from tokens', () => {
+        const result = service.parse('take the a lamp');
+        expect(result.tokens).toBeDefined();
+        // Determiners should be filtered out
+        expect(result.tokens).not.toContain('the');
+        expect(result.tokens).not.toContain('a');
+      });
+    });
+
+    describe('Context Management', () => {
+      it('should allow setting last referenced object', () => {
+        service.setLastReferencedObject('sword');
+        expect(service.getLastReferencedObject()).toBe('sword');
+      });
+
+      it('should allow clearing last referenced object', () => {
+        service.setLastReferencedObject('lamp');
+        service.setLastReferencedObject(null);
+        expect(service.getLastReferencedObject()).toBeNull();
+      });
+
+      it('should update context when object is mentioned', () => {
+        service.setLastReferencedObject('old-object');
+        service.parse('take lamp');
+        // Context should still be old object since game engine updates it
+        expect(service.getLastReferencedObject()).toBe('old-object');
+      });
+    });
+
+    describe('Backward Compatibility', () => {
+      it('should still handle original verb aliases', () => {
+        const result = service.parse('get lamp');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+      });
+
+      it('should still handle direction shortcuts', () => {
+        const result = service.parse('n');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('go');
+        expect(result.directObject).toBe('n');
+      });
+
+      it('should still handle simple commands', () => {
+        const result = service.parse('inventory');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('inventory');
+      });
+
+      it('should still handle complex prepositional commands', () => {
+        const result = service.parse('unlock door with brass key');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('unlock');
+        expect(result.directObject).toBe('door');
+        expect(result.preposition).toBe('with');
+        expect(result.indirectObject).toBe('brass key');
+      });
+    });
+
+    describe('Edge Cases and Error Handling', () => {
+      it('should handle phrasal verbs without objects where required', () => {
+        const result = service.parse('pick up');
+        expect(result.isValid).toBe(false);
+        expect(result.errorMessage).toContain('What do you want to take?');
+      });
+
+      it('should handle pronouns with phrasal verbs', () => {
+        service.setLastReferencedObject('coin');
+        const result = service.parse('pick up it');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('take');
+        expect(result.directObject).toBe('coin');
+      });
+
+      it('should preserve case-insensitive matching in phrasal verbs', () => {
+        const result = service.parse('LOOK IN MAILBOX');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('mailbox');
+      });
+
+      it('should handle empty string after phrasal verb', () => {
+        const result = service.parse('look in');
+        expect(result.isValid).toBe(false);
+      });
+
+      it('should handle multiple prepositions - use first one found', () => {
+        const result = service.parse('look in box on table');
+        // The parser will match "look in" as phrasal verb,
+        // then find "on" as another preposition and split into: box + on + table
+        // But examine doesn't allow indirect objects, so this will fail
+        expect(result.isValid).toBe(false);
+        expect(result.errorMessage).toContain("doesn't take a preposition");
+      });
+
+      it('should handle determiners with phrasal verbs', () => {
+        const result = service.parse('look in the small red mailbox');
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('examine');
+        expect(result.directObject).toBe('small red mailbox');
+      });
     });
   });
 });

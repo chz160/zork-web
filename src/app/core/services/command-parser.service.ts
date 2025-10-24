@@ -354,15 +354,22 @@ export class CommandParserService {
       const verbResult = this.findVerb(intent);
 
       if (verbResult) {
+        // If phrasal verb has a preposition and the verb allows indirect objects,
+        // prepend it to restTokens so parseCommandTokens can validate indirect object requirements
+        let tokensToProcess = restTokens;
+        if (preposition && verbResult.verb.allowsIndirectObject) {
+          tokensToProcess = [preposition, ...restTokens];
+        }
+
         // Parse the rest of the command with the resolved verb
         const result = this.parseCommandTokens(
-          restTokens,
+          tokensToProcess,
           verbResult.verb,
           verbResult.verbName,
           rawInput
         );
 
-        // Add phrasal verb's preposition if provided and not already set
+        // Add phrasal verb's preposition if not set by parseCommandTokens
         if (preposition && !result.preposition) {
           result.preposition = preposition;
         }
@@ -381,7 +388,9 @@ export class CommandParserService {
     const { verb, verbName } = verbResult;
 
     // Parse the rest of the command based on verb requirements
-    return this.parseCommandTokens(tokens.slice(1), verb, verbName, rawInput);
+    const result = this.parseCommandTokens(tokens.slice(1), verb, verbName, rawInput);
+    result.tokens = tokens; // Set full tokens array
+    return result;
   }
 
   /**

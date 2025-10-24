@@ -1,6 +1,6 @@
 {
   "verbs": {
-    "examine": ["look", "inspect", "check", "read", "search"],
+    "examine": ["look", "inspect", "check", "read"],
     "take": ["get", "grab", "pick", "pickup", "obtain", "acquire"],
     "drop": ["discard", "throw", "toss"],
     "open": ["unlock", "unseal"],
@@ -10,12 +10,6 @@
     "put": ["place", "insert", "stow"],
     "use": ["activate", "employ"],
     "talk": ["speak", "converse", "chat"],
-    "enter": ["go in", "step in"],
-    "exit": ["leave", "go out"],
-    "climb": ["ascend", "descend", "scale"],
-    "turn": ["twist", "rotate"],
-    "push": ["press", "shove"],
-    "pull": ["tug", "yank"],
     "wait": ["z", "rest"]
   },
   "phrasalVerbs": {
@@ -32,12 +26,6 @@
     "put in": { "intent": "put", "preposition": "in" },
     "put into": { "intent": "put", "preposition": "in" },
     "put on": { "intent": "put", "preposition": "on" },
-    "search in": { "intent": "search", "preposition": "in" },
-    "search through": { "intent": "search", "preposition": "through" },
-    "go in": { "intent": "enter" },
-    "go into": { "intent": "enter" },
-    "climb up": { "intent": "climb", "preposition": "up" },
-    "climb down": { "intent": "climb", "preposition": "down" },
     "turn on": { "intent": "light" },
     "turn off": { "intent": "extinguish" }
   },
