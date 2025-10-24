@@ -1,5 +1,6 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { Player, Room, GameObject, ParserResult, CommandOutput, Direction } from '../models';
+import { DataLoaderService } from './data-loader.service';
 
 /**
  * Core game engine service that manages game state and processes commands.
@@ -15,9 +16,11 @@ import { Player, Room, GameObject, ParserResult, CommandOutput, Direction } from
   providedIn: 'root',
 })
 export class GameEngineService {
+  private readonly dataLoader = inject(DataLoaderService);
+
   /** Current player state */
   private readonly playerState = signal<Player>({
-    currentRoomId: 'start',
+    currentRoomId: 'west-of-house',
     inventory: [],
     score: 0,
     moveCount: 0,
@@ -41,14 +44,35 @@ export class GameEngineService {
 
   /**
    * Initialize the game with starting state.
+   * Loads game data from JSON files and sets up the starting room.
    */
   initializeGame(): void {
-    // TODO: Load initial game data (rooms, objects)
-    // TODO: Set up starting room
-    // TODO: Display welcome message
+    // Load all rooms and objects from converted data
+    const rooms = this.dataLoader.loadRooms();
+    const objects = this.dataLoader.loadObjects();
+
+    // Populate the game world
+    rooms.forEach((room) => this.addRoom(room));
+    objects.forEach((obj) => this.addObject(obj));
+
+    // Set the starting room
+    const startingRoomId = this.playerState().currentRoomId;
+    const startingRoom = this.rooms().get(startingRoomId);
+
+    if (startingRoom) {
+      this.currentRoom.set(startingRoom);
+    }
+
+    // Display welcome message
     this.addOutput('Welcome to Zork!');
     this.addOutput('Zork is a game of adventure, danger, and low cunning.');
     this.addOutput('');
+
+    // Show the starting room description
+    if (startingRoom) {
+      const messages = this.getRoomDescription(startingRoom, true);
+      messages.forEach((msg) => this.addOutput(msg));
+    }
   }
 
   /**
@@ -244,7 +268,7 @@ export class GameEngineService {
    */
   resetGame(): void {
     this.playerState.set({
-      currentRoomId: 'start',
+      currentRoomId: 'west-of-house',
       inventory: [],
       score: 0,
       moveCount: 0,
