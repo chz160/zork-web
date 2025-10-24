@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Global reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

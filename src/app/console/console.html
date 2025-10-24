@@ -1,0 +1,31 @@
+<div
+  class="console-container"
+  role="log"
+  aria-live="polite"
+  aria-atomic="false"
+  aria-label="Game output console"
+>
+  <div
+    #outputContainer
+    class="console-output"
+    (scroll)="onScroll()"
+    tabindex="0"
+    role="region"
+    aria-label="Game output, {{ totalLines() }} lines"
+  >
+    @if (consoleLines().length === 0) {
+      <div class="console-line console-line--info">
+        <span class="console-prompt">&gt;</span>
+        <span>Waiting for game to start...</span>
+      </div>
+    }
+    @for (line of consoleLines(); track trackByIndex($index)) {
+      <div [class]="getLineClasses(line).join(' ')">
+        @if (line.type !== 'command') {
+          <span class="console-prompt">&gt;</span>
+        }
+        <span class="console-text">{{ line.text }}</span>
+      </div>
+    }
+  </div>
+</div>
