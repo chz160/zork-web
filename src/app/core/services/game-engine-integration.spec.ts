@@ -191,4 +191,158 @@ describe('GameEngine Integration with Converted Data', () => {
       expect(result.messages.length).toBeGreaterThan(0);
     });
   });
+
+  describe('Conversational Parser Integration', () => {
+    it('should handle phrasal verbs with game objects', () => {
+      // Try "look at" phrasal verb
+      const lookAtCommand = parser.parse('look at house');
+      expect(lookAtCommand.isValid).toBe(true);
+      expect(lookAtCommand.verb).toBe('examine');
+      expect(lookAtCommand.preposition).toBe('at');
+      expect(lookAtCommand.directObject).toBe('house');
+
+      const result = engine.executeCommand(lookAtCommand);
+      // The result depends on whether 'house' is available in the current room
+      // Just verify the command was processed
+      expect(result).toBeDefined();
+    });
+
+    it('should handle "pick up" phrasal verb', () => {
+      const command = parser.parse('pick up lamp');
+      expect(command.isValid).toBe(true);
+      expect(command.verb).toBe('take');
+      expect(command.directObject).toBe('lamp');
+
+      // Execute the command
+      const result = engine.executeCommand(command);
+      // The result depends on whether 'lamp' exists and is takeable
+      expect(result).toBeDefined();
+    });
+
+    it('should track last referenced object for pronoun resolution', () => {
+      // First, reference an object
+      const examineCommand = parser.parse('examine house');
+      expect(examineCommand.directObject).toBe('house');
+
+      // Execute to update context
+      engine.executeCommand(examineCommand);
+
+      // Check that the parser context was updated
+      expect(parser.getLastReferencedObject()).toBe('house');
+
+      // Now use a pronoun
+      const pronounCommand = parser.parse('it');
+      expect(pronounCommand.isValid).toBe(true);
+      expect(pronounCommand.verb).toBe('examine');
+      expect(pronounCommand.directObject).toBe('house');
+    });
+
+    it('should resolve pronouns in complex commands', () => {
+      // Set up context by examining an object
+      const examineCommand = parser.parse('examine mailbox');
+      engine.executeCommand(examineCommand);
+
+      // Use pronoun in a different command
+      const openCommand = parser.parse('open it');
+      expect(openCommand.isValid).toBe(true);
+      expect(openCommand.verb).toBe('open');
+      expect(openCommand.directObject).toBe('mailbox');
+
+      // Execute and verify
+      const result = engine.executeCommand(openCommand);
+      expect(result).toBeDefined();
+    });
+
+    it('should handle pronouns with phrasal verbs', () => {
+      // Set context
+      const lookCommand = parser.parse('look at mailbox');
+      engine.executeCommand(lookCommand);
+
+      // Use pronoun with phrasal verb
+      const pickCommand = parser.parse('pick up it');
+      expect(pickCommand.isValid).toBe(true);
+      expect(pickCommand.verb).toBe('take');
+      expect(pickCommand.directObject).toBe('mailbox');
+    });
+
+    it('should provide helpful error when standalone pronoun has no context', () => {
+      // Clear context
+      parser.setLastReferencedObject(null);
+
+      // Try to use standalone pronoun
+      const pronounCommand = parser.parse('it');
+      expect(pronounCommand.isValid).toBe(false);
+      expect(pronounCommand.errorMessage).toContain("I'm not sure what you're referring to");
+    });
+
+    it('should maintain backward compatibility with original commands', () => {
+      // Original style commands should still work
+      const takeCommand = parser.parse('take lamp');
+      expect(takeCommand.isValid).toBe(true);
+      expect(takeCommand.verb).toBe('take');
+
+      const openCommand = parser.parse('open mailbox');
+      expect(openCommand.isValid).toBe(true);
+      expect(openCommand.verb).toBe('open');
+
+      const goCommand = parser.parse('go north');
+      expect(goCommand.isValid).toBe(true);
+      expect(goCommand.verb).toBe('go');
+
+      const directionCommand = parser.parse('n');
+      expect(directionCommand.isValid).toBe(true);
+      expect(directionCommand.verb).toBe('go');
+    });
+
+    it('should support data-driven synonyms from JSON config', () => {
+      // These synonyms come from synonyms.json
+      const grabCommand = parser.parse('grab lamp');
+      expect(grabCommand.isValid).toBe(true);
+      expect(grabCommand.verb).toBe('take');
+
+      const inspectCommand = parser.parse('inspect door');
+      expect(inspectCommand.isValid).toBe(true);
+      expect(inspectCommand.verb).toBe('examine');
+    });
+
+    it('should include tokens in parse results for debugging', () => {
+      const command = parser.parse('take the brass lamp');
+      expect(command.tokens).toBeDefined();
+      expect(command.tokens).toContain('take');
+      expect(command.tokens).toContain('brass');
+      expect(command.tokens).toContain('lamp');
+      // "the" should be filtered out
+      expect(command.tokens).not.toContain('the');
+    });
+
+    it('should handle natural conversational commands end-to-end', () => {
+      // Simulate a natural player interaction flow
+      let command, result;
+
+      // 1. Player looks around
+      command = parser.parse('look');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // 2. Player examines something with natural language
+      command = parser.parse('look at the white house');
+      result = engine.executeCommand(command);
+      expect(command.verb).toBe('examine');
+      expect(command.directObject).toBe('white house');
+
+      // 3. Player uses pronoun to interact with it
+      command = parser.parse('examine it');
+      result = engine.executeCommand(command);
+      expect(command.directObject).toBe('white house');
+
+      // 4. Player uses phrasal verb
+      command = parser.parse('look inside mailbox');
+      result = engine.executeCommand(command);
+      expect(command.verb).toBe('examine');
+      expect(command.preposition).toBe('in');
+
+      // All commands should be processed without errors
+      expect(result).toBeDefined();
+    });
+  });
 });

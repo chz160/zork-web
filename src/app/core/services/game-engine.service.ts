@@ -1,6 +1,7 @@
 import { Injectable, signal, inject } from '@angular/core';
 import { Player, Room, GameObject, ParserResult, CommandOutput, Direction } from '../models';
 import { DataLoaderService } from './data-loader.service';
+import { CommandParserService } from './command-parser.service';
 
 /**
  * Core game engine service that manages game state and processes commands.
@@ -17,6 +18,7 @@ import { DataLoaderService } from './data-loader.service';
 })
 export class GameEngineService {
   private readonly dataLoader = inject(DataLoaderService);
+  private readonly commandParser = inject(CommandParserService);
 
   /** Current player state */
   private readonly playerState = signal<Player>({
@@ -85,6 +87,11 @@ export class GameEngineService {
       const message = parserResult.errorMessage || "I don't understand that command.";
       this.addOutput(message);
       return { messages: [message], success: false, type: 'error' };
+    }
+
+    // Track last referenced object for pronoun resolution
+    if (parserResult.directObject) {
+      this.commandParser.setLastReferencedObject(parserResult.directObject);
     }
 
     // Increment move count for most commands (except look, inventory, help)

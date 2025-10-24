@@ -24,4 +24,10 @@ export interface ParserResult {
 
   /** Error message if parsing failed */
   errorMessage?: string;
+
+  /** Suggested object names when ambiguous or not found */
+  suggestions?: string[];
+
+  /** Tokenized input for debugging */
+  tokens?: string[];
 }
