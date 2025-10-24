@@ -1,0 +1,206 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.console-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  border: 2px solid #00ff00;
+  border-radius: 4px;
+  box-shadow:
+    0 0 10px rgba(0, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  overflow: hidden;
+}
+
+.console-output {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #00ff00;
+  background-color: #000;
+  scroll-behavior: smooth;
+}
+
+/* Webkit scrollbar styling for classic terminal look */
+.console-output::-webkit-scrollbar {
+  width: 12px;
+}
+
+.console-output::-webkit-scrollbar-track {
+  background: #001a00;
+  border-left: 1px solid #00ff00;
+}
+
+.console-output::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border: 2px solid #000;
+  border-radius: 2px;
+}
+
+.console-output::-webkit-scrollbar-thumb:hover {
+  background: #00ff00;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+/* Firefox scrollbar styling */
+.console-output {
+  scrollbar-width: thin;
+  scrollbar-color: #00ff00 #001a00;
+}
+
+/* Focus styles for accessibility */
+.console-output:focus {
+  outline: 2px solid #00ff00;
+  outline-offset: -4px;
+}
+
+.console-line {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+  padding: 0.125rem 0;
+  animation: fadeIn 0.2s ease-in;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.console-prompt {
+  margin-right: 0.5rem;
+  color: #00ff00;
+  font-weight: bold;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.console-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Type-specific styling */
+.console-line--error .console-text {
+  color: #ff4444;
+  text-shadow: 0 0 3px rgba(255, 68, 68, 0.5);
+}
+
+.console-line--error .console-prompt {
+  color: #ff4444;
+}
+
+.console-line--success .console-text {
+  color: #44ff44;
+  text-shadow: 0 0 3px rgba(68, 255, 68, 0.5);
+}
+
+.console-line--success .console-prompt {
+  color: #44ff44;
+}
+
+.console-line--description .console-text {
+  color: #88ff88;
+  font-style: italic;
+}
+
+.console-line--help .console-text {
+  color: #ffff00;
+  text-shadow: 0 0 2px rgba(255, 255, 0, 0.3);
+}
+
+.console-line--system .console-text {
+  color: #00ffff;
+  text-shadow: 0 0 2px rgba(0, 255, 255, 0.3);
+}
+
+.console-line--command {
+  color: #ffffff;
+  background-color: rgba(0, 255, 0, 0.05);
+  padding: 0.25rem 0.5rem;
+  margin: 0.5rem 0;
+  border-left: 3px solid #00ff00;
+}
+
+.console-line--command .console-text {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .console-output {
+    font-size: 12px;
+    padding: 0.75rem;
+  }
+
+  .console-container {
+    border-width: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .console-output {
+    font-size: 11px;
+    padding: 0.5rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .console-container {
+    border-width: 3px;
+  }
+
+  .console-text {
+    font-weight: bold;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .console-line {
+    animation: none;
+  }
+
+  .console-output {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .console-container {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+
+  .console-output {
+    color: #000;
+    background-color: #fff;
+  }
+
+  .console-prompt,
+  .console-text {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+}
