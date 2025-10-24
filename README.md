@@ -552,6 +552,39 @@ The converter supports:
 - **Validation**: Automatic validation against JSON schemas
 - **Incremental conversion**: Convert specific files or entity types
 
+### Data Integration
+
+The converted game data is automatically loaded when the game engine initializes. The integration process:
+
+1. **Data Files**: Converted JSON files are stored in `src/app/data/`
+   - `rooms.json` - 110+ game locations with exits and descriptions
+   - `objects.json` - 120+ interactive objects with properties
+
+2. **DataLoaderService**: Handles loading and format conversion
+   - Imports JSON files at compile time
+   - Converts plain object exits to Map structures
+   - Validates data integrity
+
+3. **GameEngineService**: Automatically loads data on initialization
+   ```typescript
+   import { GameEngineService } from './core/services';
+   
+   // Initialize the game with converted world data
+   gameEngine.initializeGame();
+   
+   // Data is now loaded - start playing!
+   const command = parser.parse('look');
+   gameEngine.executeCommand(command);
+   ```
+
+4. **Testing**: Comprehensive integration tests validate:
+   - Data loading from JSON files
+   - Room navigation with converted exits
+   - Object interactions
+   - Complete gameplay flows
+
+See `src/app/core/services/game-engine-integration.spec.ts` for sample integration tests demonstrating data-driven gameplay.
+
 ## Game Commands
 
 Once the game is implemented, the following commands will be available:
