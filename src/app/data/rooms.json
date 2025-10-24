@@ -8,7 +8,7 @@
       "exits": {
         "north": "north-of-house",
         "south": "south-of-house",
-        "east": "behind-house"
+        "east": "east-of-house"
       },
       "objectIds": [],
       "visited": false,
