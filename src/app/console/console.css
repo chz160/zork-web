@@ -9,26 +9,45 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #000;
-  border: 2px solid #00ff00;
-  border-radius: 4px;
+  background-color: var(--zork-background);
+  border: var(--zork-border-width) solid var(--zork-primary);
+  border-radius: var(--zork-border-radius);
   box-shadow:
-    0 0 10px rgba(0, 255, 0, 0.3),
+    var(--zork-glow-medium),
     inset 0 0 20px rgba(0, 255, 0, 0.1);
   overflow: hidden;
+  position: relative;
+}
+
+/* CRT screen curvature effect (subtle) */
+.console-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: var(--zork-border-radius);
 }
 
 .console-output {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 1rem;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #00ff00;
-  background-color: #000;
+  padding: var(--zork-spacing-lg);
+  font-family: var(--zork-font-family);
+  font-size: var(--zork-font-size-base);
+  line-height: var(--zork-line-height);
+  color: var(--zork-primary);
+  background-color: var(--zork-background);
   scroll-behavior: smooth;
+  position: relative;
+  z-index: 2;
+  /* Subtle text glow for phosphor effect */
+  text-shadow: 0 0 2px rgba(0, 255, 0, 0.2);
 }
 
 /* Webkit scrollbar styling for classic terminal look */
@@ -37,37 +56,37 @@
 }
 
 .console-output::-webkit-scrollbar-track {
-  background: #001a00;
-  border-left: 1px solid #00ff00;
+  background: var(--zork-background-alt);
+  border-left: 1px solid var(--zork-primary);
 }
 
 .console-output::-webkit-scrollbar-thumb {
-  background: #00ff00;
-  border: 2px solid #000;
+  background: var(--zork-primary);
+  border: 2px solid var(--zork-background);
   border-radius: 2px;
 }
 
 .console-output::-webkit-scrollbar-thumb:hover {
-  background: #00ff00;
-  box-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+  background: var(--zork-primary-bright);
+  box-shadow: var(--zork-glow-subtle);
 }
 
 /* Firefox scrollbar styling */
 .console-output {
   scrollbar-width: thin;
-  scrollbar-color: #00ff00 #001a00;
+  scrollbar-color: var(--zork-primary) var(--zork-background-alt);
 }
 
 /* Focus styles for accessibility */
 .console-output:focus {
-  outline: 2px solid #00ff00;
+  outline: 2px solid var(--zork-primary);
   outline-offset: -4px;
 }
 
 .console-line {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--zork-spacing-xs);
   padding: 0.125rem 0;
   animation: fadeIn 0.2s ease-in;
   word-wrap: break-word;
@@ -86,11 +105,12 @@
 }
 
 .console-prompt {
-  margin-right: 0.5rem;
-  color: #00ff00;
+  margin-right: var(--zork-spacing-sm);
+  color: var(--zork-primary);
   font-weight: bold;
   flex-shrink: 0;
   user-select: none;
+  text-shadow: var(--zork-glow-subtle);
 }
 
 .console-text {
@@ -98,46 +118,46 @@
   min-width: 0;
 }
 
-/* Type-specific styling */
+/* Type-specific styling with theme colors */
 .console-line--error .console-text {
-  color: #ff4444;
+  color: var(--zork-error);
   text-shadow: 0 0 3px rgba(255, 68, 68, 0.5);
 }
 
 .console-line--error .console-prompt {
-  color: #ff4444;
+  color: var(--zork-error);
 }
 
 .console-line--success .console-text {
-  color: #44ff44;
+  color: var(--zork-success);
   text-shadow: 0 0 3px rgba(68, 255, 68, 0.5);
 }
 
 .console-line--success .console-prompt {
-  color: #44ff44;
+  color: var(--zork-success);
 }
 
 .console-line--description .console-text {
-  color: #88ff88;
+  color: var(--zork-primary-dim);
   font-style: italic;
 }
 
 .console-line--help .console-text {
-  color: #ffff00;
+  color: var(--zork-warning);
   text-shadow: 0 0 2px rgba(255, 255, 0, 0.3);
 }
 
 .console-line--system .console-text {
-  color: #00ffff;
+  color: var(--zork-info);
   text-shadow: 0 0 2px rgba(0, 255, 255, 0.3);
 }
 
 .console-line--command {
   color: #ffffff;
   background-color: rgba(0, 255, 0, 0.05);
-  padding: 0.25rem 0.5rem;
-  margin: 0.5rem 0;
-  border-left: 3px solid #00ff00;
+  padding: var(--zork-spacing-xs) var(--zork-spacing-sm);
+  margin: var(--zork-spacing-sm) 0;
+  border-left: 3px solid var(--zork-primary);
 }
 
 .console-line--command .console-text {
@@ -148,8 +168,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .console-output {
-    font-size: 12px;
-    padding: 0.75rem;
+    padding: var(--zork-spacing-md);
   }
 
   .console-container {
@@ -159,8 +178,7 @@
 
 @media (max-width: 480px) {
   .console-output {
-    font-size: 11px;
-    padding: 0.5rem;
+    padding: var(--zork-spacing-sm);
   }
 }
 
@@ -173,6 +191,10 @@
   .console-text {
     font-weight: bold;
   }
+
+  .console-prompt {
+    text-shadow: var(--zork-glow-medium);
+  }
 }
 
 /* Reduced motion support */
@@ -184,6 +206,10 @@
   .console-output {
     scroll-behavior: auto;
   }
+
+  .console-container::before {
+    display: none;
+  }
 }
 
 /* Print styles */
@@ -193,9 +219,14 @@
     box-shadow: none;
   }
 
+  .console-container::before {
+    display: none;
+  }
+
   .console-output {
     color: #000;
     background-color: #fff;
+    text-shadow: none;
   }
 
   .console-prompt,

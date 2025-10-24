@@ -7,29 +7,46 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #000;
-  border: 2px solid #00ff00;
-  border-radius: 4px;
+  background-color: var(--zork-background);
+  border: var(--zork-border-width) solid var(--zork-primary);
+  border-radius: var(--zork-border-radius);
   box-shadow:
-    0 0 10px rgba(0, 255, 0, 0.3),
+    var(--zork-glow-medium),
     inset 0 0 20px rgba(0, 255, 0, 0.1);
-  padding: 0.75rem;
-  margin-top: 0.5rem;
+  padding: var(--zork-spacing-md);
+  margin-top: var(--zork-spacing-sm);
+  position: relative;
+}
+
+/* CRT screen curvature effect (subtle) */
+.input-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: var(--zork-border-radius);
 }
 
 .input-wrapper {
   display: flex;
   align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .input-prompt {
-  color: #00ff00;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
+  color: var(--zork-primary);
+  font-family: var(--zork-font-family);
+  font-size: var(--zork-font-size-input);
   font-weight: bold;
-  margin-right: 0.5rem;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  margin-right: var(--zork-spacing-sm);
+  text-shadow: var(--zork-glow-subtle);
   flex-shrink: 0;
   user-select: none;
 }
@@ -38,17 +55,19 @@
   flex: 1;
   background-color: transparent;
   border: none;
-  color: #00ff00;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
-  line-height: 1.5;
+  color: var(--zork-primary);
+  font-family: var(--zork-font-family);
+  font-size: var(--zork-font-size-input);
+  line-height: var(--zork-line-height);
   outline: none;
-  padding: 0.25rem 0;
-  caret-color: #00ff00;
+  padding: var(--zork-spacing-xs) 0;
+  caret-color: var(--zork-primary);
+  /* Subtle text glow for phosphor effect */
+  text-shadow: 0 0 2px rgba(0, 255, 0, 0.2);
 }
 
 .command-input::placeholder {
-  color: #00ff0066;
+  color: var(--zork-primary-faint);
   opacity: 1;
 }
 
@@ -73,30 +92,14 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .input-container {
-    padding: 0.5rem 0.75rem;
+    padding: var(--zork-spacing-sm) var(--zork-spacing-md);
     border-width: 1px;
-  }
-
-  .input-prompt {
-    font-size: 14px;
-  }
-
-  .command-input {
-    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .input-container {
-    padding: 0.375rem 0.5rem;
-  }
-
-  .input-prompt {
-    font-size: 13px;
-  }
-
-  .command-input {
-    font-size: 13px;
+    padding: 0.375rem var(--zork-spacing-sm);
   }
 }
 
@@ -110,11 +113,15 @@
   .command-input {
     font-weight: bold;
   }
+
+  .input-prompt {
+    text-shadow: var(--zork-glow-medium);
+  }
 }
 
 /* Focus visible for keyboard navigation */
 .input-container:focus-within {
-  outline: 2px solid #00ff00;
+  outline: 2px solid var(--zork-primary);
   outline-offset: 2px;
 }
 
@@ -150,5 +157,9 @@
 @media (prefers-reduced-motion: reduce) {
   .input-container {
     animation: none;
+  }
+
+  .input-container::before {
+    display: none;
   }
 }

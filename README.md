@@ -974,6 +974,249 @@ This setup provides a complete interactive terminal interface where:
 3. Commands are automatically parsed and executed through the GameEngine
 4. Output is displayed in real-time in the Console
 
+## UI Styling and Theming
+
+Zork Web features a classic retro terminal aesthetic with comprehensive styling that evokes the look and feel of vintage text adventure games from the 1980s.
+
+### Visual Design
+
+The UI implements a **classic green phosphor CRT terminal** aesthetic:
+
+- **Monospace Typography**: Courier New font throughout for authentic terminal feel
+- **Color Palette**: Green-on-black color scheme (#00ff00 on #000000) reminiscent of early computer terminals
+- **Glow Effects**: Subtle text and border glow effects simulate phosphor screen illumination
+- **CRT Screen Effects**: Optional subtle vignette and scanline effects for vintage monitor simulation
+- **Minimal Chrome**: Clean, distraction-free interface focused on the game content
+
+### CSS Custom Properties (Theme Variables)
+
+The styling system uses CSS custom properties for easy customization. All theme variables are defined in `src/styles.css`:
+
+```css
+:root {
+  /* Primary colors - classic green phosphor terminal */
+  --zork-primary: #00ff00;           /* Main green */
+  --zork-primary-bright: #44ff44;    /* Bright green (success) */
+  --zork-primary-dim: #88ff88;       /* Dim green (descriptions) */
+  --zork-primary-faint: #00ff0066;   /* Transparent green */
+  --zork-background: #000000;        /* Pure black background */
+  --zork-background-alt: #001a00;    /* Dark green background */
+  --zork-background-dark: #1a1a1a;   /* Darker gray */
+
+  /* Semantic colors */
+  --zork-error: #ff4444;             /* Red for errors */
+  --zork-success: #44ff44;           /* Bright green for success */
+  --zork-warning: #ffff00;           /* Yellow for warnings */
+  --zork-info: #00ffff;              /* Cyan for info */
+
+  /* Typography */
+  --zork-font-family: 'Courier New', Courier, monospace;
+  --zork-font-size-base: 14px;       /* Base console font size */
+  --zork-font-size-input: 16px;      /* Input field font size */
+  --zork-line-height: 1.5;
+
+  /* Spacing */
+  --zork-spacing-xs: 0.25rem;
+  --zork-spacing-sm: 0.5rem;
+  --zork-spacing-md: 0.75rem;
+  --zork-spacing-lg: 1rem;
+  --zork-spacing-xl: 1.5rem;
+
+  /* Effects */
+  --zork-glow-subtle: 0 0 5px rgba(0, 255, 0, 0.3);
+  --zork-glow-medium: 0 0 10px rgba(0, 255, 0, 0.5);
+  --zork-glow-strong: 0 0 15px rgba(0, 255, 0, 0.8);
+  --zork-border-width: 2px;
+  --zork-border-radius: 4px;
+
+  /* CRT effects (optional) */
+  --zork-scanline-opacity: 0.03;     /* Scanline visibility */
+  --zork-flicker-intensity: 0;       /* Screen flicker (future) */
+}
+```
+
+### Customizing the Theme
+
+You can customize the appearance by modifying CSS custom properties. Here are common customization scenarios:
+
+#### Change Color Scheme
+
+To use a different color (e.g., amber terminal):
+
+```css
+:root {
+  --zork-primary: #ffb000;
+  --zork-primary-bright: #ffd700;
+  --zork-primary-dim: #cc8800;
+}
+```
+
+#### Adjust Glow Intensity
+
+To increase or decrease the phosphor glow effect:
+
+```css
+:root {
+  --zork-glow-subtle: 0 0 8px rgba(0, 255, 0, 0.5);
+  --zork-glow-medium: 0 0 15px rgba(0, 255, 0, 0.7);
+  --zork-glow-strong: 0 0 20px rgba(0, 255, 0, 1);
+}
+```
+
+#### Disable CRT Scanlines
+
+To remove the scanline effect:
+
+```css
+:root {
+  --zork-scanline-opacity: 0;
+}
+```
+
+### Font Size Controls
+
+The application includes built-in accessibility controls for adjusting font size:
+
+#### Keyboard Shortcuts
+
+- **Ctrl/Cmd + Plus (+)**: Increase font size
+- **Ctrl/Cmd + Minus (-)**: Decrease font size
+- **Ctrl/Cmd + 0**: Reset to default (medium) size
+
+#### UI Controls
+
+Click the **"⚙ Controls"** button in the header to access the Display Settings panel:
+
+- **A- Button**: Decrease font size
+- **A+ Button**: Increase font size
+- **Reset Button**: Return to default medium size
+
+Font size changes are:
+- **Immediately applied** across all UI components
+- **Persistent** - saved to browser localStorage
+- **Responsive** - maintain proper proportions on mobile devices
+
+#### Available Font Sizes
+
+Four preset sizes are available:
+
+- **Small**: 12px base / 14px input
+- **Medium** (default): 14px base / 16px input
+- **Large**: 16px base / 18px input
+- **Extra Large**: 18px base / 20px input
+
+### Accessibility Features
+
+The UI is designed with WCAG AA compliance in mind:
+
+#### High Contrast Support
+
+When the user's system is in high contrast mode (`prefers-contrast: high`), the UI automatically:
+
+- Increases border widths for better visibility
+- Enhances glow effects for improved contrast
+- Applies bold font weights to text
+
+#### Reduced Motion Support
+
+When the user prefers reduced motion (`prefers-reduced-motion: reduce`), the UI:
+
+- Disables all animations and transitions
+- Removes CRT scanline effects
+- Provides instant visual feedback instead of animated changes
+
+#### Screen Reader Support
+
+All interactive elements include:
+
+- Proper ARIA labels and roles
+- Live region announcements for game output
+- Hidden instructions for keyboard navigation
+- Semantic HTML markup
+
+#### Keyboard Navigation
+
+Full keyboard support is provided:
+
+- **Tab/Shift+Tab**: Navigate between controls
+- **Arrow Keys**: Navigate command history
+- **Escape**: Clear input field
+- **Enter**: Submit commands
+
+### Responsive Design
+
+The UI adapts seamlessly to different screen sizes:
+
+#### Desktop (>768px)
+- Full-size fonts (14px console, 16px input)
+- Standard padding and spacing
+- 2px borders with prominent glow effects
+
+#### Tablet (≤768px)
+- Slightly reduced fonts
+- Optimized padding for touch targets
+- 1px borders to maximize screen space
+
+#### Mobile (≤480px)
+- Compact fonts for readability
+- Minimal padding
+- Simplified controls layout
+
+### Styling Files
+
+The styling is organized across multiple files:
+
+- **`src/styles.css`**: Global styles and CSS custom properties
+- **`src/app/app.html`**: App container and header styles (inline)
+- **`src/app/console/console.css`**: Console component styles
+- **`src/app/input/input.css`**: Input component styles
+
+### Color-Coded Output Types
+
+The console displays different message types with distinct colors:
+
+| Type | Color | Usage |
+|------|-------|-------|
+| Info (default) | Green (#00ff00) | Standard game messages |
+| Error | Red (#ff4444) | Error messages and warnings |
+| Success | Bright Green (#44ff44) | Successful actions |
+| Description | Light Green (#88ff88) | Room descriptions (italic) |
+| Help | Yellow (#ffff00) | Help text |
+| System | Cyan (#00ffff) | System messages |
+| Command | White (#ffffff) | User commands (with green highlight) |
+
+### Print Styles
+
+When printing game transcripts:
+
+- Colors are converted to grayscale
+- Green borders become black
+- Glow effects are removed
+- Input field is hidden
+- Optimal layout for paper
+
+### Browser Compatibility
+
+The styling is tested and works on:
+
+- **Chrome/Edge**: Full support including custom scrollbars
+- **Firefox**: Full support with standard scrollbar styling
+- **Safari**: Full support with system scrollbar
+- **Mobile browsers**: Optimized touch-friendly interface
+
+### Examples
+
+See the screenshots below for examples of the Zork-style UI:
+
+**Default View:**
+![Zork Web Default View](https://github.com/user-attachments/assets/abcf04b7-6a6c-4b75-940a-5446844020b2)
+
+**With Controls Panel:**
+![Zork Web Controls Panel](https://github.com/user-attachments/assets/e79c1d4c-b9e3-43a1-ab6a-72e4d0e26bda)
+
+**Large Font Size:**
+![Zork Web Large Font](https://github.com/user-attachments/assets/88e4ab9e-fd4a-4461-b494-7bc14894b942)
+
 ## Game Commands
 
 The Zork Web application provides an interactive command-line interface through the InputComponent. Players can enter commands using the input field at the bottom of the screen.

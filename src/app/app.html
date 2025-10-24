@@ -3,35 +3,153 @@
     display: block;
     width: 100%;
     height: 100vh;
-    background-color: #1a1a1a;
+    background-color: var(--zork-background-dark);
   }
 
   .app-container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 1rem;
+    padding: var(--zork-spacing-lg);
     box-sizing: border-box;
   }
 
   .app-header {
     text-align: center;
-    color: #00ff00;
-    font-family: 'Courier New', Courier, monospace;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    color: var(--zork-primary);
+    font-family: var(--zork-font-family);
+    margin-bottom: var(--zork-spacing-lg);
+    text-shadow: var(--zork-glow-medium);
+    position: relative;
   }
 
   .app-header h1 {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 var(--zork-spacing-sm) 0;
     font-size: 2rem;
     font-weight: bold;
+    letter-spacing: 0.1em;
   }
 
   .app-header p {
     margin: 0;
     font-size: 0.9rem;
-    color: #88ff88;
+    color: var(--zork-primary-dim);
+  }
+
+  /* Controls button */
+  .controls-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: 1px solid var(--zork-primary);
+    color: var(--zork-primary);
+    padding: var(--zork-spacing-xs) var(--zork-spacing-sm);
+    font-family: var(--zork-font-family);
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: var(--zork-border-radius);
+    transition: all 0.2s ease;
+  }
+
+  .controls-toggle:hover {
+    background: var(--zork-primary);
+    color: var(--zork-background);
+    box-shadow: var(--zork-glow-subtle);
+  }
+
+  .controls-toggle:focus {
+    outline: 2px solid var(--zork-primary);
+    outline-offset: 2px;
+  }
+
+  /* Controls panel */
+  .controls-panel {
+    background: var(--zork-background);
+    border: var(--zork-border-width) solid var(--zork-primary);
+    border-radius: var(--zork-border-radius);
+    padding: var(--zork-spacing-md);
+    margin-bottom: var(--zork-spacing-sm);
+    box-shadow: var(--zork-glow-medium);
+  }
+
+  .controls-panel h3 {
+    margin: 0 0 var(--zork-spacing-sm) 0;
+    color: var(--zork-primary);
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: var(--zork-spacing-sm);
+    margin-bottom: var(--zork-spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .control-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .control-label {
+    color: var(--zork-primary-dim);
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+
+  .control-buttons {
+    display: flex;
+    gap: var(--zork-spacing-xs);
+  }
+
+  .control-btn {
+    background: transparent;
+    border: 1px solid var(--zork-primary);
+    color: var(--zork-primary);
+    padding: var(--zork-spacing-xs) var(--zork-spacing-sm);
+    font-family: var(--zork-font-family);
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: var(--zork-border-radius);
+    transition: all 0.2s ease;
+    min-width: 32px;
+  }
+
+  .control-btn:hover {
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: var(--zork-glow-subtle);
+  }
+
+  .control-btn:active {
+    background: rgba(0, 255, 0, 0.2);
+  }
+
+  .control-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .control-btn:focus {
+    outline: 2px solid var(--zork-primary);
+    outline-offset: 2px;
+  }
+
+  .font-size-indicator {
+    color: var(--zork-primary);
+    font-size: 0.85rem;
+    padding: var(--zork-spacing-xs) var(--zork-spacing-sm);
+    border: 1px solid var(--zork-primary);
+    border-radius: var(--zork-border-radius);
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .keyboard-hint {
+    color: var(--zork-primary-faint);
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-top: var(--zork-spacing-xs);
   }
 
   .console-wrapper {
@@ -39,7 +157,7 @@
     min-height: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--zork-spacing-sm);
   }
 
   @media (max-width: 768px) {
@@ -50,6 +168,42 @@
     .app-header p {
       font-size: 0.8rem;
     }
+
+    .controls-toggle {
+      position: static;
+      margin-top: var(--zork-spacing-sm);
+    }
+
+    .control-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .control-label {
+      min-width: auto;
+    }
+  }
+
+  /* Fade in/out animation for controls */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .controls-panel {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .controls-panel {
+      animation: none;
+    }
   }
 </style>
 
@@ -57,7 +211,54 @@
   <header class="app-header">
     <h1>ZORK WEB</h1>
     <p>A Text Adventure Game - Built with Angular 20</p>
+    <button
+      class="controls-toggle"
+      (click)="toggleControls()"
+      [attr.aria-expanded]="showControls()"
+      aria-label="Toggle accessibility controls"
+    >
+      {{ showControls() ? '✕ Close' : '⚙ Controls' }}
+    </button>
   </header>
+
+  @if (showControls()) {
+    <div class="controls-panel" role="region" aria-label="Accessibility controls">
+      <h3>Display Settings</h3>
+      <div class="control-group">
+        <span class="control-label">Font Size:</span>
+        <div class="control-buttons">
+          <button
+            class="control-btn"
+            (click)="decreaseFontSize()"
+            [disabled]="fontSize() === 'small'"
+            aria-label="Decrease font size"
+            title="Decrease font size (Ctrl/Cmd + -)"
+          >
+            A-
+          </button>
+          <button
+            class="control-btn"
+            (click)="increaseFontSize()"
+            [disabled]="fontSize() === 'xlarge'"
+            aria-label="Increase font size"
+            title="Increase font size (Ctrl/Cmd + +)"
+          >
+            A+
+          </button>
+          <button
+            class="control-btn"
+            (click)="setFontSize('medium')"
+            aria-label="Reset font size to medium"
+            title="Reset font size (Ctrl/Cmd + 0)"
+          >
+            Reset
+          </button>
+        </div>
+        <span class="font-size-indicator" aria-live="polite">{{ getFontSizeLabel() }}</span>
+      </div>
+      <div class="keyboard-hint">Keyboard shortcuts: Ctrl/Cmd + (+/-/0) to adjust font size</div>
+    </div>
+  }
 
   <div class="console-wrapper">
     <app-console />
