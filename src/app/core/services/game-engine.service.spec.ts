@@ -28,7 +28,7 @@ describe('GameEngineService', () => {
   describe('player state', () => {
     it('should initialize with default player state', () => {
       const player = service.player();
-      expect(player.currentRoomId).toBe('start');
+      expect(player.currentRoomId).toBe('west-of-house');
       expect(player.inventory).toEqual([]);
       expect(player.score).toBe(0);
       expect(player.moveCount).toBe(0);
@@ -205,7 +205,7 @@ describe('GameEngineService', () => {
 
       // Verify reset
       const player = service.player();
-      expect(player.currentRoomId).toBe('start');
+      expect(player.currentRoomId).toBe('west-of-house');
       expect(player.moveCount).toBe(0);
       expect(service.output().length).toBeGreaterThan(0);
     });
@@ -248,7 +248,7 @@ describe('GameEngineService', () => {
         description: 'A brass lamp',
         portable: true,
         visible: true,
-        location: 'start',
+        location: 'west-of-house',
       };
 
       service.addObject(obj);
