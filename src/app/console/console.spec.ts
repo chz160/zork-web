@@ -1,24 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Console } from './console';
-import { GameEngineService } from '../core/services/game-engine.service';
-import { signal } from '@angular/core';
+import { GameService } from '../core/services/game.service';
+import { BehaviorSubject } from 'rxjs';
 
 describe('Console', () => {
   let component: Console;
   let fixture: ComponentFixture<Console>;
-  let mockGameEngine: jasmine.SpyObj<GameEngineService>;
-  let outputSignal: ReturnType<typeof signal<string[]>>;
+  let mockGameService: jasmine.SpyObj<GameService>;
+  let outputSubject: BehaviorSubject<string[]>;
 
   beforeEach(async () => {
-    // Create a mock GameEngineService with signal support
-    outputSignal = signal<string[]>([]);
-    mockGameEngine = jasmine.createSpyObj('GameEngineService', [], {
-      output: outputSignal.asReadonly(),
+    // Create a mock GameService with observable support
+    outputSubject = new BehaviorSubject<string[]>([]);
+    mockGameService = jasmine.createSpyObj('GameService', ['initializeGame', 'submitCommand'], {
+      output$: outputSubject.asObservable(),
     });
 
     await TestBed.configureTestingModule({
       imports: [Console],
-      providers: [{ provide: GameEngineService, useValue: mockGameEngine }],
+      providers: [{ provide: GameService, useValue: mockGameService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Console);
@@ -39,8 +39,8 @@ describe('Console', () => {
     });
 
     it('should render console lines from game engine output', () => {
-      // Update the mock output signal
-      outputSignal.set(['Welcome to Zork!', 'You are standing west of a white house.']);
+      // Update the output observable
+      outputSubject.next(['Welcome to Zork!', 'You are standing west of a white house.']);
       fixture.detectChanges();
 
       const lines = fixture.nativeElement.querySelectorAll('.console-line');
@@ -50,7 +50,7 @@ describe('Console', () => {
     });
 
     it('should render lines with prompts', () => {
-      outputSignal.set(['Test message']);
+      outputSubject.next(['Test message']);
       fixture.detectChanges();
 
       const prompt = fixture.nativeElement.querySelector('.console-prompt');
@@ -58,7 +58,7 @@ describe('Console', () => {
     });
 
     it('should apply correct CSS classes based on line type', () => {
-      outputSignal.set(["I don't understand that.", 'Taken.']);
+      outputSubject.next(["I don't understand that.", 'Taken.']);
       fixture.detectChanges();
 
       const lines = fixture.nativeElement.querySelectorAll('.console-line');
@@ -109,7 +109,7 @@ describe('Console', () => {
     });
 
     it('should handle scroll events', () => {
-      outputSignal.set(['Line 1', 'Line 2', 'Line 3']);
+      outputSubject.next(['Line 1', 'Line 2', 'Line 3']);
       fixture.detectChanges();
 
       component.onScroll();
@@ -130,7 +130,7 @@ describe('Console', () => {
     });
 
     it('should announce total lines count', () => {
-      outputSignal.set(['Line 1', 'Line 2']);
+      outputSubject.next(['Line 1', 'Line 2']);
       fixture.detectChanges();
 
       const output = fixture.nativeElement.querySelector('.console-output');

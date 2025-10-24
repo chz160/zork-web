@@ -1,35 +1,27 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Input } from './input';
-import { GameEngineService } from '../core/services/game-engine.service';
-import { CommandParserService } from '../core/services/command-parser.service';
-import { signal } from '@angular/core';
-import { ParserResult } from '../core/models';
+import { GameService } from '../core/services/game.service';
+import { BehaviorSubject } from 'rxjs';
 
 describe('Input', () => {
   let component: Input;
   let fixture: ComponentFixture<Input>;
-  let mockGameEngine: jasmine.SpyObj<GameEngineService>;
-  let mockCommandParser: jasmine.SpyObj<CommandParserService>;
+  let mockGameService: jasmine.SpyObj<GameService>;
 
   beforeEach(async () => {
-    // Create mock services
-    const outputSignal = signal<string[]>([]);
-    mockGameEngine = jasmine.createSpyObj(
-      'GameEngineService',
-      ['executeCommand', 'initializeGame'],
+    // Create mock GameService
+    const outputSubject = new BehaviorSubject<string[]>([]);
+    mockGameService = jasmine.createSpyObj(
+      'GameService',
+      ['submitCommand', 'initializeGame', 'resetGame'],
       {
-        output: outputSignal.asReadonly(),
+        output$: outputSubject.asObservable(),
       }
     );
 
-    mockCommandParser = jasmine.createSpyObj('CommandParserService', ['parse']);
-
     await TestBed.configureTestingModule({
       imports: [Input],
-      providers: [
-        { provide: GameEngineService, useValue: mockGameEngine },
-        { provide: CommandParserService, useValue: mockCommandParser },
-      ],
+      providers: [{ provide: GameService, useValue: mockGameService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Input);
@@ -83,16 +75,6 @@ describe('Input', () => {
 
   describe('Command Submission', () => {
     it('should submit command on Enter key press', () => {
-      const mockParserResult: ParserResult = {
-        isValid: true,
-        verb: 'look',
-        directObject: null,
-        preposition: null,
-        indirectObject: null,
-        rawInput: 'look',
-      };
-      mockCommandParser.parse.and.returnValue(mockParserResult);
-
       // Set a command
       component.currentCommand.set('look');
       fixture.detectChanges();
@@ -100,8 +82,7 @@ describe('Input', () => {
       // Submit
       component.onSubmit();
 
-      expect(mockCommandParser.parse).toHaveBeenCalledWith('look');
-      expect(mockGameEngine.executeCommand).toHaveBeenCalledWith(mockParserResult);
+      expect(mockGameService.submitCommand).toHaveBeenCalledWith('look');
       expect(component.currentCommand()).toBe('');
     });
 
@@ -109,46 +90,24 @@ describe('Input', () => {
       component.currentCommand.set('');
       component.onSubmit();
 
-      expect(mockCommandParser.parse).not.toHaveBeenCalled();
-      expect(mockGameEngine.executeCommand).not.toHaveBeenCalled();
+      expect(mockGameService.submitCommand).not.toHaveBeenCalled();
     });
 
     it('should not submit whitespace-only command', () => {
       component.currentCommand.set('   ');
       component.onSubmit();
 
-      expect(mockCommandParser.parse).not.toHaveBeenCalled();
-      expect(mockGameEngine.executeCommand).not.toHaveBeenCalled();
+      expect(mockGameService.submitCommand).not.toHaveBeenCalled();
     });
 
     it('should trim command before submission', () => {
-      const mockParserResult: ParserResult = {
-        isValid: true,
-        verb: 'look',
-        directObject: null,
-        preposition: null,
-        indirectObject: null,
-        rawInput: 'look',
-      };
-      mockCommandParser.parse.and.returnValue(mockParserResult);
-
       component.currentCommand.set('  look  ');
       component.onSubmit();
 
-      expect(mockCommandParser.parse).toHaveBeenCalledWith('look');
+      expect(mockGameService.submitCommand).toHaveBeenCalledWith('look');
     });
 
     it('should clear input after submission', () => {
-      const mockParserResult: ParserResult = {
-        isValid: true,
-        verb: 'look',
-        directObject: null,
-        preposition: null,
-        indirectObject: null,
-        rawInput: 'look',
-      };
-      mockCommandParser.parse.and.returnValue(mockParserResult);
-
       component.currentCommand.set('look');
       component.onSubmit();
 
@@ -157,19 +116,6 @@ describe('Input', () => {
   });
 
   describe('Command History', () => {
-    beforeEach(() => {
-      // Setup mock parser
-      const mockParserResult: ParserResult = {
-        isValid: true,
-        verb: 'look',
-        directObject: null,
-        preposition: null,
-        indirectObject: null,
-        rawInput: 'look',
-      };
-      mockCommandParser.parse.and.returnValue(mockParserResult);
-    });
-
     it('should add commands to history on submission', () => {
       component.currentCommand.set('look');
       component.onSubmit();
@@ -379,16 +325,6 @@ describe('Input', () => {
     });
 
     it('should maintain focus after command submission', (done) => {
-      const mockParserResult: ParserResult = {
-        isValid: true,
-        verb: 'look',
-        directObject: null,
-        preposition: null,
-        indirectObject: null,
-        rawInput: 'look',
-      };
-      mockCommandParser.parse.and.returnValue(mockParserResult);
-
       const inputElement = fixture.nativeElement.querySelector(
         '.command-input'
       ) as HTMLInputElement;

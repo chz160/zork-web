@@ -326,6 +326,118 @@ class GameEngineService {
 }
 ```
 
+#### GameService (UI Bridge)
+
+The `GameService` provides a reactive bridge between UI components and the GameEngine, exposing RxJS observables for real-time state updates. This service implements a facade pattern, making it easy for components to subscribe to game state changes.
+
+**Key Features:**
+- RxJS observables for reactive state management
+- Automatic bridging from Angular signals to RxJS streams
+- Command submission with integrated parsing
+- Real-time output streaming to UI components
+- Player and room state updates via observables
+
+**Public API:**
+
+```typescript
+class GameService {
+  // Observable streams for reactive UI updates
+  readonly output$: Observable<string[]>;
+  readonly player$: Observable<Player | null>;
+  readonly currentRoom$: Observable<Room | null>;
+  readonly commandOutput$: Observable<CommandOutput>;
+
+  // Initialization
+  initializeGame(): void;
+  resetGame(): void;
+
+  // Command submission (includes parsing)
+  submitCommand(input: string): void;
+
+  // Getter methods for one-time access
+  getPlayer(): Observable<Player | null>;
+  getCurrentRoom(): Observable<Room | null>;
+  getOutput(): Observable<string[]>;
+}
+```
+
+**Integration Example:**
+
+```typescript
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { GameService } from './core/services/game.service';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-game',
+  template: `
+    <div class="game-container">
+      <app-console />
+      <app-input />
+    </div>
+  `,
+})
+export class GameComponent implements OnInit, OnDestroy {
+  private subscriptions = new Subscription();
+
+  constructor(private gameService: GameService) {}
+
+  ngOnInit() {
+    // Initialize the game
+    this.gameService.initializeGame();
+
+    // Subscribe to game output
+    this.subscriptions.add(
+      this.gameService.output$.subscribe(messages => {
+        console.log('Game output:', messages);
+      })
+    );
+
+    // Subscribe to player state changes
+    this.subscriptions.add(
+      this.gameService.player$.subscribe(player => {
+        console.log('Player location:', player?.currentRoomId);
+        console.log('Score:', player?.score);
+      })
+    );
+
+    // Subscribe to command results
+    this.subscriptions.add(
+      this.gameService.commandOutput$.subscribe(output => {
+        if (output.success) {
+          console.log('Command succeeded:', output.messages);
+        } else {
+          console.error('Command failed:', output.messages);
+        }
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
+
+  // Submit a command
+  onCommand(input: string) {
+    this.gameService.submitCommand(input);
+  }
+}
+```
+
+**UI Component Integration:**
+
+The ConsoleComponent and InputComponent are connected to the GameService via RxJS observables:
+
+- **ConsoleComponent**: Subscribes to `output$` to display game messages in real-time
+- **InputComponent**: Uses `submitCommand()` to send player commands to the engine
+- **State Updates**: Both components automatically update when observables emit new values
+
+This reactive architecture ensures that:
+1. Commands flow from input → parser → engine → output
+2. State changes are immediately reflected in the UI
+3. Components remain decoupled from game logic
+4. Testing is straightforward with observable mocking
+
 **CommandOutput Interface:**
 
 The `executeCommand` method returns a `CommandOutput` object with structured information:
