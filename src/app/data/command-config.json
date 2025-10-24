@@ -66,5 +66,12 @@
     "rope": ["cord", "line", "string"],
     "book": ["tome", "volume", "manual"],
     "bottle": ["flask", "vial", "container"]
+  },
+  "parserSettings": {
+    "fuzzyMatchThreshold": 0.7,
+    "autoCorrectThreshold": 0.85,
+    "maxDisambiguationCandidates": 5,
+    "multiCommandSeparators": ["and", "then", ","],
+    "multiCommandPolicy": "best-effort"
   }
 }
