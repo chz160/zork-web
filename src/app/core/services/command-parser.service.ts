@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ParserResult, Verb, VerbType } from '../models';
-import synonymsData from '../../data/synonyms.json';
+import commandConfigData from '../../data/command-config.json';
 
 /**
  * Configuration for phrasal verbs loaded from synonyms.json
@@ -11,15 +11,27 @@ interface PhrasalVerbConfig {
 }
 
 /**
- * Synonyms configuration loaded from data file
+ * Parser settings for thresholds and behaviors
  */
-interface SynonymsConfig {
+interface ParserSettings {
+  fuzzyMatchThreshold: number;
+  autoCorrectThreshold: number;
+  maxDisambiguationCandidates: number;
+  multiCommandSeparators: string[];
+  multiCommandPolicy: string;
+}
+
+/**
+ * Command configuration loaded from data file
+ */
+interface CommandConfig {
   verbs: Record<string, string[]>;
   phrasalVerbs: Record<string, PhrasalVerbConfig>;
   pronouns: string[];
   determiners: string[];
   prepositions: string[];
   objectAliases: Record<string, string[]>;
+  parserSettings: ParserSettings;
 }
 
 /**
@@ -50,25 +62,30 @@ interface SynonymsConfig {
   providedIn: 'root',
 })
 export class CommandParserService {
-  /** Loaded synonyms configuration */
-  private readonly synonyms: SynonymsConfig = synonymsData;
+  /** Loaded command configuration */
+  private readonly config: CommandConfig = commandConfigData;
 
   /** Last referenced object for pronoun resolution */
   private lastReferencedObject: string | null = null;
 
   /** Common prepositions used in Zork commands - loaded from config */
   private get prepositions(): Set<string> {
-    return new Set(this.synonyms.prepositions);
+    return new Set(this.config.prepositions);
   }
 
   /** Articles and noise words to filter out - loaded from config */
   private get noiseWords(): Set<string> {
-    return new Set(this.synonyms.determiners);
+    return new Set(this.config.determiners);
   }
 
   /** Pronouns for context resolution - loaded from config */
   private get pronouns(): Set<string> {
-    return new Set(this.synonyms.pronouns);
+    return new Set(this.config.pronouns);
+  }
+
+  /** Parser settings for thresholds and behaviors */
+  get settings(): ParserSettings {
+    return this.config.parserSettings;
   }
 
   /** Map of verbs with their configurations */
@@ -451,7 +468,7 @@ export class CommandParserService {
     // Try matching 3-word phrasal verbs first, then 2-word
     for (let len = Math.min(3, tokens.length); len >= 2; len--) {
       const phrase = tokens.slice(0, len).join(' ').toLowerCase();
-      const config = this.synonyms.phrasalVerbs[phrase];
+      const config = this.config.phrasalVerbs[phrase];
 
       if (config) {
         return {

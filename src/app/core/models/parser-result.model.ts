@@ -1,6 +1,23 @@
 import { VerbType } from './verb.model';
 
 /**
+ * A candidate object for disambiguation
+ */
+export interface ObjectCandidate {
+  /** The object identifier */
+  id: string;
+
+  /** Display name for the object */
+  displayName: string;
+
+  /** Similarity score (0-1) */
+  score: number;
+
+  /** Additional context for disambiguation */
+  context?: string;
+}
+
+/**
  * Result of parsing a player's command input.
  */
 export interface ParserResult {
@@ -30,4 +47,16 @@ export interface ParserResult {
 
   /** Tokenized input for debugging */
   tokens?: string[];
+
+  /** Candidate objects for disambiguation (when multiple matches found) */
+  candidates?: ObjectCandidate[];
+
+  /** Whether disambiguation is required */
+  needsDisambiguation?: boolean;
+
+  /** Autocorrect suggestion with high confidence */
+  autoCorrectSuggestion?: string;
+
+  /** Original score of fuzzy match (for telemetry) */
+  fuzzyMatchScore?: number;
 }
