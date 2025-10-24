@@ -1238,7 +1238,7 @@ export class GameEngineService {
       messages.push(room.description);
     }
 
-    // List visible portable objects in the room (canonical Zork shows portable items with LDESC)
+    // List visible portable objects in the room using their long descriptions
     // Fixed/scenery objects are typically mentioned in the room description itself
     const roomObjects = Array.from(this.gameObjects().values()).filter(
       (obj) => obj.location === room.id && obj.visible && obj.portable
