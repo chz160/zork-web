@@ -577,9 +577,12 @@ engine.addObject({
 
 #### CommandParser Service
 
-The `CommandParserService` handles natural language parsing of player commands into structured actions.
+The `CommandParserService` handles natural language parsing of player commands into structured actions with support for conversational, flexible input.
 
 **Features:**
+- **Conversational Input**: Supports phrasal verbs like "look in", "pick up", "turn on"
+- **Pronoun Resolution**: Use "it", "them", "that" to refer to recently mentioned objects
+- **Data-Driven Configuration**: Synonyms and phrasal verbs defined in JSON for easy extension
 - **Tokenization**: Breaks down raw input into meaningful tokens
 - **Verb-Noun-Prep-Noun Grammar**: Supports complex command structures like "put lamp in mailbox"
 - **Noise Word Filtering**: Automatically removes articles (a, an, the) and other filler words
@@ -587,6 +590,9 @@ The `CommandParserService` handles natural language parsing of player commands i
 - **Direction Shortcuts**: Handles abbreviated directions (n, s, e, w, etc.)
 - **Error Handling**: Provides clear error messages for invalid commands
 - **Preposition Support**: Handles complex interactions with indirect objects
+- **Backward Compatible**: All original commands continue to work
+
+> 📖 **See [Conversational Parser Documentation](docs/CONVERSATIONAL-PARSER.md) for complete details on phrasal verbs, pronouns, and natural language support.**
 
 **Supported Command Patterns:**
 
@@ -617,9 +623,27 @@ The `CommandParserService` handles natural language parsing of player commands i
    southeast (or se)
    ```
 
+5. **Phrasal Verbs** (NEW!)
+   ```
+   look in mailbox
+   pick up lamp
+   turn on lamp
+   put down sword
+   ```
+
+6. **Pronouns** (NEW!)
+   ```
+   examine mailbox
+   open it
+   look in it
+   take it
+   ```
+
 **API Methods:**
 
 - `parse(rawInput: string): ParserResult` - Parse raw user input into a structured command
+- `setLastReferencedObject(objectName: string | null): void` - Update context for pronoun resolution
+- `getLastReferencedObject(): string | null` - Get current context
 - `getAvailableVerbs(): Verb[]` - Get list of all recognized verbs with descriptions
 - `isVerb(word: string): boolean` - Check if a word is a recognized verb or alias
 - `isDirection(word: string): boolean` - Check if a word is a recognized direction
@@ -641,9 +665,14 @@ parseCommand(input: string) {
     console.log('Direct Object:', result.directObject);
     console.log('Preposition:', result.preposition);
     console.log('Indirect Object:', result.indirectObject);
+    console.log('Tokens:', result.tokens);
   } else {
     // Show error to user
     console.error(result.errorMessage);
+    // Optionally show suggestions
+    if (result.suggestions) {
+      console.log('Did you mean:', result.suggestions);
+    }
   }
 }
 ```
