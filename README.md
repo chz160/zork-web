@@ -600,6 +600,104 @@ The converted game data is automatically loaded when the game engine initializes
 
 See `src/app/core/services/game-engine-integration.spec.ts` for sample integration tests demonstrating data-driven gameplay.
 
+## Console UI Component
+
+The ConsoleComponent provides a classic DOS-style terminal interface for displaying game output. It features a retro green-on-black aesthetic reminiscent of classic text adventure games.
+
+### Features
+
+- **Real-time Output Display**: Renders game output chronologically as it's produced by the GameEngine
+- **Auto-scroll**: Automatically scrolls to the latest output, with smart scroll detection (disables when user scrolls up)
+- **Semantic Styling**: Different output types (errors, success, descriptions) are color-coded for clarity
+- **Responsive Design**: Adapts to different screen sizes with appropriate font sizes and padding
+- **Accessibility**: Full ARIA support with live regions, keyboard navigation, and screen reader announcements
+- **Classic Terminal Aesthetics**: 
+  - Green phosphor glow effect
+  - Monospace font (Courier New)
+  - Custom scrollbar styling
+  - Smooth animations and transitions
+
+### Usage
+
+Import and use the console in your Angular component:
+
+```typescript
+import { Console } from './console/console';
+import { GameEngineService } from './core/services/game-engine.service';
+
+@Component({
+  selector: 'app-game',
+  imports: [Console],
+  template: `
+    <div class="game-container">
+      <app-console />
+    </div>
+  `,
+})
+export class GameComponent implements OnInit {
+  private gameEngine = inject(GameEngineService);
+
+  ngOnInit() {
+    this.gameEngine.initializeGame();
+  }
+}
+```
+
+The ConsoleComponent automatically subscribes to the GameEngine's output signal and displays all game messages.
+
+### Styling
+
+The console features color-coded output types:
+
+- **Info** (default): Standard green (#00ff00)
+- **Error**: Red (#ff4444) with glow effect
+- **Success**: Bright green (#44ff44) with glow effect
+- **Description**: Light green (#88ff88) with italic text
+- **Help**: Yellow (#ffff00) with glow effect
+- **System**: Cyan (#00ffff) for system messages
+
+### Keyboard Navigation
+
+When the console output area is focused:
+
+- **Scroll Wheel**: Scroll through output
+- **Page Up/Down**: Jump through pages of output
+- **Home/End**: Jump to top/bottom of output
+- **Tab**: Focus the console for keyboard scrolling
+
+### Accessibility Features
+
+- **ARIA Live Region**: Screen readers announce new output as it appears
+- **Keyboard Focusable**: Output area can be focused for keyboard scrolling
+- **High Contrast Support**: Increased border width and font weight in high contrast mode
+- **Reduced Motion Support**: Animations disabled when user prefers reduced motion
+- **Semantic Markup**: Proper roles and labels for assistive technology
+
+### Responsive Behavior
+
+The console adapts to different screen sizes:
+
+- **Desktop** (>768px): 14px font, full padding, 2px border
+- **Tablet** (≤768px): 12px font, reduced padding, 1px border  
+- **Mobile** (≤480px): 11px font, minimal padding
+
+### Testing
+
+The ConsoleComponent includes comprehensive unit tests covering:
+
+- Rendering of game output
+- Empty state handling
+- Scroll behavior and auto-scroll logic
+- Line type inference and styling
+- Accessibility features (ARIA attributes, keyboard support)
+- Responsive design behavior
+
+Run the console tests with:
+
+```bash
+npm test -- --include='**/console.spec.ts' --no-watch --browsers=ChromeHeadless
+```
+
 ## Game Commands
 
 Once the game is implemented, the following commands will be available:
