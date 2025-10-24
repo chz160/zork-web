@@ -8,9 +8,11 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  OnDestroy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GameEngineService } from '../core/services/game-engine.service';
+import { GameService } from '../core/services/game.service';
+import { Subscription } from 'rxjs';
 
 /**
  * Console interface representing a line of output with metadata.
@@ -24,7 +26,7 @@ export interface ConsoleLine {
 /**
  * ConsoleComponent displays game engine output chronologically.
  * Features:
- * - Renders game output with semantic styling
+ * - Renders game output with semantic styling via GameService observables
  * - Auto-scrolls to latest output
  * - Displays command history
  * - Responsive and accessible
@@ -48,8 +50,9 @@ export interface ConsoleLine {
   styleUrl: './console.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Console implements AfterViewInit {
-  private readonly gameEngine = inject(GameEngineService);
+export class Console implements AfterViewInit, OnDestroy {
+  private readonly gameService = inject(GameService);
+  private readonly subscriptions = new Subscription();
 
   /** Reference to scrollable output container for auto-scroll */
   @ViewChild('outputContainer') outputContainer?: ElementRef<HTMLDivElement>;
@@ -64,23 +67,30 @@ export class Console implements AfterViewInit {
   readonly totalLines = computed(() => this.consoleLines().length);
 
   /**
-   * Effect to watch for new game output and convert to console lines.
+   * Subscribe to GameService output observable for real-time updates.
    */
   constructor() {
-    effect(() => {
-      const output = this.gameEngine.output();
-      const lines: ConsoleLine[] = output.map((text) => ({
-        text,
-        type: this.inferLineType(text),
-        timestamp: new Date(),
-      }));
-      this.consoleLines.set(lines);
-    });
+    // Subscribe to output stream from GameService
+    this.subscriptions.add(
+      this.gameService.output$.subscribe((output) => {
+        const lines: ConsoleLine[] = output.map((text) => ({
+          text,
+          type: this.inferLineType(text),
+          timestamp: new Date(),
+        }));
+        this.consoleLines.set(lines);
+      })
+    );
   }
 
   ngAfterViewInit(): void {
     // Initial scroll to bottom
     this.scrollToBottom();
+  }
+
+  ngOnDestroy(): void {
+    // Clean up subscriptions
+    this.subscriptions.unsubscribe();
   }
 
   /**

@@ -2,7 +2,7 @@ import { Component, signal, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Console } from './console/console';
 import { Input } from './input/input';
-import { GameEngineService } from './core/services/game-engine.service';
+import { GameService } from './core/services/game.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,10 @@ import { GameEngineService } from './core/services/game-engine.service';
 })
 export class App implements OnInit {
   protected readonly title = signal('zork-web');
-  private readonly gameEngine = inject(GameEngineService);
+  private readonly gameService = inject(GameService);
 
   ngOnInit(): void {
-    // Initialize the game engine
-    this.gameEngine.initializeGame();
+    // Initialize the game via GameService
+    this.gameService.initializeGame();
   }
 }

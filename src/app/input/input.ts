@@ -9,13 +9,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { GameEngineService } from '../core/services/game-engine.service';
-import { CommandParserService } from '../core/services/command-parser.service';
+import { GameService } from '../core/services/game.service';
 
 /**
  * InputComponent allows players to enter commands to the game engine.
  * Features:
- * - Command submission with Enter key
+ * - Command submission with Enter key via GameService
  * - Command history navigation with Up/Down arrow keys
  * - Focus management for accessibility
  * - Mobile-friendly layout with responsive design
@@ -40,8 +39,7 @@ import { CommandParserService } from '../core/services/command-parser.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Input implements AfterViewInit {
-  private readonly gameEngine = inject(GameEngineService);
-  private readonly commandParser = inject(CommandParserService);
+  private readonly gameService = inject(GameService);
 
   /** Reference to the input field for focus management */
   @ViewChild('commandInput') commandInput?: ElementRef<HTMLInputElement>;
@@ -96,9 +94,8 @@ export class Input implements AfterViewInit {
       this.commandHistory.set(newHistory);
     }
 
-    // Parse and execute the command
-    const parserResult = this.commandParser.parse(command);
-    this.gameEngine.executeCommand(parserResult);
+    // Submit command via GameService (handles parsing and execution)
+    this.gameService.submitCommand(command);
 
     // Clear input and reset history navigation
     this.currentCommand.set('');
