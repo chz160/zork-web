@@ -953,8 +953,8 @@
       "id": "mailbox",
       "name": "small mailbox",
       "aliases": ["mailbox", "box", "small mailbox", "small box"],
-      "description": "small mailbox",
-      "portable": true,
+      "description": "A small mailbox is here.",
+      "portable": false,
       "visible": true,
       "location": "west-of-house",
       "properties": {

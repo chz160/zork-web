@@ -3,10 +3,12 @@
     {
       "id": "west-of-house",
       "name": "West Of House",
-      "description": "West of House",
+      "description": "You are standing in an open field west of a white house, with a boarded front door. There is a small mailbox here.",
       "shortDescription": "West of House",
       "exits": {
-        "east": "thedoorisboardedandyoucantremovetheboards"
+        "north": "north-of-house",
+        "south": "south-of-house",
+        "east": "east-of-house"
       },
       "objectIds": [],
       "visited": false,
