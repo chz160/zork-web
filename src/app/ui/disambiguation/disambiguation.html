@@ -1,0 +1,55 @@
+@if (isVisible()) {
+  <div class="disambiguation-overlay" role="presentation" (click)="cancel()"></div>
+  <div
+    #dialogContainer
+    class="disambiguation-dialog"
+    role="dialog"
+    [attr.aria-label]="getAriaLabel()"
+    aria-modal="true"
+    tabindex="-1"
+    (keydown)="onKeyDown($event)"
+  >
+    <div class="disambiguation-header">
+      <h2 class="disambiguation-prompt">{{ prompt() }}</h2>
+      <button
+        class="disambiguation-close"
+        type="button"
+        aria-label="Cancel disambiguation"
+        (click)="cancel()"
+      >
+        ×
+      </button>
+    </div>
+
+    <ul class="disambiguation-list" role="listbox">
+      @for (candidate of getDisplayCandidates(); track trackByIndex($index); let i = $index) {
+        <li
+          class="disambiguation-item"
+          role="option"
+          [attr.aria-label]="candidate.displayName + ' - ' + getContextDescription(candidate)"
+          tabindex="0"
+          (click)="selectCandidate(candidate)"
+          (keydown.enter)="selectCandidate(candidate)"
+          (keydown.space)="selectCandidate(candidate)"
+        >
+          <span class="disambiguation-number">{{ i + 1 }}</span>
+          <div class="disambiguation-details">
+            <span class="disambiguation-name">{{ candidate.displayName }}</span>
+            <span class="disambiguation-context">{{ getContextDescription(candidate) }}</span>
+          </div>
+          @if (candidate.score !== undefined) {
+            <span class="disambiguation-score"
+              >{{ (candidate.score * 100).toFixed(0) }}% match</span
+            >
+          }
+        </li>
+      }
+    </ul>
+
+    <div class="disambiguation-footer">
+      <p class="disambiguation-hint">
+        Press 1-{{ getDisplayCandidates().length }} to select, or Esc to cancel
+      </p>
+    </div>
+  </div>
+}

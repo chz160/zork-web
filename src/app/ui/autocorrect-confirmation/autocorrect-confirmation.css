@@ -1,0 +1,200 @@
+/* Autocorrect Confirmation Styles */
+
+.autocorrect-confirmation {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
+  border: 2px solid #ffaa00;
+  border-radius: 6px;
+  padding: 1rem;
+  max-width: 600px;
+  width: 90%;
+  z-index: 900;
+  animation: slideUp 0.3s ease-out;
+  box-shadow: 0 8px 32px rgba(255, 170, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.autocorrect-confirmation:focus {
+  outline: 2px solid #ffaa00;
+  outline-offset: 2px;
+}
+
+.autocorrect-icon {
+  color: #ffaa00;
+  flex-shrink: 0;
+}
+
+.autocorrect-icon svg {
+  display: block;
+}
+
+.autocorrect-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.autocorrect-message {
+  margin: 0 0 0.25rem 0;
+  color: #00ff00;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.autocorrect-suggestion {
+  color: #00ff00;
+  font-weight: bold;
+  background-color: rgba(0, 255, 0, 0.1);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+}
+
+.autocorrect-original {
+  margin: 0;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.autocorrect-input {
+  color: #ff6666;
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.autocorrect-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.autocorrect-button {
+  background-color: #0a0a0a;
+  border: 1px solid #ffaa00;
+  border-radius: 4px;
+  color: #ffaa00;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.autocorrect-button:hover,
+.autocorrect-button:focus {
+  background-color: rgba(255, 170, 0, 0.2);
+  border-color: #ffcc00;
+  outline: none;
+  transform: scale(1.05);
+}
+
+.autocorrect-button:active {
+  transform: scale(0.95);
+}
+
+.autocorrect-button--accept:hover,
+.autocorrect-button--accept:focus {
+  background-color: rgba(0, 255, 0, 0.2);
+  border-color: #00ff00;
+  color: #00ff00;
+}
+
+.autocorrect-button--reject:hover,
+.autocorrect-button--reject:focus {
+  background-color: rgba(255, 100, 100, 0.2);
+  border-color: #ff6666;
+  color: #ff6666;
+}
+
+.autocorrect-button-key {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.autocorrect-confidence {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  color: #666;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+/* Animations */
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+  .autocorrect-confirmation {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .autocorrect-icon {
+    display: none;
+  }
+
+  .autocorrect-message {
+    font-size: 0.9rem;
+  }
+
+  .autocorrect-original {
+    font-size: 0.75rem;
+  }
+
+  .autocorrect-actions {
+    justify-content: stretch;
+  }
+
+  .autocorrect-button {
+    flex: 1;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Accessibility - High Contrast Mode */
+
+@media (prefers-contrast: high) {
+  .autocorrect-confirmation {
+    border-width: 3px;
+  }
+
+  .autocorrect-button {
+    border-width: 2px;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .autocorrect-confirmation {
+    animation: none;
+  }
+
+  .autocorrect-button:hover,
+  .autocorrect-button:focus {
+    transform: none;
+  }
+
+  .autocorrect-button:active {
+    transform: none;
+  }
+}
