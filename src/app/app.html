@@ -264,6 +264,27 @@
     <app-console />
     <app-input />
   </div>
+
+  <!-- Disambiguation UI -->
+  @if (disambiguationCandidates()) {
+    <app-disambiguation
+      [candidates]="disambiguationCandidates()!"
+      [prompt]="disambiguationPrompt()"
+      (selected)="onDisambiguationSelected($event)"
+      (cancelled)="onDisambiguationCancelled()"
+    />
+  }
+
+  <!-- Autocorrect Confirmation UI -->
+  @if (autocorrectOriginalInput()) {
+    <app-autocorrect-confirmation
+      [originalInput]="autocorrectOriginalInput()"
+      [suggestion]="autocorrectSuggestion()"
+      [confidence]="autocorrectConfidence()"
+      (accepted)="onAutocorrectAccepted()"
+      (rejected)="onAutocorrectRejected()"
+    />
+  }
 </div>
 
 <router-outlet />
