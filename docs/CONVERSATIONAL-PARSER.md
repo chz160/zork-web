@@ -4,7 +4,104 @@ The Zork Web command parser has been enhanced to support natural, conversational
 
 ## Features
 
-### 1. Phrasal Verb Support
+### 1. Fuzzy Matching for Verbs and Objects
+
+The parser now uses fuzzy string matching to handle typos and provide helpful suggestions:
+
+**Verb Fuzzy Matching:**
+- Auto-corrects typos with high confidence (≥85% similarity)
+- Suggests corrections for medium confidence matches (≥70% similarity)
+- Provides alternatives when no good match is found
+
+**Examples:**
+- `tak lamp` → auto-corrects to `take lamp` (high confidence)
+- `examin mailbox` → auto-corrects to `examine mailbox`
+- `graab` → suggests `grab`, `get`, `take`
+
+**Object Fuzzy Matching:**
+- Uses ObjectResolverService to find objects with typos
+- Ranks matches by context (room objects > inventory > other objects)
+- Handles aliases and partial matches
+
+**Configuration:** (in `command-config.json`)
+```json
+{
+  "parserSettings": {
+    "fuzzyMatchThreshold": 0.7,        // Minimum similarity to consider
+    "autoCorrectThreshold": 0.85,      // Auto-accept above this score
+    "maxDisambiguationCandidates": 5   // Max suggestions to show
+  }
+}
+```
+
+### 2. Multi-Command Support
+
+Players can chain multiple commands together using natural conjunctions:
+
+**Supported Separators:**
+- `and` - Execute commands sequentially
+- `then` - Execute commands in order
+- `,` - Execute commands one after another
+
+**Examples:**
+- `open mailbox and take leaflet` → opens mailbox, then takes leaflet
+- `go north, look around` → moves north, then looks
+- `take lamp and light it` → takes lamp, then lights it
+- `open door then go north then look` → multiple chained commands
+
+**Execution Policies:**
+- **best-effort** (default): Execute all commands, even if one fails
+- **fail-fast**: Stop at first error
+
+**Game State Propagation:**
+Multi-commands execute sequentially, with each command seeing the effects of previous commands. This allows for realistic sequences like:
+- `open mailbox and take leaflet` - can't take leaflet until mailbox is opened
+- `take lamp and light it` - must take lamp before lighting
+
+**Configuration:** (in `command-config.json`)
+```json
+{
+  "parserSettings": {
+    "multiCommandSeparators": ["and", "then", ","],
+    "multiCommandPolicy": "best-effort"
+  }
+}
+```
+
+### 3. Object Disambiguation
+
+When multiple objects match a query, the parser presents candidates for selection:
+
+**Examples:**
+- `take lamp` (when 2+ lamps present) → lists candidates with context
+- `take 2nd lamp` → selects the second lamp from the list (ordinal selection)
+- `take brass lamp` → uses descriptive words to narrow down
+
+**Ordinal Selection:**
+- `1st coin`, `2nd coin`, `3rd coin` - numeric ordinals
+- `first lamp`, `second lamp`, `third lamp` - word ordinals
+
+### 4. Telemetry and Analytics
+
+All parser interactions are logged for analysis and improvement:
+
+**Events Logged:**
+- `parse_success` / `parse_failure` - command parsing outcomes
+- `fuzzy_match` - fuzzy matching attempts with scores
+- `autocorrect_suggestion` - suggestions offered to player
+- `autocorrect_accepted` - when fuzzy match is accepted
+- `disambiguation_shown` - when multiple candidates are presented
+- `disambiguation_selected` - player's choice from candidates
+- `multi_command` - multi-command execution metadata
+- `ordinal_selection` - ordinal-based object selection
+
+**Use Cases:**
+- Identify common typos and add aliases
+- Measure parser accuracy and improvement
+- Understand player behavior and command patterns
+- Debug parsing issues in production
+
+### 5. Phrasal Verb Support
 
 The parser now recognizes common phrasal verbs, allowing players to use natural English constructions:
 
@@ -231,29 +328,60 @@ Taken.
 The house is a beautiful colonial structure...
 ```
 
-## Future Enhancements
+## Implementation Status
+
+### ✅ Implemented Features
+
+The following features have been fully implemented and integrated:
+
+1. **Fuzzy Object Matching** ✅
+   - Levenshtein distance for typo tolerance
+   - "Did you mean...?" suggestions
+   - Auto-correction with confidence thresholds
+
+2. **Multi-Part Commands** ✅
+   - Support for "and", "then", "," conjunctions
+   - Sequential execution with state propagation
+   - Configurable execution policies (fail-fast / best-effort)
+
+3. **Object Disambiguation** ✅
+   - Handle multiple similar objects
+   - Present candidate lists with context
+   - Ordinal selection ("2nd lamp", "third coin")
+
+4. **Telemetry and Analytics** ✅
+   - Comprehensive event logging
+   - Parser performance tracking
+   - Non-blocking, configurable telemetry
+
+5. **Phrasal Verb Support** ✅
+   - Natural language constructions
+   - Data-driven configuration
+   - Preposition handling
+
+6. **Pronoun Resolution** ✅
+   - Context tracking for "it", "them", etc.
+   - Automatic object reference updates
+
+### 🔜 Future Enhancements
 
 The following features are planned but not yet implemented:
 
-1. **Fuzzy Object Matching**
-   - Levenshtein distance for typo tolerance
-   - "Did you mean...?" suggestions
-
-2. **Multi-Part Commands**
-   - Support for "and", "then" conjunctions
-   - "open mailbox and take leaflet"
-
-3. **Enhanced Error Messages**
+1. **Enhanced Error Messages**
    - Context-aware suggestions
    - Example completions based on current scene
 
-4. **Object Disambiguation**
-   - Handle multiple similar objects
-   - "Which lamp do you mean: brass lamp or rusty lamp?"
-
-5. **Advanced Context**
+2. **Advanced Context**
    - Track multiple recent objects
    - Support spatial context ("the one on the table")
+
+3. **Natural Language Understanding**
+   - Sentiment analysis for player frustration
+   - Adaptive difficulty based on player skill
+
+4. **Voice Command Support**
+   - Speech-to-text integration
+   - Voice-optimized error handling
 
 ## Contributing
 

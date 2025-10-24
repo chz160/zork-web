@@ -2,7 +2,10 @@ import { Injectable, inject, effect } from '@angular/core';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { GameEngineService } from './game-engine.service';
 import { CommandParserService } from './command-parser.service';
+import { TelemetryService } from './telemetry.service';
 import { Player, Room, CommandOutput } from '../models';
+import { splitCommands } from '../utils/multi-command-splitter';
+import { CommandConfigService } from './command-config.service';
 
 /**
  * GameService provides a reactive bridge between UI components and the GameEngine.
@@ -48,6 +51,8 @@ import { Player, Room, CommandOutput } from '../models';
 export class GameService {
   private readonly gameEngine = inject(GameEngineService);
   private readonly commandParser = inject(CommandParserService);
+  private readonly telemetry = inject(TelemetryService);
+  private readonly configService = inject(CommandConfigService);
 
   // Subjects for emitting state changes
   private readonly outputSubject = new BehaviorSubject<string[]>([]);
@@ -94,21 +99,55 @@ export class GameService {
   /**
    * Submit a command for execution.
    * The command is parsed and executed, with results streamed via observables.
+   * Supports multi-command inputs (e.g., "open mailbox and take leaflet").
    *
    * @param input Raw command string from the player
    */
   submitCommand(input: string): void {
-    // Parse the command
-    const parserResult = this.commandParser.parse(input);
+    // Check if this is a multi-command input
+    const settings = this.configService.getSettings();
+    const multiCommandResult = splitCommands(input, settings.multiCommandSeparators);
 
-    // Execute through the engine
-    const output = this.gameEngine.executeCommand(parserResult);
+    if (multiCommandResult.isMultiCommand) {
+      // Log multi-command execution
+      this.telemetry.logMultiCommand({
+        rawInput: input,
+        commandCount: multiCommandResult.commands.length,
+        policy: settings.multiCommandPolicy as 'fail-fast' | 'best-effort',
+      });
 
-    // Emit the command output
-    this.commandOutputSubject.next(output);
+      // Execute each sub-command sequentially
+      const results: CommandOutput[] = [];
+      let shouldContinue = true;
 
-    // Emit updated state
-    this.emitCurrentState();
+      for (const subCommand of multiCommandResult.commands) {
+        if (!shouldContinue) break;
+
+        // Parse the sub-command
+        const parserResult = this.commandParser.parse(subCommand);
+
+        // Execute through the engine
+        const output = this.gameEngine.executeCommand(parserResult);
+        results.push(output);
+
+        // Emit the command output
+        this.commandOutputSubject.next(output);
+
+        // Check if we should continue based on policy
+        if (settings.multiCommandPolicy === 'fail-fast' && !output.success) {
+          shouldContinue = false;
+        }
+      }
+
+      // Emit updated state after all commands
+      this.emitCurrentState();
+    } else {
+      // Single command - execute as before
+      const parserResult = this.commandParser.parse(input);
+      const output = this.gameEngine.executeCommand(parserResult);
+      this.commandOutputSubject.next(output);
+      this.emitCurrentState();
+    }
   }
 
   /**

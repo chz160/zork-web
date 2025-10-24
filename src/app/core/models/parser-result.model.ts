@@ -51,6 +51,12 @@ export interface ParserResult {
   /** Candidate objects for disambiguation (when multiple matches found) */
   candidates?: ObjectCandidate[];
 
+  /** Candidate objects for the direct object (when multiple matches found) */
+  directCandidates?: ObjectCandidate[];
+
+  /** Candidate objects for the indirect object (when multiple matches found) */
+  indirectCandidates?: ObjectCandidate[];
+
   /** Whether disambiguation is required */
   needsDisambiguation?: boolean;
 
