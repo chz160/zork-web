@@ -439,7 +439,13 @@ export class GameEngineService {
     }
 
     const currentRoomId = this.playerState().currentRoomId;
-    if (obj.location !== currentRoomId) {
+    // Check if object is in current room or in an open container in the current room
+    const isInCurrentRoom = obj.location === currentRoomId;
+    const container = this.gameObjects().get(obj.location);
+    const isInOpenContainer =
+      container && container.location === currentRoomId && container.properties?.isOpen === true;
+
+    if (!isInCurrentRoom && !isInOpenContainer) {
       return {
         messages: [`The ${obj.name} isn't here.`],
         success: false,

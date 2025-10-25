@@ -1163,6 +1163,20 @@ describe('GameEngineService', () => {
         expect(result.messages[0]).toContain('Opening');
         expect(result.messages[0]).toContain('mailbox');
         expect(result.messages[0]).toContain('leaflet');
+
+        // After opening, should be able to take the leaflet
+        const takeCommand: ParserResult = {
+          verb: 'take',
+          directObject: 'leaflet',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'take leaflet',
+          isValid: true,
+        };
+
+        const takeResult = service.executeCommand(takeCommand);
+        expect(takeResult.success).toBe(true);
+        expect(takeResult.messages[0]).toContain('Taken');
       });
     });
 
