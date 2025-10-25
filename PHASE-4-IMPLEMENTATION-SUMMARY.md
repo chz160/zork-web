@@ -133,15 +133,33 @@ For each batch:
    - Impact: May represent same room in different states/locations
    - Mitigation: Used canonical index in ID to differentiate
 
-### Blocked Work (Requires Phase 3 Completion)
+### Blocked Work - Objects
 
-#### Objects (Cannot Add - Data Unavailable)
-- Canonical objects.json has **empty names and descriptions**
-- Phase 3 message mapping incomplete for objects
-- Expected: +96 objects to reach 216 total
-- Actual: 0 objects added (blocked)
+#### Phase 4 Update (Post PR #96 Cherry-pick)
 
-**Recommendation**: Complete Phase 3 object population before attempting object merge
+After cherry-picking PR #96, we now have `artifacts/objects.canonical.populated.json` with all 216 objects. However, **critical data quality issues prevent automatic object addition**:
+
+**Problem**: The source `objects.canonical.json` contains **incorrect message indices** that point to room descriptions instead of object descriptions. This was documented in PR #96.
+
+**Impact**:
+- Objects have wrong names (e.g., "You Are Outside A", "Water Level Is Now")
+- Name-based matching fails completely
+- All 216 canonical objects marked as "new" (no matches found)
+- Cannot distinguish which 96 objects are truly missing
+
+**Current Status**:
+- ✅ Tools updated to use populated objects file
+- ✅ Extraction tool runs without errors
+- ❌ Cannot automatically merge due to data quality
+- ❌ Expected: +96 objects to reach 216 total
+- ❌ Actual: 0 objects added (blocked by data quality)
+
+**See**: `PHASE-4-OBJECTS-STATUS.md` for detailed analysis and recommendations
+
+**Recommendation**: 
+- Option 1: Manual object review and creation (2-4 hours)
+- Option 2: Debug and fix canonical source extraction (4-8 hours)
+- Option 3: Defer to Phase 5 as separate subtask (recommended)
 
 ### Deferred Work (Planned for Phase 5)
 

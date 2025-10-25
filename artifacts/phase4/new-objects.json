@@ -1,9 +1,9 @@
 [
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-0",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "room-6",
@@ -20,10 +20,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-1",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -39,10 +39,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-2",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -58,10 +58,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-3",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -76,10 +76,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-4",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "room-74",
@@ -93,10 +93,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-5",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "room-78",
@@ -112,10 +112,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-6",
+    "name": "Object 6",
+    "aliases": ["object 6"],
+    "description": "Object 6",
     "portable": false,
     "visible": true,
     "location": "room-77",
@@ -133,10 +133,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-7",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -152,10 +152,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-8",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": false,
     "visible": true,
     "location": "room-8",
@@ -173,10 +173,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-9",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "room-6",
@@ -194,10 +194,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-10",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -214,10 +214,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-11",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "room-7",
@@ -232,10 +232,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-outside-a-12",
+    "name": "You Are Outside A",
+    "aliases": ["you are outside a", "you", "are", "outside"],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
     "portable": true,
     "visible": true,
     "location": "room-7",
@@ -249,10 +249,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-13",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": true,
     "visible": true,
     "location": "room-8",
@@ -267,10 +267,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-14",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": true,
     "visible": true,
     "location": "room-8",
@@ -287,10 +287,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-15",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -304,10 +304,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-16",
+    "name": "Object 16",
+    "aliases": ["object 16"],
+    "description": "Object 16",
     "portable": false,
     "visible": true,
     "location": "room-8",
@@ -322,10 +322,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-17",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": true,
     "visible": true,
     "location": "room-36",
@@ -355,7 +355,7 @@
       "out",
       "room."
     ],
-    "description": "",
+    "description": "Useful commands:\n\n   The 'BRIEF' command suppresses printing of long room descriptions\nfor rooms which have been visited.  The 'SUPERBRIEF' command suppresses\nprinting of long room descriptions for all rooms.  The 'VERBOSE'\ncommand restores long descriptions.\n   The 'INFO' command prints information which might give some idea\nof what the game is about.\n   The 'QUIT' command prints your score and asks whether you wish\nto continue playing.\n   The 'SAVE' command saves the state of the game for later continuation.\n   The 'RESTORE' command restores a saved game.\n   The 'INVENTORY' command lists the objects in your possession.\n   The 'LOOK' command prints a description of your surroundings.\n   The 'SCORE' command prints your current score and ranking.\n   The 'TIME' command tells you how long you have been playing.\n   The 'DIAGNOSE' command reports on your injuries, if any.\n\nCommand abbreviations:\n\n   The 'INVENTORY' command may be abbreviated 'I'.\n   The 'LOOK' command may be abbreviated 'L'.\n   The 'QUIT' command may be abbreviated 'Q'.\n\nContainment:\n\n   Some objects can contain other objects.  Many such containers can\nbe opened and closed.  The rest are always open.   They may or may\nnot be transparent.  For you to access (e.g., take) an object\nwhich is in a container, the container must be open.  For you\nto see such an object, the container must be either open or\ntransparent.  Containers have a capacity, and objects have sizes;\nthe number of objects which will fit therefore depends on their\nsizes.  You may put any object you have access to (it need not be\nin your hands) into any other object.  At some point, the program\nwill attempt to pick it up if you don't already have it, which\nprocess may fail if you're carrying too much.  Although containers\ncan contain other containers, the program doesn't access more than\none level down.\n\nFighting:\n\n   Occupants of the dungeon will, as a rule, fight back when\nattacked.  In some cases, they may attack even if unprovoked.\nUseful verbs here are 'ATTACK <villain> WITH <weapon>', 'KILL',\netc.  Knife-throwing may or may not be useful.  You have a\nfighting strength which varies with time.  Being in a fight,\ngetting killed, and being injured all lower this strength.\nStrength is regained with time.  Thus, it is not a good idea to\nfight someone immediately after being killed.  Other details\nshould become apparent after a few melees or deaths.\n\nCommand parser:\n\n   A command is one line of text terminated by a carriage return.\nFor reasons of simplicity, all words are distinguished by their\nfirst six letters.  All others are ignored.  For example, typing\n'DISASSEMBLE THE ENCYCLOPEDIA' is not only meaningless, it also\ncreates excess effort for your fingers.  Note that this trunca-\ntion may produce ambiguities in the intepretation of longer words.\n\n   You are dealing with a fairly stupid parser, which understands\nthe following types of things--\n\n   Actions:\n\tAmong the more obvious of these, such as TAKE, PUT, DROP, etc.\n\tFairly general forms of these may be used, such as PICK UP,\n\tPUT DOWN, etc.\n\n   Directions:\n\tNORTH, SOUTH, UP, DOWN, etc. and their various abbreviations.\n\tOther more obscure directions (LAND, CROSS) are appropriate in\n\tonly certain situations.\n\n   Objects:\n\tMost objects have names and can be referenced by them.\n\n   Adjectives:\n\tSome adjectives are understood and required when there are\n\ttwo objects which can be referenced with the same 'name' (e.g.,\n\tDOORs, BUTTONs).\n\n   Prepositions:\n\tIt may be necessary in some cases to include prepositions, but\n\tthe parser attempts to handle cases which aren't ambiguous\n\twithout.  Thus 'GIVE CAR TO DEMON' will work, as will 'GIVE DEMON\n\tCAR'.  'GIVE CAR DEMON' probably won't do anything interesting.\n\tWhen a preposition is used, it should be appropriate;  'GIVE CAR\n\tWITH DEMON' won't parse.\n\n   Sentences:\n\tThe parser understands a reasonable number of syntactic construc-\n\ttions.  In particular, multiple commands (separated by commas)\n\tcan be placed on the same line.\n\n   Ambiguity:\n\tThe parser tries to be clever about what to do in the case of\n\tactions which require objects that are not explicitly specified.\n\tIf there is only one possible object, the parser will assume\n\tthat it should be used.  Otherwise, the parser will ask.\n\tMost questions asked by the parser can be answered.",
     "portable": false,
     "visible": true,
     "location": "room-10",
@@ -372,10 +372,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-19",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -389,10 +389,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-20",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": true,
     "visible": true,
     "location": "room-16",
@@ -407,10 +407,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-21",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": true,
     "visible": true,
     "location": "room-16",
@@ -424,10 +424,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "way-through-the-gate-22",
+    "name": "Way Through The Gate",
+    "aliases": ["way through the gate", "way", "through", "the", "gate"],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
     "portable": true,
     "visible": true,
     "location": "room-16",
@@ -441,10 +441,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-23",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": false,
     "visible": true,
     "location": "room-16",
@@ -459,10 +459,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-24",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-16",
@@ -478,10 +478,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-25",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-49",
@@ -497,10 +497,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-26",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-92",
@@ -516,10 +516,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-27",
+    "name": "Object 27",
+    "aliases": ["object 27"],
+    "description": "Object 27",
     "portable": false,
     "visible": true,
     "location": "room-50",
@@ -536,10 +536,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-28",
+    "name": "Object 28",
+    "aliases": ["object 28"],
+    "description": "Object 28",
     "portable": false,
     "visible": true,
     "location": "room-51",
@@ -556,10 +556,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-29",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": false,
     "visible": true,
     "location": "room-45",
@@ -576,10 +576,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-30",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-46",
@@ -595,10 +595,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-31",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-47",
@@ -614,10 +614,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-32",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-44",
@@ -636,10 +636,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-33",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-80",
@@ -658,10 +658,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-34",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": false,
     "visible": true,
     "location": "room-61",
@@ -676,10 +676,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-35",
+    "name": "Object 35",
+    "aliases": ["object 35"],
+    "description": "Object 35",
     "portable": false,
     "visible": true,
     "location": "room-76",
@@ -694,10 +694,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-36",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-64",
@@ -713,10 +713,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-37",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "room-75",
@@ -730,10 +730,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-38",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": false,
     "location": "room-83",
@@ -750,10 +750,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-39",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -769,10 +769,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-40",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
     "portable": false,
     "visible": true,
     "location": "room-90",
@@ -787,10 +787,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-41",
+    "name": "Object 41",
+    "aliases": ["object 41"],
+    "description": "Object 41",
     "portable": false,
     "visible": true,
     "location": "room-93",
@@ -807,10 +807,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-not-equipped-42",
+    "name": "You Are Not Equipped",
+    "aliases": ["you are not equipped", "you", "are", "not", "equipped"],
+    "description": "You are not equipped for an exorcism.",
     "portable": true,
     "visible": true,
     "location": "room-95",
@@ -829,10 +829,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-43",
+    "name": "Object 43",
+    "aliases": ["object 43"],
+    "description": "Object 43",
     "portable": false,
     "visible": true,
     "location": "room-96",
@@ -847,10 +847,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-44",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
     "portable": true,
     "visible": false,
     "location": "room-40",
@@ -866,10 +866,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-45",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
     "portable": true,
     "visible": true,
     "location": "room-96",
@@ -883,10 +883,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-46",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
     "portable": true,
     "visible": true,
     "location": "room-97",
@@ -904,10 +904,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-47",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
     "portable": true,
     "visible": true,
     "location": "room-97",
@@ -925,10 +925,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-clap-48",
+    "name": "There Is A Clap",
+    "aliases": ["there is a clap", "there", "clap"],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
     "portable": true,
     "visible": true,
     "location": "room-99",
@@ -943,10 +943,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-have-entered-the-49",
+    "name": "You Have Entered The",
+    "aliases": ["you have entered the", "you", "have", "entered", "the"],
+    "description": "You have entered the land of the living dead, a large desolate\nroom.  Although it is apparently uninhabited, you can hear the\nsounds of thousands of lost souls weeping and moaning.  In\nthe east corner are stacked the remains of dozens of previous\nadventurers who were less fortunate than yourself.  To the east\nis an ornate passage, apparently recently constructed.",
     "portable": true,
     "visible": true,
     "location": "room-8",
@@ -961,10 +961,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-have-entered-the-50",
+    "name": "You Have Entered The",
+    "aliases": ["you have entered the", "you", "have", "entered", "the"],
+    "description": "You have entered the land of the living dead, a large desolate\nroom.  Although it is apparently uninhabited, you can hear the\nsounds of thousands of lost souls weeping and moaning.  In\nthe east corner are stacked the remains of dozens of previous\nadventurers who were less fortunate than yourself.  To the east\nis an ornate passage, apparently recently constructed.",
     "portable": true,
     "visible": true,
     "location": "room-99",
@@ -980,10 +980,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-have-entered-the-51",
+    "name": "You Have Entered The",
+    "aliases": ["you have entered the", "you", "have", "entered", "the"],
+    "description": "You have entered the land of the living dead, a large desolate\nroom.  Although it is apparently uninhabited, you can hear the\nsounds of thousands of lost souls weeping and moaning.  In\nthe east corner are stacked the remains of dozens of previous\nadventurers who were less fortunate than yourself.  To the east\nis an ornate passage, apparently recently constructed.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -998,10 +998,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-52",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": false,
     "visible": true,
     "location": "room-2",
@@ -1018,10 +1018,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-53",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "room-100",
@@ -1040,10 +1040,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-54",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -1057,10 +1057,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-55",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "room-100",
@@ -1074,10 +1074,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-56",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "room-100",
@@ -1091,10 +1091,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-57",
+    "name": "Object 57",
+    "aliases": ["object 57"],
+    "description": "Object 57",
     "portable": false,
     "visible": true,
     "location": "room-101",
@@ -1111,10 +1111,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-58",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "room-103",
@@ -1134,10 +1134,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-59",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "room-105",
@@ -1172,7 +1172,7 @@
       "vicious-looking",
       "stilletto."
     ],
-    "description": "",
+    "description": "Welcome to Dungeon!\n\n   You are near a large dungeon, which is reputed to contain vast\nquantities of treasure.   Naturally, you wish to acquire some of it.\nIn order to do so, you must of course remove it from the dungeon.  To\nreceive full credit for it, you must deposit it safely in the trophy\ncase in the living room of the house.\n\n   In addition to valuables, the dungeon contains various objects\nwhich may or may not be useful in your attempt to get rich.  You may\nneed sources of light, since dungeons are often dark, and weapons,\nsince dungeons often have unfriendly things wandering about.  Reading\nmaterial is scattered around the dungeon as well;  some of it\nis rumored to be useful.\n\n   To determine how successful you have been, a score is kept.\nWhen you find a valuable object and pick it up, you receive a\ncertain number of points, which depends on the difficulty of finding\nthe object.  You receive extra points for transporting the treasure\nsafely to the living room and placing it in the trophy case.  In\naddition, some particularly interesting rooms have a value associated\nwith visiting them.  The only penalty is for getting yourself killed,\nwhich you may do only twice.\n\n   Of special note is a thief (always carrying a large bag) who\nlikes to wander around in the dungeon (he has never been seen by the\nlight of day).  He likes to take things.  Since he steals for pleasure\nrather than profit and is somewhat sadistic, he only takes things which\nyou have seen.  Although he prefers valuables, sometimes in his haste\nhe may take something which is worthless.  From time to time, he examines\nhis take and discards objects which he doesn't like.  He may occas-\nionally stop in a room you are visiting, but more often he just wanders\nthrough and rips you off (he is a skilled pickpocket).",
     "portable": false,
     "visible": true,
     "location": "room-190",
@@ -1189,10 +1189,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-61",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -1206,10 +1206,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-62",
+    "name": "Object 62",
+    "aliases": ["object 62"],
+    "description": "Object 62",
     "portable": false,
     "visible": true,
     "location": "room-5",
@@ -1224,10 +1224,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-63",
+    "name": "Object 63",
+    "aliases": ["object 63"],
+    "description": "Object 63",
     "portable": false,
     "visible": true,
     "location": "room-98",
@@ -1242,10 +1242,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-64",
+    "name": "Object 64",
+    "aliases": ["object 64"],
+    "description": "Object 64",
     "portable": false,
     "visible": true,
     "location": "room-25",
@@ -1260,10 +1260,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-65",
+    "name": "Object 65",
+    "aliases": ["object 65"],
+    "description": "Object 65",
     "portable": false,
     "visible": false,
     "location": "room-8",
@@ -1278,10 +1278,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-66",
+    "name": "Object 66",
+    "aliases": ["object 66"],
+    "description": "Object 66",
     "portable": false,
     "visible": true,
     "location": "room-8",
@@ -1297,10 +1297,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-67",
+    "name": "Object 67",
+    "aliases": ["object 67"],
+    "description": "Object 67",
     "portable": false,
     "visible": true,
     "location": "room-2",
@@ -1315,10 +1315,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-68",
+    "name": "Object 68",
+    "aliases": ["object 68"],
+    "description": "Object 68",
     "portable": false,
     "visible": true,
     "location": "room-91",
@@ -1333,10 +1333,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-69",
+    "name": "Object 69",
+    "aliases": ["object 69"],
+    "description": "Object 69",
     "portable": false,
     "visible": true,
     "location": "room-77",
@@ -1351,10 +1351,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-70",
+    "name": "Object 70",
+    "aliases": ["object 70"],
+    "description": "Object 70",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -1368,10 +1368,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-71",
+    "name": "Object 71",
+    "aliases": ["object 71"],
+    "description": "Object 71",
     "portable": false,
     "visible": true,
     "location": "room-93",
@@ -1385,10 +1385,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-72",
+    "name": "Object 72",
+    "aliases": ["object 72"],
+    "description": "Object 72",
     "portable": false,
     "visible": true,
     "location": "room-94",
@@ -1403,10 +1403,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-73",
+    "name": "Object 73",
+    "aliases": ["object 73"],
+    "description": "Object 73",
     "portable": false,
     "visible": true,
     "location": "room-98",
@@ -1420,10 +1420,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-74",
+    "name": "Object 74",
+    "aliases": ["object 74"],
+    "description": "Object 74",
     "portable": false,
     "visible": true,
     "location": "room-79",
@@ -1437,10 +1437,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-75",
+    "name": "Object 75",
+    "aliases": ["object 75"],
+    "description": "Object 75",
     "portable": false,
     "visible": true,
     "location": "room-93",
@@ -1454,10 +1454,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-76",
+    "name": "Object 76",
+    "aliases": ["object 76"],
+    "description": "Object 76",
     "portable": false,
     "visible": true,
     "location": "room-98",
@@ -1471,10 +1471,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-77",
+    "name": "Object 77",
+    "aliases": ["object 77"],
+    "description": "Object 77",
     "portable": false,
     "visible": true,
     "location": "room-100",
@@ -1489,10 +1489,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-78",
+    "name": "Object 78",
+    "aliases": ["object 78"],
+    "description": "Object 78",
     "portable": false,
     "visible": true,
     "location": "room-100",
@@ -1507,10 +1507,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-79",
+    "name": "Object 79",
+    "aliases": ["object 79"],
+    "description": "Object 79",
     "portable": false,
     "visible": true,
     "location": "room-100",
@@ -1525,10 +1525,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-80",
+    "name": "Object 80",
+    "aliases": ["object 80"],
+    "description": "Object 80",
     "portable": false,
     "visible": true,
     "location": "room-100",
@@ -1543,10 +1543,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-81",
+    "name": "Object 81",
+    "aliases": ["object 81"],
+    "description": "Object 81",
     "portable": false,
     "visible": true,
     "location": "room-100",
@@ -1561,10 +1561,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-82",
+    "name": "Object 82",
+    "aliases": ["object 82"],
+    "description": "Object 82",
     "portable": false,
     "visible": true,
     "location": "room-78",
@@ -1579,10 +1579,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-83",
+    "name": "Object 83",
+    "aliases": ["object 83"],
+    "description": "Object 83",
     "portable": false,
     "visible": true,
     "location": "room-120",
@@ -1596,10 +1596,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-84",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": false,
     "location": "room-122",
@@ -1615,10 +1615,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-85",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": false,
     "location": "room-116",
@@ -1634,10 +1634,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-86",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "room-106",
@@ -1652,10 +1652,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-87",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -1670,10 +1670,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-88",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "room-41",
@@ -1687,10 +1687,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-standing-on-89",
+    "name": "You Are Standing On",
+    "aliases": ["you are standing on", "you", "are", "standing"],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -1705,10 +1705,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "sluice-gates-on-the-90",
+    "name": "Sluice Gates On The",
+    "aliases": ["sluice gates on the", "sluice", "gates", "the"],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -1723,10 +1723,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "sluice-gates-on-the-91",
+    "name": "Sluice Gates On The",
+    "aliases": ["sluice gates on the", "sluice", "gates", "the"],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
     "portable": true,
     "visible": true,
     "location": "room-106",
@@ -1741,10 +1741,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-92",
+    "name": "Object 92",
+    "aliases": ["object 92"],
+    "description": "Object 92",
     "portable": false,
     "visible": true,
     "location": "room-120",
@@ -1758,10 +1758,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "sluice-gates-on-the-93",
+    "name": "Sluice Gates On The",
+    "aliases": ["sluice gates on the", "sluice", "gates", "the"],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
     "portable": true,
     "visible": true,
     "location": "room-112",
@@ -1778,10 +1778,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "sluice-gates-on-the-94",
+    "name": "Sluice Gates On The",
+    "aliases": ["sluice gates on the", "sluice", "gates", "the"],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -1797,10 +1797,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "sluice-gates-on-the-95",
+    "name": "Sluice Gates On The",
+    "aliases": ["sluice gates on the", "sluice", "gates", "the"],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
     "portable": true,
     "visible": true,
     "location": "room-118",
@@ -1814,10 +1814,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "sluice-gates-on-the-96",
+    "name": "Sluice Gates On The",
+    "aliases": ["sluice gates on the", "sluice", "gates", "the"],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
     "portable": true,
     "visible": true,
     "location": "room-118",
@@ -1831,10 +1831,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "sluice-gates-on-the-97",
+    "name": "Sluice Gates On The",
+    "aliases": ["sluice gates on the", "sluice", "gates", "the"],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
     "portable": false,
     "visible": true,
     "location": "room-126",
@@ -1849,10 +1849,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-98",
+    "name": "Object 98",
+    "aliases": ["object 98"],
+    "description": "Object 98",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -1869,10 +1869,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-99",
+    "name": "Object 99",
+    "aliases": ["object 99"],
+    "description": "Object 99",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -1886,10 +1886,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-100",
+    "name": "Object 100",
+    "aliases": ["object 100"],
+    "description": "Object 100",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -1904,10 +1904,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "it-appears-that-the-101",
+    "name": "It Appears That The",
+    "aliases": ["it appears that the", "appears", "that", "the"],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
     "portable": false,
     "visible": true,
     "location": "room-131",
@@ -1921,10 +1921,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "it-appears-that-the-102",
+    "name": "It Appears That The",
+    "aliases": ["it appears that the", "appears", "that", "the"],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
     "portable": false,
     "visible": true,
     "location": "room-133",
@@ -1938,10 +1938,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "it-appears-that-the-103",
+    "name": "It Appears That The",
+    "aliases": ["it appears that the", "appears", "that", "the"],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
     "portable": true,
     "visible": true,
     "location": "room-131",
@@ -1958,10 +1958,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-104",
+    "name": "Object 104",
+    "aliases": ["object 104"],
+    "description": "Object 104",
     "portable": false,
     "visible": true,
     "location": "room-135",
@@ -1979,10 +1979,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "it-appears-that-the-105",
+    "name": "It Appears That The",
+    "aliases": ["it appears that the", "appears", "that", "the"],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -1997,10 +1997,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-106",
+    "name": "Object 106",
+    "aliases": ["object 106"],
+    "description": "Object 106",
     "portable": false,
     "visible": true,
     "location": "room-135",
@@ -2014,10 +2014,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "it-appears-that-the-107",
+    "name": "It Appears That The",
+    "aliases": ["it appears that the", "appears", "that", "the"],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2033,10 +2033,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-108",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "room-7",
@@ -2051,10 +2051,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-109",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "room-42",
@@ -2069,10 +2069,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-110",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -2089,10 +2089,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-111",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2107,10 +2107,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-112",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2124,10 +2124,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-113",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "room-134",
@@ -2145,10 +2145,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-114",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "room-134",
@@ -2166,10 +2166,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-115",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "room-134",
@@ -2187,10 +2187,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-116",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "room-134",
@@ -2208,10 +2208,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "there-is-a-control-117",
+    "name": "There Is A Control",
+    "aliases": ["there is a control", "there", "control"],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2228,10 +2228,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-118",
+    "name": "Object 118",
+    "aliases": ["object 118"],
+    "description": "Object 118",
     "portable": false,
     "visible": true,
     "location": "room-137",
@@ -2247,10 +2247,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-119",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your shins.",
     "portable": false,
     "visible": true,
     "location": "room-137",
@@ -2265,10 +2265,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-120",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your shins.",
     "portable": true,
     "visible": true,
     "location": "room-137",
@@ -2283,10 +2283,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-121",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your knees.",
     "portable": true,
     "visible": true,
     "location": "room-137",
@@ -2301,10 +2301,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-122",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your hips.",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -2318,10 +2318,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-123",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your hips.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2335,10 +2335,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-124",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your hips.",
     "portable": false,
     "visible": true,
     "location": "room-141",
@@ -2352,10 +2352,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-125",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your waist.",
     "portable": false,
     "visible": true,
     "location": "room-140",
@@ -2372,10 +2372,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-126",
+    "name": "Object 126",
+    "aliases": ["object 126"],
+    "description": "Object 126",
     "portable": false,
     "visible": true,
     "location": "room-139",
@@ -2390,10 +2390,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-127",
+    "name": "Object 127",
+    "aliases": ["object 127"],
+    "description": "Object 127",
     "portable": false,
     "visible": true,
     "location": "room-139",
@@ -2408,10 +2408,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-128",
+    "name": "Object 128",
+    "aliases": ["object 128"],
+    "description": "Object 128",
     "portable": false,
     "visible": true,
     "location": "room-139",
@@ -2426,10 +2426,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-129",
+    "name": "Object 129",
+    "aliases": ["object 129"],
+    "description": "Object 129",
     "portable": false,
     "visible": true,
     "location": "room-143",
@@ -2444,10 +2444,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-130",
+    "name": "Object 130",
+    "aliases": ["object 130"],
+    "description": "Object 130",
     "portable": false,
     "visible": true,
     "location": "room-142",
@@ -2462,10 +2462,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-131",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your waist.",
     "portable": true,
     "visible": true,
     "location": "room-146",
@@ -2480,10 +2480,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-132",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your chest.",
     "portable": false,
     "visible": true,
     "location": "room-146",
@@ -2499,10 +2499,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-133",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your chest.",
     "portable": true,
     "visible": false,
     "location": "room-146",
@@ -2518,10 +2518,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-134",
+    "name": "Object 134",
+    "aliases": ["object 134"],
+    "description": "Object 134",
     "portable": false,
     "visible": true,
     "location": "room-144",
@@ -2535,10 +2535,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-135",
+    "name": "Object 135",
+    "aliases": ["object 135"],
+    "description": "Object 135",
     "portable": false,
     "visible": true,
     "location": "room-145",
@@ -2552,10 +2552,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-136",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your chest.",
     "portable": false,
     "visible": true,
     "location": "room-143",
@@ -2570,10 +2570,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-137",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your chest.",
     "portable": true,
     "visible": true,
     "location": "room-144",
@@ -2590,10 +2590,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-138",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your neck.",
     "portable": true,
     "visible": true,
     "location": "room-144",
@@ -2610,10 +2610,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-139",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your neck.",
     "portable": true,
     "visible": true,
     "location": "room-144",
@@ -2630,10 +2630,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-140",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your neck.",
     "portable": true,
     "visible": true,
     "location": "room-144",
@@ -2650,10 +2650,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-141",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now up to your neck.",
     "portable": false,
     "visible": true,
     "location": "room-138",
@@ -2670,10 +2670,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-142",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now over your head.",
     "portable": true,
     "visible": true,
     "location": "room-138",
@@ -2688,10 +2688,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-143",
+    "name": "Object 143",
+    "aliases": ["object 143"],
+    "description": "Object 143",
     "portable": false,
     "visible": true,
     "location": "room-147",
@@ -2705,10 +2705,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-144",
+    "name": "Object 144",
+    "aliases": ["object 144"],
+    "description": "Object 144",
     "portable": false,
     "visible": true,
     "location": "room-33",
@@ -2722,10 +2722,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-145",
+    "name": "Object 145",
+    "aliases": ["object 145"],
+    "description": "Object 145",
     "portable": false,
     "visible": true,
     "location": "room-123",
@@ -2739,10 +2739,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-146",
+    "name": "Object 146",
+    "aliases": ["object 146"],
+    "description": "Object 146",
     "portable": false,
     "visible": true,
     "location": "room-110",
@@ -2757,10 +2757,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "water-level-is-now-147",
+    "name": "Water Level Is Now",
+    "aliases": ["water level is now", "water", "level", "now"],
+    "description": "The water level is now high in your lungs.",
     "portable": true,
     "visible": true,
     "location": "room-154",
@@ -2778,10 +2778,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-hear-a-scream-148",
+    "name": "You Hear A Scream",
+    "aliases": ["you hear a scream", "you", "hear", "scream"],
+    "description": "You hear a scream of anguish as you violate the robber's hideaway.\nUsing passages unknown to you, he rushes to its defense.",
     "portable": true,
     "visible": true,
     "location": "room-156",
@@ -2798,10 +2798,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-149",
+    "name": "Object 149",
+    "aliases": ["object 149"],
+    "description": "Object 149",
     "portable": false,
     "visible": true,
     "location": "room-155",
@@ -2816,10 +2816,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-150",
+    "name": "Object 150",
+    "aliases": ["object 150"],
+    "description": "Object 150",
     "portable": false,
     "visible": true,
     "location": "room-155",
@@ -2834,10 +2834,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "thief-gestures-mysteriously-and-151",
+    "name": "Thief Gestures Mysteriously, And",
+    "aliases": ["thief gestures mysteriously, and", "thief", "gestures", "mysteriously,", "and"],
+    "description": "The thief gestures mysteriously, and the treasures in the room\nsuddenly vanish.",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -2854,10 +2854,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "thief-gestures-mysteriously-and-152",
+    "name": "Thief Gestures Mysteriously, And",
+    "aliases": ["thief gestures mysteriously, and", "thief", "gestures", "mysteriously,", "and"],
+    "description": "The thief gestures mysteriously, and the treasures in the room\nsuddenly vanish.",
     "portable": true,
     "visible": true,
     "location": "room-147",
@@ -2871,10 +2871,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "thief-gestures-mysteriously-and-153",
+    "name": "Thief Gestures Mysteriously, And",
+    "aliases": ["thief gestures mysteriously, and", "thief", "gestures", "mysteriously,", "and"],
+    "description": "The thief gestures mysteriously, and the treasures in the room\nsuddenly vanish.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2894,10 +2894,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "something-seems-funny-about-154",
+    "name": "Something Seems Funny About",
+    "aliases": ["something seems funny about", "something", "seems", "funny", "about"],
+    "description": "Something seems funny about the feel of the buoy.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2914,10 +2914,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "something-seems-funny-about-155",
+    "name": "Something Seems Funny About",
+    "aliases": ["something seems funny about", "something", "seems", "funny", "about"],
+    "description": "Something seems funny about the feel of the buoy.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2933,10 +2933,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "something-seems-funny-about-156",
+    "name": "Something Seems Funny About",
+    "aliases": ["something seems funny about", "something", "seems", "funny", "about"],
+    "description": "Something seems funny about the feel of the buoy.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2953,10 +2953,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "oh-dear-you-seem-157",
+    "name": "Oh Dear, You Seem",
+    "aliases": ["oh dear, you seem", "dear,", "you", "seem"],
+    "description": "Oh dear, you seem to have gone over Aragain Falls.  Not a very\nsmart thing to do, apparently.",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -2971,10 +2971,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-158",
+    "name": "Object 158",
+    "aliases": ["object 158"],
+    "description": "Object 158",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -2989,10 +2989,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-159",
+    "name": "Object 159",
+    "aliases": ["object 159"],
+    "description": "Object 159",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3007,10 +3007,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-160",
+    "name": "Object 160",
+    "aliases": ["object 160"],
+    "description": "Object 160",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3025,10 +3025,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-161",
+    "name": "Object 161",
+    "aliases": ["object 161"],
+    "description": "Object 161",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3043,10 +3043,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-162",
+    "name": "Object 162",
+    "aliases": ["object 162"],
+    "description": "Object 162",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3061,10 +3061,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-163",
+    "name": "Object 163",
+    "aliases": ["object 163"],
+    "description": "Object 163",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3079,10 +3079,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-164",
+    "name": "Object 164",
+    "aliases": ["object 164"],
+    "description": "Object 164",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3096,10 +3096,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-165",
+    "name": "Object 165",
+    "aliases": ["object 165"],
+    "description": "Object 165",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3113,10 +3113,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-166",
+    "name": "Object 166",
+    "aliases": ["object 166"],
+    "description": "Object 166",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3131,10 +3131,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-167",
+    "name": "Object 167",
+    "aliases": ["object 167"],
+    "description": "Object 167",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3148,10 +3148,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-168",
+    "name": "Object 168",
+    "aliases": ["object 168"],
+    "description": "Object 168",
     "portable": false,
     "visible": true,
     "location": "room-177",
@@ -3165,10 +3165,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-169",
+    "name": "Object 169",
+    "aliases": ["object 169"],
+    "description": "Object 169",
     "portable": false,
     "visible": true,
     "location": "room-159",
@@ -3183,10 +3183,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-170",
+    "name": "Object 170",
+    "aliases": ["object 170"],
+    "description": "Object 170",
     "portable": false,
     "visible": true,
     "location": "room-160",
@@ -3201,10 +3201,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-171",
+    "name": "Object 171",
+    "aliases": ["object 171"],
+    "description": "Object 171",
     "portable": true,
     "visible": false,
     "location": "room-179",
@@ -3219,10 +3219,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-172",
+    "name": "Object 172",
+    "aliases": ["object 172"],
+    "description": "Object 172",
     "portable": false,
     "visible": true,
     "location": "room-166",
@@ -3237,10 +3237,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-173",
+    "name": "Object 173",
+    "aliases": ["object 173"],
+    "description": "Object 173",
     "portable": false,
     "visible": true,
     "location": "room-185",
@@ -3255,10 +3255,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-174",
+    "name": "Object 174",
+    "aliases": ["object 174"],
+    "description": "Object 174",
     "portable": false,
     "visible": true,
     "location": "room-182",
@@ -3273,10 +3273,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-175",
+    "name": "Object 175",
+    "aliases": ["object 175"],
+    "description": "Object 175",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3291,10 +3291,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-176",
+    "name": "Object 176",
+    "aliases": ["object 176"],
+    "description": "Object 176",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3309,10 +3309,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-177",
+    "name": "Object 177",
+    "aliases": ["object 177"],
+    "description": "Object 177",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3326,10 +3326,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-178",
+    "name": "Object 178",
+    "aliases": ["object 178"],
+    "description": "Object 178",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3343,10 +3343,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-179",
+    "name": "Object 179",
+    "aliases": ["object 179"],
+    "description": "Object 179",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3360,10 +3360,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-180",
+    "name": "Object 180",
+    "aliases": ["object 180"],
+    "description": "Object 180",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3377,10 +3377,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-181",
+    "name": "Object 181",
+    "aliases": ["object 181"],
+    "description": "Object 181",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3395,10 +3395,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-182",
+    "name": "Object 182",
+    "aliases": ["object 182"],
+    "description": "Object 182",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3412,10 +3412,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-183",
+    "name": "Object 183",
+    "aliases": ["object 183"],
+    "description": "Object 183",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3429,10 +3429,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-184",
+    "name": "Object 184",
+    "aliases": ["object 184"],
+    "description": "Object 184",
     "portable": false,
     "visible": true,
     "location": "room-183",
@@ -3446,10 +3446,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-seem-to-be-185",
+    "name": "You Seem To Be",
+    "aliases": ["you seem to be", "you", "seem"],
+    "description": "You seem to be digging a hole here.",
     "portable": true,
     "visible": true,
     "location": "room-188",
@@ -3464,10 +3464,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-186",
+    "name": "Object 186",
+    "aliases": ["object 186"],
+    "description": "Object 186",
     "portable": false,
     "visible": true,
     "location": "room-26000",
@@ -3482,10 +3482,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-surrounded-by-187",
+    "name": "You Are Surrounded By",
+    "aliases": ["you are surrounded by", "you", "are", "surrounded"],
+    "description": "You are surrounded by a wall of sand on all sides.",
     "portable": true,
     "visible": true,
     "location": "room-18500",
@@ -3502,10 +3502,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-188",
+    "name": "Object 188",
+    "aliases": ["object 188"],
+    "description": "Object 188",
     "portable": false,
     "visible": true,
     "location": "room-26000",
@@ -3519,10 +3519,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-189",
+    "name": "Object 189",
+    "aliases": ["object 189"],
+    "description": "Object 189",
     "portable": false,
     "visible": false,
     "location": "void",
@@ -3536,10 +3536,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-190",
+    "name": "Object 190",
+    "aliases": ["object 190"],
+    "description": "Object 190",
     "portable": false,
     "visible": false,
     "location": "void",
@@ -3553,10 +3553,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-191",
+    "name": "Object 191",
+    "aliases": ["object 191"],
+    "description": "Object 191",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3570,10 +3570,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-192",
+    "name": "Object 192",
+    "aliases": ["object 192"],
+    "description": "Object 192",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3588,10 +3588,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-193",
+    "name": "Object 193",
+    "aliases": ["object 193"],
+    "description": "Object 193",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -3605,10 +3605,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-194",
+    "name": "Object 194",
+    "aliases": ["object 194"],
+    "description": "Object 194",
     "portable": true,
     "visible": true,
     "location": "void",
@@ -3622,10 +3622,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-195",
+    "name": "Object 195",
+    "aliases": ["object 195"],
+    "description": "Object 195",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3639,10 +3639,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-196",
+    "name": "Object 196",
+    "aliases": ["object 196"],
+    "description": "Object 196",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3656,10 +3656,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-197",
+    "name": "Object 197",
+    "aliases": ["object 197"],
+    "description": "Object 197",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3674,10 +3674,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-198",
+    "name": "Object 198",
+    "aliases": ["object 198"],
+    "description": "Object 198",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3692,10 +3692,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-199",
+    "name": "Object 199",
+    "aliases": ["object 199"],
+    "description": "Object 199",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3709,10 +3709,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-200",
+    "name": "Object 200",
+    "aliases": ["object 200"],
+    "description": "Object 200",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3726,10 +3726,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-201",
+    "name": "Object 201",
+    "aliases": ["object 201"],
+    "description": "Object 201",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3743,10 +3743,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-202",
+    "name": "Object 202",
+    "aliases": ["object 202"],
+    "description": "Object 202",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3761,10 +3761,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-203",
+    "name": "Object 203",
+    "aliases": ["object 203"],
+    "description": "Object 203",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3778,10 +3778,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-204",
+    "name": "Object 204",
+    "aliases": ["object 204"],
+    "description": "Object 204",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3796,10 +3796,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-205",
+    "name": "Object 205",
+    "aliases": ["object 205"],
+    "description": "Object 205",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3814,10 +3814,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-206",
+    "name": "Object 206",
+    "aliases": ["object 206"],
+    "description": "Object 206",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3832,10 +3832,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-207",
+    "name": "Object 207",
+    "aliases": ["object 207"],
+    "description": "Object 207",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3850,10 +3850,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-208",
+    "name": "Object 208",
+    "aliases": ["object 208"],
+    "description": "Object 208",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3868,10 +3868,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-209",
+    "name": "Object 209",
+    "aliases": ["object 209"],
+    "description": "Object 209",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3888,10 +3888,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-210",
+    "name": "Object 210",
+    "aliases": ["object 210"],
+    "description": "Object 210",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3905,10 +3905,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-211",
+    "name": "Object 211",
+    "aliases": ["object 211"],
+    "description": "Object 211",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3923,10 +3923,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-212",
+    "name": "Object 212",
+    "aliases": ["object 212"],
+    "description": "Object 212",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3941,10 +3941,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-213",
+    "name": "Object 213",
+    "aliases": ["object 213"],
+    "description": "Object 213",
     "portable": false,
     "visible": true,
     "location": "void",
@@ -3958,10 +3958,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "you-are-digging-into-214",
+    "name": "You Are Digging Into",
+    "aliases": ["you are digging into", "you", "are", "digging", "into"],
+    "description": "You are digging into a pile of bat guano.",
     "portable": false,
     "visible": true,
     "location": "room-178",
@@ -3978,10 +3978,10 @@
     }
   },
   {
-    "id": "",
-    "name": "",
-    "aliases": [""],
-    "description": "",
+    "id": "object-215",
+    "name": "Object 215",
+    "aliases": ["object 215"],
+    "description": "Object 215",
     "portable": false,
     "visible": true,
     "location": "void",

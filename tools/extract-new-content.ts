@@ -43,8 +43,11 @@ interface ExtractionResult {
   };
 }
 
-// Get project root (tools are in dist/tools, need to go up 2 levels)
-const projectRoot = path.join(__dirname, '..', '..');
+// Get project root - when run with tsx from tools/, go up one level
+// When run compiled from dist/tools, go up two levels
+const projectRoot = __dirname.includes('dist/tools')
+  ? path.join(__dirname, '..', '..')
+  : path.join(__dirname, '..');
 
 function loadCurrentRooms(): Room[] {
   const filePath = path.join(projectRoot, 'src', 'app', 'data', 'rooms.json');
@@ -64,7 +67,7 @@ function loadCanonicalRooms(): Room[] {
 }
 
 function loadCanonicalObjects(): GameObject[] {
-  const filePath = path.join(projectRoot, 'artifacts', 'objects.canonical.json');
+  const filePath = path.join(projectRoot, 'artifacts', 'objects.canonical.populated.json');
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
@@ -89,7 +92,13 @@ function findNewRooms(current: Room[], canonical: Room[]): Room[] {
  */
 function findNewObjects(current: GameObject[], canonical: GameObject[]): GameObject[] {
   const currentNames = new Set(current.map((o) => o.name.toLowerCase()));
-  return canonical.filter((o) => !currentNames.has(o.name.toLowerCase()));
+  return canonical.filter((o) => {
+    // Skip objects with empty names (incomplete data)
+    if (!o.name || o.name.trim() === '') {
+      return false;
+    }
+    return !currentNames.has(o.name.toLowerCase());
+  });
 }
 
 /**
