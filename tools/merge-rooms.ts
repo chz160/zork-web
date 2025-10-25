@@ -218,11 +218,12 @@ function saveMergedRooms(rooms: Room[]): void {
 }
 
 /**
- * Process rooms for merging
+ * Process rooms for merging - skip rooms that would create duplicate IDs
  */
 function processRoomsForMerge(newRooms: Room[], currentRooms: Room[]): Room[] {
   const existingIds = new Set(currentRooms.map((r) => r.id));
   const processed: Room[] = [];
+  let skipped = 0;
 
   for (const room of newRooms) {
     // Improve name if needed
@@ -231,6 +232,13 @@ function processRoomsForMerge(newRooms: Room[], currentRooms: Room[]): Room[] {
 
     // Generate unique ID
     const id = generateRoomId(improvedRoom, existingIds);
+
+    // Skip if this exact ID already exists (duplicate detection)
+    if (existingIds.has(id)) {
+      skipped++;
+      continue;
+    }
+
     existingIds.add(id);
 
     // Create final room (removing cIndexTrace for cleaner output)
@@ -247,6 +255,10 @@ function processRoomsForMerge(newRooms: Room[], currentRooms: Room[]): Room[] {
     }
 
     processed.push(finalRoom);
+  }
+
+  if (skipped > 0) {
+    console.log(`  Skipped ${skipped} rooms (already exist)`);
   }
 
   return processed;
