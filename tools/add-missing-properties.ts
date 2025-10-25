@@ -53,27 +53,28 @@ interface ObjectsData {
 const PROJECT_ROOT = path.join(__dirname, '../..');
 const OBJECTS_PATH = path.join(PROJECT_ROOT, 'src', 'app', 'data', 'objects.json');
 
-// Known property additions based on analysis
+// Known property additions based on canonical analysis
+// Sources: artifacts/objects.canonical.json flags and PROPERTY-VERIFICATION-REPORT.md
 const PROPERTY_ADDITIONS: Record<string, Partial<GameObjectProperties>> = {
   // Containers without capacity
-  book: { capacity: 0, isReadable: true }, // Black book - capacity 0 in canonical
-  'tool-chest': { capacity: 10 }, // Tool chest - reasonable default
-  thief: { capacity: 20 }, // Thief's bag
+  book: { capacity: 0, isReadable: true }, // Black book - capacity 0 from canonical objectIndex 46
+  'tool-chest': { capacity: 10 }, // Tool chest - estimated capacity (canonical doesn't specify)
+  thief: { capacity: 20 }, // Thief's bag - estimated based on game mechanics
 
-  // Readable items
+  // Readable items (READBT flag in canonical)
   guide: { isReadable: true }, // tour guidebook
   advertisement: { isReadable: true }, // leaflet
   match: { isReadable: true }, // matchbook
   'boat-label': { isReadable: true }, // tan label
 
-  // Food items
+  // Food items (FOODBT flag in canonical)
   lunch: { isFood: true, edible: true },
   garlic: { isFood: true, edible: true },
 
-  // Doors
+  // Doors (DOORBT flag in canonical)
   'trap-door': { isDoor: true },
 
-  // Transparent containers
+  // Transparent containers (TRANBT flag in canonical)
   bottle: { transparent: true },
 };
 
@@ -106,7 +107,10 @@ function addMissingProperties(): void {
       // Add each missing property
       for (const [key, value] of Object.entries(additions)) {
         if (obj.properties[key] === undefined) {
-          obj.properties[key] = value;
+          // Deep clone object values to avoid shared references
+          const clonedValue =
+            typeof value === 'object' && value !== null ? JSON.parse(JSON.stringify(value)) : value;
+          obj.properties[key] = clonedValue;
           updates.push(`  ${obj.name} (${obj.id}): ${key} = ${JSON.stringify(value)}`);
           objUpdated = true;
         }
