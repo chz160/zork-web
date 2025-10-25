@@ -1,0 +1,3270 @@
+{
+  "header": {
+    "version": {
+      "major": 2,
+      "minor": 7,
+      "edit": 65
+    },
+    "gameParams": {
+      "maxScore": 585,
+      "strbit": 191,
+      "endgameMaxScore": 100
+    }
+  },
+  "roomCount": 190,
+  "objectCount": 216,
+  "messageCount": 1022,
+  "travelCount": 886,
+  "roomTraces": [
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 0,
+        "messageIndex": -9590,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 1,
+        "messageIndex": -9608,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 2,
+        "messageIndex": -9620,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 3,
+        "messageIndex": -9635,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 4,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 5,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "RHOUSE"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 6,
+        "messageIndex": -9653,
+        "flags": ["RLAND", "RHOUSE"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 7,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "RHOUSE"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 8,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 9,
+        "messageIndex": -9665,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 10,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 11,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 12,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 13,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 14,
+        "messageIndex": -9692,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 15,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 16,
+        "messageIndex": -9692,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 17,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 18,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 19,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 20,
+        "messageIndex": -9692,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 21,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 22,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 23,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 24,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 25,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 26,
+        "messageIndex": -9692,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 27,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 28,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 29,
+        "messageIndex": -9684,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 30,
+        "messageIndex": -9698,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 31,
+        "messageIndex": -9707,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 32,
+        "messageIndex": -9720,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 33,
+        "messageIndex": -9736,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 34,
+        "messageIndex": -9698,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 35,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 36,
+        "messageIndex": -9753,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 37,
+        "messageIndex": -9774,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 38,
+        "messageIndex": 0,
+        "flags": ["RLAND", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 39,
+        "messageIndex": 0,
+        "flags": ["RWATER", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 40,
+        "messageIndex": 0,
+        "flags": ["RLAND", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 41,
+        "messageIndex": -9809,
+        "flags": ["RLAND", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 42,
+        "messageIndex": -9824,
+        "flags": ["RWATER", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 43,
+        "messageIndex": -9848,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 44,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 45,
+        "messageIndex": -9869,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 46,
+        "messageIndex": -9886,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 47,
+        "messageIndex": -9901,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 48,
+        "messageIndex": -9922,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 49,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 50,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 51,
+        "messageIndex": -9957,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 52,
+        "messageIndex": -9969,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 53,
+        "messageIndex": -9982,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 54,
+        "messageIndex": -9996,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 55,
+        "messageIndex": -10015,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 56,
+        "messageIndex": -10030,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 57,
+        "messageIndex": -10053,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 58,
+        "messageIndex": -10101,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 59,
+        "messageIndex": -10127,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 60,
+        "messageIndex": -10147,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 61,
+        "messageIndex": -10183,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 62,
+        "messageIndex": -10207,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 63,
+        "messageIndex": -10229,
+        "flags": ["RLAND", "RSACRD"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 64,
+        "messageIndex": -10239,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 65,
+        "messageIndex": -10262,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 66,
+        "messageIndex": -10262,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 67,
+        "messageIndex": -10262,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 68,
+        "messageIndex": -10262,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 69,
+        "messageIndex": -10262,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 70,
+        "messageIndex": -10262,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 71,
+        "messageIndex": -10262,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 72,
+        "messageIndex": -10270,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 73,
+        "messageIndex": -9692,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 74,
+        "messageIndex": -10291,
+        "flags": ["RLAND", "RSACRD"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 75,
+        "messageIndex": -10317,
+        "flags": ["RLAND", "RSACRD"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 76,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 77,
+        "messageIndex": 0,
+        "flags": ["RLAND", "RSACRD"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 78,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 79,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 80,
+        "messageIndex": -10351,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 81,
+        "messageIndex": -10372,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 82,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 83,
+        "messageIndex": -10402,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 84,
+        "messageIndex": -10414,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 85,
+        "messageIndex": -10429,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 86,
+        "messageIndex": -10450,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 87,
+        "messageIndex": -9692,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 88,
+        "messageIndex": -9692,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 89,
+        "messageIndex": -10467,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 90,
+        "messageIndex": -10478,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 91,
+        "messageIndex": -10519,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 92,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 93,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 94,
+        "messageIndex": -10536,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 95,
+        "messageIndex": -10554,
+        "flags": ["RLIGHT", "RLAND", "RSACRD"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 96,
+        "messageIndex": -10586,
+        "flags": ["RLIGHT", "RLAND", "RSACRD"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 97,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 98,
+        "messageIndex": -10600,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 99,
+        "messageIndex": -10626,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 100,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 101,
+        "messageIndex": -10687,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 102,
+        "messageIndex": -10708,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 103,
+        "messageIndex": -10739,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 104,
+        "messageIndex": -10794,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 105,
+        "messageIndex": -10818,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "RFILL", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 106,
+        "messageIndex": -10857,
+        "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 107,
+        "messageIndex": -10875,
+        "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 108,
+        "messageIndex": -10895,
+        "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 109,
+        "messageIndex": -10921,
+        "flags": ["RLAND", "RSACRD", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 110,
+        "messageIndex": -10943,
+        "flags": ["RLAND", "RSACRD", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 111,
+        "messageIndex": -10957,
+        "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 112,
+        "messageIndex": -10981,
+        "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 113,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 114,
+        "messageIndex": -10996,
+        "flags": ["RLAND", "RSACRD", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 115,
+        "messageIndex": -11019,
+        "flags": ["RLAND", "RSACRD", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 116,
+        "messageIndex": -11038,
+        "flags": ["RLAND", "RSACRD", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 117,
+        "messageIndex": -11055,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 118,
+        "messageIndex": -11066,
+        "flags": ["RLAND", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 119,
+        "messageIndex": 0,
+        "flags": ["RLAND", "RSACRD", "RFILL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 120,
+        "messageIndex": -11082,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 121,
+        "messageIndex": -11104,
+        "flags": ["RLIGHT", "RLAND", "RFILL", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 122,
+        "messageIndex": -11144,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 123,
+        "messageIndex": -11171,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 124,
+        "messageIndex": -11207,
+        "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 125,
+        "messageIndex": -11284,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 126,
+        "messageIndex": -11306,
+        "flags": ["RAIR", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 127,
+        "messageIndex": -11323,
+        "flags": ["RAIR", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 128,
+        "messageIndex": -11345,
+        "flags": ["RAIR", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 129,
+        "messageIndex": -11374,
+        "flags": ["RAIR", "RSACRD", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 130,
+        "messageIndex": -11394,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 131,
+        "messageIndex": -11422,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 132,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 133,
+        "messageIndex": -11467,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 134,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 135,
+        "messageIndex": -11494,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 136,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 137,
+        "messageIndex": 0,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 138,
+        "messageIndex": -11517,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 139,
+        "messageIndex": -11574,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 140,
+        "messageIndex": -11599,
+        "flags": ["RLAND", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 141,
+        "messageIndex": -11605,
+        "flags": ["RLAND", "RBUCK"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 142,
+        "messageIndex": -11632,
+        "flags": ["RLAND", "RBUCK"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 143,
+        "messageIndex": -11660,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 144,
+        "messageIndex": -11704,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 145,
+        "messageIndex": -11745,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 146,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "REND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 147,
+        "messageIndex": -11773,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 148,
+        "messageIndex": -11848,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 149,
+        "messageIndex": -11888,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 150,
+        "messageIndex": -11928,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 151,
+        "messageIndex": -11928,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 152,
+        "messageIndex": -11985,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 153,
+        "messageIndex": -12000,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 154,
+        "messageIndex": -12010,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 155,
+        "messageIndex": -12068,
+        "flags": ["RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 156,
+        "messageIndex": 0,
+        "flags": ["RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 157,
+        "messageIndex": -12092,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 158,
+        "messageIndex": -12118,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 159,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 160,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 161,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 162,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 163,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 164,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 165,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 166,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 167,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 168,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 169,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 170,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 171,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 172,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 173,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 174,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 175,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 176,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 177,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 178,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 179,
+        "messageIndex": -12159,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 180,
+        "messageIndex": -12179,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 181,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 182,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 183,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 184,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 185,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 186,
+        "messageIndex": -12204,
+        "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 187,
+        "messageIndex": -12326,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 188,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "roomIndex": 189,
+        "messageIndex": 0,
+        "flags": ["RLIGHT", "RLAND"]
+      }
+    }
+  ],
+  "objectTraces": [
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 0,
+        "messageIndex": -12364,
+        "flags": ["VISIBT", "TAKEBT", "CONTBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 1,
+        "messageIndex": -12378,
+        "flags": ["VISIBT", "TAKEBT", "FOODBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 2,
+        "messageIndex": -12385,
+        "flags": ["VISIBT", "TAKEBT", "FOODBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 3,
+        "messageIndex": -12390,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 4,
+        "messageIndex": -12399,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 5,
+        "messageIndex": -12407,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 6,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 7,
+        "messageIndex": -12416,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 8,
+        "messageIndex": -12425,
+        "flags": ["VISIBT", "TRANBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 9,
+        "messageIndex": -12431,
+        "flags": ["VISIBT", "TAKEBT", "TRANBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 10,
+        "messageIndex": -12437,
+        "flags": ["VISIBT", "TAKEBT", "DRNKBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 11,
+        "messageIndex": -12449,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 12,
+        "messageIndex": -12461,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 13,
+        "messageIndex": -12473,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 14,
+        "messageIndex": -12488,
+        "flags": ["VISIBT", "TAKEBT", "LIGHTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 15,
+        "messageIndex": -12503,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 16,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 17,
+        "messageIndex": -12511,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "a-nasty-looking-troll-brandishing-a-bloody-axe-blocks-all-passages-out-of-the-room",
+      "cIndexTrace": {
+        "objectIndex": 18,
+        "messageIndex": -4502,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 19,
+        "messageIndex": -12520,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 20,
+        "messageIndex": -12526,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 21,
+        "messageIndex": -12537,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 22,
+        "messageIndex": -12552,
+        "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 23,
+        "messageIndex": -12560,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 24,
+        "messageIndex": -12571,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 25,
+        "messageIndex": -12580,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 26,
+        "messageIndex": -12587,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 27,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 28,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 29,
+        "messageIndex": -12598,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 30,
+        "messageIndex": -12606,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 31,
+        "messageIndex": -12616,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 32,
+        "messageIndex": -12630,
+        "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 33,
+        "messageIndex": -12641,
+        "flags": ["VISIBT", "TAKEBT", "LIGHTBT", "FLAMBT", "TOOLBT", "ONBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 34,
+        "messageIndex": -12654,
+        "flags": ["VISIBT", "TRANBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 35,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 36,
+        "messageIndex": -12660,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 37,
+        "messageIndex": -12669,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 38,
+        "messageIndex": -12676,
+        "flags": ["TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 39,
+        "messageIndex": -12683,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 40,
+        "messageIndex": -12689,
+        "flags": ["VISIBT", "READBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 41,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 42,
+        "messageIndex": -12750,
+        "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 43,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "READBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 44,
+        "messageIndex": -12812,
+        "flags": ["TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 45,
+        "messageIndex": -12832,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 46,
+        "messageIndex": -12845,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 47,
+        "messageIndex": -12915,
+        "flags": ["VISIBT", "TAKEBT", "LIGHTBT", "FLAMBT", "ONBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 48,
+        "messageIndex": -12928,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 49,
+        "messageIndex": -13105,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 50,
+        "messageIndex": -13207,
+        "flags": ["VISIBT", "READBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 51,
+        "messageIndex": -13302,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 52,
+        "messageIndex": -13446,
+        "flags": ["VISIBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 53,
+        "messageIndex": -13451,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 54,
+        "messageIndex": -13468,
+        "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 55,
+        "messageIndex": -13475,
+        "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 56,
+        "messageIndex": -13479,
+        "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 57,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 58,
+        "messageIndex": -13486,
+        "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 59,
+        "messageIndex": -13494,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "there-is-a-suspicious-looking-individual-holding-a-bag-leaning-against-one-wall-he-is-armed-with-a-vicious-looking-stilletto",
+      "cIndexTrace": {
+        "objectIndex": 60,
+        "messageIndex": -4878,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 61,
+        "messageIndex": -13518,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 62,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 63,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "TURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 64,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 65,
+        "messageIndex": 0,
+        "flags": ["DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 66,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "READBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 67,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 68,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 69,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "TURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 70,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 71,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 72,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 73,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 74,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 75,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 76,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 77,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 78,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 79,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 80,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 81,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 82,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 83,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 84,
+        "messageIndex": -13554,
+        "flags": ["TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 85,
+        "messageIndex": -13566,
+        "flags": ["TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 86,
+        "messageIndex": -13572,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 87,
+        "messageIndex": -13585,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 88,
+        "messageIndex": -13596,
+        "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 89,
+        "messageIndex": -13603,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 90,
+        "messageIndex": -13609,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 91,
+        "messageIndex": -13673,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 92,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 93,
+        "messageIndex": -13691,
+        "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 94,
+        "messageIndex": -13699,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 95,
+        "messageIndex": -13705,
+        "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 96,
+        "messageIndex": -13710,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 97,
+        "messageIndex": -13718,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 98,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 99,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 100,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 101,
+        "messageIndex": -13748,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 102,
+        "messageIndex": -13748,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 103,
+        "messageIndex": -13756,
+        "flags": ["VISIBT", "READBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 104,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 105,
+        "messageIndex": -13878,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 106,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 107,
+        "messageIndex": -13910,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 108,
+        "messageIndex": -13923,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 109,
+        "messageIndex": -13931,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 110,
+        "messageIndex": -13939,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 111,
+        "messageIndex": -13946,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 112,
+        "messageIndex": -13987,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 113,
+        "messageIndex": -13995,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 114,
+        "messageIndex": -14009,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 115,
+        "messageIndex": -14015,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 116,
+        "messageIndex": -14021,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 117,
+        "messageIndex": -14027,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 118,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "READBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 119,
+        "messageIndex": -14147,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 120,
+        "messageIndex": -14157,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 121,
+        "messageIndex": -14185,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 122,
+        "messageIndex": -14238,
+        "flags": ["VISIBT", "TRANBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 123,
+        "messageIndex": -14250,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 124,
+        "messageIndex": -14256,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 125,
+        "messageIndex": -14265,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 126,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 127,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 128,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 129,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "READBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 130,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "READBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 131,
+        "messageIndex": -14298,
+        "flags": ["VISIBT", "TAKEBT", "TRANBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 132,
+        "messageIndex": -14314,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 133,
+        "messageIndex": -14324,
+        "flags": ["TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 134,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 135,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 136,
+        "messageIndex": -14337,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 137,
+        "messageIndex": -14349,
+        "flags": ["VISIBT", "TAKEBT", "FOODBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 138,
+        "messageIndex": -14360,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "FOODBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 139,
+        "messageIndex": -14371,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "FOODBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 140,
+        "messageIndex": -14381,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "FOODBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 141,
+        "messageIndex": -14392,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 142,
+        "messageIndex": -14396,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 143,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 144,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 145,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 146,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 147,
+        "messageIndex": -14457,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 148,
+        "messageIndex": -14614,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 149,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "READBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 150,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 151,
+        "messageIndex": -14749,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 152,
+        "messageIndex": -14756,
+        "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 153,
+        "messageIndex": -14768,
+        "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 154,
+        "messageIndex": -14819,
+        "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 155,
+        "messageIndex": -14828,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 156,
+        "messageIndex": -14836,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 157,
+        "messageIndex": -14872,
+        "flags": ["VISIBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 158,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 159,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 160,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 161,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 162,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 163,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 164,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 165,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 166,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 167,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 168,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 169,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 170,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 171,
+        "messageIndex": 0,
+        "flags": ["TAKEBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 172,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 173,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 174,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 175,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 176,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 177,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 178,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 179,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 180,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 181,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 182,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 183,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 184,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 185,
+        "messageIndex": -14980,
+        "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 186,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 187,
+        "messageIndex": -15047,
+        "flags": ["VISIBT", "READBT", "TAKEBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 188,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 189,
+        "messageIndex": 0,
+        "flags": []
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 190,
+        "messageIndex": 0,
+        "flags": []
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 191,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 192,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 193,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "TAKEBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 194,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "TAKEBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 195,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 196,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 197,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 198,
+        "messageIndex": 0,
+        "flags": ["VISIBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 199,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 200,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "TOOLBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 201,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 202,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 203,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 204,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 205,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 206,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 207,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 208,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "TRANBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 209,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 210,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 211,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 212,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 213,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 214,
+        "messageIndex": -15236,
+        "flags": ["VISIBT", "VICTBT"]
+      }
+    },
+    {
+      "id": "",
+      "cIndexTrace": {
+        "objectIndex": 215,
+        "messageIndex": 0,
+        "flags": ["VISIBT", "NDSCBT"]
+      }
+    }
+  ]
+}

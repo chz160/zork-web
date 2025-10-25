@@ -1,0 +1,3511 @@
+[
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rval": 5,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 0,
+      "messageIndex": -9590,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 1,
+      "messageIndex": -9608,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 2,
+      "messageIndex": -9620,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 3,
+      "messageIndex": -9635,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 1,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 4,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 2,
+      "rval": 10,
+      "rflag": 25664
+    },
+    "cIndexTrace": {
+      "roomIndex": 5,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "RHOUSE"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8256
+    },
+    "cIndexTrace": {
+      "roomIndex": 6,
+      "messageIndex": -9653,
+      "flags": ["RLAND", "RHOUSE"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 3,
+      "rflag": 25664
+    },
+    "cIndexTrace": {
+      "roomIndex": 7,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "RHOUSE"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 4,
+      "rval": 25,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 8,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 9,
+      "messageIndex": -9665,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 10,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 11,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 12,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 13,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 14,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 15,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 16,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 17,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 18,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 19,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 20,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 21,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 22,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 23,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 5,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 24,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 25,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 26,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 27,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 28,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 29,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {
+      "in": "room-3209"
+    },
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 30,
+      "messageIndex": -9698,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 31,
+      "messageIndex": -9707,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 32,
+      "messageIndex": -9720,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 33,
+      "messageIndex": -9736,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 34,
+      "messageIndex": -9698,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 6,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 35,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 36,
+      "messageIndex": -9753,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 37,
+      "messageIndex": -9774,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 7,
+      "rflag": 8704
+    },
+    "cIndexTrace": {
+      "roomIndex": 38,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 8,
+      "rflag": 4128
+    },
+    "cIndexTrace": {
+      "roomIndex": 39,
+      "messageIndex": 0,
+      "flags": ["RWATER", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 9,
+      "rflag": 8704
+    },
+    "cIndexTrace": {
+      "roomIndex": 40,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8704
+    },
+    "cIndexTrace": {
+      "roomIndex": 41,
+      "messageIndex": -9809,
+      "flags": ["RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 4128
+    },
+    "cIndexTrace": {
+      "roomIndex": 42,
+      "messageIndex": -9824,
+      "flags": ["RWATER", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 43,
+      "messageIndex": -9848,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 10,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 44,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 45,
+      "messageIndex": -9869,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 46,
+      "messageIndex": -9886,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 47,
+      "messageIndex": -9901,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 48,
+      "messageIndex": -9922,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 12,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 49,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 12,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 50,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 51,
+      "messageIndex": -9957,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 13,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 52,
+      "messageIndex": -9969,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 53,
+      "messageIndex": -9982,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 54,
+      "messageIndex": -9996,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 55,
+      "messageIndex": -10015,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 56,
+      "messageIndex": -10030,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 57,
+      "messageIndex": -10053,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 58,
+      "messageIndex": -10101,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 59,
+      "messageIndex": -10127,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 60,
+      "messageIndex": -10147,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 61,
+      "messageIndex": -10183,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 62,
+      "messageIndex": -10207,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 14,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 63,
+      "messageIndex": -10229,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 64,
+      "messageIndex": -10239,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 65,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 66,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 67,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 68,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 69,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 70,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 71,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 72,
+      "messageIndex": -10270,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 73,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 15,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 74,
+      "messageIndex": -10291,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 15,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 75,
+      "messageIndex": -10317,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 16,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 76,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 17,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 77,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 18,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 78,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 19,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 79,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 80,
+      "messageIndex": -10351,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 81,
+      "messageIndex": -10372,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 20,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 82,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 83,
+      "messageIndex": -10402,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 84,
+      "messageIndex": -10414,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 85,
+      "messageIndex": -10429,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 86,
+      "messageIndex": -10450,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 87,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 88,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 89,
+      "messageIndex": -10467,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 90,
+      "messageIndex": -10478,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 91,
+      "messageIndex": -10519,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 21,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 92,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 22,
+      "rval": 30,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 93,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 94,
+      "messageIndex": -10536,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25600
+    },
+    "cIndexTrace": {
+      "roomIndex": 95,
+      "messageIndex": -10554,
+      "flags": ["RLIGHT", "RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25600
+    },
+    "cIndexTrace": {
+      "roomIndex": 96,
+      "messageIndex": -10586,
+      "flags": ["RLIGHT", "RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 23,
+      "rflag": 25088
+    },
+    "cIndexTrace": {
+      "roomIndex": 97,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 98,
+      "messageIndex": -10600,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 99,
+      "messageIndex": -10626,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 25,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 100,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rval": 10,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 101,
+      "messageIndex": -10687,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 27,
+      "rval": 25,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 102,
+      "messageIndex": -10708,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 103,
+      "messageIndex": -10739,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 104,
+      "messageIndex": -10794,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 26144
+    },
+    "cIndexTrace": {
+      "roomIndex": 105,
+      "messageIndex": -10818,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 106,
+      "messageIndex": -10857,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 107,
+      "messageIndex": -10875,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 108,
+      "messageIndex": -10895,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 28,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 109,
+      "messageIndex": -10921,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 28,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 110,
+      "messageIndex": -10943,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 29,
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 111,
+      "messageIndex": -10957,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 112,
+      "messageIndex": -10981,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 30,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 113,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 114,
+      "messageIndex": -10996,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 31,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 115,
+      "messageIndex": -11019,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 116,
+      "messageIndex": -11038,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 32,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 117,
+      "messageIndex": -11055,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8224
+    },
+    "cIndexTrace": {
+      "roomIndex": 118,
+      "messageIndex": -11066,
+      "flags": ["RLAND", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 33,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 119,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 120,
+      "messageIndex": -11082,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25120
+    },
+    "cIndexTrace": {
+      "roomIndex": 121,
+      "messageIndex": -11104,
+      "flags": ["RLIGHT", "RLAND", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 122,
+      "messageIndex": -11144,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 123,
+      "messageIndex": -11171,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 124,
+      "messageIndex": -11207,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 125,
+      "messageIndex": -11284,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 126,
+      "messageIndex": -11306,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 127,
+      "messageIndex": -11323,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 128,
+      "messageIndex": -11345,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 129,
+      "messageIndex": -11374,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 130,
+      "messageIndex": -11394,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 131,
+      "messageIndex": -11422,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 34,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 132,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 133,
+      "messageIndex": -11467,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 35,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 134,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 135,
+      "messageIndex": -11494,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 58,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 136,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 36,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 137,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 138,
+      "messageIndex": -11517,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 139,
+      "messageIndex": -11574,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 37,
+      "rflag": 8224
+    },
+    "cIndexTrace": {
+      "roomIndex": 140,
+      "messageIndex": -11599,
+      "flags": ["RLAND", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rval": 10,
+      "rflag": 8320
+    },
+    "cIndexTrace": {
+      "roomIndex": 141,
+      "messageIndex": -11605,
+      "flags": ["RLAND", "RBUCK"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8320
+    },
+    "cIndexTrace": {
+      "roomIndex": 142,
+      "messageIndex": -11632,
+      "flags": ["RLAND", "RBUCK"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 143,
+      "messageIndex": -11660,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 144,
+      "messageIndex": -11704,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 145,
+      "messageIndex": -11745,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 24,
+      "rflag": 24608
+    },
+    "cIndexTrace": {
+      "roomIndex": 146,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "REND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 147,
+      "messageIndex": -11773,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 148,
+      "messageIndex": -11848,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 149,
+      "messageIndex": -11888,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 150,
+      "messageIndex": -11928,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 151,
+      "messageIndex": -11928,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 152,
+      "messageIndex": -11985,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 153,
+      "messageIndex": -12000,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 26,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 154,
+      "messageIndex": -12010,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 155,
+      "messageIndex": -12068,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 48,
+      "rval": 5,
+      "rflag": 8208
+    },
+    "cIndexTrace": {
+      "roomIndex": 156,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rval": 10,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 157,
+      "messageIndex": -12092,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 158,
+      "messageIndex": -12118,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 47,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 159,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 42,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 160,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 41,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 161,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 40,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 162,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 163,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 38,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 164,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 51,
+      "rval": 15,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 165,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 45,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 166,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 45,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 167,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 44,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 168,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 44,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 169,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 43,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 170,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 43,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 171,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 172,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 173,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 174,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 175,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 46,
+      "rval": 15,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 176,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 50,
+      "rval": 20,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 177,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 49,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 178,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 179,
+      "messageIndex": -12159,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 180,
+      "messageIndex": -12179,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 52,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 181,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 53,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 182,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 54,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 183,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 55,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 184,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 56,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 185,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 57,
+      "rval": 35,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 186,
+      "messageIndex": -12204,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 187,
+      "messageIndex": -12326,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 59,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 188,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 60,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 189,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  }
+]
