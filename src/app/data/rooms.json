@@ -8,7 +8,11 @@
       "exits": {
         "north": "north-of-house",
         "south": "south-of-house",
-        "east": "east-of-house"
+        "ne": "north-of-house",
+        "se": "south-of-house",
+        "west": "forest-1",
+        "sw": "stone-barrow",
+        "in": "stone-barrow"
       },
       "objectIds": [],
       "visited": false,
@@ -93,9 +97,9 @@
       "description": "This is a dimly lit forest, with large trees all around.",
       "shortDescription": "Forest",
       "exits": {
-        "in": "rooms",
-        "up": "thereisnotreeheresuitableforclimbing",
-        "north": "theforestbecomesimpenetrabletothenorth"
+        "east": "mountains",
+        "south": "clearing",
+        "west": "path"
       },
       "objectIds": [],
       "visited": false,
@@ -107,9 +111,9 @@
       "description": "The forest thins out, revealing impassable mountains.",
       "shortDescription": "Forest",
       "exits": {
-        "in": "rooms",
-        "up": "themountainsareimpassable",
-        "east": "themountainsareimpassable"
+        "north": "forest-2",
+        "south": "forest-2",
+        "west": "forest-2"
       },
       "objectIds": [],
       "visited": false,
@@ -121,10 +125,9 @@
       "description": "This is a dimly lit forest, with large trees all around.",
       "shortDescription": "Forest",
       "exits": {
-        "in": "rooms",
-        "up": "thereisnotreeheresuitableforclimbing",
-        "east": "therankundergrowthpreventseastwardmovement",
-        "south": "storm-tossedtreesblockyourway"
+        "north": "clearing",
+        "west": "forest-1",
+        "nw": "south-of-house"
       },
       "objectIds": [],
       "visited": false,
@@ -150,8 +153,7 @@
       "description": "You are about 10 feet above the ground nestled among some large branches. The nearest branch above you is above your reach.",
       "shortDescription": "Up a Tree",
       "exits": {
-        "in": "rooms",
-        "up": "youcannotclimbanyhigher"
+        "down": "path"
       },
       "objectIds": [],
       "visited": false,
@@ -163,8 +165,9 @@
       "description": "You are in a clearing, with a forest surrounding you on all sides. A path leads south.",
       "shortDescription": "Clearing",
       "exits": {
-        "in": "rooms",
-        "north": "theforestbecomesimpenetrabletothenorth"
+        "east": "forest-2",
+        "west": "forest-1",
+        "south": "path"
       },
       "objectIds": [],
       "visited": false,
@@ -191,8 +194,11 @@
       "description": "You are in the kitchen of the white house. A table seems to have been used recently for the preparation of food.",
       "shortDescription": "Kitchen",
       "exits": {
-        "in": "rooms",
-        "down": "tostudioiffalse-flagelse"
+        "east": "east-of-house",
+        "west": "living-room",
+        "out": "east-of-house",
+        "up": "attic",
+        "down": "studio"
       },
       "objectIds": [],
       "visited": false,
@@ -204,7 +210,7 @@
       "description": "This is the attic. The only exit is a stairway leading down.",
       "shortDescription": "Attic",
       "exits": {
-        "in": "rooms"
+        "down": "kitchen"
       },
       "objectIds": [],
       "visited": false,
@@ -229,7 +235,9 @@
       "description": "You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south.",
       "shortDescription": "Cellar",
       "exits": {
-        "in": "rooms"
+        "north": "troll-room",
+        "south": "east-of-chasm",
+        "up": "living-room"
       },
       "objectIds": [],
       "visited": false,
@@ -238,10 +246,12 @@
     {
       "id": "troll-room",
       "name": "Troll Room",
-      "description": "forbidding hole leading west. Bloodstains and deep scratches",
+      "description": "This is a small room with passages to the east and south and a forbidding hole leading west. Bloodstains and deep scratches (perhaps made by an axe) mar the walls.",
       "shortDescription": "The Troll Room",
       "exits": {
-        "in": "rooms"
+        "south": "cellar",
+        "east": "ew-passage",
+        "west": "maze-1"
       },
       "objectIds": [],
       "visited": false,
@@ -250,11 +260,11 @@
     {
       "id": "east-of-chasm",
       "name": "East Of Chasm",
-      "description": "seen.,A,narrow,passage,goes,north,,and,the,path,you,are,on,continues,to,the,east.\"",
+      "description": "You are on the east edge of a chasm, the bottom of which cannot be seen. A narrow passage goes north, and the path you are on continues to the east.",
       "shortDescription": "East of Chasm",
       "exits": {
-        "in": "rooms",
-        "down": "thechasmprobablyleadsstraighttotheinfernalregions"
+        "north": "cellar",
+        "east": "gallery"
       },
       "objectIds": [],
       "visited": false,
@@ -263,10 +273,11 @@
     {
       "id": "gallery",
       "name": "Gallery",
-      "description": "vandals,with,exceptional,taste.,The,vandals,left,through,either,the,north,or,west,exits.\"",
+      "description": "This is an art gallery. Most of the paintings have been stolen by vandals with exceptional taste. The vandals left through either the north or west exits.",
       "shortDescription": "Gallery",
       "exits": {
-        "in": "rooms"
+        "west": "east-of-chasm",
+        "north": "studio"
       },
       "objectIds": [],
       "visited": false,
@@ -275,10 +286,10 @@
     {
       "id": "studio",
       "name": "Studio",
-      "description": "splattered with paints of 69 different colors. Strangely enough, nothing of value is hanging here. At the south end of the room is an open door",
+      "description": "This appears to have been an artist's studio. The walls and floors are splattered with paints of 69 different colors. Strangely enough, nothing of value is hanging here. At the south end of the room is an open door (also covered with paint). A dark and narrow chimney leads up from a fireplace; although you might be able to get up it, it seems unlikely you could get back down.",
       "shortDescription": "Studio",
       "exits": {
-        "in": "rooms"
+        "south": "gallery"
       },
       "objectIds": [],
       "visited": false,
@@ -290,7 +301,10 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "east": "troll-room",
+        "north": "maze-1",
+        "south": "maze-2",
+        "west": "maze-4"
       },
       "objectIds": [],
       "visited": false,
@@ -302,8 +316,8 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms",
-        "down": "permaze-diodestomaze-4"
+        "south": "maze-1",
+        "east": "maze-3"
       },
       "objectIds": [],
       "visited": false,
@@ -315,7 +329,9 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "west": "maze-2",
+        "north": "maze-4",
+        "up": "maze-5"
       },
       "objectIds": [],
       "visited": false,
@@ -327,7 +343,9 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "west": "maze-3",
+        "north": "maze-1",
+        "east": "dead-end-1"
       },
       "objectIds": [],
       "visited": false,
@@ -339,7 +357,7 @@
       "description": "You have come to a dead end in the maze.",
       "shortDescription": "Dead End",
       "exits": {
-        "in": "rooms"
+        "south": "maze-4"
       },
       "objectIds": [],
       "visited": false,
@@ -351,7 +369,9 @@
       "description": "This is part of a maze of twisty little passages, all alike. A skeleton, probably the remains of a luckless adventurer, lies here.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "east": "dead-end-2",
+        "north": "maze-3",
+        "sw": "maze-6"
       },
       "objectIds": [],
       "visited": false,
@@ -363,7 +383,7 @@
       "description": "You have come to a dead end in the maze.",
       "shortDescription": "Dead End",
       "exits": {
-        "in": "rooms"
+        "west": "maze-5"
       },
       "objectIds": [],
       "visited": false,
@@ -375,7 +395,10 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "down": "maze-5",
+        "east": "maze-7",
+        "west": "maze-6",
+        "up": "maze-9"
       },
       "objectIds": [],
       "visited": false,
@@ -387,8 +410,10 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms",
-        "down": "permaze-diodestodead-end-1"
+        "up": "maze-14",
+        "west": "maze-6",
+        "east": "maze-8",
+        "south": "maze-15"
       },
       "objectIds": [],
       "visited": false,
@@ -400,7 +425,9 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "ne": "maze-7",
+        "west": "maze-8",
+        "se": "dead-end-3"
       },
       "objectIds": [],
       "visited": false,
@@ -412,7 +439,7 @@
       "description": "You have come to a dead end in the maze.",
       "shortDescription": "Dead End",
       "exits": {
-        "in": "rooms"
+        "north": "maze-8"
       },
       "objectIds": [],
       "visited": false,
@@ -424,8 +451,11 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms",
-        "down": "permaze-diodestomaze-11"
+        "north": "maze-6",
+        "east": "maze-10",
+        "south": "maze-13",
+        "west": "maze-12",
+        "nw": "maze-9"
       },
       "objectIds": [],
       "visited": false,
@@ -437,7 +467,9 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "east": "maze-9",
+        "west": "maze-13",
+        "up": "maze-11"
       },
       "objectIds": [],
       "visited": false,
@@ -449,7 +481,10 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "ne": "grating-room",
+        "down": "maze-10",
+        "nw": "maze-13",
+        "sw": "maze-12"
       },
       "objectIds": [],
       "visited": false,
@@ -477,8 +512,10 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms",
-        "down": "permaze-diodestomaze-5"
+        "sw": "maze-11",
+        "east": "maze-13",
+        "up": "maze-9",
+        "north": "dead-end-4"
       },
       "objectIds": [],
       "visited": false,
@@ -490,7 +527,7 @@
       "description": "You have come to a dead end in the maze.",
       "shortDescription": "Dead End",
       "exits": {
-        "in": "rooms"
+        "south": "maze-12"
       },
       "objectIds": [],
       "visited": false,
@@ -502,7 +539,10 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "east": "maze-9",
+        "down": "maze-12",
+        "south": "maze-10",
+        "west": "maze-11"
       },
       "objectIds": [],
       "visited": false,
@@ -514,7 +554,10 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "west": "maze-15",
+        "nw": "maze-14",
+        "ne": "maze-7",
+        "south": "maze-7"
       },
       "objectIds": [],
       "visited": false,
@@ -526,7 +569,9 @@
       "description": "This is part of a maze of twisty little passages, all alike.",
       "shortDescription": "Maze",
       "exits": {
-        "in": "rooms"
+        "west": "maze-14",
+        "south": "maze-7",
+        "se": "cyclops-room"
       },
       "objectIds": [],
       "visited": false,
@@ -550,9 +595,13 @@
     {
       "id": "strange-passage",
       "name": "Strange Passage",
-      "description": "east,there,is,an,old,wooden,door,,with,a,large,opening,in,it,(about,cyclops,sized).\"",
+      "description": "This is a long passage. To the west is one entrance. On the east there is an old wooden door, with a large opening in it (about cyclops sized).",
       "shortDescription": "Strange Passage",
-      "exits": {},
+      "exits": {
+        "west": "cyclops-room",
+        "in": "cyclops-room",
+        "east": "living-room"
+      },
       "objectIds": [],
       "visited": false,
       "isDark": false
@@ -560,10 +609,10 @@
     {
       "id": "treasure-room",
       "name": "Treasure Room",
-      "description": "of,discarded,bags,,which,crumble,at,your,touch,,are,scattered,about,on,the,floor.,There,is,an,exit,down,a,staircase.\"",
+      "description": "This is a large room, whose east wall is solid granite. A number of discarded bags, which crumble at your touch, are scattered about on the floor. There is an exit down a staircase.",
       "shortDescription": "Treasure Room",
       "exits": {
-        "in": "rooms"
+        "down": "cyclops-room"
       },
       "objectIds": [],
       "visited": false,
@@ -589,8 +638,10 @@
       "description": "You are in a long room on the south shore of a large reservoir. A path leads from the west around the north edge of the water.",
       "shortDescription": "Reservoir",
       "exits": {
-        "in": "rooms",
-        "down": "thedamblocksyourway"
+        "north": "reservoir-north",
+        "south": "reservoir-south",
+        "up": "in-stream",
+        "west": "in-stream"
       },
       "objectIds": [],
       "visited": false,
@@ -613,11 +664,10 @@
     {
       "id": "stream-view",
       "name": "Stream View",
-      "description": "follows,the,stream,,which,flows,from,west,to,east.\"",
+      "description": "You are standing on a path beside a gently flowing stream. The path follows the stream, which flows from west to east.",
       "shortDescription": "Stream View",
       "exits": {
-        "in": "rooms",
-        "west": "thestreamemergesfromaspottoosmallforyoutoenter"
+        "east": "reservoir-south"
       },
       "objectIds": [],
       "visited": false,
@@ -626,12 +676,11 @@
     {
       "id": "in-stream",
       "name": "In Stream",
-      "description": "to,navigate,,and,the,downstream,route,is,invisible,due,to,twisting,walls.,There,is,a,narrow,beach,to,land,on.\"",
+      "description": "You are on the gently flowing stream. The upstream route is too narrow to navigate, and the downstream route is invisible due to twisting walls. There is a narrow beach to land on.",
       "shortDescription": "Stream",
       "exits": {
-        "in": "rooms",
-        "up": "thechannelistoonarrow",
-        "west": "thechannelistoonarrow"
+        "down": "reservoir",
+        "east": "reservoir"
       },
       "objectIds": [],
       "visited": false,
@@ -681,10 +730,12 @@
     {
       "id": "tiny-cave",
       "name": "Tiny Cave",
-      "description": "forbidding,staircase,leading,down.\"",
+      "description": "This is a tiny cave with entrances west and north, and a dark, forbidding staircase leading down.",
       "shortDescription": "Cave",
       "exits": {
-        "in": "rooms"
+        "north": "mirror-room-2",
+        "west": "winding-passage",
+        "down": "entrance-to-hades"
       },
       "objectIds": [],
       "visited": false,
@@ -693,10 +744,11 @@
     {
       "id": "cold-passage",
       "name": "Cold Passage",
-      "description": "turns,into,a,southward,path.\"",
+      "description": "This is a cold and damp corridor where a long east-west passageway turns into a southward path.",
       "shortDescription": "Cold Passage",
       "exits": {
-        "in": "rooms"
+        "south": "mirror-room-1",
+        "west": "slide-room"
       },
       "objectIds": [],
       "visited": false,
@@ -705,10 +757,11 @@
     {
       "id": "narrow-passage",
       "name": "Narrow Passage",
-      "description": "briefly,narrows,even,further.\"",
+      "description": "This is a long and narrow corridor where a long north-south passageway briefly narrows even further.",
       "shortDescription": "Narrow Passage",
       "exits": {
-        "in": "rooms"
+        "north": "round-room",
+        "south": "mirror-room-2"
       },
       "objectIds": [],
       "visited": false,
@@ -717,10 +770,11 @@
     {
       "id": "winding-passage",
       "name": "Winding Passage",
-      "description": "on,the,east,and,north.\"",
+      "description": "This is a winding passage. It seems that there are only exits on the east and north.",
       "shortDescription": "Winding Passage",
       "exits": {
-        "in": "rooms"
+        "north": "mirror-room-2",
+        "east": "tiny-cave"
       },
       "objectIds": [],
       "visited": false,
@@ -729,10 +783,11 @@
     {
       "id": "twisting-passage",
       "name": "Twisting Passage",
-      "description": "on,the,east,and,north.\"",
+      "description": "This is a winding passage. It seems that there are only exits on the east and north.",
       "shortDescription": "Twisting Passage",
       "exits": {
-        "in": "rooms"
+        "north": "mirror-room-1",
+        "east": "small-cave"
       },
       "objectIds": [],
       "visited": false,
@@ -741,10 +796,11 @@
     {
       "id": "atlantis-room",
       "name": "Atlantis Room",
-      "description": "the,south,and,a,staircase,leading,up.\"",
+      "description": "This is an ancient room, long under water. There is an exit to the south and a staircase leading up.",
       "shortDescription": "Atlantis Room",
       "exits": {
-        "in": "rooms"
+        "up": "small-cave",
+        "south": "reservoir-north"
       },
       "objectIds": [],
       "visited": false,
@@ -753,10 +809,13 @@
     {
       "id": "ew-passage",
       "name": "Ew Passage",
-      "description": "leading,down,at,the,north,end,of,the,room.\"",
+      "description": "This is a narrow east-west passageway. There is a narrow stairway leading down at the north end of the room.",
       "shortDescription": "East-West Passage",
       "exits": {
-        "in": "rooms"
+        "east": "round-room",
+        "west": "troll-room",
+        "down": "chasm-room",
+        "north": "chasm-room"
       },
       "objectIds": [],
       "visited": false,
@@ -765,10 +824,14 @@
     {
       "id": "round-room",
       "name": "Round Room",
-      "description": "of,them,have,unfortunately,been,blocked,by,cave-ins.\"",
+      "description": "This is a circular stone room with passages in all directions. Several of them have unfortunately been blocked by cave-ins.",
       "shortDescription": "Round Room",
       "exits": {
-        "in": "rooms"
+        "east": "loud-room",
+        "west": "ew-passage",
+        "north": "ns-passage",
+        "south": "narrow-passage",
+        "se": "engravings-cave"
       },
       "objectIds": [],
       "visited": false,
@@ -791,11 +854,12 @@
     {
       "id": "damp-cave",
       "name": "Damp Cave",
-      "description": "the,south.,The,earth,is,particularly,damp,here.\"",
+      "description": "This cave has exits to the west and east, and narrows to a crack toward the south. The earth is particularly damp here.",
       "shortDescription": "Damp Cave",
       "exits": {
-        "in": "rooms",
-        "south": "itistoonarrowformostinsects"
+        "south": "white-cliffs-northwaswclf1",
+        "east": "white-cliffs-northwaswclf1",
+        "west": "loud-room"
       },
       "objectIds": [],
       "visited": false,
@@ -807,7 +871,9 @@
       "description": "This is a large room with a ceiling which cannot be detected from the ground. There is a narrow passage from east to west and a stone stairway leading upward.",
       "shortDescription": "Loud Room",
       "exits": {
-        "in": "rooms"
+        "east": "damp-cave",
+        "west": "round-room",
+        "up": "deep-canyon"
       },
       "objectIds": [],
       "visited": false,
@@ -829,11 +895,13 @@
     {
       "id": "chasm-room",
       "name": "Chasm Room",
-      "description": "on,the,south,side,of,the,chasm,,where,a,crack,opens,into,a,passage.\"",
+      "description": "A chasm runs southwest to northeast and the path follows it. You are on the south side of the chasm, where a crack opens into a passage.",
       "shortDescription": "Chasm",
       "exits": {
-        "in": "rooms",
-        "down": "areyououtofyourmind"
+        "ne": "reservoir-south",
+        "sw": "ew-passage",
+        "up": "ew-passage",
+        "south": "ns-passage"
       },
       "objectIds": [],
       "visited": false,
@@ -856,10 +924,11 @@
     {
       "id": "land-of-living-dead",
       "name": "Land Of Living Dead",
-      "description": "can,be,heard,weeping,and,moaning.,In,the,corner,are,stacked,the,remains,of,dozens,of,previous,adventurers,less,fortunate,than,yourself.,A,passage,exits,to,the,north.\"",
+      "description": "You have entered the Land of the Living Dead. Thousands of lost souls can be heard weeping and moaning. In the corner are stacked the remains of dozens of previous adventurers less fortunate than yourself. A passage exits to the north.",
       "shortDescription": "Land of the Dead",
       "exits": {
-        "in": "rooms"
+        "out": "entrance-to-hades",
+        "north": "entrance-to-hades"
       },
       "objectIds": [],
       "visited": false,
@@ -881,10 +950,11 @@
     {
       "id": "egypt-roomwasegypt",
       "name": "Egypt Roomwasegypt",
-      "description": "ascending,staircase,to,the,west.\"",
+      "description": "This is a room which looks like an Egyptian tomb. There is an ascending staircase to the west.",
       "shortDescription": "Egyptian Room",
       "exits": {
-        "in": "rooms"
+        "west": "north-templewastemp1",
+        "up": "north-templewastemp1"
       },
       "objectIds": [],
       "visited": false,
@@ -893,10 +963,10 @@
     {
       "id": "dome-roomwasdome",
       "name": "Dome Roomwasdome",
-      "description": "You are at the periphery of a large dome, which forms the ceiling of another room below.",
+      "description": "This is a large room with a domed ceiling.",
       "shortDescription": "Dome Room",
       "exits": {
-        "in": "rooms"
+        "west": "engravings-cavewascave4"
       },
       "objectIds": [],
       "visited": false,
@@ -919,10 +989,15 @@
     {
       "id": "north-templewastemp1",
       "name": "North Templewastemp1",
-      "description": "ancient,inscription,,probably,a,prayer,in,a,long-forgotten,language.,Below,the,prayer,is,a,staircase,leading,down.,The,west,wall,is,solid,granite.,The,exit,to,the,north,end,of,the,room,is,through,huge,marble,pillars.\"",
+      "description": "This is the north end of a large temple. On the east wall is an ancient inscription, probably a prayer in a long-forgotten language. Below the prayer is a staircase leading down. The west wall is solid granite. The exit to the north end of the room is through huge marble pillars.",
       "shortDescription": "Temple",
       "exits": {
-        "in": "rooms"
+        "down": "egypt-roomwasegypt",
+        "east": "egypt-roomwasegypt",
+        "north": "torch-room",
+        "out": "torch-room",
+        "up": "torch-room",
+        "south": "south-templewastemp2"
       },
       "objectIds": [],
       "visited": false,
@@ -931,10 +1006,10 @@
     {
       "id": "south-templewastemp2",
       "name": "South Templewastemp2",
-      "description": "appears,to,be,an,altar.,In,one,corner,is,a,small,hole,in,the,floor,which,leads,into,darkness.,You,probably,could,not,get,back,up,it.\"",
+      "description": "This is the south end of a large temple. In front of you is what appears to be an altar. In one corner is a small hole in the floor which leads into darkness. You probably could not get back up it.",
       "shortDescription": "Altar",
       "exits": {
-        "in": "rooms"
+        "north": "north-templewastemp1"
       },
       "objectIds": [],
       "visited": false,
@@ -943,10 +1018,14 @@
     {
       "id": "dam-roomwasdam",
       "name": "Dam Roomwasdam",
-      "description": "You are standing on the top of the Flood Control Dam #3, which was quite likely the last one built.",
+      "description": "You are standing on the top of Flood Control Dam #3.",
       "shortDescription": "Dam",
       "exits": {
-        "in": "rooms"
+        "south": "deep-canyon",
+        "down": "dam-basewasdock",
+        "east": "dam-basewasdock",
+        "north": "dam-lobbywaslobby",
+        "west": "reservoir-south"
       },
       "objectIds": [],
       "visited": false,
@@ -955,10 +1034,12 @@
     {
       "id": "dam-lobbywaslobby",
       "name": "Dam Lobbywaslobby",
-      "description": "the,dam.,There,are,open,doorways,here,to,the,north,and,east,marked,\\\"Private\\\",,and,there,is,a,path,leading,south,over,the,top,of,the,dam.\"",
+      "description": "This room appears to have been the waiting room for groups touring the dam. There are open doorways here to the north and east marked \"Private\", and there is a path leading south over the top of the dam.",
       "shortDescription": "Dam Lobby",
       "exits": {
-        "in": "rooms"
+        "south": "dam-roomwasdam",
+        "north": "maintenance-roomwasmaint",
+        "east": "maintenance-roomwasmaint"
       },
       "objectIds": [],
       "visited": false,
@@ -967,10 +1048,11 @@
     {
       "id": "maintenance-roomwasmaint",
       "name": "Maintenance Roomwasmaint",
-      "description": "Control,Dam,#3.,Apparently,,this,room,has,been,ransacked,recently,,for,most,of,the,valuable,equipment,is,gone.,On,the,wall,in,front,of,you,is,a,group,of,buttons,colored,blue,,yellow,,brown,,and,red.,There,are,doorways,to,the,west,and,south.\"",
+      "description": "This is what appears to have been the maintenance room for Flood Control Dam #3. Apparently, this room has been ransacked recently, for most of the valuable equipment is gone. On the wall in front of you is a group of buttons colored blue, yellow, brown, and red. There are doorways to the west and south.",
       "shortDescription": "Maintenance Room",
       "exits": {
-        "in": "rooms"
+        "south": "dam-lobbywaslobby",
+        "west": "dam-lobbywaslobby"
       },
       "objectIds": [],
       "visited": false,
@@ -979,10 +1061,11 @@
     {
       "id": "dam-basewasdock",
       "name": "Dam Basewasdock",
-      "description": "and,to,the,north.,The,river,Frigid,is,flowing,by,here.,Along,the,river,are,the,White,Cliffs,which,seem,to,form,giant,walls,stretching,from,north,to,south,along,the,shores,of,the,river,as,it,winds,its,way,downstream.\"",
+      "description": "You are at the base of Flood Control Dam #3, which looms above you and to the north. The river Frigid is flowing by here. Along the river are the White Cliffs which seem to form giant walls stretching from north to south along the shores of the river as it winds its way downstream.",
       "shortDescription": "Dam Base",
       "exits": {
-        "in": "rooms"
+        "north": "dam-roomwasdam",
+        "up": "dam-roomwasdam"
       },
       "objectIds": [],
       "visited": false,
@@ -991,12 +1074,11 @@
     {
       "id": "river-1wasrivr1",
       "name": "River 1wasrivr1",
-      "description": "flows,quietly,here.,There,is,a,landing,on,the,west,shore.\"",
+      "description": "You are on the Frigid River in the vicinity of the Dam. The river flows quietly here. There is a landing on the west shore.",
       "shortDescription": "Frigid River",
       "exits": {
-        "in": "rooms",
-        "up": "youcannotgoupstreamduetostrongcurrents",
-        "east": "thewhitecliffspreventyourlandinghere"
+        "west": "dam-basewasdock",
+        "down": "river-2wasrivr2"
       },
       "objectIds": [],
       "visited": false,
@@ -1005,13 +1087,10 @@
     {
       "id": "river-2wasrivr2",
       "name": "River 2wasrivr2",
-      "description": "Dam.,The,White,Cliffs,loom,on,the,east,bank,and,large,rocks,prevent,landing,on,the,west.\"",
+      "description": "The river turns a corner here making it impossible to see the Dam. The White Cliffs loom on the east bank and large rocks prevent landing on the west.",
       "shortDescription": "Frigid River",
       "exits": {
-        "in": "rooms",
-        "up": "youcannotgoupstreamduetostrongcurrents",
-        "east": "thewhitecliffspreventyourlandinghere",
-        "west": "justintimeyousteerawayfromtherocks"
+        "down": "river-3wasrivr3"
       },
       "objectIds": [],
       "visited": false,
@@ -1020,11 +1099,11 @@
     {
       "id": "river-3wasrivr3",
       "name": "River 3wasrivr3",
-      "description": "west,shore,below,the,cliffs.,In,the,distance,a,faint,rumbling,can,be,heard.\"",
+      "description": "The river descends here into a valley. There is a narrow beach on the west shore below the cliffs. In the distance a faint rumbling can be heard.",
       "shortDescription": "Frigid River",
       "exits": {
-        "in": "rooms",
-        "up": "youcannotgoupstreamduetostrongcurrents"
+        "down": "river-4wasrivr4",
+        "west": "white-cliffs-northwaswclf1"
       },
       "objectIds": [],
       "visited": false,
@@ -1033,12 +1112,11 @@
     {
       "id": "white-cliffs-northwaswclf1",
       "name": "White Cliffs Northwaswclf1",
-      "description": "White,Cliffs.,There,is,a,narrow,path,heading,south,along,the,Cliffs,and,a,tight,passage,leading,west,into,the,cliffs,themselves.\"",
+      "description": "You are on a narrow strip of beach which runs along the base of the White Cliffs. There is a narrow path heading south along the Cliffs and a tight passage leading west into the cliffs themselves.",
       "shortDescription": "White Cliffs Beach",
       "exits": {
-        "in": "rooms",
-        "south": "towhite-cliffs-southifdeflateelsethepathistoonarrow",
-        "west": "todamp-caveifdeflateelsethepathistoonarrow"
+        "south": "white-cliffs-southwaswclf2",
+        "west": "damp-cave"
       },
       "objectIds": [],
       "visited": false,
@@ -1047,10 +1125,10 @@
     {
       "id": "white-cliffs-southwaswclf2",
       "name": "White Cliffs Southwaswclf2",
-      "description": "narrow,path,leads,north,along,the,shore.\"",
+      "description": "You are on a rocky, narrow strip of beach beside the Cliffs. A narrow path leads north along the shore.",
       "shortDescription": "White Cliffs Beach",
       "exits": {
-        "in": "rooms"
+        "north": "white-cliffs-northwaswclf1"
       },
       "objectIds": [],
       "visited": false,
@@ -1059,11 +1137,12 @@
     {
       "id": "river-4wasrivr4",
       "name": "River 4wasrivr4",
-      "description": "that,of,rushing,water.,On,the,east,shore,is,a,sandy,beach.,A,small,area,of,beach,can,also,be,seen,below,the,cliffs,on,the,west,shore.\"",
+      "description": "The river is running faster here and the sound ahead appears to be that of rushing water. On the east shore is a sandy beach. A small area of beach can also be seen below the cliffs on the west shore.",
       "shortDescription": "Frigid River",
       "exits": {
-        "in": "rooms",
-        "up": "youcannotgoupstreamduetostrongcurrents"
+        "down": "river-5wasrivr5",
+        "west": "white-cliffs-southwaswclf2",
+        "east": "sandy-beachwasbeach"
       },
       "objectIds": [],
       "visited": false,
@@ -1072,11 +1151,10 @@
     {
       "id": "river-5wasrivr5",
       "name": "River 5wasrivr5",
-      "description": "shore,is,a,large,landing,area.\"",
+      "description": "The sound of rushing water is nearly unbearable here. On the east shore is a large landing area.",
       "shortDescription": "Frigid River",
       "exits": {
-        "in": "rooms",
-        "up": "youcannotgoupstreamduetostrongcurrents"
+        "east": "shorewasfante"
       },
       "objectIds": [],
       "visited": false,
@@ -1085,10 +1163,11 @@
     {
       "id": "shorewasfante",
       "name": "Shorewasfante",
-      "description": "treacherous.,A,path,travels,from,north,to,south,here,,the,south,end,quickly,turning,around,a,sharp,corner.\"",
+      "description": "You are on the east shore of the river. The water here seems somewhat treacherous. A path travels from north to south here, the south end quickly turning around a sharp corner.",
       "shortDescription": "Shore",
       "exits": {
-        "in": "rooms"
+        "north": "sandy-beachwasbeach",
+        "south": "aragain-fallswasfalls"
       },
       "objectIds": [],
       "visited": false,
@@ -1097,10 +1176,12 @@
     {
       "id": "sandy-beachwasbeach",
       "name": "Sandy Beachwasbeach",
-      "description": "flowing,quickly,by.,A,path,runs,beside,the,river,to,the,south,here,,and,a,passage,is,partially,buried,in,sand,to,the,northeast.\"",
+      "description": "You are on a large sandy beach on the east shore of the river, which is flowing quickly by. A path runs from the sandy beach to the north and south.",
       "shortDescription": "Sandy Beach",
       "exits": {
-        "in": "rooms"
+        "north": "shorewasfante",
+        "south": "sandy-cavewastcave",
+        "sw": "sandy-cavewastcave"
       },
       "objectIds": [],
       "visited": false,
@@ -1134,10 +1215,10 @@
     {
       "id": "on-rainbowwasrainb",
       "name": "On Rainbowwasrainb",
-      "description": "on,a,rainbow),,with,a,magnificent,view,of,the,Falls.,The,rainbow",
+      "description": "You are on top of a rainbow.",
       "shortDescription": "On the Rainbow",
       "exits": {
-        "in": "rooms"
+        "north": "aragain-fallswasfalls"
       },
       "objectIds": [],
       "visited": false,
@@ -1146,10 +1227,11 @@
     {
       "id": "end-of-rainbowwaspog",
       "name": "End Of Rainbowwaspog",
-      "description": "River,past,the,Falls.,The,beach,is,narrow,due,to,the,presence,of,the,White,Cliffs.,The,river,canyon,opens,here,and,sunlight,shines,in,from,above.,A,rainbow,crosses,over,the,falls,to,the,east,and,a,narrow,path,continues,to,the,southwest.\"",
+      "description": "You are on a small, rocky beach on the continuation of the Frigid River past the Falls. The beach is narrow due to the presence of the White Cliffs. The river canyon opens here and sunlight shines in from above. A rainbow crosses over the falls to the east and a narrow path continues to the southwest.",
       "shortDescription": "End of Rainbow",
       "exits": {
-        "in": "rooms"
+        "south": "aragain-fallswasfalls",
+        "sw": "canyon-bottomwasclbot"
       },
       "objectIds": [],
       "visited": false,
@@ -1158,10 +1240,11 @@
     {
       "id": "canyon-bottomwasclbot",
       "name": "Canyon Bottomwasclbot",
-      "description": "here.,The,lesser,part,of,the,runoff,of,Aragain,Falls,flows,by,below.,To,the,north,is,a,narrow,path.\"",
+      "description": "You are beneath the walls of the river canyon which may be climbable here. The lesser part of the runoff of Aragain Falls flows by below. To the north is a narrow path.",
       "shortDescription": "Canyon Bottom",
       "exits": {
-        "in": "rooms"
+        "north": "end-of-rainbowwaspog",
+        "up": "cliff-middlewasclmid"
       },
       "objectIds": [],
       "visited": false,
@@ -1170,10 +1253,11 @@
     {
       "id": "cliff-middlewasclmid",
       "name": "Cliff Middlewasclmid",
-      "description": "You,can,see,from,here,that,the,main,flow,from,Aragain,Falls,twists,along,a,passage,which,it,is,impossible,for,you,to,enter.,Below,you,is,the,canyon,bottom.,Above,you,is,more,cliff,,which,appears,climbable.\"",
+      "description": "You are on a small ledge about halfway up the wall of the river canyon. You can see from here that the main flow from Aragain Falls twists along a passage which it is impossible for you to enter. Below you is the canyon bottom. Above you the canyon wall rises to the top of the White Cliffs.",
       "shortDescription": "Rocky Ledge",
       "exits": {
-        "in": "rooms"
+        "down": "canyon-bottomwasclbot",
+        "up": "canyon-viewwascltop"
       },
       "objectIds": [],
       "visited": false,
@@ -1182,11 +1266,11 @@
     {
       "id": "canyon-viewwascltop",
       "name": "Canyon Viewwascltop",
-      "description": "there,is,a,marvelous,view,of,the,canyon,and,parts,of,the,Frigid,River,upstream.,Across,the,canyon,,the,walls,of,the,White,Cliffs,join,the,mighty,ramparts,of,the,Flathead,Mountains,to,the,east.,Following,the,Canyon,upstream,to,the,north,,Aragain,Falls,may,be,seen,,complete,with,rainbow.,The,mighty,Frigid,River,flows,out,from,a,great,dark,cavern.,To,the,west,and,south,can,be,seen,an,immense,forest,,stretching,for,miles,around.,A,path,leads,northwest.,It,is,possible,to,climb,down,into,the,canyon,from,here.\"",
+      "description": "You are at the top of the Great Canyon on its south wall. From here there is a marvelous view of the canyon and parts of the Frigid River upstream. Across the canyon, the walls of the White Cliffs still appear to loom far above. Following the canyon upstream to the north, Aragain Falls may be seen, complete with rainbow. The canyon continues south, where a dark cloud seems to be gathering. The top of the eastern cliff is higher than you are. You are on a narrow shelf which runs along the south wall.",
       "shortDescription": "Canyon View",
       "exits": {
-        "in": "rooms",
-        "south": "storm-tossedtreesblockyourway"
+        "west": "clearing",
+        "down": "cliff-middlewasclmid"
       },
       "objectIds": [],
       "visited": false,
@@ -1195,9 +1279,13 @@
     {
       "id": "mine-entrancewasentra",
       "name": "Mine Entrancewasentra",
-      "description": "The,shaft,enters,the,west,wall,,and,there,is,another,exit,on,the,south,end,of,the,room.\"",
+      "description": "You are standing at the entrance of what might have been a coal mine. The shaft enters the west wall, and there is another exit on the south end of the room.",
       "shortDescription": "Mine Entrance",
-      "exits": {},
+      "exits": {
+        "west": "squeeky-roomwassquee",
+        "south": "slide-roomwasslide",
+        "out": "slide-roomwasslide"
+      },
       "objectIds": [],
       "visited": false,
       "isDark": false
@@ -1205,10 +1293,12 @@
     {
       "id": "squeeky-roomwassquee",
       "name": "Squeeky Roomwassquee",
-      "description": "from,the,passage,at,the,north,end.,You,may,also,escape,to,the,east.\"",
+      "description": "You are in a small room. Strange squeaky sounds may be heard coming from the passage at the north end. You may also escape to the east.",
       "shortDescription": "Squeaky Room",
       "exits": {
-        "in": "rooms"
+        "north": "bat-roomwasbats",
+        "east": "mine-entrancewasentra",
+        "out": "mine-entrancewasentra"
       },
       "objectIds": [],
       "visited": false,
@@ -1220,7 +1310,8 @@
       "description": "You are in a small room which has doors only to the east and south.",
       "shortDescription": "Bat Room",
       "exits": {
-        "in": "rooms"
+        "east": "shaft-roomwastshaf",
+        "south": "squeeky-roomwassquee"
       },
       "objectIds": [],
       "visited": false,
@@ -1229,11 +1320,11 @@
     {
       "id": "shaft-roomwastshaf",
       "name": "Shaft Roomwastshaf",
-      "description": "descending,through,the,floor,into,darkness,below.,To,the,west,and,the,north,are,exits,from,this,room.,Constructed,over,the,top,of,the,shaft,is,a,metal,framework,to,which,a,heavy,iron,chain,is,attached.\"",
+      "description": "This is a large room, in the middle of which is a small shaft descending through the floor into darkness below. To the west and the north are exits from this room. Constructed over the top of the shaft is a metal framework to which a heavy iron chain is attached.",
       "shortDescription": "Shaft Room",
       "exits": {
-        "in": "rooms",
-        "down": "youwouldntfitandwoulddieifyoucould"
+        "west": "bat-roomwasbats",
+        "north": "smelly-roomwassmell"
       },
       "objectIds": [],
       "visited": false,
@@ -1242,10 +1333,11 @@
     {
       "id": "smelly-roomwassmell",
       "name": "Smelly Roomwassmell",
-      "description": "of,a,small,descending,staircase,a,foul,odor,can,be,detected.,To,the,south,is,a,narrow,tunnel.\"",
+      "description": "This is a small nondescript room. However, from the direction of a small descending staircase a foul odor can be detected. To the south is a narrow tunnel.",
       "shortDescription": "Smelly Room",
       "exits": {
-        "in": "rooms"
+        "down": "gas-roomwasboom",
+        "south": "shaft-roomwastshaf"
       },
       "objectIds": [],
       "visited": false,
@@ -1254,10 +1346,11 @@
     {
       "id": "gas-roomwasboom",
       "name": "Gas Roomwasboom",
-      "description": "short,climb,up,some,stairs,and,a,narrow,tunnel,leading,east.\"",
+      "description": "This is a small room which smells strongly of coal gas. There is a short climb up some stairs and a narrow tunnel leading east.",
       "shortDescription": "Gas Room",
       "exits": {
-        "in": "rooms"
+        "east": "coal-mine-1",
+        "up": "smelly-roomwassmell"
       },
       "objectIds": [],
       "visited": false,
@@ -1266,10 +1359,11 @@
     {
       "id": "ladder-topwastladd",
       "name": "Ladder Topwastladd",
-      "description": "ladder,,leading,downward.,It,might,be,safe,to,descend.,There,is,also,a,staircase,leading,upward.\"",
+      "description": "This is a very small room. In the corner is a rickety wooden ladder, leading downward. It might be safe to descend. There is also a staircase leading upward.",
       "shortDescription": "Ladder Top",
       "exits": {
-        "in": "rooms"
+        "down": "ladder-bottomwasbladd",
+        "up": "mine-4wasmine4"
       },
       "objectIds": [],
       "visited": false,
@@ -1278,10 +1372,12 @@
     {
       "id": "ladder-bottomwasbladd",
       "name": "Ladder Bottomwasbladd",
-      "description": "narrow,wooden,ladder.,To,the,west,and,the,south,are,passages,leaving,the,room.\"",
+      "description": "This is a rather wide room. On one side is the bottom of a narrow wooden ladder. To the west and the south are passages leaving the room.",
       "shortDescription": "Ladder Bottom",
       "exits": {
-        "in": "rooms"
+        "south": "dead-end-5wasdead7",
+        "west": "timber-roomwastimbe",
+        "up": "ladder-topwastladd"
       },
       "objectIds": [],
       "visited": false,
@@ -1293,7 +1389,7 @@
       "description": "You have come to a dead end in the mine.",
       "shortDescription": "Dead End",
       "exits": {
-        "in": "rooms"
+        "north": "ladder-bottomwasbladd"
       },
       "objectIds": [],
       "visited": false,
@@ -1302,10 +1398,11 @@
     {
       "id": "timber-roomwastimbe",
       "name": "Timber Roomwastimbe",
-      "description": "timbers.,A,wide,passage,comes,from,the,east,and,turns,at,the,west,end,of,the,room,into,a,very,narrow,passageway.,From,the,west,comes,a,strong,draft.\"",
+      "description": "This is a long and narrow passage, which is cluttered with broken timbers. A wide passage comes from the east and turns at the west end of the room into a very narrow passageway. From the west comes a strong draft.",
       "shortDescription": "Timber Room",
       "exits": {
-        "in": "rooms"
+        "east": "ladder-bottomwasbladd",
+        "west": "lower-shaftwasbshaf"
       },
       "objectIds": [],
       "visited": false,
@@ -1314,10 +1411,12 @@
     {
       "id": "lower-shaftwasbshaf",
       "name": "Lower Shaftwasbshaf",
-      "description": "shaft.,To,the,south,is,a,passageway,and,to,the,east,a,very,narrow,passage.,In,the,shaft,can,be,seen,a,heavy,iron,chain.\"",
+      "description": "This is a small drafty room in which is the bottom of a long shaft. To the south is a passageway and to the east a very narrow passage. In the shaft can be seen a heavy iron chain.",
       "shortDescription": "Drafty Room",
       "exits": {
-        "in": "rooms"
+        "south": "machine-roomwasmachi",
+        "east": "timber-roomwastimbe",
+        "out": "timber-roomwastimbe"
       },
       "objectIds": [],
       "visited": false,
@@ -1342,7 +1441,9 @@
       "description": "This is a nondescript part of a coal mine.",
       "shortDescription": "Coal Mine",
       "exits": {
-        "in": "rooms"
+        "north": "gas-roomwasboom",
+        "east": "mine-1wasmine1",
+        "ne": "mine-2wasmine2"
       },
       "objectIds": [],
       "visited": false,
@@ -1354,7 +1455,9 @@
       "description": "This is a nondescript part of a coal mine.",
       "shortDescription": "Coal Mine",
       "exits": {
-        "in": "rooms"
+        "north": "mine-2wasmine2",
+        "south": "mine-1wasmine1",
+        "se": "mine-3wasmine3"
       },
       "objectIds": [],
       "visited": false,
@@ -1366,7 +1469,9 @@
       "description": "This is a nondescript part of a coal mine.",
       "shortDescription": "Coal Mine",
       "exits": {
-        "in": "rooms"
+        "south": "mine-3wasmine3",
+        "sw": "mine-4wasmine4",
+        "east": "mine-2wasmine2"
       },
       "objectIds": [],
       "visited": false,
@@ -1378,7 +1483,9 @@
       "description": "This is a nondescript part of a coal mine.",
       "shortDescription": "Coal Mine",
       "exits": {
-        "in": "rooms"
+        "north": "mine-3wasmine3",
+        "west": "mine-4wasmine4",
+        "down": "ladder-topwastladd"
       },
       "objectIds": [],
       "visited": false,
@@ -1387,10 +1494,12 @@
     {
       "id": "slide-roomwasslide",
       "name": "Slide Roomwasslide",
-      "description": "coal,mine.,On,the,south,wall,of,the,chamber,the,letters,\\\"Granite,Wall\\\",are,etched,in,the,rock.,To,the,east,is,a,long,passage,,and,there,is,a,steep,metal,slide,twisting,downward.,To,the,north,is,a,small,opening.\"",
+      "description": "This is a small chamber, which appears to have been part of a coal mine. On the south wall of the chamber the letters \"Granite Wall\" are etched in the rock. To the east is a long passage, and there is a steep metal slide twisting downward. To the north is a small opening.",
       "shortDescription": "Slide Room",
       "exits": {
-        "in": "rooms"
+        "east": "cold-passage",
+        "north": "mine-entrancewasentra",
+        "down": "cellar"
       },
       "objectIds": [],
       "visited": false,

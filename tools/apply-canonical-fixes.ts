@@ -10,6 +10,8 @@
  * based on the canonical-rooms.json reference file.
  */
 
+/* eslint-disable no-console */
+
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -50,7 +52,7 @@ const ROOMS_PATH = fs.existsSync(path.join(__dirname, '..', 'src', 'app', 'data'
 
 const CANONICAL_PATH = fs.existsSync(path.join(__dirname, 'canonical-rooms.json'))
   ? path.join(__dirname, 'canonical-rooms.json')
-  : path.join(__dirname, '..', 'tools', 'canonical-rooms.json');
+  : path.join(__dirname, '..', '..', 'tools', 'canonical-rooms.json');
 
 /**
  * Load canonical room fixes
