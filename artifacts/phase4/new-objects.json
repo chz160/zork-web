@@ -1,0 +1,3998 @@
+[
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-6",
+    "properties": {
+      "osize": 3,
+      "isContainer": true,
+      "capacity": 15,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 0,
+      "messageIndex": -12364,
+      "flags": ["VISIBT", "TAKEBT", "CONTBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 1,
+      "messageIndex": -12378,
+      "flags": ["VISIBT", "TAKEBT", "FOODBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 2,
+      "messageIndex": -12385,
+      "flags": ["VISIBT", "TAKEBT", "FOODBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 1,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 3,
+      "messageIndex": -12390,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-74",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 4,
+      "messageIndex": -12399,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-78",
+    "properties": {
+      "ofval": 5,
+      "otval": 5,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 5,
+      "messageIndex": -12407,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-77",
+    "properties": {
+      "oactio": 100,
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 50,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 6,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 10,
+      "otval": 6,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 7,
+      "messageIndex": -12416,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 2,
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 10000,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 8,
+      "messageIndex": -12425,
+      "flags": ["VISIBT", "TRANBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-6",
+    "properties": {
+      "oactio": 3,
+      "osize": 5,
+      "isContainer": true,
+      "capacity": 4,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 9,
+      "messageIndex": -12431,
+      "flags": ["VISIBT", "TAKEBT", "TRANBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 101,
+      "osize": 4,
+      "consumable": true,
+      "drinkable": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 10,
+      "messageIndex": -12437,
+      "flags": ["VISIBT", "TAKEBT", "DRNKBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-7",
+    "properties": {
+      "oactio": 4,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 11,
+      "messageIndex": -12449,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-7",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 12,
+      "messageIndex": -12461,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 5,
+      "osize": 30
+    },
+    "cIndexTrace": {
+      "objectIndex": 13,
+      "messageIndex": -12473,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 6,
+      "osize": 15,
+      "isLight": true,
+      "isLit": false
+    },
+    "cIndexTrace": {
+      "objectIndex": 14,
+      "messageIndex": -12488,
+      "flags": ["VISIBT", "TAKEBT", "LIGHTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 15,
+      "messageIndex": -12503,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 7,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 16,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-36",
+    "properties": {
+      "oactio": 102,
+      "osize": 25
+    },
+    "cIndexTrace": {
+      "objectIndex": 17,
+      "messageIndex": -12511,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "a-nasty-looking-troll-brandishing-a-bloody-axe-blocks-all-passages-out-of-the-room",
+    "name": "A nasty-looking troll, brandishing a bloody axe, blocks all passages\nout of the room.",
+    "aliases": [
+      "a nasty-looking troll, brandishing a bloody axe, blocks all passages\nout of the room.",
+      "nasty-looking",
+      "troll,",
+      "brandishing",
+      "bloody",
+      "axe,",
+      "blocks",
+      "all",
+      "passages",
+      "out",
+      "room."
+    ],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-10",
+    "properties": {
+      "oactio": 103,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 18,
+      "messageIndex": -4502,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 25
+    },
+    "cIndexTrace": {
+      "objectIndex": 19,
+      "messageIndex": -12520,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "oactio": 104,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 20,
+      "messageIndex": -12526,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 21,
+      "messageIndex": -12537,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 22,
+      "messageIndex": -12552,
+      "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "oactio": 8,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 23,
+      "messageIndex": -12560,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "ofval": 10,
+      "otval": 5,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 24,
+      "messageIndex": -12571,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-49",
+    "properties": {
+      "ofval": 12,
+      "otval": 10,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 25,
+      "messageIndex": -12580,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-92",
+    "properties": {
+      "ofval": 9,
+      "otval": 5,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 26,
+      "messageIndex": -12587,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-50",
+    "properties": {
+      "oactio": 9,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 27,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-51",
+    "properties": {
+      "oactio": 9,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 28,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-45",
+    "properties": {
+      "oactio": 105,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 29,
+      "messageIndex": -12598,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-46",
+    "properties": {
+      "ofval": 15,
+      "otval": 8,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 30,
+      "messageIndex": -12606,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-47",
+    "properties": {
+      "ofval": 4,
+      "otval": 11,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 31,
+      "messageIndex": -12616,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-44",
+    "properties": {
+      "ofval": 3,
+      "otval": 7,
+      "osize": 55,
+      "isContainer": true,
+      "capacity": 35,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 32,
+      "messageIndex": -12630,
+      "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-80",
+    "properties": {
+      "ofval": 14,
+      "otval": 6,
+      "osize": 20,
+      "isLight": true,
+      "isLit": true,
+      "batteryLife": 330
+    },
+    "cIndexTrace": {
+      "objectIndex": 33,
+      "messageIndex": -12641,
+      "flags": ["VISIBT", "TAKEBT", "LIGHTBT", "FLAMBT", "TOOLBT", "ONBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-61",
+    "properties": {
+      "oactio": 10,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 34,
+      "messageIndex": -12654,
+      "flags": ["VISIBT", "TRANBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-76",
+    "properties": {
+      "oactio": 10,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 35,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-64",
+    "properties": {
+      "ofval": 5,
+      "otval": 3,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 36,
+      "messageIndex": -12660,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-75",
+    "properties": {
+      "osize": 50
+    },
+    "cIndexTrace": {
+      "objectIndex": 37,
+      "messageIndex": -12669,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": false,
+    "location": "room-83",
+    "properties": {
+      "osize": 40,
+      "isContainer": true,
+      "capacity": 20,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 38,
+      "messageIndex": -12676,
+      "flags": ["TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 10,
+      "otval": 10,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 39,
+      "messageIndex": -12683,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-90",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 40,
+      "messageIndex": -12689,
+      "flags": ["VISIBT", "READBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-93",
+    "properties": {
+      "oactio": 11,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 41,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-95",
+    "properties": {
+      "ofval": 2,
+      "otval": 5,
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 5,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 42,
+      "messageIndex": -12750,
+      "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-96",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 43,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "READBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": false,
+    "location": "room-40",
+    "properties": {
+      "ofval": 15,
+      "otval": 8,
+      "osize": 35
+    },
+    "cIndexTrace": {
+      "objectIndex": 44,
+      "messageIndex": -12812,
+      "flags": ["TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-96",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 45,
+      "messageIndex": -12832,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-97",
+    "properties": {
+      "oactio": 106,
+      "osize": 5,
+      "isContainer": true,
+      "acceptsPrepositions": ["in"],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 46,
+      "messageIndex": -12845,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-97",
+    "properties": {
+      "oactio": 107,
+      "osize": 10,
+      "isLight": true,
+      "isLit": true,
+      "batteryLife": 330
+    },
+    "cIndexTrace": {
+      "objectIndex": 47,
+      "messageIndex": -12915,
+      "flags": ["VISIBT", "TAKEBT", "LIGHTBT", "FLAMBT", "ONBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-99",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 48,
+      "messageIndex": -12928,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 49,
+      "messageIndex": -13105,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-99",
+    "properties": {
+      "oactio": 108,
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 50,
+      "messageIndex": -13207,
+      "flags": ["VISIBT", "READBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 51,
+      "messageIndex": -13302,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-2",
+    "properties": {
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 10,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 52,
+      "messageIndex": -13446,
+      "flags": ["VISIBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 12,
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 7,
+      "acceptsPrepositions": ["in"],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 53,
+      "messageIndex": -13451,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 6
+    },
+    "cIndexTrace": {
+      "objectIndex": 54,
+      "messageIndex": -13468,
+      "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 55,
+      "messageIndex": -13475,
+      "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 56,
+      "messageIndex": -13479,
+      "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-101",
+    "properties": {
+      "oactio": 109,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 57,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-103",
+    "properties": {
+      "oactio": 13,
+      "ofval": 10,
+      "otval": 10,
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 5,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 58,
+      "messageIndex": -13486,
+      "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-105",
+    "properties": {
+      "oactio": 14,
+      "ofval": 4,
+      "otval": 7,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 59,
+      "messageIndex": -13494,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "there-is-a-suspicious-looking-individual-holding-a-bag-leaning-against-one-wall-he-is-armed-with-a-vicious-looking-stilletto",
+    "name": "There is a suspicious-looking individual, holding a bag, leaning\nagainst one wall.  He is armed with a vicious-looking stilletto.",
+    "aliases": [
+      "there is a suspicious-looking individual, holding a bag, leaning\nagainst one wall.  he is armed with a vicious-looking stilletto.",
+      "there",
+      "suspicious-looking",
+      "individual,",
+      "holding",
+      "bag,",
+      "leaning",
+      "against",
+      "one",
+      "wall.",
+      "armed",
+      "with",
+      "vicious-looking",
+      "stilletto."
+    ],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-190",
+    "properties": {
+      "oactio": 110,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 60,
+      "messageIndex": -4878,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 61,
+      "messageIndex": -13518,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-5",
+    "properties": {
+      "oactio": 111,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 62,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-98",
+    "properties": {
+      "oactio": 15,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 63,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "TURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-25",
+    "properties": {
+      "oactio": 16,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 64,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": false,
+    "location": "room-8",
+    "properties": {
+      "oactio": 17,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 65,
+      "messageIndex": 0,
+      "flags": ["DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 18,
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 66,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "READBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-2",
+    "properties": {
+      "oactio": 18,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 67,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-91",
+    "properties": {
+      "oactio": 18,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 68,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-77",
+    "properties": {
+      "oactio": 19,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 69,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "TURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 70,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-93",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 71,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-94",
+    "properties": {
+      "oactio": 112,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 72,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-98",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 73,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-79",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 74,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-93",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 75,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-98",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 76,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 20,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 77,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 78,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 79,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 80,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 81,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-78",
+    "properties": {
+      "oactio": 113,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 82,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-120",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 83,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": false,
+    "location": "room-122",
+    "properties": {
+      "ofval": 10,
+      "otval": 10,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 84,
+      "messageIndex": -13554,
+      "flags": ["TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": false,
+    "location": "room-116",
+    "properties": {
+      "ofval": 10,
+      "otval": 13,
+      "osize": 8
+    },
+    "cIndexTrace": {
+      "objectIndex": 85,
+      "messageIndex": -13566,
+      "flags": ["TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-106",
+    "properties": {
+      "oactio": 22,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 86,
+      "messageIndex": -13572,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 23,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 87,
+      "messageIndex": -13585,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-41",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 88,
+      "messageIndex": -13596,
+      "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 24,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 89,
+      "messageIndex": -13603,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 90,
+      "messageIndex": -13609,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-106",
+    "properties": {
+      "oactio": 114,
+      "osize": 3
+    },
+    "cIndexTrace": {
+      "objectIndex": 91,
+      "messageIndex": -13673,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-120",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 92,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-112",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 20,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 93,
+      "messageIndex": -13691,
+      "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 5,
+      "otval": 10,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 94,
+      "messageIndex": -13699,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-118",
+    "properties": {
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 95,
+      "messageIndex": -13705,
+      "flags": ["VISIBT", "TAKEBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-118",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 96,
+      "messageIndex": -13710,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-126",
+    "properties": {
+      "oactio": 115,
+      "osize": 70
+    },
+    "cIndexTrace": {
+      "objectIndex": 97,
+      "messageIndex": -13718,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 6,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 98,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 99,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 25,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 100,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-131",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 101,
+      "messageIndex": -13748,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-133",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 102,
+      "messageIndex": -13748,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-131",
+    "properties": {
+      "ofval": 10,
+      "otval": 12,
+      "osize": 10,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 103,
+      "messageIndex": -13756,
+      "flags": ["VISIBT", "READBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-135",
+    "properties": {
+      "oactio": 26,
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 15,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 104,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 1,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 105,
+      "messageIndex": -13878,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-135",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 106,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 15,
+      "otval": 10,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 107,
+      "messageIndex": -13910,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-7",
+    "properties": {
+      "oactio": 123,
+      "osize": 9
+    },
+    "cIndexTrace": {
+      "objectIndex": 108,
+      "messageIndex": -13923,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-42",
+    "properties": {
+      "oactio": 27,
+      "osize": 1
+    },
+    "cIndexTrace": {
+      "objectIndex": 109,
+      "messageIndex": -13931,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 28,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 110,
+      "messageIndex": -13939,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 1,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 111,
+      "messageIndex": -13946,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 40
+    },
+    "cIndexTrace": {
+      "objectIndex": 112,
+      "messageIndex": -13987,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": ["in"],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 113,
+      "messageIndex": -13995,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": ["in"],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 114,
+      "messageIndex": -14009,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": ["in"],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 115,
+      "messageIndex": -14015,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": ["in"],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 116,
+      "messageIndex": -14021,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "CONTBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 4,
+      "otval": 10,
+      "osize": 1,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 117,
+      "messageIndex": -14027,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "oactio": 130,
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 118,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "READBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "oactio": 116,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 119,
+      "messageIndex": -14147,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "oactio": 29,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 120,
+      "messageIndex": -14157,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "osize": 70,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 121,
+      "messageIndex": -14185,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 122,
+      "messageIndex": -14238,
+      "flags": ["VISIBT", "TRANBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 60
+    },
+    "cIndexTrace": {
+      "objectIndex": 123,
+      "messageIndex": -14250,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-141",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 124,
+      "messageIndex": -14256,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-140",
+    "properties": {
+      "oactio": 117,
+      "ofval": 6,
+      "otval": 6,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 125,
+      "messageIndex": -14265,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-139",
+    "properties": {
+      "oactio": 118,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 126,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-139",
+    "properties": {
+      "oactio": 118,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 127,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-139",
+    "properties": {
+      "oactio": 118,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 128,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-143",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 129,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "READBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-142",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 130,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "READBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-146",
+    "properties": {
+      "oactio": 119,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 131,
+      "messageIndex": -14298,
+      "flags": ["VISIBT", "TAKEBT", "TRANBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-146",
+    "properties": {
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 132,
+      "messageIndex": -14314,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": false,
+    "location": "room-146",
+    "properties": {
+      "ofval": 5,
+      "otval": 5,
+      "osize": 8
+    },
+    "cIndexTrace": {
+      "objectIndex": 133,
+      "messageIndex": -14324,
+      "flags": ["TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 134,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-145",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 135,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-143",
+    "properties": {
+      "oactio": 120,
+      "osize": 100
+    },
+    "cIndexTrace": {
+      "objectIndex": 136,
+      "messageIndex": -14337,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 121,
+      "osize": 10,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 137,
+      "messageIndex": -14349,
+      "flags": ["VISIBT", "TAKEBT", "FOODBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 122,
+      "osize": 4,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 138,
+      "messageIndex": -14360,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "FOODBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 122,
+      "osize": 4,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 139,
+      "messageIndex": -14371,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "FOODBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 122,
+      "osize": 4,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 140,
+      "messageIndex": -14381,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "FOODBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-138",
+    "properties": {
+      "oactio": 30,
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 141,
+      "messageIndex": -14392,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-138",
+    "properties": {
+      "osize": 3,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 142,
+      "messageIndex": -14396,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-147",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 143,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-33",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 144,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-123",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 145,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-110",
+    "properties": {
+      "oactio": 37,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 146,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-154",
+    "properties": {
+      "oactio": 32,
+      "ofval": 10,
+      "otval": 15,
+      "osize": 10,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 147,
+      "messageIndex": -14457,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-156",
+    "properties": {
+      "ofval": 10,
+      "otval": 5,
+      "osize": 25,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 148,
+      "messageIndex": -14614,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-155",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 149,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "READBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-155",
+    "properties": {
+      "oactio": 33,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 150,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 34,
+      "osize": 5,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 151,
+      "messageIndex": -14749,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-147",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 152,
+      "messageIndex": -14756,
+      "flags": ["VISIBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 35,
+      "ofval": 5,
+      "otval": 5,
+      "osize": 6,
+      "isContainer": true,
+      "capacity": 6,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 153,
+      "messageIndex": -14768,
+      "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 6,
+      "isContainer": true,
+      "capacity": 6,
+      "acceptsPrepositions": ["in"]
+    },
+    "cIndexTrace": {
+      "objectIndex": 154,
+      "messageIndex": -14819,
+      "flags": ["VISIBT", "TAKEBT", "CONTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 1,
+      "otval": 1,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 155,
+      "messageIndex": -14828,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 36,
+      "ofval": 6,
+      "otval": 2,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 156,
+      "messageIndex": -14836,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 36,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 157,
+      "messageIndex": -14872,
+      "flags": ["VISIBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 158,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 159,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 160,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 161,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 126,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 162,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 126,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 163,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 164,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 165,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 41,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 166,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 167,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 168,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-159",
+    "properties": {
+      "oactio": 42,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 169,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-160",
+    "properties": {
+      "oactio": 43,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 170,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": false,
+    "location": "room-179",
+    "properties": {
+      "oactio": 44,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 171,
+      "messageIndex": 0,
+      "flags": ["TAKEBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-166",
+    "properties": {
+      "oactio": 45,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 172,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-185",
+    "properties": {
+      "oactio": 46,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 173,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-182",
+    "properties": {
+      "oactio": 47,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 174,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "DOORBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "oactio": 48,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 175,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "oactio": 49,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 176,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 177,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 178,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 179,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 180,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "oactio": 129,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 181,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 182,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 183,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 184,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-188",
+    "properties": {
+      "osize": 4,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 185,
+      "messageIndex": -14980,
+      "flags": ["VISIBT", "READBT", "TAKEBT", "BURNBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-26000",
+    "properties": {
+      "oactio": 52,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 186,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "room-18500",
+    "properties": {
+      "ofval": 15,
+      "otval": 10,
+      "osize": 4,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 187,
+      "messageIndex": -15047,
+      "flags": ["VISIBT", "READBT", "TAKEBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-26000",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 188,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": false,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 189,
+      "messageIndex": 0,
+      "flags": []
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": false,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 190,
+      "messageIndex": 0,
+      "flags": []
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 191,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 124,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 192,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 193,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "TAKEBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 194,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "TAKEBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 195,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 196,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 38,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 197,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 31,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 198,
+      "messageIndex": 0,
+      "flags": ["VISIBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 199,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 200,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "TOOLBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 201,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 39,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 202,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 203,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 204,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 205,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 206,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 207,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 101,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 208,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "TRANBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 127,
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 209,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 210,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 50,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 211,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 51,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 212,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 213,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "room-178",
+    "properties": {
+      "oactio": 128,
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 214,
+      "messageIndex": -15236,
+      "flags": ["VISIBT", "VICTBT"]
+    }
+  },
+  {
+    "id": "",
+    "name": "",
+    "aliases": [""],
+    "description": "",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 131,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 215,
+      "messageIndex": 0,
+      "flags": ["VISIBT", "NDSCBT"]
+    }
+  }
+]
