@@ -18,7 +18,12 @@
     "validate:rooms": "npm run build:tools && node dist/tools/validate-rooms.js",
     "fix:rooms": "npm run build:tools && node dist/tools/apply-canonical-fixes.js",
     "validate:data": "npm run build:tools && node dist/tools/validate-data-quality.js",
-    "audit:properties": "npm run build:tools && node dist/tools/audit-property-coverage.js"
+    "audit:properties": "npm run build:tools && node dist/tools/audit-property-coverage.js",
+    "___comment_phase3___": "Phase 3 Scripts - Message Mapping & Canonical Data Integration",
+    "map:messages": "npm run build:tools && node dist/tools/map-canonical-messages.js",
+    "populate:canonical": "npm run build:tools && node dist/tools/populate-canonical-data.js",
+    "validate:mapping": "npm run build:tools && node dist/tools/validate-message-mapping.js",
+    "phase3:all": "npm run map:messages && npm run populate:canonical && npm run validate:mapping"
   },
   "lint-staged": {
     "*.{ts,html}": [
