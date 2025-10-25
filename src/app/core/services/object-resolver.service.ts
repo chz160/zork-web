@@ -129,12 +129,11 @@ export class ObjectResolverService {
   /**
    * Extract ordinal from phrase (e.g., "1st lamp" -> { basePhrase: "lamp", ordinal: 1 })
    */
-  private extractOrdinal(
-    phrase: string
-  ): { basePhrase: string; ordinal: number } | null {
+  private extractOrdinal(phrase: string): { basePhrase: string; ordinal: number } | null {
     // Match patterns like "1st", "2nd", "3rd", "4th", etc. or "first", "second", "third", etc.
     const ordinalPattern = /^(\d+)(st|nd|rd|th)\s+(.+)$/i;
-    const wordOrdinalPattern = /^(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+(.+)$/i;
+    const wordOrdinalPattern =
+      /^(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+(.+)$/i;
 
     const numericMatch = phrase.match(ordinalPattern);
     if (numericMatch) {
@@ -245,7 +244,12 @@ export class ObjectResolverService {
     });
 
     // Use fuzzy matcher
-    const fuzzyMatches = findMatches(phrase, candidateNames, config.fuzzyMatchThreshold, config.maxDisambiguationCandidates);
+    const fuzzyMatches = findMatches(
+      phrase,
+      candidateNames,
+      config.fuzzyMatchThreshold,
+      config.maxDisambiguationCandidates
+    );
 
     if (fuzzyMatches.length === 0) {
       return {

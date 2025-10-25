@@ -13,7 +13,9 @@
     "format:check": "prettier --check \"src/**/*.{ts,html,css,json}\"",
     "prepare": "husky",
     "build:tools": "tsc -p tools/tsconfig.json",
-    "convert": "npm run build:tools && node dist/tools/converter/cli.js"
+    "convert": "npm run build:tools && node dist/tools/converter/cli.js",
+    "validate:rooms": "npm run build:tools && node dist/tools/validate-rooms.js",
+    "fix:rooms": "npm run build:tools && node dist/tools/apply-canonical-fixes.js"
   },
   "lint-staged": {
     "*.{ts,html}": [
