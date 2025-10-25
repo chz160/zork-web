@@ -22,6 +22,41 @@ export interface Room {
 
   /** Optional short description for revisits */
   shortDescription?: string;
+
+  /** Additional properties for specialized rooms */
+  properties?: RoomProperties;
+}
+
+/**
+ * Additional properties for rooms with special characteristics.
+ */
+export interface RoomProperties {
+  /** Terrain type of the room (RLAND/RWATER/RAIR flags) */
+  terrain?: 'land' | 'water' | 'air';
+
+  /** Water depth for water terrain rooms */
+  waterDepth?: 'shallow' | 'deep';
+
+  /** Whether the location has breathable air */
+  breathable?: boolean;
+
+  /** Whether this is a sacred location (RSACRD flag) */
+  isSacred?: boolean;
+
+  /** Type of sacred location */
+  sacredType?: 'temple' | 'shrine' | 'altar' | 'tomb';
+
+  /** Whether this room is part of endgame content (REND flag) */
+  isEndgame?: boolean;
+
+  /** Section grouping for endgame content */
+  endgameSection?: string;
+
+  /** Whether falling is possible from this location */
+  fallRisk?: boolean;
+
+  /** Whether flight is required to access this location */
+  requiresFlight?: boolean;
 }
 
 /**

@@ -630,7 +630,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "reservoir",
@@ -645,7 +650,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "reservoir-north",
@@ -659,7 +669,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "stream-view",
@@ -671,7 +686,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "shallow",
+        "breathable": true
+      }
     },
     {
       "id": "in-stream",
@@ -684,7 +704,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "shallow",
+        "breathable": true
+      }
     },
     {
       "id": "mirror-room-1",
@@ -919,7 +944,11 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "isSacred": true,
+        "sacredType": "shrine"
+      }
     },
     {
       "id": "land-of-living-dead",
@@ -932,7 +961,11 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "isSacred": true,
+        "sacredType": "tomb"
+      }
     },
     {
       "id": "engravings-cavewascave4",
@@ -1001,7 +1034,11 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "isSacred": true,
+        "sacredType": "temple"
+      }
     },
     {
       "id": "south-templewastemp2",
@@ -1013,7 +1050,11 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "isSacred": true,
+        "sacredType": "temple"
+      }
     },
     {
       "id": "dam-roomwasdam",
@@ -1082,7 +1123,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "river-2wasrivr2",
@@ -1094,7 +1140,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "river-3wasrivr3",
@@ -1107,7 +1158,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "white-cliffs-northwaswclf1",
@@ -1146,7 +1202,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "river-5wasrivr5",
@@ -1158,7 +1219,12 @@
       },
       "objectIds": [],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "terrain": "water",
+        "waterDepth": "deep",
+        "breathable": true
+      }
     },
     {
       "id": "shorewasfante",

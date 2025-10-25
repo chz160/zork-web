@@ -1,0 +1,524 @@
+{
+  "objectGaps": {
+    "readable": [
+      {
+        "canonicalIndex": 40,
+        "location": "room-90",
+        "flags": [
+          "VISIBT",
+          "READBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 43,
+        "location": "room-96",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 46,
+        "location": "room-97",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "CONTBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 48,
+        "location": "room-99",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 49,
+        "location": "room-8",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 50,
+        "location": "room-99",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 53,
+        "location": "room-100",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "CONTBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 66,
+        "location": "room-8",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 103,
+        "location": "room-131",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 113,
+        "location": "room-134",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "CONTBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 114,
+        "location": "room-134",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "CONTBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 115,
+        "location": "room-134",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "CONTBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 116,
+        "location": "room-134",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "CONTBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 118,
+        "location": "room-137",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 121,
+        "location": "room-137",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 129,
+        "location": "room-143",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 130,
+        "location": "room-142",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 138,
+        "location": "room-144",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "FOODBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 139,
+        "location": "room-144",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "FOODBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 140,
+        "location": "room-144",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "FOODBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 142,
+        "location": "room-138",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 147,
+        "location": "room-154",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 148,
+        "location": "room-156",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "BURNBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 149,
+        "location": "room-155",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      }
+    ],
+    "doors": [
+      {
+        "canonicalIndex": 62,
+        "location": "room-5",
+        "flags": [
+          "VISIBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 64,
+        "location": "room-25",
+        "flags": [
+          "VISIBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 65,
+        "location": "room-8",
+        "flags": [
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 66,
+        "location": "room-8",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 67,
+        "location": "room-2",
+        "flags": [
+          "VISIBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 68,
+        "location": "room-91",
+        "flags": [
+          "VISIBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 118,
+        "location": "room-137",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 172,
+        "location": "room-166",
+        "flags": [
+          "VISIBT",
+          "DOORBT",
+          "NDSCBT"
+        ],
+        "currentId": null
+      }
+    ],
+    "food": [
+      {
+        "canonicalIndex": 137,
+        "location": "room-144",
+        "flags": [
+          "VISIBT",
+          "TAKEBT",
+          "FOODBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 138,
+        "location": "room-144",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "FOODBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 139,
+        "location": "room-144",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "FOODBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 140,
+        "location": "room-144",
+        "flags": [
+          "VISIBT",
+          "READBT",
+          "TAKEBT",
+          "FOODBT"
+        ],
+        "currentId": null
+      }
+    ],
+    "tools": [
+      {
+        "canonicalIndex": 22,
+        "location": "room-16",
+        "flags": [
+          "VISIBT",
+          "TAKEBT",
+          "TOOLBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 33,
+        "location": "room-80",
+        "flags": [
+          "VISIBT",
+          "TAKEBT",
+          "LIGHTBT",
+          "FLAMBT",
+          "TOOLBT",
+          "ONBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 55,
+        "location": "room-100",
+        "flags": [
+          "VISIBT",
+          "TAKEBT",
+          "TOOLBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 56,
+        "location": "room-100",
+        "flags": [
+          "VISIBT",
+          "TAKEBT",
+          "TOOLBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 88,
+        "location": "room-41",
+        "flags": [
+          "VISIBT",
+          "TAKEBT",
+          "TOOLBT"
+        ],
+        "currentId": null
+      },
+      {
+        "canonicalIndex": 95,
+        "location": "room-118",
+        "flags": [
+          "VISIBT",
+          "TAKEBT",
+          "TOOLBT"
+        ],
+        "currentId": null
+      }
+    ],
+    "weapons": []
+  },
+  "roomGaps": {
+    "water": [
+      39,
+      42,
+      106,
+      107,
+      108,
+      111,
+      112
+    ],
+    "air": [
+      126,
+      127,
+      128,
+      129
+    ],
+    "sacred": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      63,
+      74,
+      75,
+      77,
+      95,
+      96,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      114,
+      115,
+      116,
+      119,
+      120,
+      122,
+      123,
+      124,
+      126,
+      127,
+      128,
+      129
+    ],
+    "endgame": []
+  },
+  "summary": {
+    "totalObjectGaps": 42,
+    "totalRoomGaps": 49,
+    "overallCoverage": 14.150943396226415
+  }
+}
