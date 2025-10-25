@@ -5,7 +5,7 @@
 **Version:** 4.0  
 **Date:** October 25, 2025  
 **Phase:** Data Synchronization Phase 4  
-**Previous Phase:** [Phase 3 - Message Mapping](PHASE-3-IMPLEMENTATION-PLAN.md)  
+**Previous Phase:** [Phase 3 - Message Mapping](IMPLEMENTATION-PLAN-DATA-SYNC-PHASE-3.md)  
 **Next Phase:** [Phase 5 - Room Actions & Advanced Features](../docs/ROADMAP.md)  
 **Status:** Planning  
 **Owner:** Content & Integration Team  

@@ -5,8 +5,8 @@
 **Version:** 3.0  
 **Date:** October 25, 2025  
 **Phase:** Data Synchronization Phase 3  
-**Previous Phase:** [Phase 2 - Complete Property Coverage](PHASE-2-IMPLEMENTATION-PLAN.md)  
-**Next Phase:** [Phase 4 - Content Expansion](PHASE-4-IMPLEMENTATION-PLAN.md)  
+**Previous Phase:** [Phase 2 - Complete Property Coverage](IMPLEMENTATION-PLAN-DATA-SYNC-PHASE-2.md)  
+**Next Phase:** [Phase 4 - Content Expansion](IMPLEMENTATION-PLAN-DATA-SYNC-PHASE-4.md)  
 **Status:** Planning  
 **Owner:** Data Integration & Research Team  
 
