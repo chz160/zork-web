@@ -207,6 +207,16 @@ npm test -- --include='**/transcript-verification.spec.ts' --no-watch --browsers
 
 See [docs/TRANSCRIPT-VERIFICATION.md](docs/TRANSCRIPT-VERIFICATION.md) for detailed results and known discrepancies.
 
+#### Running Room Data Quality Tests
+
+To run tests that verify room descriptions and exits meet quality standards:
+
+```bash
+npm test -- --include='**/room-data-quality.spec.ts' --no-watch --browsers=ChromeHeadless
+```
+
+See [docs/ROOM-DATA-QUALITY-FIX.md](docs/ROOM-DATA-QUALITY-FIX.md) for details on data quality issues and fixes.
+
 #### Test Coverage
 
 The project maintains high test coverage across core components:
@@ -251,6 +261,42 @@ Tests run automatically on every push and pull request via GitHub Actions. The C
 4. Builds the application for production
 
 See [`.github/workflows/test.yml`](.github/workflows/test.yml) for the complete CI configuration.
+
+### Data Validation and Quality Tools
+
+Zork Web includes utilities to validate and maintain the quality of game data (rooms, objects, verbs).
+
+#### Validating Room Data
+
+To check for data quality issues in rooms.json (malformed descriptions, invalid exits, incomplete text):
+
+```bash
+npm run validate:rooms
+```
+
+This will scan all rooms and report:
+- Malformed descriptions (comma-separated tokens instead of prose)
+- Invalid exit destinations (error messages instead of room IDs)
+- Incomplete or missing descriptions
+- Short descriptions that just duplicate room names
+
+#### Applying Canonical Fixes
+
+To apply canonical Zork text and fix invalid exits based on the reference data:
+
+```bash
+npm run fix:rooms
+```
+
+**⚠️ Warning:** This modifies `src/app/data/rooms.json`. Commit your changes first and review the diff after running this command.
+
+#### Data Quality Documentation
+
+See [docs/ROOM-DATA-QUALITY-FIX.md](docs/ROOM-DATA-QUALITY-FIX.md) for:
+- Complete documentation of data quality issues
+- Examples of problems and solutions
+- Best practices for room data
+- Tool usage and testing guidelines
 
 ## Game Engine
 

@@ -1,0 +1,206 @@
+{
+  "_comment": "TEMPORARY DATA FILE - Can be deleted after all room data quality issues are fixed. This reference data was created specifically for the room data quality fix project (issue #78). Once all 163 remaining room issues are resolved and validated, this file is no longer needed.",
+  "rooms": {
+    "north-of-house": {
+      "description": "You are facing the north side of a white house. There is no door here, and all the windows are boarded up. To the north a narrow path winds through the trees.",
+      "exits": {
+        "north": "forest-1",
+        "south": "west-of-house",
+        "east": "east-of-house",
+        "west": "west-of-house"
+      }
+    },
+    "south-of-house": {
+      "description": "You are facing the south side of a white house. There is no door here, and all the windows are boarded.",
+      "exits": {
+        "north": "west-of-house",
+        "south": "forest-2",
+        "east": "east-of-house",
+        "west": "west-of-house"
+      }
+    },
+    "east-of-house": {
+      "description": "You are behind the white house. A path leads into the forest to the east. In one corner of the house there is a small window which is slightly ajar.",
+      "exits": {
+        "north": "north-of-house",
+        "south": "south-of-house",
+        "west": "kitchen",
+        "east": "clearing"
+      }
+    },
+    "stone-barrow": {
+      "description": "You are standing in front of a massive stone barrow. In the east face of the barrow is a huge stone door which is open. You cannot see into the dark of the tomb.",
+      "exits": {
+        "east": "inside-stone-barrow",
+        "west": "path",
+        "south": "west-of-house"
+      }
+    },
+    "forest-1": {
+      "description": "This is a forest, with trees in all directions around you. To the east, there appears to be sunlight.",
+      "exits": {
+        "east": "clearing",
+        "west": "forest-3",
+        "south": "north-of-house"
+      }
+    },
+    "path": {
+      "description": "This is a path winding through a dimly lit forest. The path heads north-south here. One particularly large tree with some low branches stands at the edge of the path.",
+      "exits": {
+        "north": "stone-barrow",
+        "south": "north-of-house",
+        "up": "up-a-tree"
+      }
+    },
+    "clearing": {
+      "description": "You are in a small clearing in a well marked forest path that extends to the east and west.",
+      "exits": {
+        "east": "east-of-house",
+        "west": "forest-1",
+        "north": "forest-2",
+        "south": "grating-clearing"
+      }
+    },
+    "living-room": {
+      "description": "You are in the living room. There is a doorway to the east, a wooden door with strange gothic lettering to the west, which appears to be nailed shut, a trophy case, and a large oriental rug in the center of the room.",
+      "exits": {
+        "east": "kitchen",
+        "down": "cellar"
+      }
+    },
+    "grating-room": {
+      "description": "You are in a small room near the maze. There are twisty passages in the immediate vicinity.",
+      "exits": {
+        "up": "grating-clearing",
+        "north": "maze-1",
+        "south": "maze-2",
+        "east": "maze-3",
+        "west": "maze-4"
+      }
+    },
+    "cyclops-room": {
+      "description": "This is a large room with a massive vaulted stone ceiling. Cyclopean stone pillars support the ceiling and cast weird, moving shadows around the room. In the center of the room is a massive table hewn of solid granite. In front of the table is a marble throne. Seated on the throne is a massive figure.",
+      "exits": {
+        "north": "treasure-room",
+        "east": "strange-passage",
+        "south": "east-of-chasm",
+        "west": "troll-room"
+      }
+    },
+    "reservoir-south": {
+      "description": "You are in a long room on the south shore of a large lake, far too deep and wide for crossing.",
+      "exits": {
+        "north": "reservoir",
+        "west": "dam-roomwasdam",
+        "out": "dam-roomwasdam"
+      }
+    },
+    "reservoir-north": {
+      "description": "You are in a long room on the north shore of a large lake, far too deep and wide for crossing.",
+      "exits": {
+        "south": "reservoir",
+        "east": "atlantis-room",
+        "north": "stream-view"
+      }
+    },
+    "mirror-room-1": {
+      "description": "You are in a large square room with tall ceilings. On the south wall is an enormous mirror which fills the entire wall. There are exits on the other three sides of the room.",
+      "exits": {
+        "north": "cold-passage",
+        "east": "narrow-passage",
+        "west": "winding-passage"
+      }
+    },
+    "mirror-room-2": {
+      "description": "You are in a large square room with tall ceilings. On the north wall is an enormous mirror which fills the entire wall. There are exits on the other three sides of the room.",
+      "exits": {
+        "south": "cold-passage",
+        "east": "narrow-passage",
+        "west": "winding-passage"
+      }
+    },
+    "small-cave": {
+      "description": "This is a small cave with an entrance to the east and a stairway leading down.",
+      "exits": {
+        "east": "narrow-passage",
+        "down": "tiny-cave"
+      }
+    },
+    "deep-canyon": {
+      "description": "You are on the south edge of a deep canyon. Passages lead off to the east, northwest and southwest. You can hear the sound of flowing water from below.",
+      "exits": {
+        "east": "reservoir-south",
+        "northwest": "reservoir",
+        "southwest": "in-stream"
+      }
+    },
+    "ns-passage": {
+      "description": "This is a north-south passageway with stone walls and a stone floor.",
+      "exits": {
+        "north": "chasm-room",
+        "south": "entrance-to-hades"
+      }
+    },
+    "entrance-to-hades": {
+      "description": "You are outside a large gateway on which is inscribed: 'Abandon every hope all ye who enter here'. The gate is open; through it you can see a desolation, with a pile of mangled bodies in one corner. Thousands of voices, lamenting some hideous fate, can be heard.",
+      "exits": {
+        "north": "ns-passage",
+        "south": "land-of-living-dead",
+        "down": "land-of-living-dead"
+      }
+    },
+    "engravings-cavewascave4": {
+      "description": "You have entered a low cave with passages leading northwest and east. There are old engravings on the walls here.",
+      "exits": {
+        "northwest": "north-templewastemp1",
+        "east": "dome-roomwasdome"
+      }
+    },
+    "torch-room": {
+      "description": "This is a large room with a prominent doorway leading to a down staircase. Above you is a large dome painted with scenes depicting elvish heros in battle. Up around the edge of the dome (20 feet up) is a wooden railing.",
+      "exits": {
+        "south": "north-templewastemp1",
+        "down": "south-templewastemp2",
+        "east": "gallery"
+      }
+    },
+    "sandy-cavewastcave": {
+      "description": "This is a sandy cave whose exit is to the southwest.",
+      "exits": {
+        "southwest": "sandy-beachwasbeach"
+      }
+    },
+    "aragain-fallswasfalls": {
+      "description": "You are at the top of Aragain Falls, an enormous waterfall with a drop of about 450 feet. The only path here is on the north side of the river.",
+      "exits": {
+        "north": "end-of-rainbowwaspog",
+        "south": "on-rainbowwasrainb"
+      }
+    },
+    "machine-roomwasmachi": {
+      "description": "This is a large room full of assorted heavy machinery. The room smells of coal smoke. There is a small coal stove here. The exit is to the south. To the north is a pile of machine parts.",
+      "exits": {
+        "south": "mine-2wasmine2",
+        "north": "lower-shaftwasbshaf"
+      }
+    }
+  },
+  "notes": {
+    "source": "Canonical Zork I room descriptions from the original Infocom game (1980-1983)",
+    "methodology": "Descriptions sourced from original game transcripts and walkthroughs",
+    "invalid_exits_removed": [
+      "rooms",
+      "thewindowsareallboarded",
+      "thereisnotreeheresuitableforclimbing",
+      "youwouldneedamachetetogofurtherwest",
+      "theforestbecomesimpenetrabletothenorth",
+      "themountainsareimpassable",
+      "therankundergrowthpreventseastwardmovement",
+      "storm-tossedtreesblockyourway",
+      "youcannotclimbanyhigher",
+      "tostudioiffalse-flagelse",
+      "thedoorisboardedandyoucantremovetheboards"
+    ],
+    "note_on_exits": "Invalid exits (error messages) should be handled by the game engine when player attempts to move in that direction, not as exit destinations in the room data"
+  }
+}
