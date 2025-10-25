@@ -43,6 +43,9 @@ export interface GameObjectProperties {
   /** IDs of objects contained within (for containers) */
   contains?: string[];
 
+  /** Maximum number of items this container can hold */
+  capacity?: number;
+
   /** Whether an object can be used as a light source */
   isLight?: boolean;
 
@@ -54,6 +57,48 @@ export interface GameObjectProperties {
 
   /** Whether the container is transparent */
   transparent?: boolean;
+
+  /** Whether the object can be read (READBT flag) */
+  isReadable?: boolean;
+
+  /** Text content for readable objects */
+  readText?: string;
+
+  /** Whether the object has been read */
+  hasBeenRead?: boolean;
+
+  /** Whether the object is a door (DOORBT flag) */
+  isDoor?: boolean;
+
+  /** Whether the door blocks passage when closed */
+  blocksPassage?: boolean;
+
+  /** Object ID of key required to unlock */
+  requiresKey?: string;
+
+  /** Whether the object is food (FOODBT flag) */
+  isFood?: boolean;
+
+  /** Whether the object can be eaten */
+  edible?: boolean;
+
+  /** Whether the object is destroyed when consumed */
+  consumable?: boolean;
+
+  /** Whether the object is a tool (TOOLBT flag) */
+  isTool?: boolean;
+
+  /** Type classification for tools */
+  toolType?: 'key' | 'rope' | 'wrench' | 'shovel' | 'pump' | 'other';
+
+  /** Whether the object is a weapon (WEAPONBT/FITEBT flags) */
+  isWeapon?: boolean;
+
+  /** Type classification for weapons */
+  weaponType?: 'sword' | 'axe' | 'knife' | 'club' | 'other';
+
+  /** Whether the object can burn (BURNBT flag) */
+  flammable?: boolean;
 
   /** Custom state properties for specific objects */
   [key: string]: unknown;
