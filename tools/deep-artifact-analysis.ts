@@ -155,7 +155,7 @@ class DeepArtifactAnalyzer {
         portableObjects.push(obj);
       }
 
-      if (obj.properties.isContainer) {
+      if (obj.properties['isContainer']) {
         containers.push(obj);
       }
 
@@ -167,11 +167,11 @@ class DeepArtifactAnalyzer {
         weapons.push(obj);
       }
 
-      if (obj.properties.edible) {
+      if (obj.properties['edible']) {
         edibleObjects.push(obj);
       }
 
-      if (obj.properties.isTreasure || obj.properties.treasureValue) {
+      if (obj.properties['isTreasure'] || obj.properties['treasureValue']) {
         treasures.push(obj);
       }
     }
