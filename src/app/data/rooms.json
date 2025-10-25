@@ -1570,6 +1570,75 @@
       "objectIds": [],
       "visited": false,
       "isDark": false
+    },
+    {
+      "id": "large-cavernous-room-1",
+      "name": "Large Cavernous Room",
+      "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "shortDescription": "A Large Cavernous Room, To",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "rflag": 25632
+      }
+    },
+    {
+      "id": "large-cavernous-room-2",
+      "name": "Large Cavernous Room",
+      "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "shortDescription": "A Large Cavernous Room, To",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "rflag": 25632
+      }
+    },
+    {
+      "id": "large-cavernous-room-3",
+      "name": "Large Cavernous Room",
+      "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "shortDescription": "A Large Cavernous Room, To",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "rflag": 25632
+      }
+    },
+    {
+      "id": "large-cavernous-room-30",
+      "name": "Large Cavernous Room",
+      "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "shortDescription": "A Large Cavernous Room, To",
+      "exits": {
+        "in": "room-3209"
+      },
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 11,
+        "rflag": 25632
+      }
+    },
+    {
+      "id": "large-cavernous-room-31",
+      "name": "Large Cavernous Room",
+      "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "shortDescription": "A Large Cavernous Room, To",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 11,
+        "rflag": 25632
+      }
     }
   ]
 }
