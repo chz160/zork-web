@@ -208,7 +208,11 @@
       "description": "lunch",
       "portable": true,
       "visible": true,
-      "location": "sandwich-bag"
+      "location": "sandwich-bag",
+      "properties": {
+        "isFood": true,
+        "edible": true
+      }
     },
     {
       "id": "bat",
@@ -311,7 +315,9 @@
       "location": "altar",
       "properties": {
         "isOpen": false,
-        "contains": []
+        "contains": [],
+        "capacity": 0,
+        "isReadable": true
       }
     },
     {
@@ -444,7 +450,8 @@
       "location": "maintenance-room",
       "properties": {
         "isOpen": true,
-        "contains": []
+        "contains": [],
+        "capacity": 10
       }
     },
     {
@@ -537,7 +544,11 @@
       "description": "clove of garlic",
       "portable": true,
       "visible": true,
-      "location": "sandwich-bag"
+      "location": "sandwich-bag",
+      "properties": {
+        "isFood": true,
+        "edible": true
+      }
     },
     {
       "id": "trident",
@@ -615,7 +626,8 @@
       "location": "living-room",
       "properties": {
         "isOpen": false,
-        "isLocked": false
+        "isLocked": false,
+        "isDoor": true
       }
     },
     {
@@ -680,7 +692,8 @@
       "properties": {
         "isOpen": false,
         "contains": [],
-        "capacity": 4
+        "capacity": 4,
+        "transparent": true
       }
     },
     {
@@ -904,7 +917,10 @@
       "description": "A small leaflet is on the ground.",
       "portable": true,
       "visible": true,
-      "location": "mailbox"
+      "location": "mailbox",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "leak",
@@ -977,7 +993,10 @@
       "description": "matchbook",
       "portable": true,
       "visible": true,
-      "location": "dam-lobby"
+      "location": "dam-lobby",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "mirror-2",
@@ -1469,7 +1488,10 @@
       "description": "tan label",
       "portable": true,
       "visible": true,
-      "location": "inflated-boat"
+      "location": "inflated-boat",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "thief",
@@ -1498,7 +1520,8 @@
       "location": "round-room",
       "properties": {
         "isOpen": true,
-        "contains": []
+        "contains": [],
+        "capacity": 20
       }
     },
     {
@@ -1559,7 +1582,10 @@
       "description": "desk.",
       "portable": true,
       "visible": true,
-      "location": "dam-lobby"
+      "location": "dam-lobby",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "troll",
