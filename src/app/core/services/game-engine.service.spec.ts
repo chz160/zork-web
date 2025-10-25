@@ -598,7 +598,8 @@ describe('GameEngineService', () => {
 
         const result = service.executeCommand(openCommand);
         expect(result.success).toBe(true);
-        expect(result.messages[0]).toContain('You open the');
+        // Empty container should just say "Opened."
+        expect(result.messages[0]).toBe('Opened.');
       });
 
       it('should not open a locked container', () => {
@@ -661,6 +662,185 @@ describe('GameEngineService', () => {
         const result = service.executeCommand(closeCommand);
         expect(result.success).toBe(true);
         expect(result.messages[0]).toContain('You close the');
+      });
+
+      it('should reveal contents when opening a container with items', () => {
+        const chest: GameObject = {
+          id: 'chest',
+          name: 'wooden chest',
+          aliases: ['chest'],
+          description: 'A sturdy wooden chest.',
+          portable: false,
+          visible: true,
+          location: 'test-room',
+          properties: {
+            isOpen: false,
+            isLocked: false,
+            contains: [],
+          },
+        };
+        const coin: GameObject = {
+          id: 'coin',
+          name: 'gold coin',
+          aliases: ['coin'],
+          description: 'A shiny gold coin.',
+          portable: true,
+          visible: true,
+          location: 'chest',
+        };
+        service.addObject(chest);
+        service.addObject(coin);
+
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'chest',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open chest',
+          isValid: true,
+        };
+
+        const result = service.executeCommand(openCommand);
+        expect(result.success).toBe(true);
+        expect(result.messages[0]).toContain('Opening the wooden chest reveals');
+        expect(result.messages[0]).toContain('gold coin');
+      });
+
+      it('should show firstDescription for single untouched item', () => {
+        const box: GameObject = {
+          id: 'box',
+          name: 'small box',
+          aliases: ['box'],
+          description: 'A small wooden box.',
+          portable: false,
+          visible: true,
+          location: 'test-room',
+          properties: {
+            isOpen: false,
+            isLocked: false,
+            contains: [],
+          },
+        };
+        const gem: GameObject = {
+          id: 'gem',
+          name: 'ruby',
+          aliases: ['gem', 'ruby'],
+          description: 'A precious ruby.',
+          portable: true,
+          visible: true,
+          location: 'box',
+          firstDescription: 'A brilliant ruby sparkles in the box!',
+        };
+        service.addObject(box);
+        service.addObject(gem);
+
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'box',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open box',
+          isValid: true,
+        };
+
+        const result = service.executeCommand(openCommand);
+        expect(result.success).toBe(true);
+        expect(result.messages[0]).toBe('The small box opens.');
+        expect(result.messages[1]).toBe('A brilliant ruby sparkles in the box!');
+      });
+
+      it('should reveal multiple items in a readable format', () => {
+        const chest: GameObject = {
+          id: 'chest',
+          name: 'wooden chest',
+          aliases: ['chest'],
+          description: 'A sturdy wooden chest.',
+          portable: false,
+          visible: true,
+          location: 'test-room',
+          properties: {
+            isOpen: false,
+            isLocked: false,
+            contains: [],
+          },
+        };
+        const coin: GameObject = {
+          id: 'coin',
+          name: 'gold coin',
+          aliases: ['coin'],
+          description: 'A shiny gold coin.',
+          portable: true,
+          visible: true,
+          location: 'chest',
+        };
+        const sword: GameObject = {
+          id: 'sword',
+          name: 'rusty sword',
+          aliases: ['sword'],
+          description: 'An old rusty sword.',
+          portable: true,
+          visible: true,
+          location: 'chest',
+        };
+        service.addObject(chest);
+        service.addObject(coin);
+        service.addObject(sword);
+
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'chest',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open chest',
+          isValid: true,
+        };
+
+        const result = service.executeCommand(openCommand);
+        expect(result.success).toBe(true);
+        expect(result.messages[0]).toContain('Opening the wooden chest reveals');
+        expect(result.messages[0]).toContain('and');
+      });
+
+      it('should say "Opened." for transparent containers', () => {
+        const jar: GameObject = {
+          id: 'jar',
+          name: 'glass jar',
+          aliases: ['jar'],
+          description: 'A transparent glass jar.',
+          portable: false,
+          visible: true,
+          location: 'test-room',
+          properties: {
+            isOpen: false,
+            isLocked: false,
+            transparent: true,
+            contains: [],
+          },
+        };
+        const candy: GameObject = {
+          id: 'candy',
+          name: 'candy',
+          aliases: ['candy'],
+          description: 'A piece of candy.',
+          portable: true,
+          visible: true,
+          location: 'jar',
+        };
+        service.addObject(jar);
+        service.addObject(candy);
+
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'jar',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open jar',
+          isValid: true,
+        };
+
+        const result = service.executeCommand(openCommand);
+        expect(result.success).toBe(true);
+        expect(result.messages[0]).toBe('Opened.');
       });
     });
 
@@ -950,6 +1130,53 @@ describe('GameEngineService', () => {
           candidates: ['brass lamp', 'oil lamp'],
           selectedIndex: 1,
         });
+      });
+    });
+
+    describe('mailbox scenario', () => {
+      it('should properly open mailbox and reveal leaflet', () => {
+        service.initializeGame();
+
+        // Get the mailbox object
+        const mailbox = service['gameObjects']().get('mailbox');
+        expect(mailbox).toBeDefined();
+
+        // Get the leaflet object
+        const leaflet = service['gameObjects']().get('advertisement');
+        expect(leaflet).toBeDefined();
+        expect(leaflet?.location).toBe('mailbox');
+
+        // Open the mailbox
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'mailbox',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open mailbox',
+          isValid: true,
+        };
+
+        const result = service.executeCommand(openCommand);
+        expect(result.success).toBe(true);
+        expect(result.messages.length).toBeGreaterThan(0);
+        // Should reveal the leaflet
+        expect(result.messages[0]).toContain('Opening');
+        expect(result.messages[0]).toContain('mailbox');
+        expect(result.messages[0]).toContain('leaflet');
+
+        // After opening, should be able to take the leaflet
+        const takeCommand: ParserResult = {
+          verb: 'take',
+          directObject: 'leaflet',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'take leaflet',
+          isValid: true,
+        };
+
+        const takeResult = service.executeCommand(takeCommand);
+        expect(takeResult.success).toBe(true);
+        expect(takeResult.messages[0]).toContain('Taken');
       });
     });
 

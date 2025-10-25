@@ -23,6 +23,9 @@ export interface GameObject {
   /** Current location: room ID or 'inventory' if carried by player */
   location: string;
 
+  /** First description shown when revealing this object (e.g., when opening a container) */
+  firstDescription?: string;
+
   /** Additional properties for stateful objects */
   properties?: GameObjectProperties;
 }
@@ -45,6 +48,12 @@ export interface GameObjectProperties {
 
   /** Whether a light source is currently lit */
   isLit?: boolean;
+
+  /** Whether the object has been touched/interacted with (for first description) */
+  touched?: boolean;
+
+  /** Whether the container is transparent */
+  transparent?: boolean;
 
   /** Custom state properties for specific objects */
   [key: string]: unknown;

@@ -439,7 +439,11 @@ export class GameEngineService {
     }
 
     const currentRoomId = this.playerState().currentRoomId;
-    if (obj.location !== currentRoomId) {
+    // Check if object is in current room or in an open container in the current room
+    const isInCurrentRoom = obj.location === currentRoomId;
+    const isInOpenContainer = this.isInOpenContainerInRoom(obj.location, currentRoomId);
+
+    if (!isInCurrentRoom && !isInOpenContainer) {
       return {
         messages: [`The ${obj.name} isn't here.`],
         success: false,
@@ -555,25 +559,52 @@ export class GameEngineService {
       };
     }
 
-    // Open the object
+    // Open the object and mark as touched
     this.updateObjectProperty(obj.id, 'isOpen', true);
+    this.updateObjectProperty(obj.id, 'touched', true);
 
-    const messages = [`You open the ${obj.name}.`];
+    // Get objects inside this container (check both location-based and contains array)
+    const contentsById = obj.properties.contains || [];
+    const contentsByLocation = Array.from(this.gameObjects().values())
+      .filter((item) => item.location === obj.id)
+      .map((item) => item.id);
 
-    // If object contains items, reveal them
-    if (obj.properties.contains && obj.properties.contains.length > 0) {
-      const contents = obj.properties.contains
-        .map((id) => this.gameObjects().get(id))
-        .filter((item): item is GameObject => item !== undefined)
-        .map((item) => item.name);
+    // Combine both methods of containment
+    const allContentIds = [...new Set([...contentsById, ...contentsByLocation])];
+    const contents = allContentIds
+      .map((id) => this.gameObjects().get(id))
+      .filter((item): item is GameObject => item !== undefined);
 
-      if (contents.length > 0) {
-        messages.push(`The ${obj.name} contains:`);
-        messages.push(...contents.map((name) => `  ${name}`));
-      }
+    // Implement the three cases from original Zork V-OPEN:
+    // Case 1: Empty container or transparent container -> "Opened."
+    if (contents.length === 0 || obj.properties.transparent) {
+      return { messages: ['Opened.'], success: true, type: 'success' };
     }
 
-    return { messages, success: true, type: 'success' };
+    // Case 2: Single untouched item with firstDescription
+    if (contents.length === 1 && !contents[0].properties?.touched && contents[0].firstDescription) {
+      // Mark the item as touched
+      this.updateObjectProperty(contents[0].id, 'touched', true);
+      return {
+        messages: [`The ${obj.name} opens.`, contents[0].firstDescription],
+        success: true,
+        type: 'success',
+      };
+    }
+
+    // Case 3: Multiple items or no firstDescription -> "Opening the X reveals Y."
+    const itemNames = contents.map((item) => item.name);
+    let revealMessage: string;
+    if (itemNames.length === 1) {
+      revealMessage = `Opening the ${obj.name} reveals ${itemNames[0]}.`;
+    } else if (itemNames.length === 2) {
+      revealMessage = `Opening the ${obj.name} reveals ${itemNames[0]} and ${itemNames[1]}.`;
+    } else {
+      const lastItem = itemNames.pop();
+      revealMessage = `Opening the ${obj.name} reveals ${itemNames.join(', ')}, and ${lastItem}.`;
+    }
+
+    return { messages: [revealMessage], success: true, type: 'success' };
   }
 
   /**
@@ -1098,12 +1129,20 @@ export class GameEngineService {
     const roomObjects = Array.from(this.gameObjects().values()).filter(
       (obj) => obj.location === currentRoomId && obj.visible
     );
+
+    // Also include objects in open containers in the current room
+    const objectsInOpenContainers = Array.from(this.gameObjects().values()).filter((obj) => {
+      return obj.visible && this.isInOpenContainerInRoom(obj.location, currentRoomId);
+    });
+
+    const allAccessibleRoomObjects = [...roomObjects, ...objectsInOpenContainers];
+
     const inventoryObjects = inventory
       .map((id) => this.gameObjects().get(id))
       .filter((obj): obj is GameObject => obj !== undefined);
 
     const context: ResolutionContext = {
-      roomObjects: allowInventoryOnly ? [] : roomObjects,
+      roomObjects: allowInventoryOnly ? [] : allAccessibleRoomObjects,
       inventoryObjects,
       allObjects: Array.from(this.gameObjects().values()),
     };
@@ -1153,6 +1192,11 @@ export class GameEngineService {
       if (nameMatch || aliasMatch) {
         // Check if object is in current room or inventory
         if (obj.location === currentRoomId || inventory.includes(obj.id)) {
+          return obj;
+        }
+
+        // Also check if object is inside an open container in the current room
+        if (this.isInOpenContainerInRoom(obj.location, currentRoomId)) {
           return obj;
         }
       }
@@ -1219,6 +1263,14 @@ export class GameEngineService {
       }
       return objects;
     });
+  }
+
+  /**
+   * Check if an object is in an open container in the specified room.
+   */
+  private isInOpenContainerInRoom(objectLocation: string, roomId: string): boolean {
+    const container = this.gameObjects().get(objectLocation);
+    return !!container && container.location === roomId && container.properties?.isOpen === true;
   }
 
   /**
