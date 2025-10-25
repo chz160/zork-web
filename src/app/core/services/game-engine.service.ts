@@ -555,25 +555,52 @@ export class GameEngineService {
       };
     }
 
-    // Open the object
+    // Open the object and mark as touched
     this.updateObjectProperty(obj.id, 'isOpen', true);
+    this.updateObjectProperty(obj.id, 'touched', true);
 
-    const messages = [`You open the ${obj.name}.`];
+    // Get objects inside this container (check both location-based and contains array)
+    const contentsById = obj.properties.contains || [];
+    const contentsByLocation = Array.from(this.gameObjects().values())
+      .filter((item) => item.location === obj.id)
+      .map((item) => item.id);
 
-    // If object contains items, reveal them
-    if (obj.properties.contains && obj.properties.contains.length > 0) {
-      const contents = obj.properties.contains
-        .map((id) => this.gameObjects().get(id))
-        .filter((item): item is GameObject => item !== undefined)
-        .map((item) => item.name);
+    // Combine both methods of containment
+    const allContentIds = [...new Set([...contentsById, ...contentsByLocation])];
+    const contents = allContentIds
+      .map((id) => this.gameObjects().get(id))
+      .filter((item): item is GameObject => item !== undefined);
 
-      if (contents.length > 0) {
-        messages.push(`The ${obj.name} contains:`);
-        messages.push(...contents.map((name) => `  ${name}`));
-      }
+    // Implement the three cases from original Zork V-OPEN:
+    // Case 1: Empty container or transparent container -> "Opened."
+    if (contents.length === 0 || obj.properties.transparent) {
+      return { messages: ['Opened.'], success: true, type: 'success' };
     }
 
-    return { messages, success: true, type: 'success' };
+    // Case 2: Single untouched item with firstDescription
+    if (contents.length === 1 && !contents[0].properties?.touched && contents[0].firstDescription) {
+      // Mark the item as touched
+      this.updateObjectProperty(contents[0].id, 'touched', true);
+      return {
+        messages: [`The ${obj.name} opens.`, contents[0].firstDescription],
+        success: true,
+        type: 'success',
+      };
+    }
+
+    // Case 3: Multiple items or no firstDescription -> "Opening the X reveals Y."
+    const itemNames = contents.map((item) => item.name);
+    let revealMessage: string;
+    if (itemNames.length === 1) {
+      revealMessage = `Opening the ${obj.name} reveals ${itemNames[0]}.`;
+    } else if (itemNames.length === 2) {
+      revealMessage = `Opening the ${obj.name} reveals ${itemNames[0]} and ${itemNames[1]}.`;
+    } else {
+      const lastItem = itemNames.pop();
+      revealMessage = `Opening the ${obj.name} reveals ${itemNames.join(', ')}, and ${lastItem}.`;
+    }
+
+    return { messages: [revealMessage], success: true, type: 'success' };
   }
 
   /**
