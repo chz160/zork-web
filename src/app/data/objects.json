@@ -150,7 +150,7 @@
       "id": "skull",
       "name": "crystal skull",
       "aliases": ["skull", "head", "treasure", "crystal skull", "crystal head", "crystal treasure"],
-      "description": "It,appears,to,be,grinning,at,you,rather,nastily.\"",
+      "description": "It appears to be grinning at you rather nastily.",
       "portable": true,
       "visible": true,
       "location": "land-of-living-dead",
@@ -208,7 +208,11 @@
       "description": "lunch",
       "portable": true,
       "visible": true,
-      "location": "sandwich-bag"
+      "location": "sandwich-bag",
+      "properties": {
+        "isFood": true,
+        "edible": true
+      }
     },
     {
       "id": "bat",
@@ -311,7 +315,9 @@
       "location": "altar",
       "properties": {
         "isOpen": false,
-        "contains": []
+        "contains": [],
+        "capacity": 0,
+        "isReadable": true
       }
     },
     {
@@ -343,7 +349,7 @@
         "enameled scepter",
         "enameled treasure"
       ],
-      "description": "sceptre,is,ornamented,with,colored,enamel,,and,tapers,to,a,sharp,point.\"",
+      "description": "The sceptre is ornamented with colored enamel, and tapers to a sharp point.",
       "portable": true,
       "visible": true,
       "location": "coffin",
@@ -444,7 +450,8 @@
       "location": "maintenance-room",
       "properties": {
         "isOpen": true,
-        "contains": []
+        "contains": [],
+        "capacity": 10
       }
     },
     {
@@ -537,7 +544,11 @@
       "description": "clove of garlic",
       "portable": true,
       "visible": true,
-      "location": "sandwich-bag"
+      "location": "sandwich-bag",
+      "properties": {
+        "isFood": true,
+        "edible": true
+      }
     },
     {
       "id": "trident",
@@ -615,7 +626,8 @@
       "location": "living-room",
       "properties": {
         "isOpen": false,
-        "isLocked": false
+        "isLocked": false,
+        "isDoor": true
       }
     },
     {
@@ -680,7 +692,8 @@
       "properties": {
         "isOpen": false,
         "contains": [],
-        "capacity": 4
+        "capacity": 4,
+        "transparent": true
       }
     },
     {
@@ -904,7 +917,10 @@
       "description": "A small leaflet is on the ground.",
       "portable": true,
       "visible": true,
-      "location": "mailbox"
+      "location": "mailbox",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "leak",
@@ -977,7 +993,10 @@
       "description": "matchbook",
       "portable": true,
       "visible": true,
-      "location": "dam-lobby"
+      "location": "dam-lobby",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "mirror-2",
@@ -1469,7 +1488,10 @@
       "description": "tan label",
       "portable": true,
       "visible": true,
-      "location": "inflated-boat"
+      "location": "inflated-boat",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "thief",
@@ -1492,13 +1514,14 @@
         "seedy man",
         "seedy person"
       ],
-      "description": "against,one,wall.,He,is,armed,with,a,deadly,stiletto.\"",
+      "description": "There is a suspicious-looking individual, holding a bag, leaning against one wall. He is armed with a vicious-looking stilletto.",
       "portable": true,
       "visible": false,
       "location": "round-room",
       "properties": {
         "isOpen": true,
-        "contains": []
+        "contains": [],
+        "capacity": 20
       }
     },
     {
@@ -1559,13 +1582,16 @@
       "description": "desk.",
       "portable": true,
       "visible": true,
-      "location": "dam-lobby"
+      "location": "dam-lobby",
+      "properties": {
+        "isReadable": true
+      }
     },
     {
       "id": "troll",
       "name": "troll",
       "aliases": ["troll", "nasty troll"],
-      "description": "out,of,the,room.\"",
+      "description": "A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the room.",
       "portable": true,
       "visible": true,
       "location": "troll-room"
@@ -1731,7 +1757,7 @@
         "jeweled egg",
         "jeweled treasure"
       ],
-      "description": "apparently,scavenged,by,a,childless,songbird.,The,egg,is,covered,with,fine,gold,inlay,,and,ornamented,in,lapis,lazuli,and,mother-of-pearl.,Unlike,most,eggs,,this,one,is,hinged,and,closed,with,a,delicate,looking,clasp.,The,egg,appears,extremely,fragile.\")>",
+      "description": "The egg is covered with fine gold inlay, and ornamented in lapis lazuli and mother-of-pearl. Unlike most eggs, this one is hinged and closed with a delicate looking clasp. The egg appears extremely fragile.",
       "portable": true,
       "visible": true,
       "location": "nest",
@@ -1799,7 +1825,7 @@
         "golden canary",
         "golden treasure"
       ],
-      "description": "eyes,and,a,silver,beak.,Through,a,crystal,window,below,its,left,wing,you,can,see,intricate,machinery,inside.,It,appears,to,have,wound,down.\")>",
+      "description": "The golden clockwork canary has jewel-like eyes and a silver beak. Through a crystal window below its left wing you can see intricate machinery inside. It appears to have wound down.",
       "portable": true,
       "visible": true,
       "location": "egg",
@@ -1822,7 +1848,7 @@
         "golden canary",
         "golden treasure"
       ],
-      "description": "have,recently,had,a,bad,experience.,The,mountings,for,its,jewel-like,eyes,are,empty,,and,its,silver,beak,is,crumpled.,Through,a,cracked,crystal,window,below,its,left,wing,you,can,see,the,remains,of,intricate,machinery.,It,is,not,clear,what,result,winding,it,would,have,,as,the,mainspring,seems,sprung.\")>",
+      "description": "The broken clockwork canary appears to have recently had a bad experience. The mountings for its jewel-like eyes are empty, and its silver beak is crumpled. Through a cracked crystal window below its left wing you can see the remains of intricate machinery. It is not clear what result winding it would have, as the mainspring seems sprung.",
       "portable": true,
       "visible": true,
       "location": "broken-egg"
