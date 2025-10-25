@@ -267,4 +267,157 @@ describe('Room Data Quality - Characterization Tests', () => {
       expect(duplicates.length).toBe(0, `Found duplicate room IDs: ${duplicates.join(', ')}`);
     });
   });
+
+  describe('Phase 2 Fixes: Previously Malformed Rooms', () => {
+    it('should have proper prose descriptions for temple rooms', () => {
+      const northTemple = rooms.find((r) => r.id === 'north-templewastemp1');
+      const southTemple = rooms.find((r) => r.id === 'south-templewastemp2');
+
+      expect(northTemple).toBeDefined();
+      expect(southTemple).toBeDefined();
+
+      // Should not have comma-separated tokens
+      expect(northTemple?.description).not.toMatch(/,\w+,\w+,/);
+      expect(southTemple?.description).not.toMatch(/,\w+,\w+,/);
+
+      // Should mention key features
+      expect(northTemple?.description).toContain('temple');
+      expect(southTemple?.description).toContain('altar');
+    });
+
+    it('should have valid exits for dam area rooms', () => {
+      const validRoomIds = new Set(rooms.map((r) => r.id));
+
+      const damRooms = [
+        'dam-roomwasdam',
+        'dam-lobbywaslobby',
+        'maintenance-roomwasmaint',
+        'dam-basewasdock',
+      ];
+
+      for (const roomId of damRooms) {
+        const room = rooms.find((r) => r.id === roomId);
+        expect(room).toBeDefined();
+
+        const exits = Array.from(room?.exits.values() || []);
+        for (const exitDestination of exits) {
+          expect(validRoomIds.has(exitDestination)).toBe(
+            true,
+            `${roomId} has invalid exit: "${exitDestination}"`
+          );
+        }
+      }
+    });
+
+    it('should have valid exits for river rooms', () => {
+      const validRoomIds = new Set(rooms.map((r) => r.id));
+
+      const riverRooms = [
+        'river-1wasrivr1',
+        'river-2wasrivr2',
+        'river-3wasrivr3',
+        'river-4wasrivr4',
+        'river-5wasrivr5',
+      ];
+
+      for (const roomId of riverRooms) {
+        const room = rooms.find((r) => r.id === roomId);
+        expect(room).toBeDefined();
+
+        const exits = Array.from(room?.exits.values() || []);
+        for (const exitDestination of exits) {
+          expect(validRoomIds.has(exitDestination)).toBe(
+            true,
+            `${roomId} has invalid exit: "${exitDestination}"`
+          );
+          // Should not have "rooms" placeholder
+          expect(exitDestination).not.toBe('rooms');
+        }
+      }
+    });
+
+    it('should have proper descriptions for mine rooms', () => {
+      const mineRooms = ['mine-1wasmine1', 'mine-2wasmine2', 'mine-3wasmine3', 'mine-4wasmine4'];
+
+      for (const roomId of mineRooms) {
+        const room = rooms.find((r) => r.id === roomId);
+        expect(room).toBeDefined();
+
+        // Should not have comma-separated tokens
+        expect(room?.description).not.toMatch(/,\w+,\w+,/);
+
+        // Should have substantive description
+        expect(room?.description.length).toBeGreaterThan(10);
+      }
+    });
+
+    it('should not have any "rooms" placeholder exits', () => {
+      for (const room of rooms) {
+        const exits = Array.from(room.exits.values());
+        const hasRoomsPlaceholder = exits.some((exit) => exit === 'rooms');
+        expect(hasRoomsPlaceholder).toBe(
+          false,
+          `Room ${room.id} still has "rooms" placeholder exit`
+        );
+      }
+    });
+
+    it('should not have error message strings as exits', () => {
+      const errorPatterns = [
+        'thereisnotreeheresuitableforclimbing',
+        'themountainsareimpassable',
+        'theforestbecomesimpenetrabletothenorth',
+        'storm-tossedtreesblockyourway',
+        'thechasmprobablyleadsstraighttotheinfernalregions',
+        'tostudioiffalse-flagelse',
+        'permaze-diodestomaze',
+      ];
+
+      for (const room of rooms) {
+        const exits = Array.from(room.exits.values());
+        for (const exit of exits) {
+          const hasErrorPattern = errorPatterns.some((pattern) => exit.includes(pattern));
+          expect(hasErrorPattern).toBe(
+            false,
+            `Room ${room.id} has error message as exit: "${exit}"`
+          );
+        }
+      }
+    });
+
+    it('should have proper prose for gallery and studio', () => {
+      const gallery = rooms.find((r) => r.id === 'gallery');
+      const studio = rooms.find((r) => r.id === 'studio');
+
+      expect(gallery).toBeDefined();
+      expect(studio).toBeDefined();
+
+      // Should not have comma-separated tokens
+      expect(gallery?.description).not.toMatch(/,\w+,\w+,/);
+      expect(studio?.description).not.toMatch(/,\w+,\w+,/);
+
+      // Should mention key features
+      expect(gallery?.description.toLowerCase()).toContain('gallery');
+      expect(studio?.description.toLowerCase()).toContain('studio');
+    });
+
+    it('should have proper prose for east of chasm', () => {
+      const eastOfChasm = rooms.find((r) => r.id === 'east-of-chasm');
+
+      expect(eastOfChasm).toBeDefined();
+
+      // Should not have comma-separated tokens
+      expect(eastOfChasm?.description).not.toMatch(/,\w+,\w+,/);
+
+      // Should mention the chasm
+      expect(eastOfChasm?.description.toLowerCase()).toContain('chasm');
+
+      // Should have valid exits only
+      const validRoomIds = new Set(rooms.map((r) => r.id));
+      const exits = Array.from(eastOfChasm?.exits.values() || []);
+      for (const exitDestination of exits) {
+        expect(validRoomIds.has(exitDestination)).toBe(true);
+      }
+    });
+  });
 });
