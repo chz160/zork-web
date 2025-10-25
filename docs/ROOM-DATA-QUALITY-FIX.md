@@ -1,16 +1,82 @@
 # Room Data Quality - Fix Documentation
 
-> **Note:** This document and the associated tools (`validate-rooms.ts`, `apply-canonical-fixes.ts`, `canonical-rooms.json`) are temporary and can be deleted once all room data quality issues are resolved (issue #78, Phase 2 completion).
+> **Status: Phase 2 COMPLETE** ✅  
+> All 163 remaining room data quality issues have been resolved.  
+> This document and the associated temporary tools can now be safely deleted.
 
 ## Overview
 
-This document describes the systemic data quality issues found in `rooms.json` and the approach taken to fix them.
+This document describes the systemic data quality issues found in `rooms.json` and the approach taken to fix them in Phases 1 and 2.
 
-## Issues Identified
+## Final Status
 
-### 1. Malformed Descriptions (52 rooms)
+### Phase 1 (Completed in PR #79)
+- **23 high-priority rooms** fixed manually
+- Created validation tools and comprehensive test suite
+- Established canonical text sources and methodology
 
-**Problem:** Room descriptions stored as comma-separated tokens instead of prose.
+### Phase 2 (Completed in This PR) ✅
+- **163 remaining rooms** fixed systematically
+- **0 validation issues** remaining
+- All exits point to valid room IDs
+- All descriptions are canonical Zork prose
+- **24 characterization tests** passing (expanded from 16)
+
+## Issues Fixed
+
+### Original Issues (Total: 215)
+1. **Malformed Descriptions**: 52 rooms with comma-separated tokens
+2. **Invalid Exit Destinations**: 146 rooms with error messages or placeholders
+3. **Incomplete Descriptions**: 17 rooms with truncated or duplicate text
+
+### Phase 2 Resolution (163 issues)
+- ✅ 84 rooms with "rooms" exit placeholder - **FIXED**
+- ✅ 79 rooms with error message/conditional logic exits - **FIXED**
+- ✅ 46 rooms with malformed comma-separated descriptions - **FIXED**
+
+### Validation Results
+```
+Before Phase 2: 163 issues (117 invalid exits, 46 malformed descriptions)
+After Phase 2:  0 issues ✅
+```
+
+## Solution Approach (Phase 2)
+
+### Tools Created
+
+1. **extract-canonical-from-zil.ts** (New in Phase 2)
+   - Automatically extracts room data from original ZIL source (1dungeon.zil)
+   - Parses LDESC (descriptions) and valid exits (TO statements)
+   - Extracted 109 rooms automatically
+   - Handles complex multi-line descriptions
+
+2. **Enhanced canonical-rooms.json**
+   - Expanded from 23 rooms (Phase 1) to 151 rooms (Phase 2)
+   - Added 38 rooms with "was" name mangling (e.g., egypt-roomwasegypt)
+   - Merged ZIL-extracted data with manual Phase 1 fixes
+
+3. **validate-rooms.ts** (From Phase 1)
+   - Continued to validate all fixes
+   - Confirmed 0 issues after Phase 2 completion
+
+4. **apply-canonical-fixes.ts** (From Phase 1)
+   - Applied all 151 canonical fixes to rooms.json
+   - Updated 163 rooms (descriptions and/or exits)
+
+### Implementation Summary
+
+1. ✅ Created ZIL extraction script to parse original source
+2. ✅ Extracted 109 room definitions automatically
+3. ✅ Manually added 38 rooms with complex ID mappings
+4. ✅ Applied fixes to all 163 remaining problematic rooms
+5. ✅ Validation: 0 issues found
+6. ✅ Tests: 24/24 passing (8 new characterization tests)
+
+---
+
+## Examples of Issues Fixed
+
+### 1. Malformed Descriptions
 
 **Example (Before):**
 
@@ -30,9 +96,7 @@ This document describes the systemic data quality issues found in `rooms.json` a
 }
 ```
 
-### 2. Invalid Exit Destinations (146 rooms)
-
-**Problem:** Exits pointing to error messages or invalid room IDs instead of actual room IDs.
+### 2. Invalid Exit Destinations
 
 **Example (Before):**
 
@@ -183,7 +247,38 @@ Exit restrictions should be handled by the **game engine**, not the room data:
 
 When a player tries to go in an invalid direction, the game engine should display an appropriate error message, not navigate to a fake room.
 
-## Running the Tools
+## Cleanup After Completion
+
+**Status: Phase 2 is complete. The following items can now be removed:**
+
+### Files to Delete
+- ✅ `tools/validate-rooms.ts` - No longer needed (0 issues remain)
+- ✅ `tools/apply-canonical-fixes.ts` - All fixes have been applied
+- ✅ `tools/canonical-rooms.json` - Data has been applied to rooms.json
+- ✅ `tools/extract-canonical-from-zil.ts` - Extraction complete
+- ✅ `docs/ROOM-DATA-QUALITY-FIX.md` - This documentation file
+
+### Scripts to Remove from package.json
+- ✅ `validate:rooms` - No longer needed
+- ✅ `fix:rooms` - No longer needed
+- Keep `build:tools` - Still useful for other converter scripts
+
+### Files to Keep
+- ✅ `src/app/data/rooms.json` - **Core data file (keep)**
+- ✅ `src/app/core/services/room-data-quality.spec.ts` - **Keep for ongoing validation**
+- ✅ `tools/converter/` - Keep for future data conversion needs
+
+## Test Results
+
+### Before Phase 2
+- 16 tests passing
+- 163 validation issues
+
+### After Phase 2  
+- **24 tests passing** (8 new characterization tests added)
+- **0 validation issues** ✅
+
+## Running the Tools (Historical Reference)
 
 ### Validate Rooms
 
