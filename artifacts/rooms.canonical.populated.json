@@ -1,0 +1,3511 @@
+[
+  {
+    "id": "a-large-cavernous-room-to-0",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rval": 5,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 0,
+      "messageIndex": -9590,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-1",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 1,
+      "messageIndex": -9608,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-2",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 2,
+      "messageIndex": -9620,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-3",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 3,
+      "messageIndex": -9635,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "room-4",
+    "name": "Room 4",
+    "description": "Room 4",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 1,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 4,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "room-5",
+    "name": "Room 5",
+    "description": "Room 5",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 2,
+      "rval": 10,
+      "rflag": 25664
+    },
+    "cIndexTrace": {
+      "roomIndex": 5,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "RHOUSE"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-6",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8256
+    },
+    "cIndexTrace": {
+      "roomIndex": 6,
+      "messageIndex": -9653,
+      "flags": ["RLAND", "RHOUSE"]
+    }
+  },
+  {
+    "id": "room-7",
+    "name": "Room 7",
+    "description": "Room 7",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 3,
+      "rflag": 25664
+    },
+    "cIndexTrace": {
+      "roomIndex": 7,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "RHOUSE"]
+    }
+  },
+  {
+    "id": "room-8",
+    "name": "Room 8",
+    "description": "Room 8",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 4,
+      "rval": 25,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 8,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-9",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 9,
+      "messageIndex": -9665,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-10",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 10,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-11",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 11,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-12",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 12,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-13",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 13,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-14",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 14,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-15",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 15,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-16",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 16,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-17",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 17,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-18",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 18,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-19",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 19,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-20",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 20,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-21",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 21,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-22",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 22,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-23",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 23,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-24",
+    "name": "Room 24",
+    "description": "Room 24",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 5,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 24,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-25",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 25,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-26",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 26,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-27",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 27,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-28",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 28,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-29",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 29,
+      "messageIndex": -9684,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-30",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {
+      "in": "room-3209"
+    },
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 30,
+      "messageIndex": -9698,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-31",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 31,
+      "messageIndex": -9707,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "there-is-a-tunnel-leaving-the-room-to-the-north-32",
+    "name": "There Is A Tunnel Leaving The Room To The North",
+    "description": "There is a tunnel leaving the room to the north.",
+    "shortDescription": "There Is A Tunnel Leaving The Room To The North",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 32,
+      "messageIndex": -9720,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "there-is-a-tunnel-leaving-the-room-to-the-north-33",
+    "name": "There Is A Tunnel Leaving The Room To The North",
+    "description": "There is a tunnel leaving the room to the north.",
+    "shortDescription": "There Is A Tunnel Leaving The Room To The North",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 33,
+      "messageIndex": -9736,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-34",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 34,
+      "messageIndex": -9698,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "room-35",
+    "name": "Room 35",
+    "description": "Room 35",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 6,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 35,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "there-is-a-tunnel-leaving-the-room-to-the-north-36",
+    "name": "There Is A Tunnel Leaving The Room To The North",
+    "description": "There is a tunnel leaving the room to the north.",
+    "shortDescription": "There Is A Tunnel Leaving The Room To The North",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 36,
+      "messageIndex": -9753,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-giant-37",
+    "name": "A Large Room With Giant",
+    "description": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+    "shortDescription": "A Large Room With Giant",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 37,
+      "messageIndex": -9774,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-38",
+    "name": "Room 38",
+    "description": "Room 38",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 7,
+      "rflag": 8704
+    },
+    "cIndexTrace": {
+      "roomIndex": 38,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "room-39",
+    "name": "Room 39",
+    "description": "Room 39",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 8,
+      "rflag": 4128
+    },
+    "cIndexTrace": {
+      "roomIndex": 39,
+      "messageIndex": 0,
+      "flags": ["RWATER", "REND"]
+    }
+  },
+  {
+    "id": "room-40",
+    "name": "Room 40",
+    "description": "Room 40",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 9,
+      "rflag": 8704
+    },
+    "cIndexTrace": {
+      "roomIndex": 40,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "a-large-room-with-giant-41",
+    "name": "A Large Room With Giant",
+    "description": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+    "shortDescription": "A Large Room With Giant",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8704
+    },
+    "cIndexTrace": {
+      "roomIndex": 41,
+      "messageIndex": -9809,
+      "flags": ["RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "a-large-room-with-giant-42",
+    "name": "A Large Room With Giant",
+    "description": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+    "shortDescription": "A Large Room With Giant",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 4128
+    },
+    "cIndexTrace": {
+      "roomIndex": 42,
+      "messageIndex": -9824,
+      "flags": ["RWATER", "REND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-giant-43",
+    "name": "A Large Room With Giant",
+    "description": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+    "shortDescription": "A Large Room With Giant",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 43,
+      "messageIndex": -9848,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-44",
+    "name": "Room 44",
+    "description": "Room 44",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 10,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 44,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-giant-45",
+    "name": "A Large Room With Giant",
+    "description": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+    "shortDescription": "A Large Room With Giant",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 45,
+      "messageIndex": -9869,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-giant-46",
+    "name": "A Large Room With Giant",
+    "description": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+    "shortDescription": "A Large Room With Giant",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 46,
+      "messageIndex": -9886,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "part-of-the-glacier-has-been-melted-47",
+    "name": "Part Of The Glacier Has Been Melted",
+    "description": "Part of the glacier has been melted.",
+    "shortDescription": "Part Of The Glacier Has Been Melted",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 47,
+      "messageIndex": -9901,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "part-of-the-glacier-has-been-melted-48",
+    "name": "Part Of The Glacier Has Been Melted",
+    "description": "Part of the glacier has been melted.",
+    "shortDescription": "Part Of The Glacier Has Been Melted",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 48,
+      "messageIndex": -9922,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-49",
+    "name": "Room 49",
+    "description": "Room 49",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 12,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 49,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-50",
+    "name": "Room 50",
+    "description": "Room 50",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 12,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 50,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "there-is-a-large-passageway-leading-westward-51",
+    "name": "There Is A Large Passageway Leading Westward",
+    "description": "There is a large passageway leading westward.",
+    "shortDescription": "There Is A Large Passageway Leading Westward",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 51,
+      "messageIndex": -9957,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "there-is-a-large-passageway-leading-westward-52",
+    "name": "There Is A Large Passageway Leading Westward",
+    "description": "There is a large passageway leading westward.",
+    "shortDescription": "There Is A Large Passageway Leading Westward",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 13,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 52,
+      "messageIndex": -9969,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "there-is-a-large-passageway-leading-westward-53",
+    "name": "There Is A Large Passageway Leading Westward",
+    "description": "There is a large passageway leading westward.",
+    "shortDescription": "There Is A Large Passageway Leading Westward",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 53,
+      "messageIndex": -9982,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-square-room-with-tall-ceilings-54",
+    "name": "A Large Square Room With Tall Ceilings",
+    "description": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+    "shortDescription": "A Large Square Room With Tall Ceilings",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 54,
+      "messageIndex": -9996,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-square-room-with-tall-ceilings-55",
+    "name": "A Large Square Room With Tall Ceilings",
+    "description": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+    "shortDescription": "A Large Square Room With Tall Ceilings",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 55,
+      "messageIndex": -10015,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-square-room-with-tall-ceilings-56",
+    "name": "A Large Square Room With Tall Ceilings",
+    "description": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+    "shortDescription": "A Large Square Room With Tall Ceilings",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 56,
+      "messageIndex": -10030,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-square-room-with-tall-ceilings-57",
+    "name": "A Large Square Room With Tall Ceilings",
+    "description": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+    "shortDescription": "A Large Square Room With Tall Ceilings",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 57,
+      "messageIndex": -10053,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-square-room-with-tall-ceilings-58",
+    "name": "A Large Square Room With Tall Ceilings",
+    "description": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+    "shortDescription": "A Large Square Room With Tall Ceilings",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 58,
+      "messageIndex": -10101,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-square-room-with-tall-ceilings-59",
+    "name": "A Large Square Room With Tall Ceilings",
+    "description": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+    "shortDescription": "A Large Square Room With Tall Ceilings",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 59,
+      "messageIndex": -10127,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-square-room-with-tall-ceilings-60",
+    "name": "A Large Square Room With Tall Ceilings",
+    "description": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+    "shortDescription": "A Large Square Room With Tall Ceilings",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 60,
+      "messageIndex": -10147,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-61",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 61,
+      "messageIndex": -10183,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-62",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 62,
+      "messageIndex": -10207,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-63",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 14,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 63,
+      "messageIndex": -10229,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-64",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 64,
+      "messageIndex": -10239,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "booooooooom-65",
+    "name": "BOOOOOOOOOM",
+    "description": "\t\tBOOOOOOOOOM",
+    "shortDescription": "BOOOOOOOOOM",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 65,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "booooooooom-66",
+    "name": "BOOOOOOOOOM",
+    "description": "\t\tBOOOOOOOOOM",
+    "shortDescription": "BOOOOOOOOOM",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 66,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "booooooooom-67",
+    "name": "BOOOOOOOOOM",
+    "description": "\t\tBOOOOOOOOOM",
+    "shortDescription": "BOOOOOOOOOM",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 67,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "booooooooom-68",
+    "name": "BOOOOOOOOOM",
+    "description": "\t\tBOOOOOOOOOM",
+    "shortDescription": "BOOOOOOOOOM",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 68,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "booooooooom-69",
+    "name": "BOOOOOOOOOM",
+    "description": "\t\tBOOOOOOOOOM",
+    "shortDescription": "BOOOOOOOOOM",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 69,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "booooooooom-70",
+    "name": "BOOOOOOOOOM",
+    "description": "\t\tBOOOOOOOOOM",
+    "shortDescription": "BOOOOOOOOOM",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 70,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "booooooooom-71",
+    "name": "BOOOOOOOOOM",
+    "description": "\t\tBOOOOOOOOOM",
+    "shortDescription": "BOOOOOOOOOM",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 71,
+      "messageIndex": -10262,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-72",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 72,
+      "messageIndex": -10270,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-73",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 73,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-74",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 15,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 74,
+      "messageIndex": -10291,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-75",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 15,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 75,
+      "messageIndex": -10317,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "room-76",
+    "name": "Room 76",
+    "description": "Room 76",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 16,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 76,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-77",
+    "name": "Room 77",
+    "description": "Room 77",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 17,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 77,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "room-78",
+    "name": "Room 78",
+    "description": "Room 78",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 18,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 78,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-79",
+    "name": "Room 79",
+    "description": "Room 79",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 19,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 79,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-80",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 80,
+      "messageIndex": -10351,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-81",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 81,
+      "messageIndex": -10372,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-82",
+    "name": "Room 82",
+    "description": "Room 82",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 20,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 82,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-83",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 83,
+      "messageIndex": -10402,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-84",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 84,
+      "messageIndex": -10414,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-85",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 85,
+      "messageIndex": -10429,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-86",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 86,
+      "messageIndex": -10450,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-87",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 87,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-88",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 88,
+      "messageIndex": -9692,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-89",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 89,
+      "messageIndex": -10467,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-90",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 90,
+      "messageIndex": -10478,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-91",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 91,
+      "messageIndex": -10519,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-92",
+    "name": "Room 92",
+    "description": "Room 92",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 21,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 92,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "room-93",
+    "name": "Room 93",
+    "description": "Room 93",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 22,
+      "rval": 30,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 93,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-94",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 94,
+      "messageIndex": -10536,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-95",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25600
+    },
+    "cIndexTrace": {
+      "roomIndex": 95,
+      "messageIndex": -10554,
+      "flags": ["RLIGHT", "RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-96",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25600
+    },
+    "cIndexTrace": {
+      "roomIndex": 96,
+      "messageIndex": -10586,
+      "flags": ["RLIGHT", "RLAND", "RSACRD"]
+    }
+  },
+  {
+    "id": "room-97",
+    "name": "Room 97",
+    "description": "Room 97",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 23,
+      "rflag": 25088
+    },
+    "cIndexTrace": {
+      "roomIndex": 97,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RFILL"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-98",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 98,
+      "messageIndex": -10600,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-99",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 99,
+      "messageIndex": -10626,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-100",
+    "name": "Room 100",
+    "description": "Room 100",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 25,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 100,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-101",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rval": 10,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 101,
+      "messageIndex": -10687,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-102",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 27,
+      "rval": 25,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 102,
+      "messageIndex": -10708,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "large-room-which-seems-to-be-air-conditioned-103",
+    "name": "Large Room Which Seems To Be Air Conditioned",
+    "description": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+    "shortDescription": "Large Room Which Seems To Be Air Conditioned",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 103,
+      "messageIndex": -10739,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "the-cave-is-very-windy-104",
+    "name": "The Cave Is Very Windy",
+    "description": "The cave is very windy at the moment, and your candles have blown out.",
+    "shortDescription": "The Cave Is Very Windy",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 104,
+      "messageIndex": -10794,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "the-cave-is-very-windy-105",
+    "name": "The Cave Is Very Windy",
+    "description": "The cave is very windy at the moment, and your candles have blown out.",
+    "shortDescription": "The Cave Is Very Windy",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 26144
+    },
+    "cIndexTrace": {
+      "roomIndex": 105,
+      "messageIndex": -10818,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "a-small-room-that-has-only-one-door-to-the-east-106",
+    "name": "A Small Room That Has Only One Door, To The East",
+    "description": "You are in a small room that has only one door, to the east.",
+    "shortDescription": "A Small Room That Has Only One Door, To The East",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 106,
+      "messageIndex": -10857,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "a-small-room-that-has-only-one-door-to-the-east-107",
+    "name": "A Small Room That Has Only One Door, To The East",
+    "description": "You are in a small room that has only one door, to the east.",
+    "shortDescription": "A Small Room That Has Only One Door, To The East",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 107,
+      "messageIndex": -10875,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "in-the-corner-of-the-108",
+    "name": "In The Corner Of The",
+    "description": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+    "shortDescription": "In The Corner Of The",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 108,
+      "messageIndex": -10895,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "in-the-corner-of-the-109",
+    "name": "In The Corner Of The",
+    "description": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+    "shortDescription": "In The Corner Of The",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 28,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 109,
+      "messageIndex": -10921,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "in-the-corner-of-the-110",
+    "name": "In The Corner Of The",
+    "description": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+    "shortDescription": "In The Corner Of The",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 28,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 110,
+      "messageIndex": -10943,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "in-the-corner-of-the-111",
+    "name": "In The Corner Of The",
+    "description": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+    "shortDescription": "In The Corner Of The",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 29,
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 111,
+      "messageIndex": -10957,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "in-the-corner-of-the-112",
+    "name": "In The Corner Of The",
+    "description": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+    "shortDescription": "In The Corner Of The",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 112,
+      "messageIndex": -10981,
+      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "room-113",
+    "name": "Room 113",
+    "description": "Room 113",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 30,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 113,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-deranged-vampire-bat-a-114",
+    "name": "A Deranged Vampire Bat (a",
+    "description": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+    "shortDescription": "A Deranged Vampire Bat (a",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 114,
+      "messageIndex": -10996,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "a-deranged-vampire-bat-a-115",
+    "name": "A Deranged Vampire Bat (a",
+    "description": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+    "shortDescription": "A Deranged Vampire Bat (a",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 31,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 115,
+      "messageIndex": -11019,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "a-deranged-vampire-bat-a-116",
+    "name": "A Deranged Vampire Bat (a",
+    "description": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+    "shortDescription": "A Deranged Vampire Bat (a",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 116,
+      "messageIndex": -11038,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "a-deranged-vampire-bat-a-117",
+    "name": "A Deranged Vampire Bat (a",
+    "description": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+    "shortDescription": "A Deranged Vampire Bat (a",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 32,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 117,
+      "messageIndex": -11055,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-deranged-vampire-bat-a-118",
+    "name": "A Deranged Vampire Bat (a",
+    "description": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+    "shortDescription": "A Deranged Vampire Bat (a",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8224
+    },
+    "cIndexTrace": {
+      "roomIndex": 118,
+      "messageIndex": -11066,
+      "flags": ["RLAND", "REND"]
+    }
+  },
+  {
+    "id": "room-119",
+    "name": "Room 119",
+    "description": "Room 119",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 33,
+      "rflag": 9728
+    },
+    "cIndexTrace": {
+      "roomIndex": 119,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RSACRD", "RFILL"]
+    }
+  },
+  {
+    "id": "a-deranged-vampire-bat-a-120",
+    "name": "A Deranged Vampire Bat (a",
+    "description": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+    "shortDescription": "A Deranged Vampire Bat (a",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 120,
+      "messageIndex": -11082,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "the-periphery-of-a-large-121",
+    "name": "The Periphery Of A Large",
+    "description": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+    "shortDescription": "The Periphery Of A Large",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25120
+    },
+    "cIndexTrace": {
+      "roomIndex": 121,
+      "messageIndex": -11104,
+      "flags": ["RLIGHT", "RLAND", "RFILL", "REND"]
+    }
+  },
+  {
+    "id": "the-periphery-of-a-large-122",
+    "name": "The Periphery Of A Large",
+    "description": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+    "shortDescription": "The Periphery Of A Large",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 122,
+      "messageIndex": -11144,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "the-periphery-of-a-large-123",
+    "name": "The Periphery Of A Large",
+    "description": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+    "shortDescription": "The Periphery Of A Large",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 123,
+      "messageIndex": -11171,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "the-periphery-of-a-large-124",
+    "name": "The Periphery Of A Large",
+    "description": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+    "shortDescription": "The Periphery Of A Large",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 124,
+      "messageIndex": -11207,
+      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "hanging-down-from-the-railing-125",
+    "name": "Hanging Down From The Railing",
+    "description": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+    "shortDescription": "Hanging Down From The Railing",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 125,
+      "messageIndex": -11284,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "hanging-down-from-the-railing-126",
+    "name": "Hanging Down From The Railing",
+    "description": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+    "shortDescription": "Hanging Down From The Railing",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 126,
+      "messageIndex": -11306,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "hanging-down-from-the-railing-127",
+    "name": "Hanging Down From The Railing",
+    "description": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+    "shortDescription": "Hanging Down From The Railing",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 127,
+      "messageIndex": -11323,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "hanging-down-from-the-railing-128",
+    "name": "Hanging Down From The Railing",
+    "description": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+    "shortDescription": "Hanging Down From The Railing",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 128,
+      "messageIndex": -11345,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "im-afraid-that-the-leap-129",
+    "name": "I'm Afraid That The Leap",
+    "description": "I'm afraid that the leap you attempted has done you in.",
+    "shortDescription": "I'm Afraid That The Leap",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 3104
+    },
+    "cIndexTrace": {
+      "roomIndex": 129,
+      "messageIndex": -11374,
+      "flags": ["RAIR", "RSACRD", "REND"]
+    }
+  },
+  {
+    "id": "im-afraid-that-the-leap-130",
+    "name": "I'm Afraid That The Leap",
+    "description": "I'm afraid that the leap you attempted has done you in.",
+    "shortDescription": "I'm Afraid That The Leap",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 130,
+      "messageIndex": -11394,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-131",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 131,
+      "messageIndex": -11422,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-132",
+    "name": "Room 132",
+    "description": "Room 132",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 34,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 132,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-133",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 133,
+      "messageIndex": -11467,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-134",
+    "name": "Room 134",
+    "description": "Room 134",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 35,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 134,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-135",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 135,
+      "messageIndex": -11494,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-136",
+    "name": "Room 136",
+    "description": "Room 136",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 58,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 136,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-137",
+    "name": "Room 137",
+    "description": "Room 137",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 36,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 137,
+      "messageIndex": 0,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-138",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 138,
+      "messageIndex": -11517,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-139",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 139,
+      "messageIndex": -11574,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-140",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 37,
+      "rflag": 8224
+    },
+    "cIndexTrace": {
+      "roomIndex": 140,
+      "messageIndex": -11599,
+      "flags": ["RLAND", "REND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-141",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rval": 10,
+      "rflag": 8320
+    },
+    "cIndexTrace": {
+      "roomIndex": 141,
+      "messageIndex": -11605,
+      "flags": ["RLAND", "RBUCK"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-142",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8320
+    },
+    "cIndexTrace": {
+      "roomIndex": 142,
+      "messageIndex": -11632,
+      "flags": ["RLAND", "RBUCK"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-143",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 143,
+      "messageIndex": -11660,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-144",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 144,
+      "messageIndex": -11704,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-large-room-with-a-145",
+    "name": "A Large Room With A",
+    "description": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+    "shortDescription": "A Large Room With A",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 145,
+      "messageIndex": -11745,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-146",
+    "name": "Room 146",
+    "description": "Room 146",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 24,
+      "rflag": 24608
+    },
+    "cIndexTrace": {
+      "roomIndex": 146,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "REND"]
+    }
+  },
+  {
+    "id": "a-large-piece-of-rope-147",
+    "name": "A Large Piece Of Rope",
+    "description": "A large piece of rope descends from the railing above, ending some\nfive feet above your head.",
+    "shortDescription": "A Large Piece Of Rope",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 147,
+      "messageIndex": -11773,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-circular-room-with-passages-148",
+    "name": "A Circular Room With Passages",
+    "description": "You are in a circular room with passages off in eight directions.",
+    "shortDescription": "A Circular Room With Passages",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 148,
+      "messageIndex": -11848,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "a-circular-room-with-passages-149",
+    "name": "A Circular Room With Passages",
+    "description": "You are in a circular room with passages off in eight directions.",
+    "shortDescription": "A Circular Room With Passages",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 149,
+      "messageIndex": -11888,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "your-compass-needle-spins-wildly-150",
+    "name": "Your Compass Needle Spins Wildly,",
+    "description": "Your compass needle spins wildly, and you cannot get your bearings.",
+    "shortDescription": "Your Compass Needle Spins Wildly,",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 150,
+      "messageIndex": -11928,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "your-compass-needle-spins-wildly-151",
+    "name": "Your Compass Needle Spins Wildly,",
+    "description": "Your compass needle spins wildly, and you cannot get your bearings.",
+    "shortDescription": "Your Compass Needle Spins Wildly,",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 151,
+      "messageIndex": -11928,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "your-compass-needle-spins-wildly-152",
+    "name": "Your Compass Needle Spins Wildly,",
+    "description": "Your compass needle spins wildly, and you cannot get your bearings.",
+    "shortDescription": "Your Compass Needle Spins Wildly,",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 152,
+      "messageIndex": -11985,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "according-to-prof-153",
+    "name": "According To Prof",
+    "description": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+    "shortDescription": "According To Prof",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 153,
+      "messageIndex": -12000,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "according-to-prof-154",
+    "name": "According To Prof",
+    "description": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+    "shortDescription": "According To Prof",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 26,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 154,
+      "messageIndex": -12010,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "according-to-prof-155",
+    "name": "According To Prof",
+    "description": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+    "shortDescription": "According To Prof",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 155,
+      "messageIndex": -12068,
+      "flags": ["RLAND"]
+    }
+  },
+  {
+    "id": "room-156",
+    "name": "Room 156",
+    "description": "Room 156",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 48,
+      "rval": 5,
+      "rflag": 8208
+    },
+    "cIndexTrace": {
+      "roomIndex": 156,
+      "messageIndex": 0,
+      "flags": ["RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "according-to-prof-157",
+    "name": "According To Prof",
+    "description": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+    "shortDescription": "According To Prof",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rval": 10,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 157,
+      "messageIndex": -12092,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "according-to-prof-158",
+    "name": "According To Prof",
+    "description": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+    "shortDescription": "According To Prof",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 158,
+      "messageIndex": -12118,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-159",
+    "name": "Room 159",
+    "description": "Room 159",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 47,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 159,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-160",
+    "name": "Room 160",
+    "description": "Room 160",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 42,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 160,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-161",
+    "name": "Room 161",
+    "description": "Room 161",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 41,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 161,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-162",
+    "name": "Room 162",
+    "description": "Room 162",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 40,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 162,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-163",
+    "name": "Room 163",
+    "description": "Room 163",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 163,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-164",
+    "name": "Room 164",
+    "description": "Room 164",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 38,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 164,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-165",
+    "name": "Room 165",
+    "description": "Room 165",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 51,
+      "rval": 15,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 165,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-166",
+    "name": "Room 166",
+    "description": "Room 166",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 45,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 166,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-167",
+    "name": "Room 167",
+    "description": "Room 167",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 45,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 167,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-168",
+    "name": "Room 168",
+    "description": "Room 168",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 44,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 168,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-169",
+    "name": "Room 169",
+    "description": "Room 169",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 44,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 169,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-170",
+    "name": "Room 170",
+    "description": "Room 170",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 43,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 170,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-171",
+    "name": "Room 171",
+    "description": "Room 171",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 43,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 171,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-172",
+    "name": "Room 172",
+    "description": "Room 172",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 172,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-173",
+    "name": "Room 173",
+    "description": "Room 173",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 173,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-174",
+    "name": "Room 174",
+    "description": "Room 174",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 174,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-175",
+    "name": "Room 175",
+    "description": "Room 175",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 39,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 175,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-176",
+    "name": "Room 176",
+    "description": "Room 176",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 46,
+      "rval": 15,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 176,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-177",
+    "name": "Room 177",
+    "description": "Room 177",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 50,
+      "rval": 20,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 177,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-178",
+    "name": "Room 178",
+    "description": "Room 178",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 49,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 178,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "according-to-prof-179",
+    "name": "According To Prof",
+    "description": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+    "shortDescription": "According To Prof",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 179,
+      "messageIndex": -12159,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "according-to-prof-180",
+    "name": "According To Prof",
+    "description": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+    "shortDescription": "According To Prof",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 180,
+      "messageIndex": -12179,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-181",
+    "name": "Room 181",
+    "description": "Room 181",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 52,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 181,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-182",
+    "name": "Room 182",
+    "description": "Room 182",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 53,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 182,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-183",
+    "name": "Room 183",
+    "description": "Room 183",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 54,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 183,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-184",
+    "name": "Room 184",
+    "description": "Room 184",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 55,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 184,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "room-185",
+    "name": "Room 185",
+    "description": "Room 185",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 56,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 185,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "outside-a-large-gateway-on-which-is-inscribed-186",
+    "name": "Outside A Large Gateway, On Which Is Inscribed:",
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "shortDescription": "Outside A Large Gateway, On Which Is Inscribed:",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 57,
+      "rval": 35,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 186,
+      "messageIndex": -12204,
+      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+    }
+  },
+  {
+    "id": "outside-a-large-gateway-on-which-is-inscribed-187",
+    "name": "Outside A Large Gateway, On Which Is Inscribed:",
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "shortDescription": "Outside A Large Gateway, On Which Is Inscribed:",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 187,
+      "messageIndex": -12326,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "room-188",
+    "name": "Room 188",
+    "description": "Room 188",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 59,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 188,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  },
+  {
+    "id": "room-189",
+    "name": "Room 189",
+    "description": "Room 189",
+    "shortDescription": "",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 60,
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 189,
+      "messageIndex": 0,
+      "flags": ["RLIGHT", "RLAND"]
+    }
+  }
+]

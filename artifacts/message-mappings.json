@@ -1,0 +1,856 @@
+{
+  "timestamp": "2025-10-25T19:08:13.755Z",
+  "totalMappings": 106,
+  "mapped": 106,
+  "unmapped": 0,
+  "mappings": [
+    {
+      "canonicalIndex": -12326,
+      "messageIndex": 59,
+      "messageOffset": 12192,
+      "text": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+      "strategy": "offset",
+      "confidence": 0.8588235294117648
+    },
+    {
+      "canonicalIndex": -12204,
+      "messageIndex": 59,
+      "messageOffset": 12192,
+      "text": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+      "strategy": "offset",
+      "confidence": 0.9911764705882353
+    },
+    {
+      "canonicalIndex": -12179,
+      "messageIndex": 58,
+      "messageOffset": 11984,
+      "text": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+      "strategy": "offset",
+      "confidence": 0.7346153846153847
+    },
+    {
+      "canonicalIndex": -12159,
+      "messageIndex": 58,
+      "messageOffset": 11984,
+      "text": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+      "strategy": "offset",
+      "confidence": 0.7576923076923077
+    },
+    {
+      "canonicalIndex": -12118,
+      "messageIndex": 58,
+      "messageOffset": 11984,
+      "text": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+      "strategy": "offset",
+      "confidence": 0.8153846153846154
+    },
+    {
+      "canonicalIndex": -12092,
+      "messageIndex": 58,
+      "messageOffset": 11984,
+      "text": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+      "strategy": "offset",
+      "confidence": 0.85
+    },
+    {
+      "canonicalIndex": -12068,
+      "messageIndex": 58,
+      "messageOffset": 11984,
+      "text": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+      "strategy": "offset",
+      "confidence": 0.8846153846153846
+    },
+    {
+      "canonicalIndex": -12010,
+      "messageIndex": 58,
+      "messageOffset": 11984,
+      "text": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+      "strategy": "offset",
+      "confidence": 0.9769230769230769
+    },
+    {
+      "canonicalIndex": -12000,
+      "messageIndex": 58,
+      "messageOffset": 11984,
+      "text": "According to Prof. TAA of MIT Tech, the rapidly changing magnetic\nfields in the room are so intense as to cause you to be electrocuted.\nI really don't know, but in any event, something has killed you.",
+      "strategy": "offset",
+      "confidence": 0.9884615384615385
+    },
+    {
+      "canonicalIndex": -11985,
+      "messageIndex": 57,
+      "messageOffset": 11912,
+      "text": "Your compass needle spins wildly, and you cannot get your bearings.",
+      "strategy": "offset",
+      "confidence": 0.7333333333333334
+    },
+    {
+      "canonicalIndex": -11928,
+      "messageIndex": 57,
+      "messageOffset": 11912,
+      "text": "Your compass needle spins wildly, and you cannot get your bearings.",
+      "strategy": "offset",
+      "confidence": 0.9666666666666667
+    },
+    {
+      "canonicalIndex": -11888,
+      "messageIndex": 56,
+      "messageOffset": 11840,
+      "text": "You are in a circular room with passages off in eight directions.",
+      "strategy": "offset",
+      "confidence": 0.8333333333333334
+    },
+    {
+      "canonicalIndex": -11848,
+      "messageIndex": 56,
+      "messageOffset": 11840,
+      "text": "You are in a circular room with passages off in eight directions.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -11773,
+      "messageIndex": 55,
+      "messageOffset": 11744,
+      "text": "A large piece of rope descends from the railing above, ending some\nfive feet above your head.",
+      "strategy": "offset",
+      "confidence": 0.925
+    },
+    {
+      "canonicalIndex": -11745,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.7073170731707317
+    },
+    {
+      "canonicalIndex": -11704,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.7439024390243902
+    },
+    {
+      "canonicalIndex": -11660,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.7804878048780488
+    },
+    {
+      "canonicalIndex": -11632,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.8097560975609757
+    },
+    {
+      "canonicalIndex": -11605,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.8317073170731707
+    },
+    {
+      "canonicalIndex": -11599,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.8390243902439024
+    },
+    {
+      "canonicalIndex": -11574,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.8609756097560975
+    },
+    {
+      "canonicalIndex": -11517,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.9121951219512195
+    },
+    {
+      "canonicalIndex": -11494,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.9341463414634146
+    },
+    {
+      "canonicalIndex": -11467,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 0.9634146341463414
+    },
+    {
+      "canonicalIndex": -11422,
+      "messageIndex": 54,
+      "messageOffset": 11416,
+      "text": "You are in a large room with a prominent doorway leading to a down\nstaircase.  To the west is a narrow twisting tunnel.  Above you is a\nlarge dome painted with scenes depicting elvish hacking rites.  Up\naround the edge of the dome (20 feet up) is a wooden railing.  In the\ncenter of the room there is a white marble pedestal.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -11394,
+      "messageIndex": 53,
+      "messageOffset": 11360,
+      "text": "I'm afraid that the leap you attempted has done you in.",
+      "strategy": "offset",
+      "confidence": 0.8714285714285714
+    },
+    {
+      "canonicalIndex": -11374,
+      "messageIndex": 53,
+      "messageOffset": 11360,
+      "text": "I'm afraid that the leap you attempted has done you in.",
+      "strategy": "offset",
+      "confidence": 0.9571428571428572
+    },
+    {
+      "canonicalIndex": -11345,
+      "messageIndex": 52,
+      "messageOffset": 11272,
+      "text": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+      "strategy": "offset",
+      "confidence": 0.7818181818181819
+    },
+    {
+      "canonicalIndex": -11323,
+      "messageIndex": 52,
+      "messageOffset": 11272,
+      "text": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+      "strategy": "offset",
+      "confidence": 0.8636363636363636
+    },
+    {
+      "canonicalIndex": -11306,
+      "messageIndex": 52,
+      "messageOffset": 11272,
+      "text": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+      "strategy": "offset",
+      "confidence": 0.9181818181818182
+    },
+    {
+      "canonicalIndex": -11284,
+      "messageIndex": 52,
+      "messageOffset": 11272,
+      "text": "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below.",
+      "strategy": "offset",
+      "confidence": 0.9727272727272728
+    },
+    {
+      "canonicalIndex": -11207,
+      "messageIndex": 51,
+      "messageOffset": 11096,
+      "text": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+      "strategy": "offset",
+      "confidence": 0.8227272727272728
+    },
+    {
+      "canonicalIndex": -11171,
+      "messageIndex": 51,
+      "messageOffset": 11096,
+      "text": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+      "strategy": "offset",
+      "confidence": 0.8909090909090909
+    },
+    {
+      "canonicalIndex": -11144,
+      "messageIndex": 51,
+      "messageOffset": 11096,
+      "text": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+      "strategy": "offset",
+      "confidence": 0.9318181818181819
+    },
+    {
+      "canonicalIndex": -11104,
+      "messageIndex": 51,
+      "messageOffset": 11096,
+      "text": "You are at the periphery of a large dome, which forms the ceiling\nof another room below.  Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -11082,
+      "messageIndex": 50,
+      "messageOffset": 10992,
+      "text": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+      "strategy": "offset",
+      "confidence": 0.7692307692307692
+    },
+    {
+      "canonicalIndex": -11066,
+      "messageIndex": 50,
+      "messageOffset": 10992,
+      "text": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+      "strategy": "offset",
+      "confidence": 0.8153846153846154
+    },
+    {
+      "canonicalIndex": -11055,
+      "messageIndex": 50,
+      "messageOffset": 10992,
+      "text": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+      "strategy": "offset",
+      "confidence": 0.8384615384615385
+    },
+    {
+      "canonicalIndex": -11038,
+      "messageIndex": 50,
+      "messageOffset": 10992,
+      "text": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+      "strategy": "offset",
+      "confidence": 0.8846153846153846
+    },
+    {
+      "canonicalIndex": -11019,
+      "messageIndex": 50,
+      "messageOffset": 10992,
+      "text": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+      "strategy": "offset",
+      "confidence": 0.9538461538461538
+    },
+    {
+      "canonicalIndex": -10996,
+      "messageIndex": 50,
+      "messageOffset": 10992,
+      "text": "A deranged vampire bat (a reject from WUMPUS) swoops down\nfrom the ceiling and lifts you away...",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -10981,
+      "messageIndex": 49,
+      "messageOffset": 10880,
+      "text": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+      "strategy": "offset",
+      "confidence": 0.7428571428571429
+    },
+    {
+      "canonicalIndex": -10957,
+      "messageIndex": 49,
+      "messageOffset": 10880,
+      "text": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+      "strategy": "offset",
+      "confidence": 0.8071428571428572
+    },
+    {
+      "canonicalIndex": -10943,
+      "messageIndex": 49,
+      "messageOffset": 10880,
+      "text": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+      "strategy": "offset",
+      "confidence": 0.85
+    },
+    {
+      "canonicalIndex": -10921,
+      "messageIndex": 49,
+      "messageOffset": 10880,
+      "text": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+      "strategy": "offset",
+      "confidence": 0.9142857142857143
+    },
+    {
+      "canonicalIndex": -10895,
+      "messageIndex": 49,
+      "messageOffset": 10880,
+      "text": "In the corner of the room on the ceiling is a large vampire bat who\nis obviously deranged and holding his nose.",
+      "strategy": "offset",
+      "confidence": 0.9785714285714285
+    },
+    {
+      "canonicalIndex": -10875,
+      "messageIndex": 48,
+      "messageOffset": 10816,
+      "text": "You are in a small room that has only one door, to the east.",
+      "strategy": "offset",
+      "confidence": 0.775
+    },
+    {
+      "canonicalIndex": -10857,
+      "messageIndex": 48,
+      "messageOffset": 10816,
+      "text": "You are in a small room that has only one door, to the east.",
+      "strategy": "offset",
+      "confidence": 0.85
+    },
+    {
+      "canonicalIndex": -10818,
+      "messageIndex": 47,
+      "messageOffset": 10744,
+      "text": "The cave is very windy at the moment, and your candles have blown out.",
+      "strategy": "offset",
+      "confidence": 0.7333333333333334
+    },
+    {
+      "canonicalIndex": -10794,
+      "messageIndex": 47,
+      "messageOffset": 10744,
+      "text": "The cave is very windy at the moment, and your candles have blown out.",
+      "strategy": "offset",
+      "confidence": 0.8333333333333334
+    },
+    {
+      "canonicalIndex": -10739,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.7050847457627119
+    },
+    {
+      "canonicalIndex": -10708,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.7203389830508475
+    },
+    {
+      "canonicalIndex": -10687,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.735593220338983
+    },
+    {
+      "canonicalIndex": -10626,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.7762711864406779
+    },
+    {
+      "canonicalIndex": -10600,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.7915254237288135
+    },
+    {
+      "canonicalIndex": -10586,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.8016949152542373
+    },
+    {
+      "canonicalIndex": -10554,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.8220338983050848
+    },
+    {
+      "canonicalIndex": -10536,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.8322033898305085
+    },
+    {
+      "canonicalIndex": -10519,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.8423728813559321
+    },
+    {
+      "canonicalIndex": -10478,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.8677966101694915
+    },
+    {
+      "canonicalIndex": -10467,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.8779661016949153
+    },
+    {
+      "canonicalIndex": -10450,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.888135593220339
+    },
+    {
+      "canonicalIndex": -10429,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.8983050847457628
+    },
+    {
+      "canonicalIndex": -10414,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.9084745762711864
+    },
+    {
+      "canonicalIndex": -10402,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.9186440677966101
+    },
+    {
+      "canonicalIndex": -10372,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.9338983050847458
+    },
+    {
+      "canonicalIndex": -10351,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.9491525423728814
+    },
+    {
+      "canonicalIndex": -10317,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.9694915254237289
+    },
+    {
+      "canonicalIndex": -10291,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 0.9898305084745763
+    },
+    {
+      "canonicalIndex": -10270,
+      "messageIndex": 45,
+      "messageOffset": 10264,
+      "text": "You are in large room which seems to be air conditioned.  In one\ncorner there is a machine (?) which is shaped somewhat like a clothes\ndryer.  On the 'panel' there is a switch which is labelled in an\nobscure dialect of Swahili.  Fortunately, I know this dialect, and the\nlabel translates to 'START'.  The switch does not appear to be manip-\nulable by any human hand (unless the fingers are about 1/16 by 1/4\ninch).  On the front of the machine is a large lid, which is #.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -10262,
+      "messageIndex": 44,
+      "messageOffset": 10248,
+      "text": "\t\tBOOOOOOOOOM",
+      "strategy": "offset",
+      "confidence": 0.85
+    },
+    {
+      "canonicalIndex": -10239,
+      "messageIndex": 43,
+      "messageOffset": 10176,
+      "text": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+      "strategy": "offset",
+      "confidence": 0.7666666666666666
+    },
+    {
+      "canonicalIndex": -10229,
+      "messageIndex": 43,
+      "messageOffset": 10176,
+      "text": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+      "strategy": "offset",
+      "confidence": 0.8
+    },
+    {
+      "canonicalIndex": -10207,
+      "messageIndex": 43,
+      "messageOffset": 10176,
+      "text": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+      "strategy": "offset",
+      "confidence": 0.9
+    },
+    {
+      "canonicalIndex": -10183,
+      "messageIndex": 43,
+      "messageOffset": 10176,
+      "text": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -10147,
+      "messageIndex": 42,
+      "messageOffset": 9984,
+      "text": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+      "strategy": "offset",
+      "confidence": 0.7625
+    },
+    {
+      "canonicalIndex": -10127,
+      "messageIndex": 42,
+      "messageOffset": 9984,
+      "text": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+      "strategy": "offset",
+      "confidence": 0.7875
+    },
+    {
+      "canonicalIndex": -10101,
+      "messageIndex": 42,
+      "messageOffset": 9984,
+      "text": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+      "strategy": "offset",
+      "confidence": 0.825
+    },
+    {
+      "canonicalIndex": -10053,
+      "messageIndex": 42,
+      "messageOffset": 9984,
+      "text": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+      "strategy": "offset",
+      "confidence": 0.9
+    },
+    {
+      "canonicalIndex": -10030,
+      "messageIndex": 42,
+      "messageOffset": 9984,
+      "text": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+      "strategy": "offset",
+      "confidence": 0.9375
+    },
+    {
+      "canonicalIndex": -10015,
+      "messageIndex": 42,
+      "messageOffset": 9984,
+      "text": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+      "strategy": "offset",
+      "confidence": 0.9625
+    },
+    {
+      "canonicalIndex": -9996,
+      "messageIndex": 42,
+      "messageOffset": 9984,
+      "text": "You are in a large square room with tall ceilings.  There are exits\non the north, east, and west sides of the room.  On the south wall is\nan enormous mirror which fills the entire wall.",
+      "strategy": "offset",
+      "confidence": 0.9875
+    },
+    {
+      "canonicalIndex": -9982,
+      "messageIndex": 41,
+      "messageOffset": 9936,
+      "text": "There is a large passageway leading westward.",
+      "strategy": "offset",
+      "confidence": 0.75
+    },
+    {
+      "canonicalIndex": -9969,
+      "messageIndex": 41,
+      "messageOffset": 9936,
+      "text": "There is a large passageway leading westward.",
+      "strategy": "offset",
+      "confidence": 0.85
+    },
+    {
+      "canonicalIndex": -9957,
+      "messageIndex": 41,
+      "messageOffset": 9936,
+      "text": "There is a large passageway leading westward.",
+      "strategy": "offset",
+      "confidence": 0.9
+    },
+    {
+      "canonicalIndex": -9922,
+      "messageIndex": 40,
+      "messageOffset": 9896,
+      "text": "Part of the glacier has been melted.",
+      "strategy": "offset",
+      "confidence": 0.88
+    },
+    {
+      "canonicalIndex": -9901,
+      "messageIndex": 40,
+      "messageOffset": 9896,
+      "text": "Part of the glacier has been melted.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -9886,
+      "messageIndex": 39,
+      "messageOffset": 9768,
+      "text": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+      "strategy": "offset",
+      "confidence": 0.7375
+    },
+    {
+      "canonicalIndex": -9869,
+      "messageIndex": 39,
+      "messageOffset": 9768,
+      "text": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+      "strategy": "offset",
+      "confidence": 0.775
+    },
+    {
+      "canonicalIndex": -9848,
+      "messageIndex": 39,
+      "messageOffset": 9768,
+      "text": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+      "strategy": "offset",
+      "confidence": 0.83125
+    },
+    {
+      "canonicalIndex": -9824,
+      "messageIndex": 39,
+      "messageOffset": 9768,
+      "text": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+      "strategy": "offset",
+      "confidence": 0.8875
+    },
+    {
+      "canonicalIndex": -9809,
+      "messageIndex": 39,
+      "messageOffset": 9768,
+      "text": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+      "strategy": "offset",
+      "confidence": 0.925
+    },
+    {
+      "canonicalIndex": -9774,
+      "messageIndex": 39,
+      "messageOffset": 9768,
+      "text": "You are in a large room with giant icicles hanging from the walls\nand ceiling.  There are passages to the north and east.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -9753,
+      "messageIndex": 38,
+      "messageOffset": 9712,
+      "text": "There is a tunnel leaving the room to the north.",
+      "strategy": "offset",
+      "confidence": 0.8285714285714286
+    },
+    {
+      "canonicalIndex": -9736,
+      "messageIndex": 38,
+      "messageOffset": 9712,
+      "text": "There is a tunnel leaving the room to the north.",
+      "strategy": "offset",
+      "confidence": 0.9142857142857143
+    },
+    {
+      "canonicalIndex": -9720,
+      "messageIndex": 38,
+      "messageOffset": 9712,
+      "text": "There is a tunnel leaving the room to the north.",
+      "strategy": "offset",
+      "confidence": 1
+    },
+    {
+      "canonicalIndex": -9707,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.724
+    },
+    {
+      "canonicalIndex": -9698,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.736
+    },
+    {
+      "canonicalIndex": -9692,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.736
+    },
+    {
+      "canonicalIndex": -9684,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.748
+    },
+    {
+      "canonicalIndex": -9665,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.784
+    },
+    {
+      "canonicalIndex": -9653,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.796
+    },
+    {
+      "canonicalIndex": -9635,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.832
+    },
+    {
+      "canonicalIndex": -9620,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.844
+    },
+    {
+      "canonicalIndex": -9608,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.868
+    },
+    {
+      "canonicalIndex": -9590,
+      "messageIndex": 37,
+      "messageOffset": 9512,
+      "text": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+      "strategy": "offset",
+      "confidence": 0.892
+    }
+  ]
+}
