@@ -441,9 +441,7 @@ export class GameEngineService {
     const currentRoomId = this.playerState().currentRoomId;
     // Check if object is in current room or in an open container in the current room
     const isInCurrentRoom = obj.location === currentRoomId;
-    const container = this.gameObjects().get(obj.location);
-    const isInOpenContainer =
-      container && container.location === currentRoomId && container.properties?.isOpen === true;
+    const isInOpenContainer = this.isInOpenContainerInRoom(obj.location, currentRoomId);
 
     if (!isInCurrentRoom && !isInOpenContainer) {
       return {
@@ -1134,11 +1132,7 @@ export class GameEngineService {
 
     // Also include objects in open containers in the current room
     const objectsInOpenContainers = Array.from(this.gameObjects().values()).filter((obj) => {
-      if (!obj.visible) return false;
-      const container = this.gameObjects().get(obj.location);
-      return (
-        container && container.location === currentRoomId && container.properties?.isOpen === true
-      );
+      return obj.visible && this.isInOpenContainerInRoom(obj.location, currentRoomId);
     });
 
     const allAccessibleRoomObjects = [...roomObjects, ...objectsInOpenContainers];
@@ -1202,8 +1196,7 @@ export class GameEngineService {
         }
 
         // Also check if object is inside an open container in the current room
-        const container = this.gameObjects().get(obj.location);
-        if (container && container.location === currentRoomId && container.properties?.isOpen) {
+        if (this.isInOpenContainerInRoom(obj.location, currentRoomId)) {
           return obj;
         }
       }
@@ -1270,6 +1263,14 @@ export class GameEngineService {
       }
       return objects;
     });
+  }
+
+  /**
+   * Check if an object is in an open container in the specified room.
+   */
+  private isInOpenContainerInRoom(objectLocation: string, roomId: string): boolean {
+    const container = this.gameObjects().get(objectLocation);
+    return !!container && container.location === roomId && container.properties?.isOpen === true;
   }
 
   /**
