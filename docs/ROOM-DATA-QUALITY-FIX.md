@@ -1,5 +1,7 @@
 # Room Data Quality - Fix Documentation
 
+> **Note:** This document and the associated tools (`validate-rooms.ts`, `apply-canonical-fixes.ts`, `canonical-rooms.json`) are temporary and can be deleted once all room data quality issues are resolved (issue #78, Phase 2 completion).
+
 ## Overview
 
 This document describes the systemic data quality issues found in `rooms.json` and the approach taken to fix them.
@@ -7,9 +9,11 @@ This document describes the systemic data quality issues found in `rooms.json` a
 ## Issues Identified
 
 ### 1. Malformed Descriptions (52 rooms)
+
 **Problem:** Room descriptions stored as comma-separated tokens instead of prose.
 
 **Example (Before):**
+
 ```json
 {
   "id": "north-of-house",
@@ -18,6 +22,7 @@ This document describes the systemic data quality issues found in `rooms.json` a
 ```
 
 **Example (After):**
+
 ```json
 {
   "id": "north-of-house",
@@ -26,9 +31,11 @@ This document describes the systemic data quality issues found in `rooms.json` a
 ```
 
 ### 2. Invalid Exit Destinations (146 rooms)
+
 **Problem:** Exits pointing to error messages or invalid room IDs instead of actual room IDs.
 
 **Example (Before):**
+
 ```json
 {
   "exits": {
@@ -40,6 +47,7 @@ This document describes the systemic data quality issues found in `rooms.json` a
 ```
 
 **Example (After):**
+
 ```json
 {
   "exits": {
@@ -51,9 +59,11 @@ This document describes the systemic data quality issues found in `rooms.json` a
 ```
 
 ### 3. Incomplete Descriptions (17 rooms)
+
 **Problem:** Room descriptions too short or just duplicating the room name.
 
 **Example (Before):**
+
 ```json
 {
   "id": "east-of-house",
@@ -62,6 +72,7 @@ This document describes the systemic data quality issues found in `rooms.json` a
 ```
 
 **Example (After):**
+
 ```json
 {
   "id": "east-of-house",
@@ -72,6 +83,7 @@ This document describes the systemic data quality issues found in `rooms.json` a
 ## Root Cause
 
 These issues originated from the data conversion process that transformed the original C/ZIL source files into JSON format. The converter had problems with:
+
 1. String parsing - breaking descriptions into tokens at commas
 2. Exit handling - embedding error messages as destinations
 3. Text extraction - incomplete or missing canonical text
@@ -98,6 +110,7 @@ These issues originated from the data conversion process that transformed the or
 ### Test Suite
 
 Created comprehensive characterization tests (`room-data-quality.spec.ts`) covering:
+
 - Canonical text verification for high-priority rooms
 - Exit validation (ensuring only valid room IDs)
 - Description quality (no comma-separated tokens)
@@ -109,6 +122,7 @@ Created comprehensive characterization tests (`room-data-quality.spec.ts`) cover
 ## Fixes Applied (Phase 1)
 
 ### Rooms Fixed (23 total)
+
 - **House exterior:** north-of-house, south-of-house, east-of-house
 - **Paths and forests:** forest-1, path, clearing, stone-barrow
 - **House interior:** living-room, kitchen (exits only)
@@ -121,6 +135,7 @@ Created comprehensive characterization tests (`room-data-quality.spec.ts`) cover
 - **Mines:** machine-roomwasmachi
 
 ### Impact
+
 - **Before:** 215 issues (52 malformed descriptions, 146 invalid exits, 17 incomplete)
 - **After Phase 1:** 163 issues remaining (0 malformed in fixed rooms, 84 "rooms" exits, 79 other invalid exits)
 - **High-priority rooms:** All fixed ✅
@@ -128,12 +143,14 @@ Created comprehensive characterization tests (`room-data-quality.spec.ts`) cover
 ## Remaining Work
 
 ### Phase 2: Systematic Cleanup (163 issues)
+
 1. Fix remaining "rooms" exit destinations (84 rooms)
 2. Fix other invalid exit patterns (79 rooms)
 3. Add more canonical descriptions for secondary locations
 4. Expand test coverage
 
 ### Invalid Exit Patterns to Remove
+
 - `"rooms"` - Generic placeholder (84 instances)
 - `"thereisnotreeheresuitableforclimbing"` - Error message
 - `"themountainsareimpassable"` - Error message
@@ -147,6 +164,7 @@ Created comprehensive characterization tests (`room-data-quality.spec.ts`) cover
 Exit restrictions should be handled by the **game engine**, not the room data:
 
 **Wrong (Current):**
+
 ```json
 {
   "exits": {
@@ -156,6 +174,7 @@ Exit restrictions should be handled by the **game engine**, not the room data:
 ```
 
 **Right (Target):**
+
 ```json
 {
   "exits": {}
@@ -167,18 +186,21 @@ When a player tries to go in an invalid direction, the game engine should displa
 ## Running the Tools
 
 ### Validate Rooms
+
 ```bash
 npm run build:tools
 node dist/tools/validate-rooms.js
 ```
 
 ### Apply Canonical Fixes
+
 ```bash
 npm run build:tools
 node dist/tools/apply-canonical-fixes.js
 ```
 
 ### Run Tests
+
 ```bash
 npm test -- --include='**/room-data-quality.spec.ts'
 ```
@@ -186,11 +208,13 @@ npm test -- --include='**/room-data-quality.spec.ts'
 ## Canonical Text Sources
 
 Room descriptions sourced from:
-1. Original Zork I transcripts (docs/walkthrough*.md)
+
+1. Original Zork I transcripts (docs/walkthrough\*.md)
 2. Historical Infocom game sessions
 3. Classic Zork I text adventure (1980-1983)
 
 When in doubt, canonical text follows the principle:
+
 - Use second-person perspective ("You are...")
 - Provide spatial orientation (directions, landmarks)
 - Mention notable features or objects
@@ -199,6 +223,7 @@ When in doubt, canonical text follows the principle:
 ## Best Practices for Future Data
 
 ### Room Descriptions
+
 - ✅ Use complete sentences and proper prose
 - ✅ Include orientation information
 - ✅ Mention visible exits naturally
@@ -207,6 +232,7 @@ When in doubt, canonical text follows the principle:
 - ❌ Don't use parser artifacts or conditional logic
 
 ### Exits
+
 - ✅ Point to valid room IDs (kebab-case)
 - ✅ Use cardinal directions (north, south, east, west, up, down, in, out)
 - ✅ Verify bidirectional connectivity where appropriate
@@ -215,10 +241,29 @@ When in doubt, canonical text follows the principle:
 - ❌ Don't use generic placeholders like "rooms"
 
 ### Data Validation
+
 - Run validation before committing changes
 - Add tests for new rooms or major changes
 - Document any intentional deviations from canonical text
 - Update canonical-rooms.json with verified text
+
+## Cleanup After Completion
+
+Once all 163 remaining room data quality issues are fixed and validated (Phase 2 completion), the following temporary files and scripts can be safely deleted:
+
+**Files to delete:**
+
+- `tools/validate-rooms.ts`
+- `tools/apply-canonical-fixes.ts`
+- `tools/canonical-rooms.json`
+- `docs/ROOM-DATA-QUALITY-FIX.md` (this file)
+
+**Scripts to remove from package.json:**
+
+- `validate:rooms`
+- `fix:rooms`
+
+The room data quality tests (`room-data-quality.spec.ts`) should be kept as they provide ongoing validation of data integrity.
 
 ## References
 

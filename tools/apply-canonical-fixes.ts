@@ -2,6 +2,10 @@
 /**
  * Apply Canonical Room Fixes
  *
+ * @deprecated TEMPORARY TOOL - Can be deleted after all room data quality issues are fixed.
+ * This tool was created specifically for the room data quality fix project (issue #78).
+ * Once all 163 remaining room issues are resolved, this fix script is no longer needed.
+ *
  * This script applies canonical Zork room descriptions and fixes invalid exits
  * based on the canonical-rooms.json reference file.
  */

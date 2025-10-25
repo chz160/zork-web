@@ -2,6 +2,10 @@
 /**
  * Room Data Validation Utility
  *
+ * @deprecated TEMPORARY TOOL - Can be deleted after all room data quality issues are fixed.
+ * This tool was created specifically for the room data quality fix project (issue #78).
+ * Once all 163 remaining room issues are resolved, this validation script is no longer needed.
+ *
  * Scans rooms.json for data quality issues:
  * - Malformed descriptions (comma-separated tokens)
  * - Invalid exit destinations (error messages vs room IDs)
