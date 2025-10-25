@@ -17,10 +17,12 @@
     {
       "id": "stone-barrow",
       "name": "Stone Barrow",
-      "description": "is,a,huge,stone,door,which,is,open.,You,cannot,see,into,the,dark,of,the,tomb.\"",
+      "description": "You are standing in front of a massive stone barrow. In the east face of the barrow is a huge stone door which is open. You cannot see into the dark of the tomb.",
       "shortDescription": "Stone Barrow",
       "exits": {
-        "in": "rooms"
+        "east": "inside-stone-barrow",
+        "west": "path",
+        "south": "west-of-house"
       },
       "objectIds": [],
       "visited": false,
@@ -29,11 +31,13 @@
     {
       "id": "north-of-house",
       "name": "North Of House",
-      "description": "and,all,the,windows,are,boarded,up.,To,the,north,a,narrow,path,winds,through,the,trees.\"",
+      "description": "You are facing the north side of a white house. There is no door here, and all the windows are boarded up. To the north a narrow path winds through the trees.",
       "shortDescription": "North of House",
       "exits": {
-        "in": "rooms",
-        "south": "thewindowsareallboarded"
+        "north": "forest-1",
+        "south": "west-of-house",
+        "east": "east-of-house",
+        "west": "west-of-house"
       },
       "objectIds": [],
       "visited": false,
@@ -42,11 +46,13 @@
     {
       "id": "south-of-house",
       "name": "South Of House",
-      "description": "and,all,the,windows,are,boarded.\"",
+      "description": "You are facing the south side of a white house. There is no door here, and all the windows are boarded.",
       "shortDescription": "South of House",
       "exits": {
-        "in": "rooms",
-        "north": "thewindowsareallboarded"
+        "north": "west-of-house",
+        "south": "forest-2",
+        "east": "east-of-house",
+        "west": "west-of-house"
       },
       "objectIds": [],
       "visited": false,
@@ -55,9 +61,14 @@
     {
       "id": "east-of-house",
       "name": "East Of House",
-      "description": "Behind House",
+      "description": "You are behind the white house. A path leads into the forest to the east. In one corner of the house there is a small window which is slightly ajar.",
       "shortDescription": "Behind House",
-      "exits": {},
+      "exits": {
+        "north": "north-of-house",
+        "south": "south-of-house",
+        "west": "kitchen",
+        "east": "clearing"
+      },
       "objectIds": [],
       "visited": false,
       "isDark": false
@@ -65,12 +76,12 @@
     {
       "id": "forest-1",
       "name": "Forest 1",
-      "description": "there,appears,to,be,sunlight.\"",
+      "description": "This is a forest, with trees in all directions around you. To the east, there appears to be sunlight.",
       "shortDescription": "Forest",
       "exits": {
-        "in": "rooms",
-        "up": "thereisnotreeheresuitableforclimbing",
-        "west": "youwouldneedamachetetogofurtherwest"
+        "east": "clearing",
+        "west": "forest-3",
+        "south": "north-of-house"
       },
       "objectIds": [],
       "visited": false,
@@ -122,10 +133,12 @@
     {
       "id": "path",
       "name": "Path",
-      "description": "north-south,here.,One,particularly,large,tree,with,some,low,branches,stands,at,the,edge,of,the,path.\"",
+      "description": "This is a path winding through a dimly lit forest. The path heads north-south here. One particularly large tree with some low branches stands at the edge of the path.",
       "shortDescription": "Forest Path",
       "exits": {
-        "in": "rooms"
+        "north": "stone-barrow",
+        "south": "north-of-house",
+        "up": "up-a-tree"
       },
       "objectIds": [],
       "visited": false,
@@ -160,11 +173,13 @@
     {
       "id": "clearing",
       "name": "Clearing",
-      "description": "extends,to,the,east,and,west.\"",
+      "description": "You are in a small clearing in a well marked forest path that extends to the east and west.",
       "shortDescription": "Clearing",
       "exits": {
-        "in": "rooms",
-        "up": "thereisnotreeheresuitableforclimbing"
+        "east": "east-of-house",
+        "west": "forest-1",
+        "north": "forest-2",
+        "south": "grating-clearing"
       },
       "objectIds": [],
       "visited": false,
@@ -198,11 +213,11 @@
     {
       "id": "living-room",
       "name": "Living Room",
-      "description": "Living Room",
+      "description": "You are in the living room. There is a doorway to the east, a wooden door with strange gothic lettering to the west, which appears to be nailed shut, a trophy case, and a large oriental rug in the center of the room.",
       "shortDescription": "Living Room",
       "exits": {
-        "in": "rooms",
-        "west": "tostrange-passageifmagic-flagelsethedoorisnailedshut"
+        "east": "kitchen",
+        "down": "cellar"
       },
       "objectIds": [],
       "visited": false,
@@ -443,10 +458,14 @@
     {
       "id": "grating-room",
       "name": "Grating Room",
-      "description": "Grating Room",
+      "description": "You are in a small room near the maze. There are twisty passages in the immediate vicinity.",
       "shortDescription": "Grating Room",
       "exits": {
-        "in": "rooms"
+        "up": "grating-clearing",
+        "north": "maze-1",
+        "south": "maze-2",
+        "east": "maze-3",
+        "west": "maze-4"
       },
       "objectIds": [],
       "visited": false,
@@ -516,10 +535,13 @@
     {
       "id": "cyclops-room",
       "name": "Cyclops Room",
-      "description": "Cyclops Room",
+      "description": "This is a large room with a massive vaulted stone ceiling. Cyclopean stone pillars support the ceiling and cast weird, moving shadows around the room. In the center of the room is a massive table hewn of solid granite. In front of the table is a marble throne. Seated on the throne is a massive figure.",
       "shortDescription": "Cyclops Room",
       "exits": {
-        "in": "rooms"
+        "north": "treasure-room",
+        "east": "strange-passage",
+        "south": "east-of-chasm",
+        "west": "troll-room"
       },
       "objectIds": [],
       "visited": false,
@@ -550,10 +572,12 @@
     {
       "id": "reservoir-south",
       "name": "Reservoir South",
-      "description": "Reservoir South",
+      "description": "You are in a long room on the south shore of a large lake, far too deep and wide for crossing.",
       "shortDescription": "Reservoir South",
       "exits": {
-        "in": "rooms"
+        "north": "reservoir",
+        "west": "dam-roomwasdam",
+        "out": "dam-roomwasdam"
       },
       "objectIds": [],
       "visited": false,
@@ -575,10 +599,12 @@
     {
       "id": "reservoir-north",
       "name": "Reservoir North",
-      "description": "Reservoir North",
+      "description": "You are in a long room on the north shore of a large lake, far too deep and wide for crossing.",
       "shortDescription": "Reservoir North",
       "exits": {
-        "in": "rooms"
+        "south": "reservoir",
+        "east": "atlantis-room",
+        "north": "stream-view"
       },
       "objectIds": [],
       "visited": false,
@@ -614,10 +640,12 @@
     {
       "id": "mirror-room-1",
       "name": "Mirror Room 1",
-      "description": "Mirror Room",
+      "description": "You are in a large square room with tall ceilings. On the south wall is an enormous mirror which fills the entire wall. There are exits on the other three sides of the room.",
       "shortDescription": "Mirror Room",
       "exits": {
-        "in": "rooms"
+        "north": "cold-passage",
+        "east": "narrow-passage",
+        "west": "winding-passage"
       },
       "objectIds": [],
       "visited": false,
@@ -626,10 +654,12 @@
     {
       "id": "mirror-room-2",
       "name": "Mirror Room 2",
-      "description": "Mirror Room",
+      "description": "You are in a large square room with tall ceilings. On the north wall is an enormous mirror which fills the entire wall. There are exits on the other three sides of the room.",
       "shortDescription": "Mirror Room",
       "exits": {
-        "in": "rooms"
+        "south": "cold-passage",
+        "east": "narrow-passage",
+        "west": "winding-passage"
       },
       "objectIds": [],
       "visited": false,
@@ -638,10 +668,11 @@
     {
       "id": "small-cave",
       "name": "Small Cave",
-      "description": "leading,down.\"",
+      "description": "This is a small cave with an entrance to the east and a stairway leading down.",
       "shortDescription": "Cave",
       "exits": {
-        "in": "rooms"
+        "east": "narrow-passage",
+        "down": "tiny-cave"
       },
       "objectIds": [],
       "visited": false,
@@ -746,10 +777,12 @@
     {
       "id": "deep-canyon",
       "name": "Deep Canyon",
-      "description": "Deep Canyon",
+      "description": "You are on the south edge of a deep canyon. Passages lead off to the east, northwest and southwest. You can hear the sound of flowing water from below.",
       "shortDescription": "Deep Canyon",
       "exits": {
-        "in": "rooms"
+        "east": "reservoir-south",
+        "northwest": "reservoir",
+        "southwest": "in-stream"
       },
       "objectIds": [],
       "visited": false,
@@ -783,10 +816,11 @@
     {
       "id": "ns-passage",
       "name": "Ns Passage",
-      "description": "North-South Passage",
+      "description": "This is a north-south passageway with stone walls and a stone floor.",
       "shortDescription": "North-South Passage",
       "exits": {
-        "in": "rooms"
+        "north": "chasm-room",
+        "south": "entrance-to-hades"
       },
       "objectIds": [],
       "visited": false,
@@ -808,9 +842,13 @@
     {
       "id": "entrance-to-hades",
       "name": "Entrance To Hades",
-      "description": "Entrance to Hades",
+      "description": "You are outside a large gateway on which is inscribed: 'Abandon every hope all ye who enter here'. The gate is open; through it you can see a desolation, with a pile of mangled bodies in one corner. Thousands of voices, lamenting some hideous fate, can be heard.",
       "shortDescription": "Entrance to Hades",
-      "exits": {},
+      "exits": {
+        "north": "ns-passage",
+        "south": "land-of-living-dead",
+        "down": "land-of-living-dead"
+      },
       "objectIds": [],
       "visited": false,
       "isDark": false
@@ -830,10 +868,11 @@
     {
       "id": "engravings-cavewascave4",
       "name": "Engravings Cavewascave4",
-      "description": "Engravings Cave",
+      "description": "You have entered a low cave with passages leading northwest and east. There are old engravings on the walls here.",
       "shortDescription": "Engravings Cave",
       "exits": {
-        "in": "rooms"
+        "northwest": "north-templewastemp1",
+        "east": "dome-roomwasdome"
       },
       "objectIds": [],
       "visited": false,
@@ -866,11 +905,12 @@
     {
       "id": "torch-room",
       "name": "Torch Room",
-      "description": "Torch Room",
+      "description": "This is a large room with a prominent doorway leading to a down staircase. Above you is a large dome painted with scenes depicting elvish heros in battle. Up around the edge of the dome (20 feet up) is a wooden railing.",
       "shortDescription": "Torch Room",
       "exits": {
-        "in": "rooms",
-        "up": "youcannotreachtherope"
+        "south": "north-templewastemp1",
+        "down": "south-templewastemp2",
+        "east": "gallery"
       },
       "objectIds": [],
       "visited": false,
@@ -1069,10 +1109,10 @@
     {
       "id": "sandy-cavewastcave",
       "name": "Sandy Cavewastcave",
-      "description": "Sandy Cave",
+      "description": "This is a sandy cave whose exit is to the southwest.",
       "shortDescription": "Sandy Cave",
       "exits": {
-        "in": "rooms"
+        "southwest": "sandy-beachwasbeach"
       },
       "objectIds": [],
       "visited": false,
@@ -1081,11 +1121,11 @@
     {
       "id": "aragain-fallswasfalls",
       "name": "Aragain Fallswasfalls",
-      "description": "Aragain Falls",
+      "description": "You are at the top of Aragain Falls, an enormous waterfall with a drop of about 450 feet. The only path here is on the north side of the river.",
       "shortDescription": "Aragain Falls",
       "exits": {
-        "in": "rooms",
-        "down": "itsalongway"
+        "north": "end-of-rainbowwaspog",
+        "south": "on-rainbowwasrainb"
       },
       "objectIds": [],
       "visited": false,
@@ -1286,10 +1326,11 @@
     {
       "id": "machine-roomwasmachi",
       "name": "Machine Roomwasmachi",
-      "description": "Machine Room",
+      "description": "This is a large room full of assorted heavy machinery. The room smells of coal smoke. There is a small coal stove here. The exit is to the south. To the north is a pile of machine parts.",
       "shortDescription": "Machine Room",
       "exits": {
-        "in": "rooms"
+        "south": "mine-2wasmine2",
+        "north": "lower-shaftwasbshaf"
       },
       "objectIds": [],
       "visited": false,
