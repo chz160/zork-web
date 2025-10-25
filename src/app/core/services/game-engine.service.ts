@@ -1125,12 +1125,24 @@ export class GameEngineService {
     const roomObjects = Array.from(this.gameObjects().values()).filter(
       (obj) => obj.location === currentRoomId && obj.visible
     );
+
+    // Also include objects in open containers in the current room
+    const objectsInOpenContainers = Array.from(this.gameObjects().values()).filter((obj) => {
+      if (!obj.visible) return false;
+      const container = this.gameObjects().get(obj.location);
+      return (
+        container && container.location === currentRoomId && container.properties?.isOpen === true
+      );
+    });
+
+    const allAccessibleRoomObjects = [...roomObjects, ...objectsInOpenContainers];
+
     const inventoryObjects = inventory
       .map((id) => this.gameObjects().get(id))
       .filter((obj): obj is GameObject => obj !== undefined);
 
     const context: ResolutionContext = {
-      roomObjects: allowInventoryOnly ? [] : roomObjects,
+      roomObjects: allowInventoryOnly ? [] : allAccessibleRoomObjects,
       inventoryObjects,
       allObjects: Array.from(this.gameObjects().values()),
     };
@@ -1180,6 +1192,12 @@ export class GameEngineService {
       if (nameMatch || aliasMatch) {
         // Check if object is in current room or inventory
         if (obj.location === currentRoomId || inventory.includes(obj.id)) {
+          return obj;
+        }
+
+        // Also check if object is inside an open container in the current room
+        const container = this.gameObjects().get(obj.location);
+        if (container && container.location === currentRoomId && container.properties?.isOpen) {
           return obj;
         }
       }
