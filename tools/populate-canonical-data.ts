@@ -41,6 +41,22 @@ interface CanonicalRoom {
   };
 }
 
+interface CanonicalObject {
+  id: string;
+  name: string;
+  aliases: string[];
+  description: string;
+  portable: boolean;
+  visible: boolean;
+  location: string;
+  properties: Record<string, unknown>;
+  cIndexTrace: {
+    objectIndex: number;
+    messageIndex: number;
+    flags: string[];
+  };
+}
+
 /**
  * Generates a kebab-case ID from text
  */
@@ -62,10 +78,10 @@ function generateId(name: string, index: number): string {
 }
 
 /**
- * Extracts a short name from a description
+ * Extracts a short name from a room description
  * Typically the first sentence or phrase
  */
-function extractName(description: string): string {
+function extractRoomName(description: string): string {
   if (!description) return '';
 
   // Try to find first sentence
@@ -95,32 +111,60 @@ function extractName(description: string): string {
 }
 
 /**
- * Main execution
+ * Extracts a short name from an object description
+ * For objects, typically the first noun phrase or word
  */
-function main(): void {
-  console.log('=== Populate Canonical Data - Phase 3 ===\n');
+function extractObjectName(description: string): string {
+  if (!description) return '';
 
-  const rootDir = path.join(__dirname, '..', '..');
-  const artifactsDir = path.join(rootDir, 'artifacts');
-  const messagesPath = path.join(artifactsDir, 'messages.json');
-  const roomsPath = path.join(artifactsDir, 'rooms.canonical.json');
-  const outputPath = path.join(artifactsDir, 'rooms.canonical.populated.json');
+  // Clean up the description
+  let text = description.trim();
 
-  // Load data
-  console.log('Loading data files...');
-  const messages: Message[] = JSON.parse(fs.readFileSync(messagesPath, 'utf8'));
-  const rooms: CanonicalRoom[] = JSON.parse(fs.readFileSync(roomsPath, 'utf8'));
+  // Remove common prefixes
+  text = text.replace(/^(a |an |the |this |that |some )/i, '');
 
-  console.log(`Loaded ${messages.length} messages`);
-  console.log(`Loaded ${rooms.length} rooms\n`);
+  // Try to get first sentence or phrase
+  const sentences = text.split(/[.!?\n]/);
+  let name = sentences[0].trim();
 
-  // Track statistics
+  // Take first few words (typically the noun phrase)
+  const words = name.split(' ');
+  if (words.length > 4) {
+    name = words.slice(0, 4).join(' ');
+  }
+
+  // Limit length
+  if (name.length > 40) {
+    name = name.substring(0, 40).trim();
+    // Remove trailing partial word
+    const lastSpace = name.lastIndexOf(' ');
+    if (lastSpace > 20) {
+      name = name.substring(0, lastSpace);
+    }
+  }
+
+  // Capitalize first letter of each word
+  name = name
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  return name;
+}
+
+/**
+ * Populates rooms with names and descriptions
+ */
+function populateRooms(
+  rooms: CanonicalRoom[],
+  messages: Message[]
+): { populated: number; skipped: number; alreadyHaveId: number } {
+  console.log('Populating rooms...');
+
   let populated = 0;
   let skipped = 0;
   let alreadyHaveId = 0;
 
-  // Populate each room
-  console.log('Populating rooms...');
   for (const room of rooms) {
     // Skip if already has ID and description
     if (room.id && room.description) {
@@ -138,7 +182,7 @@ function main(): void {
 
         // Extract or generate name
         if (!room.name) {
-          room.name = extractName(mapping.text);
+          room.name = extractRoomName(mapping.text);
         }
 
         // Generate ID if not present
@@ -174,37 +218,178 @@ function main(): void {
     }
   }
 
-  // Report statistics
-  console.log('\n=== Population Complete ===');
-  console.log(`Total rooms: ${rooms.length}`);
-  console.log(`Populated: ${populated}`);
-  console.log(`Already had data: ${alreadyHaveId}`);
-  console.log(`Skipped (no message): ${skipped}`);
+  return { populated, skipped, alreadyHaveId };
+}
 
-  // Check for ID collisions
-  const idSet = new Set<string>();
-  const collisions: string[] = [];
-  for (const room of rooms) {
-    if (idSet.has(room.id)) {
-      collisions.push(room.id);
+/**
+ * Populates objects with names and descriptions
+ */
+function populateObjects(
+  objects: CanonicalObject[],
+  messages: Message[]
+): { populated: number; skipped: number; alreadyHaveId: number } {
+  console.log('Populating objects...');
+
+  let populated = 0;
+  let skipped = 0;
+  let alreadyHaveId = 0;
+
+  for (const obj of objects) {
+    // Skip if already has ID and description
+    if (obj.id && obj.description) {
+      alreadyHaveId++;
+      continue;
     }
-    idSet.add(room.id);
+
+    // Map message index to get text
+    if (obj.cIndexTrace.messageIndex !== 0) {
+      const mapping = mapMessage(obj.cIndexTrace.messageIndex, messages);
+
+      if (mapping.messageIndex && mapping.text) {
+        // Extract description
+        obj.description = mapping.text;
+
+        // Extract or generate name
+        if (!obj.name) {
+          obj.name = extractObjectName(mapping.text);
+        }
+
+        // Generate ID if not present
+        if (!obj.id) {
+          const baseId = generateId(obj.name, obj.cIndexTrace.objectIndex);
+          obj.id = `${baseId}-${obj.cIndexTrace.objectIndex}`;
+        }
+
+        // Update aliases if empty
+        if (obj.aliases.length === 0 || obj.aliases[0] === '') {
+          // Create aliases from name
+          const words = obj.name.toLowerCase().split(' ');
+          obj.aliases = [
+            obj.name.toLowerCase(),
+            ...words.filter((w) => w.length > 2), // Include significant words
+          ];
+        }
+
+        populated++;
+      } else {
+        console.warn(
+          `Warning: Could not map message index ${obj.cIndexTrace.messageIndex} for object ${obj.cIndexTrace.objectIndex}`
+        );
+        skipped++;
+      }
+    } else {
+      // No message index - generate minimal data
+      if (!obj.id) {
+        obj.id = `object-${obj.cIndexTrace.objectIndex}`;
+      }
+      if (!obj.name) {
+        obj.name = `Object ${obj.cIndexTrace.objectIndex}`;
+      }
+      if (!obj.description) {
+        obj.description = `Object ${obj.cIndexTrace.objectIndex}`;
+      }
+      if (obj.aliases.length === 0 || obj.aliases[0] === '') {
+        obj.aliases = [obj.name.toLowerCase()];
+      }
+      skipped++;
+    }
   }
 
-  if (collisions.length > 0) {
-    console.warn(`\nWarning: Found ${collisions.length} ID collisions:`);
-    for (const id of collisions) {
+  return { populated, skipped, alreadyHaveId };
+}
+
+/**
+ * Main execution
+ */
+function main(): void {
+  console.log('=== Populate Canonical Data - Phase 3 ===\n');
+
+  const rootDir = path.join(__dirname, '..', '..');
+  const artifactsDir = path.join(rootDir, 'artifacts');
+  const messagesPath = path.join(artifactsDir, 'messages.json');
+  const roomsPath = path.join(artifactsDir, 'rooms.canonical.json');
+  const objectsPath = path.join(artifactsDir, 'objects.canonical.json');
+  const roomsOutputPath = path.join(artifactsDir, 'rooms.canonical.populated.json');
+  const objectsOutputPath = path.join(artifactsDir, 'objects.canonical.populated.json');
+
+  // Load data
+  console.log('Loading data files...');
+  const messages: Message[] = JSON.parse(fs.readFileSync(messagesPath, 'utf8'));
+  const rooms: CanonicalRoom[] = JSON.parse(fs.readFileSync(roomsPath, 'utf8'));
+  const objects: CanonicalObject[] = JSON.parse(fs.readFileSync(objectsPath, 'utf8'));
+
+  console.log(`Loaded ${messages.length} messages`);
+  console.log(`Loaded ${rooms.length} rooms`);
+  console.log(`Loaded ${objects.length} objects\n`);
+
+  // Populate rooms
+  const roomStats = populateRooms(rooms, messages);
+
+  // Report room statistics
+  console.log('\n=== Room Population Complete ===');
+  console.log(`Total rooms: ${rooms.length}`);
+  console.log(`Populated: ${roomStats.populated}`);
+  console.log(`Already had data: ${roomStats.alreadyHaveId}`);
+  console.log(`Skipped (no message): ${roomStats.skipped}`);
+
+  // Check for room ID collisions
+  const roomIdSet = new Set<string>();
+  const roomCollisions: string[] = [];
+  for (const room of rooms) {
+    if (roomIdSet.has(room.id)) {
+      roomCollisions.push(room.id);
+    }
+    roomIdSet.add(room.id);
+  }
+
+  if (roomCollisions.length > 0) {
+    console.warn(`\nWarning: Found ${roomCollisions.length} room ID collisions:`);
+    for (const id of roomCollisions) {
       console.warn(`  - ${id}`);
     }
   } else {
-    console.log('\n✓ All IDs are unique');
+    console.log('✓ All room IDs are unique');
+  }
+
+  // Populate objects
+  console.log('\n');
+  const objectStats = populateObjects(objects, messages);
+
+  // Report object statistics
+  console.log('\n=== Object Population Complete ===');
+  console.log(`Total objects: ${objects.length}`);
+  console.log(`Populated: ${objectStats.populated}`);
+  console.log(`Already had data: ${objectStats.alreadyHaveId}`);
+  console.log(`Skipped (no message): ${objectStats.skipped}`);
+
+  // Check for object ID collisions
+  const objectIdSet = new Set<string>();
+  const objectCollisions: string[] = [];
+  for (const obj of objects) {
+    if (objectIdSet.has(obj.id)) {
+      objectCollisions.push(obj.id);
+    }
+    objectIdSet.add(obj.id);
+  }
+
+  if (objectCollisions.length > 0) {
+    console.warn(`\nWarning: Found ${objectCollisions.length} object ID collisions:`);
+    for (const id of objectCollisions) {
+      console.warn(`  - ${id}`);
+    }
+  } else {
+    console.log('✓ All object IDs are unique');
   }
 
   // Save populated data
-  console.log(`\nSaving populated data to ${outputPath}...`);
-  fs.writeFileSync(outputPath, JSON.stringify(rooms, null, 2));
+  console.log(`\n=== Saving Results ===`);
+  console.log(`Saving rooms to ${roomsOutputPath}...`);
+  fs.writeFileSync(roomsOutputPath, JSON.stringify(rooms, null, 2));
+  console.log(`Saving objects to ${objectsOutputPath}...`);
+  fs.writeFileSync(objectsOutputPath, JSON.stringify(objects, null, 2));
 
-  console.log('Done!');
+  console.log('\n✅ Done! Phase 3 object population complete.');
+  console.log('Phase 4 can now proceed with adding 96 missing objects.');
 }
 
 if (require.main === module) {
