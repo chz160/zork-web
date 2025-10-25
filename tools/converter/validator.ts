@@ -3,6 +3,7 @@
  */
 
 import { ParsedRoom, ParsedGameObject, ParsedVerb } from './types';
+import { CRoom, CGameObject } from './c-types';
 
 /**
  * Validation result
@@ -19,7 +20,7 @@ export class Validator {
   /**
    * Validate a room against the room schema
    */
-  validateRoom(room: ParsedRoom): ValidationResult {
+  validateRoom(room: ParsedRoom | CRoom): ValidationResult {
     const errors: string[] = [];
 
     // Required fields
@@ -83,7 +84,14 @@ export class Validator {
   /**
    * Validate a game object against the game-object schema
    */
-  validateGameObject(obj: ParsedGameObject): ValidationResult {
+  validateObject(obj: ParsedGameObject | CGameObject): ValidationResult {
+    return this.validateGameObject(obj);
+  }
+
+  /**
+   * Validate a game object against the game-object schema
+   */
+  validateGameObject(obj: ParsedGameObject | CGameObject): ValidationResult {
     const errors: string[] = [];
 
     // Required fields
