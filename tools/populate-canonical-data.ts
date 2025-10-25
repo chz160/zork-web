@@ -49,13 +49,16 @@ function generateId(name: string, index: number): string {
     return `room-${index}`;
   }
 
-  return name
+  const processedName = name
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '') // Remove special chars
     .trim()
     .replace(/\s+/g, '-') // Replace spaces with hyphens
     .replace(/-+/g, '-') // Replace multiple hyphens with single
     .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+
+  // Fallback to room-index if processing resulted in empty string
+  return processedName || `room-${index}`;
 }
 
 /**

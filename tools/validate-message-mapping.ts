@@ -26,6 +26,9 @@ interface ValidationResult {
   accuracy: number;
 }
 
+// Validation thresholds
+const SIMILARITY_THRESHOLD = 0.7; // Minimum similarity for a "good match"
+
 /**
  * Calculates similarity between two strings (0-1)
  */
@@ -109,7 +112,7 @@ function main(): void {
       }
     }
 
-    if (bestMatch && bestSimilarity > 0.7) {
+    if (bestMatch && bestSimilarity > SIMILARITY_THRESHOLD) {
       // Good match
       results.matched++;
       matches.push({

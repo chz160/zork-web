@@ -37,6 +37,9 @@ const MANUAL_MAPPINGS: Record<number, number> = {
   // Will be populated as exceptions are found
 };
 
+// Message encoding constants from C source (dsub.c)
+const CHUNK_SIZE_BYTES = 8; // Text stored in 8-byte chunks in dtextc.txt
+
 /**
  * Maps a negative canonical message index to a message from messages.json.
  *
@@ -74,7 +77,7 @@ function mapMessage(canonicalIndex: number, messages: Message[]): MappingResult 
   // Calculate chunk number from negative index
   // The negative index represents a position in the 8-byte chunk array
   // Round to nearest integer chunk
-  const chunkNumber = Math.round(Math.abs(canonicalIndex) / 8);
+  const chunkNumber = Math.round(Math.abs(canonicalIndex) / CHUNK_SIZE_BYTES);
 
   // Find message that contains this chunk
   for (const msg of messages) {
