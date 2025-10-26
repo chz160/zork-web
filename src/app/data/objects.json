@@ -2184,6 +2184,973 @@
       "portable": true,
       "visible": true,
       "location": "broken-egg"
+    },
+    {
+      "id": "object-125",
+      "name": "Object 125",
+      "description": "An object in the game world.",
+      "location": "room-140",
+      "properties": {
+        "oactio": 117,
+        "ofval": 6,
+        "otval": 6,
+        "osize": 10
+      }
+    },
+    {
+      "id": "object-133",
+      "name": "Object 133",
+      "description": "An object in the game world.",
+      "location": "room-146",
+      "properties": {
+        "ofval": 5,
+        "otval": 5,
+        "osize": 8
+      }
+    },
+    {
+      "id": "object-147",
+      "name": "Object 147",
+      "description": "An object in the game world.",
+      "location": "room-154",
+      "properties": {
+        "oactio": 32,
+        "ofval": 10,
+        "otval": 15,
+        "osize": 10,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "object-148",
+      "name": "Object 148",
+      "description": "An object in the game world.",
+      "location": "room-156",
+      "properties": {
+        "ofval": 10,
+        "otval": 5,
+        "osize": 25,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "object-153",
+      "name": "Object 153",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 35,
+        "ofval": 5,
+        "otval": 5,
+        "osize": 6,
+        "isContainer": true,
+        "capacity": 6,
+        "acceptsPrepositions": [
+          "in"
+        ]
+      }
+    },
+    {
+      "id": "object-155",
+      "name": "Object 155",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "ofval": 1,
+        "otval": 1,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-156",
+      "name": "Object 156",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 36,
+        "ofval": 6,
+        "otval": 2,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-187",
+      "name": "Object 187",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "ofval": 15,
+        "otval": 10,
+        "osize": 4,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "object-163",
+      "name": "Object 163",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "oactio": 126,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-172",
+      "name": "Object 172",
+      "description": "An object in the game world.",
+      "location": "room-166",
+      "properties": {
+        "oactio": 45,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-173",
+      "name": "Object 173",
+      "description": "An object in the game world.",
+      "location": "room-185",
+      "properties": {
+        "oactio": 46,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-174",
+      "name": "Object 174",
+      "description": "An object in the game world.",
+      "location": "room-182",
+      "properties": {
+        "oactio": 47,
+        "osize": 5
+      }
+    },
+    {
+      "id": "readable-121",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-137",
+      "properties": {
+        "osize": 70,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "readable-129",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-143",
+      "properties": {
+        "osize": 5,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "readable-130",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-142",
+      "properties": {
+        "osize": 5,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "readable-138",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-144",
+      "properties": {
+        "oactio": 122,
+        "osize": 4,
+        "consumable": true,
+        "edible": true
+      }
+    },
+    {
+      "id": "readable-139",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-144",
+      "properties": {
+        "oactio": 122,
+        "osize": 4,
+        "consumable": true,
+        "edible": true
+      }
+    },
+    {
+      "id": "readable-140",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-144",
+      "properties": {
+        "oactio": 122,
+        "osize": 4,
+        "consumable": true,
+        "edible": true
+      }
+    },
+    {
+      "id": "readable-142",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-138",
+      "properties": {
+        "osize": 3,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "readable-149",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-155",
+      "properties": {
+        "osize": 5,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "readable-185",
+      "name": "Readable Object",
+      "description": "Something that can be read.",
+      "location": "room-188",
+      "properties": {
+        "osize": 4,
+        "readableText": ""
+      }
+    },
+    {
+      "id": "object-154",
+      "name": "Object 154",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 6,
+        "isContainer": true,
+        "capacity": 6,
+        "acceptsPrepositions": [
+          "in"
+        ]
+      }
+    },
+    {
+      "id": "object-199",
+      "name": "Object 199",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-200",
+      "name": "Object 200",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-120",
+      "name": "Object 120",
+      "description": "An object in the game world.",
+      "location": "room-137",
+      "properties": {
+        "oactio": 29,
+        "osize": 15
+      }
+    },
+    {
+      "id": "object-122",
+      "name": "Object 122",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 10000
+      }
+    },
+    {
+      "id": "object-123",
+      "name": "Object 123",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 60
+      }
+    },
+    {
+      "id": "object-124",
+      "name": "Object 124",
+      "description": "An object in the game world.",
+      "location": "room-141",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-126",
+      "name": "Object 126",
+      "description": "An object in the game world.",
+      "location": "room-139",
+      "properties": {
+        "oactio": 118,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-127",
+      "name": "Object 127",
+      "description": "An object in the game world.",
+      "location": "room-139",
+      "properties": {
+        "oactio": 118,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-128",
+      "name": "Object 128",
+      "description": "An object in the game world.",
+      "location": "room-139",
+      "properties": {
+        "oactio": 118,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-131",
+      "name": "Object 131",
+      "description": "An object in the game world.",
+      "location": "room-146",
+      "properties": {
+        "oactio": 119,
+        "osize": 10
+      }
+    },
+    {
+      "id": "object-132",
+      "name": "Object 132",
+      "description": "An object in the game world.",
+      "location": "room-146",
+      "properties": {
+        "osize": 0,
+        "isNPC": true,
+        "npcState": "idle"
+      }
+    },
+    {
+      "id": "object-134",
+      "name": "Object 134",
+      "description": "An object in the game world.",
+      "location": "room-144",
+      "properties": {
+        "osize": 10000
+      }
+    },
+    {
+      "id": "object-135",
+      "name": "Object 135",
+      "description": "An object in the game world.",
+      "location": "room-145",
+      "properties": {
+        "osize": 10000
+      }
+    },
+    {
+      "id": "object-136",
+      "name": "Object 136",
+      "description": "An object in the game world.",
+      "location": "room-143",
+      "properties": {
+        "oactio": 120,
+        "osize": 100
+      }
+    },
+    {
+      "id": "object-137",
+      "name": "Object 137",
+      "description": "An object in the game world.",
+      "location": "room-144",
+      "properties": {
+        "oactio": 121,
+        "osize": 10,
+        "consumable": true,
+        "edible": true
+      }
+    },
+    {
+      "id": "object-141",
+      "name": "Object 141",
+      "description": "An object in the game world.",
+      "location": "room-138",
+      "properties": {
+        "oactio": 30,
+        "osize": 0,
+        "isNPC": true,
+        "npcState": "idle"
+      }
+    },
+    {
+      "id": "object-143",
+      "name": "Object 143",
+      "description": "An object in the game world.",
+      "location": "room-147",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-144",
+      "name": "Object 144",
+      "description": "An object in the game world.",
+      "location": "room-33",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-145",
+      "name": "Object 145",
+      "description": "An object in the game world.",
+      "location": "room-123",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-146",
+      "name": "Object 146",
+      "description": "An object in the game world.",
+      "location": "room-110",
+      "properties": {
+        "oactio": 37,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-150",
+      "name": "Object 150",
+      "description": "An object in the game world.",
+      "location": "room-155",
+      "properties": {
+        "oactio": 33,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-151",
+      "name": "Object 151",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 34,
+        "osize": 5,
+        "isNPC": true,
+        "npcState": "idle"
+      }
+    },
+    {
+      "id": "object-152",
+      "name": "Object 152",
+      "description": "An object in the game world.",
+      "location": "room-147",
+      "properties": {
+        "osize": 20
+      }
+    },
+    {
+      "id": "object-157",
+      "name": "Object 157",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 36,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-158",
+      "name": "Object 158",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "oactio": 125,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-159",
+      "name": "Object 159",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "oactio": 125,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-160",
+      "name": "Object 160",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "oactio": 125,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-161",
+      "name": "Object 161",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "oactio": 125,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-162",
+      "name": "Object 162",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "oactio": 126,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-164",
+      "name": "Object 164",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-165",
+      "name": "Object 165",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-166",
+      "name": "Object 166",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "oactio": 41,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-167",
+      "name": "Object 167",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-168",
+      "name": "Object 168",
+      "description": "An object in the game world.",
+      "location": "room-177",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-169",
+      "name": "Object 169",
+      "description": "An object in the game world.",
+      "location": "room-159",
+      "properties": {
+        "oactio": 42,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-170",
+      "name": "Object 170",
+      "description": "An object in the game world.",
+      "location": "room-160",
+      "properties": {
+        "oactio": 43,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-171",
+      "name": "Object 171",
+      "description": "An object in the game world.",
+      "location": "room-179",
+      "properties": {
+        "oactio": 44,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-175",
+      "name": "Object 175",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "oactio": 48,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-176",
+      "name": "Object 176",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "oactio": 49,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-177",
+      "name": "Object 177",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-178",
+      "name": "Object 178",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-179",
+      "name": "Object 179",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-180",
+      "name": "Object 180",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-181",
+      "name": "Object 181",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "oactio": 129,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-182",
+      "name": "Object 182",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-183",
+      "name": "Object 183",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-184",
+      "name": "Object 184",
+      "description": "An object in the game world.",
+      "location": "room-183",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-186",
+      "name": "Object 186",
+      "description": "An object in the game world.",
+      "location": "room-26000",
+      "properties": {
+        "oactio": 52,
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-188",
+      "name": "Object 188",
+      "description": "An object in the game world.",
+      "location": "room-26000",
+      "properties": {
+        "osize": 5
+      }
+    },
+    {
+      "id": "object-189",
+      "name": "Object 189",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-190",
+      "name": "Object 190",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-191",
+      "name": "Object 191",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-192",
+      "name": "Object 192",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 124,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-193",
+      "name": "Object 193",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-194",
+      "name": "Object 194",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-195",
+      "name": "Object 195",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-196",
+      "name": "Object 196",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-197",
+      "name": "Object 197",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 38,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-198",
+      "name": "Object 198",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 31,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-201",
+      "name": "Object 201",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-202",
+      "name": "Object 202",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 39,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-203",
+      "name": "Object 203",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-204",
+      "name": "Object 204",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 40,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-205",
+      "name": "Object 205",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 40,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-206",
+      "name": "Object 206",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 40,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-207",
+      "name": "Object 207",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 40,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-208",
+      "name": "Object 208",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 101,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-209",
+      "name": "Object 209",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 127,
+        "osize": 0,
+        "isNPC": true,
+        "npcState": "idle"
+      }
+    },
+    {
+      "id": "object-210",
+      "name": "Object 210",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-211",
+      "name": "Object 211",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 50,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-212",
+      "name": "Object 212",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 51,
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-213",
+      "name": "Object 213",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "osize": 0
+      }
+    },
+    {
+      "id": "object-214",
+      "name": "Object 214",
+      "description": "An object in the game world.",
+      "location": "room-178",
+      "properties": {
+        "oactio": 128,
+        "osize": 0,
+        "isNPC": true,
+        "npcState": "idle"
+      }
+    },
+    {
+      "id": "object-215",
+      "name": "Object 215",
+      "description": "An object in the game world.",
+      "location": "void",
+      "properties": {
+        "oactio": 131,
+        "osize": 0
+      }
     }
   ]
 }

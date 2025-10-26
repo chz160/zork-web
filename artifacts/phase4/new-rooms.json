@@ -1,0 +1,880 @@
+[
+  {
+    "id": "a-large-cavernous-room-to-0",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rval": 5,
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 0,
+      "messageIndex": -9590,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-1",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 1,
+      "messageIndex": -9608,
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-2",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 2,
+      "messageIndex": -9620,
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-3",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 3,
+      "messageIndex": -9635,
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-6",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8256
+    },
+    "cIndexTrace": {
+      "roomIndex": 6,
+      "messageIndex": -9653,
+      "flags": [
+        "RLAND",
+        "RHOUSE"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-9",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 9,
+      "messageIndex": -9665,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-10",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 10,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-11",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 11,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-12",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 12,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-13",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 13,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-14",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 14,
+      "messageIndex": -9692,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-15",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 15,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-16",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 16,
+      "messageIndex": -9692,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-17",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 17,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-18",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 18,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-19",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 19,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-20",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 20,
+      "messageIndex": -9692,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-21",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 21,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-22",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 22,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-23",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 23,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-25",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 25,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-26",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 26,
+      "messageIndex": -9692,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-27",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 27,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-28",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 28,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-29",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 29,
+      "messageIndex": -9684,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-30",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {
+      "in": "room-3209"
+    },
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 30,
+      "messageIndex": -9698,
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-31",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 31,
+      "messageIndex": -9707,
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-34",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 11,
+      "rflag": 25632
+    },
+    "cIndexTrace": {
+      "roomIndex": 34,
+      "messageIndex": -9698,
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-61",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 61,
+      "messageIndex": -10183,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-62",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 62,
+      "messageIndex": -10207,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-63",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "ractio": 14,
+      "rflag": 9216
+    },
+    "cIndexTrace": {
+      "roomIndex": 63,
+      "messageIndex": -10229,
+      "flags": [
+        "RLAND",
+        "RSACRD"
+      ]
+    }
+  },
+  {
+    "id": "unfortunately-you-have-managed-to-64",
+    "name": "Unfortunately, You Have Managed To",
+    "description": "Unfortunately, you have managed to destroy it by your reckless\nactions.",
+    "shortDescription": "Unfortunately, You Have Managed To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 64,
+      "messageIndex": -10239,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-73",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 73,
+      "messageIndex": -9692,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-87",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 87,
+      "messageIndex": -9692,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-large-cavernous-room-to-88",
+    "name": "A Large Cavernous Room, To",
+    "description": "You are in a large cavernous room, to the south of which was formerly\na reservoir.  However, with the water level lowered, there is merely\na wide stream running through the center of the room.",
+    "shortDescription": "A Large Cavernous Room, To",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 88,
+      "messageIndex": -9692,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "a-small-room-that-has-only-one-door-to-the-east-106",
+    "name": "A Small Room That Has Only One Door, To The East",
+    "description": "You are in a small room that has only one door, to the east.",
+    "shortDescription": "A Small Room That Has Only One Door, To The East",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 106,
+      "messageIndex": -10857,
+      "flags": [
+        "RWATER",
+        "RSACRD",
+        "RFILL",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "a-small-room-that-has-only-one-door-to-the-east-107",
+    "name": "A Small Room That Has Only One Door, To The East",
+    "description": "You are in a small room that has only one door, to the east.",
+    "shortDescription": "A Small Room That Has Only One Door, To The East",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 5664
+    },
+    "cIndexTrace": {
+      "roomIndex": 107,
+      "messageIndex": -10875,
+      "flags": [
+        "RWATER",
+        "RSACRD",
+        "RFILL",
+        "REND"
+      ]
+    }
+  },
+  {
+    "id": "your-compass-needle-spins-wildly-150",
+    "name": "Your Compass Needle Spins Wildly,",
+    "description": "Your compass needle spins wildly, and you cannot get your bearings.",
+    "shortDescription": "Your Compass Needle Spins Wildly,",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 150,
+      "messageIndex": -11928,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "your-compass-needle-spins-wildly-151",
+    "name": "Your Compass Needle Spins Wildly,",
+    "description": "Your compass needle spins wildly, and you cannot get your bearings.",
+    "shortDescription": "Your Compass Needle Spins Wildly,",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 151,
+      "messageIndex": -11928,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "your-compass-needle-spins-wildly-152",
+    "name": "Your Compass Needle Spins Wildly,",
+    "description": "Your compass needle spins wildly, and you cannot get your bearings.",
+    "shortDescription": "Your Compass Needle Spins Wildly,",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": true,
+    "properties": {
+      "rflag": 8192
+    },
+    "cIndexTrace": {
+      "roomIndex": 152,
+      "messageIndex": -11985,
+      "flags": [
+        "RLAND"
+      ]
+    }
+  },
+  {
+    "id": "outside-a-large-gateway-on-which-is-inscribed-186",
+    "name": "Outside A Large Gateway, On Which Is Inscribed:",
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "shortDescription": "Outside A Large Gateway, On Which Is Inscribed:",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "ractio": 57,
+      "rval": 35,
+      "rflag": 24592
+    },
+    "cIndexTrace": {
+      "roomIndex": 186,
+      "messageIndex": -12204,
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RNWALL"
+      ]
+    }
+  },
+  {
+    "id": "outside-a-large-gateway-on-which-is-inscribed-187",
+    "name": "Outside A Large Gateway, On Which Is Inscribed:",
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "shortDescription": "Outside A Large Gateway, On Which Is Inscribed:",
+    "exits": {},
+    "objectIds": [],
+    "visited": false,
+    "isDark": false,
+    "properties": {
+      "rflag": 24576
+    },
+    "cIndexTrace": {
+      "roomIndex": 187,
+      "messageIndex": -12326,
+      "flags": [
+        "RLIGHT",
+        "RLAND"
+      ]
+    }
+  }
+]

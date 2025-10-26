@@ -1,0 +1,5515 @@
+[
+  {
+    "id": "you-are-outside-a-0",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "room-6",
+    "properties": {
+      "osize": 3,
+      "isContainer": true,
+      "capacity": 15,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 0,
+      "messageIndex": -12364,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "CONTBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-1",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 1,
+      "messageIndex": -12378,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "FOODBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-2",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 2,
+      "messageIndex": -12385,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "FOODBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-3",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 1,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 3,
+      "messageIndex": -12390,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-4",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "room-74",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 4,
+      "messageIndex": -12399,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-5",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "room-78",
+    "properties": {
+      "ofval": 5,
+      "otval": 5,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 5,
+      "messageIndex": -12407,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-6",
+    "name": "Object 6",
+    "aliases": [
+      "object 6"
+    ],
+    "description": "Object 6",
+    "portable": false,
+    "visible": true,
+    "location": "room-77",
+    "properties": {
+      "oactio": 100,
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 50,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 6,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-7",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 10,
+      "otval": 6,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 7,
+      "messageIndex": -12416,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-8",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": false,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 2,
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 10000,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 8,
+      "messageIndex": -12425,
+      "flags": [
+        "VISIBT",
+        "TRANBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-9",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "room-6",
+    "properties": {
+      "oactio": 3,
+      "osize": 5,
+      "isContainer": true,
+      "capacity": 4,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 9,
+      "messageIndex": -12431,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TRANBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-10",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 101,
+      "osize": 4,
+      "consumable": true,
+      "drinkable": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 10,
+      "messageIndex": -12437,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "DRNKBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-11",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "room-7",
+    "properties": {
+      "oactio": 4,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 11,
+      "messageIndex": -12449,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-outside-a-12",
+    "name": "You Are Outside A",
+    "aliases": [
+      "you are outside a",
+      "you",
+      "are",
+      "outside"
+    ],
+    "description": "You are outside a large gateway, on which is inscribed:\n\n\t\"Abandon every hope, all ye who enter here.\"\n\nThe gate is open.  Through it you can see a desolation, with a pile of\nmangled corpses in one corner.  Thousands of voices, lamenting some\nhideous fate, can be heard.",
+    "portable": true,
+    "visible": true,
+    "location": "room-7",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 12,
+      "messageIndex": -12461,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-13",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": true,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 5,
+      "osize": 30
+    },
+    "cIndexTrace": {
+      "objectIndex": 13,
+      "messageIndex": -12473,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-14",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": true,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 6,
+      "osize": 15,
+      "isLight": true,
+      "isLit": false
+    },
+    "cIndexTrace": {
+      "objectIndex": 14,
+      "messageIndex": -12488,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "LIGHTBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-15",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 15,
+      "messageIndex": -12503,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-16",
+    "name": "Object 16",
+    "aliases": [
+      "object 16"
+    ],
+    "description": "Object 16",
+    "portable": false,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 7,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 16,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-17",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": true,
+    "visible": true,
+    "location": "room-36",
+    "properties": {
+      "oactio": 102,
+      "osize": 25
+    },
+    "cIndexTrace": {
+      "objectIndex": 17,
+      "messageIndex": -12511,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "a-nasty-looking-troll-brandishing-a-bloody-axe-blocks-all-passages-out-of-the-room",
+    "name": "A nasty-looking troll, brandishing a bloody axe, blocks all passages\nout of the room.",
+    "aliases": [
+      "a nasty-looking troll, brandishing a bloody axe, blocks all passages\nout of the room.",
+      "nasty-looking",
+      "troll,",
+      "brandishing",
+      "bloody",
+      "axe,",
+      "blocks",
+      "all",
+      "passages",
+      "out",
+      "room."
+    ],
+    "description": "Useful commands:\n\n   The 'BRIEF' command suppresses printing of long room descriptions\nfor rooms which have been visited.  The 'SUPERBRIEF' command suppresses\nprinting of long room descriptions for all rooms.  The 'VERBOSE'\ncommand restores long descriptions.\n   The 'INFO' command prints information which might give some idea\nof what the game is about.\n   The 'QUIT' command prints your score and asks whether you wish\nto continue playing.\n   The 'SAVE' command saves the state of the game for later continuation.\n   The 'RESTORE' command restores a saved game.\n   The 'INVENTORY' command lists the objects in your possession.\n   The 'LOOK' command prints a description of your surroundings.\n   The 'SCORE' command prints your current score and ranking.\n   The 'TIME' command tells you how long you have been playing.\n   The 'DIAGNOSE' command reports on your injuries, if any.\n\nCommand abbreviations:\n\n   The 'INVENTORY' command may be abbreviated 'I'.\n   The 'LOOK' command may be abbreviated 'L'.\n   The 'QUIT' command may be abbreviated 'Q'.\n\nContainment:\n\n   Some objects can contain other objects.  Many such containers can\nbe opened and closed.  The rest are always open.   They may or may\nnot be transparent.  For you to access (e.g., take) an object\nwhich is in a container, the container must be open.  For you\nto see such an object, the container must be either open or\ntransparent.  Containers have a capacity, and objects have sizes;\nthe number of objects which will fit therefore depends on their\nsizes.  You may put any object you have access to (it need not be\nin your hands) into any other object.  At some point, the program\nwill attempt to pick it up if you don't already have it, which\nprocess may fail if you're carrying too much.  Although containers\ncan contain other containers, the program doesn't access more than\none level down.\n\nFighting:\n\n   Occupants of the dungeon will, as a rule, fight back when\nattacked.  In some cases, they may attack even if unprovoked.\nUseful verbs here are 'ATTACK <villain> WITH <weapon>', 'KILL',\netc.  Knife-throwing may or may not be useful.  You have a\nfighting strength which varies with time.  Being in a fight,\ngetting killed, and being injured all lower this strength.\nStrength is regained with time.  Thus, it is not a good idea to\nfight someone immediately after being killed.  Other details\nshould become apparent after a few melees or deaths.\n\nCommand parser:\n\n   A command is one line of text terminated by a carriage return.\nFor reasons of simplicity, all words are distinguished by their\nfirst six letters.  All others are ignored.  For example, typing\n'DISASSEMBLE THE ENCYCLOPEDIA' is not only meaningless, it also\ncreates excess effort for your fingers.  Note that this trunca-\ntion may produce ambiguities in the intepretation of longer words.\n\n   You are dealing with a fairly stupid parser, which understands\nthe following types of things--\n\n   Actions:\n\tAmong the more obvious of these, such as TAKE, PUT, DROP, etc.\n\tFairly general forms of these may be used, such as PICK UP,\n\tPUT DOWN, etc.\n\n   Directions:\n\tNORTH, SOUTH, UP, DOWN, etc. and their various abbreviations.\n\tOther more obscure directions (LAND, CROSS) are appropriate in\n\tonly certain situations.\n\n   Objects:\n\tMost objects have names and can be referenced by them.\n\n   Adjectives:\n\tSome adjectives are understood and required when there are\n\ttwo objects which can be referenced with the same 'name' (e.g.,\n\tDOORs, BUTTONs).\n\n   Prepositions:\n\tIt may be necessary in some cases to include prepositions, but\n\tthe parser attempts to handle cases which aren't ambiguous\n\twithout.  Thus 'GIVE CAR TO DEMON' will work, as will 'GIVE DEMON\n\tCAR'.  'GIVE CAR DEMON' probably won't do anything interesting.\n\tWhen a preposition is used, it should be appropriate;  'GIVE CAR\n\tWITH DEMON' won't parse.\n\n   Sentences:\n\tThe parser understands a reasonable number of syntactic construc-\n\ttions.  In particular, multiple commands (separated by commas)\n\tcan be placed on the same line.\n\n   Ambiguity:\n\tThe parser tries to be clever about what to do in the case of\n\tactions which require objects that are not explicitly specified.\n\tIf there is only one possible object, the parser will assume\n\tthat it should be used.  Otherwise, the parser will ask.\n\tMost questions asked by the parser can be answered.",
+    "portable": false,
+    "visible": true,
+    "location": "room-10",
+    "properties": {
+      "oactio": 103,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 18,
+      "messageIndex": -4502,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-19",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 25
+    },
+    "cIndexTrace": {
+      "objectIndex": 19,
+      "messageIndex": -12520,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-20",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "oactio": 104,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 20,
+      "messageIndex": -12526,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-21",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 21,
+      "messageIndex": -12537,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "way-through-the-gate-22",
+    "name": "Way Through The Gate",
+    "aliases": [
+      "way through the gate",
+      "way",
+      "through",
+      "the",
+      "gate"
+    ],
+    "description": "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass.",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 22,
+      "messageIndex": -12552,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-23",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": false,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "oactio": 8,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 23,
+      "messageIndex": -12560,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-24",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-16",
+    "properties": {
+      "ofval": 10,
+      "otval": 5,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 24,
+      "messageIndex": -12571,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-25",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-49",
+    "properties": {
+      "ofval": 12,
+      "otval": 10,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 25,
+      "messageIndex": -12580,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-26",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-92",
+    "properties": {
+      "ofval": 9,
+      "otval": 5,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 26,
+      "messageIndex": -12587,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-27",
+    "name": "Object 27",
+    "aliases": [
+      "object 27"
+    ],
+    "description": "Object 27",
+    "portable": false,
+    "visible": true,
+    "location": "room-50",
+    "properties": {
+      "oactio": 9,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 27,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "object-28",
+    "name": "Object 28",
+    "aliases": [
+      "object 28"
+    ],
+    "description": "Object 28",
+    "portable": false,
+    "visible": true,
+    "location": "room-51",
+    "properties": {
+      "oactio": 9,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 28,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-29",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": false,
+    "visible": true,
+    "location": "room-45",
+    "properties": {
+      "oactio": 105,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 29,
+      "messageIndex": -12598,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-30",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-46",
+    "properties": {
+      "ofval": 15,
+      "otval": 8,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 30,
+      "messageIndex": -12606,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-31",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-47",
+    "properties": {
+      "ofval": 4,
+      "otval": 11,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 31,
+      "messageIndex": -12616,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-32",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-44",
+    "properties": {
+      "ofval": 3,
+      "otval": 7,
+      "osize": 55,
+      "isContainer": true,
+      "capacity": 35,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 32,
+      "messageIndex": -12630,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-33",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-80",
+    "properties": {
+      "ofval": 14,
+      "otval": 6,
+      "osize": 20,
+      "isLight": true,
+      "isLit": true,
+      "batteryLife": 330
+    },
+    "cIndexTrace": {
+      "objectIndex": 33,
+      "messageIndex": -12641,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "LIGHTBT",
+        "FLAMBT",
+        "TOOLBT",
+        "ONBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-34",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": false,
+    "visible": true,
+    "location": "room-61",
+    "properties": {
+      "oactio": 10,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 34,
+      "messageIndex": -12654,
+      "flags": [
+        "VISIBT",
+        "TRANBT"
+      ]
+    }
+  },
+  {
+    "id": "object-35",
+    "name": "Object 35",
+    "aliases": [
+      "object 35"
+    ],
+    "description": "Object 35",
+    "portable": false,
+    "visible": true,
+    "location": "room-76",
+    "properties": {
+      "oactio": 10,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 35,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-36",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-64",
+    "properties": {
+      "ofval": 5,
+      "otval": 3,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 36,
+      "messageIndex": -12660,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-37",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "room-75",
+    "properties": {
+      "osize": 50
+    },
+    "cIndexTrace": {
+      "objectIndex": 37,
+      "messageIndex": -12669,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-38",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": false,
+    "location": "room-83",
+    "properties": {
+      "osize": 40,
+      "isContainer": true,
+      "capacity": 20,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 38,
+      "messageIndex": -12676,
+      "flags": [
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-39",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 10,
+      "otval": 10,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 39,
+      "messageIndex": -12683,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-40",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, chomper!\"  Apparently, the voice thinks you\nare an evil spirit and dismisses you from the land of the living.",
+    "portable": false,
+    "visible": true,
+    "location": "room-90",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 40,
+      "messageIndex": -12689,
+      "flags": [
+        "VISIBT",
+        "READBT"
+      ]
+    }
+  },
+  {
+    "id": "object-41",
+    "name": "Object 41",
+    "aliases": [
+      "object 41"
+    ],
+    "description": "Object 41",
+    "portable": false,
+    "visible": true,
+    "location": "room-93",
+    "properties": {
+      "oactio": 11,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 41,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-not-equipped-42",
+    "name": "You Are Not Equipped",
+    "aliases": [
+      "you are not equipped",
+      "you",
+      "are",
+      "not",
+      "equipped"
+    ],
+    "description": "You are not equipped for an exorcism.",
+    "portable": true,
+    "visible": true,
+    "location": "room-95",
+    "properties": {
+      "ofval": 2,
+      "otval": 5,
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 5,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 42,
+      "messageIndex": -12750,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "object-43",
+    "name": "Object 43",
+    "aliases": [
+      "object 43"
+    ],
+    "description": "Object 43",
+    "portable": false,
+    "visible": true,
+    "location": "room-96",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 43,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-44",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
+    "portable": true,
+    "visible": false,
+    "location": "room-40",
+    "properties": {
+      "ofval": 15,
+      "otval": 8,
+      "osize": 35
+    },
+    "cIndexTrace": {
+      "objectIndex": 44,
+      "messageIndex": -12812,
+      "flags": [
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-45",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
+    "portable": true,
+    "visible": true,
+    "location": "room-96",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 45,
+      "messageIndex": -12832,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-46",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
+    "portable": true,
+    "visible": true,
+    "location": "room-97",
+    "properties": {
+      "oactio": 106,
+      "osize": 5,
+      "isContainer": true,
+      "acceptsPrepositions": [
+        "in"
+      ],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 46,
+      "messageIndex": -12845,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "CONTBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-47",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
+    "portable": true,
+    "visible": true,
+    "location": "room-97",
+    "properties": {
+      "oactio": 107,
+      "osize": 10,
+      "isLight": true,
+      "isLit": true,
+      "batteryLife": 330
+    },
+    "cIndexTrace": {
+      "objectIndex": 47,
+      "messageIndex": -12915,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "LIGHTBT",
+        "FLAMBT",
+        "ONBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-clap-48",
+    "name": "There Is A Clap",
+    "aliases": [
+      "there is a clap",
+      "there",
+      "clap"
+    ],
+    "description": "There is a clap of thunder, and a voice echoes through the\ncavern:  \"Begone, fiends!\"  The spirits, sensing the presense\nof a greater power, flee through the walls.",
+    "portable": true,
+    "visible": true,
+    "location": "room-99",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 48,
+      "messageIndex": -12928,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-have-entered-the-49",
+    "name": "You Have Entered The",
+    "aliases": [
+      "you have entered the",
+      "you",
+      "have",
+      "entered",
+      "the"
+    ],
+    "description": "You have entered the land of the living dead, a large desolate\nroom.  Although it is apparently uninhabited, you can hear the\nsounds of thousands of lost souls weeping and moaning.  In\nthe east corner are stacked the remains of dozens of previous\nadventurers who were less fortunate than yourself.  To the east\nis an ornate passage, apparently recently constructed.",
+    "portable": true,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 49,
+      "messageIndex": -13105,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-have-entered-the-50",
+    "name": "You Have Entered The",
+    "aliases": [
+      "you have entered the",
+      "you",
+      "have",
+      "entered",
+      "the"
+    ],
+    "description": "You have entered the land of the living dead, a large desolate\nroom.  Although it is apparently uninhabited, you can hear the\nsounds of thousands of lost souls weeping and moaning.  In\nthe east corner are stacked the remains of dozens of previous\nadventurers who were less fortunate than yourself.  To the east\nis an ornate passage, apparently recently constructed.",
+    "portable": true,
+    "visible": true,
+    "location": "room-99",
+    "properties": {
+      "oactio": 108,
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 50,
+      "messageIndex": -13207,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "you-have-entered-the-51",
+    "name": "You Have Entered The",
+    "aliases": [
+      "you have entered the",
+      "you",
+      "have",
+      "entered",
+      "the"
+    ],
+    "description": "You have entered the land of the living dead, a large desolate\nroom.  Although it is apparently uninhabited, you can hear the\nsounds of thousands of lost souls weeping and moaning.  In\nthe east corner are stacked the remains of dozens of previous\nadventurers who were less fortunate than yourself.  To the east\nis an ornate passage, apparently recently constructed.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 51,
+      "messageIndex": -13302,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-52",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": false,
+    "visible": true,
+    "location": "room-2",
+    "properties": {
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 10,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 52,
+      "messageIndex": -13446,
+      "flags": [
+        "VISIBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-53",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 12,
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 7,
+      "acceptsPrepositions": [
+        "in"
+      ],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 53,
+      "messageIndex": -13451,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-54",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 6
+    },
+    "cIndexTrace": {
+      "objectIndex": 54,
+      "messageIndex": -13468,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-55",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 55,
+      "messageIndex": -13475,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-56",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 56,
+      "messageIndex": -13479,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "object-57",
+    "name": "Object 57",
+    "aliases": [
+      "object 57"
+    ],
+    "description": "Object 57",
+    "portable": false,
+    "visible": true,
+    "location": "room-101",
+    "properties": {
+      "oactio": 109,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 57,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-58",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "room-103",
+    "properties": {
+      "oactio": 13,
+      "ofval": 10,
+      "otval": 10,
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 5,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 58,
+      "messageIndex": -13486,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-59",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "room-105",
+    "properties": {
+      "oactio": 14,
+      "ofval": 4,
+      "otval": 7,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 59,
+      "messageIndex": -13494,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-suspicious-looking-individual-holding-a-bag-leaning-against-one-wall-he-is-armed-with-a-vicious-looking-stilletto",
+    "name": "There is a suspicious-looking individual, holding a bag, leaning\nagainst one wall.  He is armed with a vicious-looking stilletto.",
+    "aliases": [
+      "there is a suspicious-looking individual, holding a bag, leaning\nagainst one wall.  he is armed with a vicious-looking stilletto.",
+      "there",
+      "suspicious-looking",
+      "individual,",
+      "holding",
+      "bag,",
+      "leaning",
+      "against",
+      "one",
+      "wall.",
+      "armed",
+      "with",
+      "vicious-looking",
+      "stilletto."
+    ],
+    "description": "Welcome to Dungeon!\n\n   You are near a large dungeon, which is reputed to contain vast\nquantities of treasure.   Naturally, you wish to acquire some of it.\nIn order to do so, you must of course remove it from the dungeon.  To\nreceive full credit for it, you must deposit it safely in the trophy\ncase in the living room of the house.\n\n   In addition to valuables, the dungeon contains various objects\nwhich may or may not be useful in your attempt to get rich.  You may\nneed sources of light, since dungeons are often dark, and weapons,\nsince dungeons often have unfriendly things wandering about.  Reading\nmaterial is scattered around the dungeon as well;  some of it\nis rumored to be useful.\n\n   To determine how successful you have been, a score is kept.\nWhen you find a valuable object and pick it up, you receive a\ncertain number of points, which depends on the difficulty of finding\nthe object.  You receive extra points for transporting the treasure\nsafely to the living room and placing it in the trophy case.  In\naddition, some particularly interesting rooms have a value associated\nwith visiting them.  The only penalty is for getting yourself killed,\nwhich you may do only twice.\n\n   Of special note is a thief (always carrying a large bag) who\nlikes to wander around in the dungeon (he has never been seen by the\nlight of day).  He likes to take things.  Since he steals for pleasure\nrather than profit and is somewhat sadistic, he only takes things which\nyou have seen.  Although he prefers valuables, sometimes in his haste\nhe may take something which is worthless.  From time to time, he examines\nhis take and discards objects which he doesn't like.  He may occas-\nionally stop in a room you are visiting, but more often he just wanders\nthrough and rips you off (he is a skilled pickpocket).",
+    "portable": false,
+    "visible": true,
+    "location": "room-190",
+    "properties": {
+      "oactio": 110,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 60,
+      "messageIndex": -4878,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-61",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 61,
+      "messageIndex": -13518,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-62",
+    "name": "Object 62",
+    "aliases": [
+      "object 62"
+    ],
+    "description": "Object 62",
+    "portable": false,
+    "visible": true,
+    "location": "room-5",
+    "properties": {
+      "oactio": 111,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 62,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-63",
+    "name": "Object 63",
+    "aliases": [
+      "object 63"
+    ],
+    "description": "Object 63",
+    "portable": false,
+    "visible": true,
+    "location": "room-98",
+    "properties": {
+      "oactio": 15,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 63,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "TURNBT"
+      ]
+    }
+  },
+  {
+    "id": "object-64",
+    "name": "Object 64",
+    "aliases": [
+      "object 64"
+    ],
+    "description": "Object 64",
+    "portable": false,
+    "visible": true,
+    "location": "room-25",
+    "properties": {
+      "oactio": 16,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 64,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-65",
+    "name": "Object 65",
+    "aliases": [
+      "object 65"
+    ],
+    "description": "Object 65",
+    "portable": false,
+    "visible": false,
+    "location": "room-8",
+    "properties": {
+      "oactio": 17,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 65,
+      "messageIndex": 0,
+      "flags": [
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-66",
+    "name": "Object 66",
+    "aliases": [
+      "object 66"
+    ],
+    "description": "Object 66",
+    "portable": false,
+    "visible": true,
+    "location": "room-8",
+    "properties": {
+      "oactio": 18,
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 66,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-67",
+    "name": "Object 67",
+    "aliases": [
+      "object 67"
+    ],
+    "description": "Object 67",
+    "portable": false,
+    "visible": true,
+    "location": "room-2",
+    "properties": {
+      "oactio": 18,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 67,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-68",
+    "name": "Object 68",
+    "aliases": [
+      "object 68"
+    ],
+    "description": "Object 68",
+    "portable": false,
+    "visible": true,
+    "location": "room-91",
+    "properties": {
+      "oactio": 18,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 68,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-69",
+    "name": "Object 69",
+    "aliases": [
+      "object 69"
+    ],
+    "description": "Object 69",
+    "portable": false,
+    "visible": true,
+    "location": "room-77",
+    "properties": {
+      "oactio": 19,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 69,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "TURNBT"
+      ]
+    }
+  },
+  {
+    "id": "object-70",
+    "name": "Object 70",
+    "aliases": [
+      "object 70"
+    ],
+    "description": "Object 70",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 70,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-71",
+    "name": "Object 71",
+    "aliases": [
+      "object 71"
+    ],
+    "description": "Object 71",
+    "portable": false,
+    "visible": true,
+    "location": "room-93",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 71,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-72",
+    "name": "Object 72",
+    "aliases": [
+      "object 72"
+    ],
+    "description": "Object 72",
+    "portable": false,
+    "visible": true,
+    "location": "room-94",
+    "properties": {
+      "oactio": 112,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 72,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-73",
+    "name": "Object 73",
+    "aliases": [
+      "object 73"
+    ],
+    "description": "Object 73",
+    "portable": false,
+    "visible": true,
+    "location": "room-98",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 73,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-74",
+    "name": "Object 74",
+    "aliases": [
+      "object 74"
+    ],
+    "description": "Object 74",
+    "portable": false,
+    "visible": true,
+    "location": "room-79",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 74,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-75",
+    "name": "Object 75",
+    "aliases": [
+      "object 75"
+    ],
+    "description": "Object 75",
+    "portable": false,
+    "visible": true,
+    "location": "room-93",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 75,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-76",
+    "name": "Object 76",
+    "aliases": [
+      "object 76"
+    ],
+    "description": "Object 76",
+    "portable": false,
+    "visible": true,
+    "location": "room-98",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 76,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-77",
+    "name": "Object 77",
+    "aliases": [
+      "object 77"
+    ],
+    "description": "Object 77",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 20,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 77,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-78",
+    "name": "Object 78",
+    "aliases": [
+      "object 78"
+    ],
+    "description": "Object 78",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 78,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-79",
+    "name": "Object 79",
+    "aliases": [
+      "object 79"
+    ],
+    "description": "Object 79",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 79,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-80",
+    "name": "Object 80",
+    "aliases": [
+      "object 80"
+    ],
+    "description": "Object 80",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 80,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-81",
+    "name": "Object 81",
+    "aliases": [
+      "object 81"
+    ],
+    "description": "Object 81",
+    "portable": false,
+    "visible": true,
+    "location": "room-100",
+    "properties": {
+      "oactio": 21,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 81,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-82",
+    "name": "Object 82",
+    "aliases": [
+      "object 82"
+    ],
+    "description": "Object 82",
+    "portable": false,
+    "visible": true,
+    "location": "room-78",
+    "properties": {
+      "oactio": 113,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 82,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-83",
+    "name": "Object 83",
+    "aliases": [
+      "object 83"
+    ],
+    "description": "Object 83",
+    "portable": false,
+    "visible": true,
+    "location": "room-120",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 83,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-84",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": false,
+    "location": "room-122",
+    "properties": {
+      "ofval": 10,
+      "otval": 10,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 84,
+      "messageIndex": -13554,
+      "flags": [
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-85",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": false,
+    "location": "room-116",
+    "properties": {
+      "ofval": 10,
+      "otval": 13,
+      "osize": 8
+    },
+    "cIndexTrace": {
+      "objectIndex": 85,
+      "messageIndex": -13566,
+      "flags": [
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-86",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "room-106",
+    "properties": {
+      "oactio": 22,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 86,
+      "messageIndex": -13572,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-87",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 23,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 87,
+      "messageIndex": -13585,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-88",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "room-41",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 88,
+      "messageIndex": -13596,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-standing-on-89",
+    "name": "You Are Standing On",
+    "aliases": [
+      "you are standing on",
+      "you",
+      "are",
+      "standing"
+    ],
+    "description": "You are standing on the top of flood control dam #3, which was\nquite a tourist attraction in times far distant.  There are paths\nto the north, south, east, and down.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 24,
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 89,
+      "messageIndex": -13603,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "sluice-gates-on-the-90",
+    "name": "Sluice Gates On The",
+    "aliases": [
+      "sluice gates on the",
+      "sluice",
+      "gates",
+      "the"
+    ],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 2,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 90,
+      "messageIndex": -13609,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "sluice-gates-on-the-91",
+    "name": "Sluice Gates On The",
+    "aliases": [
+      "sluice gates on the",
+      "sluice",
+      "gates",
+      "the"
+    ],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
+    "portable": true,
+    "visible": true,
+    "location": "room-106",
+    "properties": {
+      "oactio": 114,
+      "osize": 3
+    },
+    "cIndexTrace": {
+      "objectIndex": 91,
+      "messageIndex": -13673,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-92",
+    "name": "Object 92",
+    "aliases": [
+      "object 92"
+    ],
+    "description": "Object 92",
+    "portable": false,
+    "visible": true,
+    "location": "room-120",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 92,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "sluice-gates-on-the-93",
+    "name": "Sluice Gates On The",
+    "aliases": [
+      "sluice gates on the",
+      "sluice",
+      "gates",
+      "the"
+    ],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
+    "portable": true,
+    "visible": true,
+    "location": "room-112",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 20,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 93,
+      "messageIndex": -13691,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "sluice-gates-on-the-94",
+    "name": "Sluice Gates On The",
+    "aliases": [
+      "sluice gates on the",
+      "sluice",
+      "gates",
+      "the"
+    ],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 5,
+      "otval": 10,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 94,
+      "messageIndex": -13699,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "sluice-gates-on-the-95",
+    "name": "Sluice Gates On The",
+    "aliases": [
+      "sluice gates on the",
+      "sluice",
+      "gates",
+      "the"
+    ],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
+    "portable": true,
+    "visible": true,
+    "location": "room-118",
+    "properties": {
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 95,
+      "messageIndex": -13705,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "sluice-gates-on-the-96",
+    "name": "Sluice Gates On The",
+    "aliases": [
+      "sluice gates on the",
+      "sluice",
+      "gates",
+      "the"
+    ],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
+    "portable": true,
+    "visible": true,
+    "location": "room-118",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 96,
+      "messageIndex": -13710,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "sluice-gates-on-the-97",
+    "name": "Sluice Gates On The",
+    "aliases": [
+      "sluice gates on the",
+      "sluice",
+      "gates",
+      "the"
+    ],
+    "description": "The sluice gates on the dam are closed.  Behind the dam, there can\nbe seen a wide lake.  A small stream is formed by the runoff from\nthe lake.",
+    "portable": false,
+    "visible": true,
+    "location": "room-126",
+    "properties": {
+      "oactio": 115,
+      "osize": 70
+    },
+    "cIndexTrace": {
+      "objectIndex": 97,
+      "messageIndex": -13718,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-98",
+    "name": "Object 98",
+    "aliases": [
+      "object 98"
+    ],
+    "description": "Object 98",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 6,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 98,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "object-99",
+    "name": "Object 99",
+    "aliases": [
+      "object 99"
+    ],
+    "description": "Object 99",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 99,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-100",
+    "name": "Object 100",
+    "aliases": [
+      "object 100"
+    ],
+    "description": "Object 100",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 25,
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 100,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "it-appears-that-the-101",
+    "name": "It Appears That The",
+    "aliases": [
+      "it appears that the",
+      "appears",
+      "that",
+      "the"
+    ],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
+    "portable": false,
+    "visible": true,
+    "location": "room-131",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 101,
+      "messageIndex": -13748,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "it-appears-that-the-102",
+    "name": "It Appears That The",
+    "aliases": [
+      "it appears that the",
+      "appears",
+      "that",
+      "the"
+    ],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
+    "portable": false,
+    "visible": true,
+    "location": "room-133",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 102,
+      "messageIndex": -13748,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "it-appears-that-the-103",
+    "name": "It Appears That The",
+    "aliases": [
+      "it appears that the",
+      "appears",
+      "that",
+      "the"
+    ],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
+    "portable": true,
+    "visible": true,
+    "location": "room-131",
+    "properties": {
+      "ofval": 10,
+      "otval": 12,
+      "osize": 10,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 103,
+      "messageIndex": -13756,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-104",
+    "name": "Object 104",
+    "aliases": [
+      "object 104"
+    ],
+    "description": "Object 104",
+    "portable": false,
+    "visible": true,
+    "location": "room-135",
+    "properties": {
+      "oactio": 26,
+      "osize": 10000,
+      "isContainer": true,
+      "capacity": 15,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 104,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "it-appears-that-the-105",
+    "name": "It Appears That The",
+    "aliases": [
+      "it appears that the",
+      "appears",
+      "that",
+      "the"
+    ],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 1,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 105,
+      "messageIndex": -13878,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "object-106",
+    "name": "Object 106",
+    "aliases": [
+      "object 106"
+    ],
+    "description": "Object 106",
+    "portable": false,
+    "visible": true,
+    "location": "room-135",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 106,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "it-appears-that-the-107",
+    "name": "It Appears That The",
+    "aliases": [
+      "it appears that the",
+      "appears",
+      "that",
+      "the"
+    ],
+    "description": "It appears that the dam has been opened, since the water level behind\nthe dam is low and the sluice gate is open.  Water is rushing down-\nstream through the gates.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 15,
+      "otval": 10,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 107,
+      "messageIndex": -13910,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-108",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "room-7",
+    "properties": {
+      "oactio": 123,
+      "osize": 9
+    },
+    "cIndexTrace": {
+      "objectIndex": 108,
+      "messageIndex": -13923,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-109",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "room-42",
+    "properties": {
+      "oactio": 27,
+      "osize": 1
+    },
+    "cIndexTrace": {
+      "objectIndex": 109,
+      "messageIndex": -13931,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-110",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 28,
+      "osize": 10000,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 110,
+      "messageIndex": -13939,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-111",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 1,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 111,
+      "messageIndex": -13946,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-112",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 40
+    },
+    "cIndexTrace": {
+      "objectIndex": 112,
+      "messageIndex": -13987,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-113",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": [
+        "in"
+      ],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 113,
+      "messageIndex": -13995,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "CONTBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-114",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": [
+        "in"
+      ],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 114,
+      "messageIndex": -14009,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "CONTBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-115",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": [
+        "in"
+      ],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 115,
+      "messageIndex": -14015,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "CONTBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-116",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "room-134",
+    "properties": {
+      "osize": 10,
+      "isContainer": true,
+      "capacity": 2,
+      "acceptsPrepositions": [
+        "in"
+      ],
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 116,
+      "messageIndex": -14021,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "CONTBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "there-is-a-control-117",
+    "name": "There Is A Control",
+    "aliases": [
+      "there is a control",
+      "there",
+      "control"
+    ],
+    "description": "There is a control panel here.  There is a large metal bolt on the\npanel.  Above the bolt is a small green plastic bubble.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 4,
+      "otval": 10,
+      "osize": 1,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 117,
+      "messageIndex": -14027,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "object-118",
+    "name": "Object 118",
+    "aliases": [
+      "object 118"
+    ],
+    "description": "Object 118",
+    "portable": false,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "oactio": 130,
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 118,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-119",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your shins.",
+    "portable": false,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "oactio": 116,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 119,
+      "messageIndex": -14147,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-120",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your shins.",
+    "portable": true,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "oactio": 29,
+      "osize": 15
+    },
+    "cIndexTrace": {
+      "objectIndex": 120,
+      "messageIndex": -14157,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-121",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your knees.",
+    "portable": true,
+    "visible": true,
+    "location": "room-137",
+    "properties": {
+      "osize": 70,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 121,
+      "messageIndex": -14185,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-122",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your hips.",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 122,
+      "messageIndex": -14238,
+      "flags": [
+        "VISIBT",
+        "TRANBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-123",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your hips.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 60
+    },
+    "cIndexTrace": {
+      "objectIndex": 123,
+      "messageIndex": -14250,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-124",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your hips.",
+    "portable": false,
+    "visible": true,
+    "location": "room-141",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 124,
+      "messageIndex": -14256,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-125",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your waist.",
+    "portable": false,
+    "visible": true,
+    "location": "room-140",
+    "properties": {
+      "oactio": 117,
+      "ofval": 6,
+      "otval": 6,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 125,
+      "messageIndex": -14265,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-126",
+    "name": "Object 126",
+    "aliases": [
+      "object 126"
+    ],
+    "description": "Object 126",
+    "portable": false,
+    "visible": true,
+    "location": "room-139",
+    "properties": {
+      "oactio": 118,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 126,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-127",
+    "name": "Object 127",
+    "aliases": [
+      "object 127"
+    ],
+    "description": "Object 127",
+    "portable": false,
+    "visible": true,
+    "location": "room-139",
+    "properties": {
+      "oactio": 118,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 127,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-128",
+    "name": "Object 128",
+    "aliases": [
+      "object 128"
+    ],
+    "description": "Object 128",
+    "portable": false,
+    "visible": true,
+    "location": "room-139",
+    "properties": {
+      "oactio": 118,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 128,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-129",
+    "name": "Object 129",
+    "aliases": [
+      "object 129"
+    ],
+    "description": "Object 129",
+    "portable": false,
+    "visible": true,
+    "location": "room-143",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 129,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-130",
+    "name": "Object 130",
+    "aliases": [
+      "object 130"
+    ],
+    "description": "Object 130",
+    "portable": false,
+    "visible": true,
+    "location": "room-142",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 130,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-131",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your waist.",
+    "portable": true,
+    "visible": true,
+    "location": "room-146",
+    "properties": {
+      "oactio": 119,
+      "osize": 10
+    },
+    "cIndexTrace": {
+      "objectIndex": 131,
+      "messageIndex": -14298,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "TRANBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-132",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your chest.",
+    "portable": false,
+    "visible": true,
+    "location": "room-146",
+    "properties": {
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 132,
+      "messageIndex": -14314,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-133",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your chest.",
+    "portable": true,
+    "visible": false,
+    "location": "room-146",
+    "properties": {
+      "ofval": 5,
+      "otval": 5,
+      "osize": 8
+    },
+    "cIndexTrace": {
+      "objectIndex": 133,
+      "messageIndex": -14324,
+      "flags": [
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-134",
+    "name": "Object 134",
+    "aliases": [
+      "object 134"
+    ],
+    "description": "Object 134",
+    "portable": false,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 134,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-135",
+    "name": "Object 135",
+    "aliases": [
+      "object 135"
+    ],
+    "description": "Object 135",
+    "portable": false,
+    "visible": true,
+    "location": "room-145",
+    "properties": {
+      "osize": 10000
+    },
+    "cIndexTrace": {
+      "objectIndex": 135,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-136",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your chest.",
+    "portable": false,
+    "visible": true,
+    "location": "room-143",
+    "properties": {
+      "oactio": 120,
+      "osize": 100
+    },
+    "cIndexTrace": {
+      "objectIndex": 136,
+      "messageIndex": -14337,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-137",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your chest.",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 121,
+      "osize": 10,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 137,
+      "messageIndex": -14349,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "FOODBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-138",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your neck.",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 122,
+      "osize": 4,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 138,
+      "messageIndex": -14360,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "FOODBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-139",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your neck.",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 122,
+      "osize": 4,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 139,
+      "messageIndex": -14371,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "FOODBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-140",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your neck.",
+    "portable": true,
+    "visible": true,
+    "location": "room-144",
+    "properties": {
+      "oactio": 122,
+      "osize": 4,
+      "consumable": true,
+      "edible": true
+    },
+    "cIndexTrace": {
+      "objectIndex": 140,
+      "messageIndex": -14381,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "FOODBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-141",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now up to your neck.",
+    "portable": false,
+    "visible": true,
+    "location": "room-138",
+    "properties": {
+      "oactio": 30,
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 141,
+      "messageIndex": -14392,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-142",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now over your head.",
+    "portable": true,
+    "visible": true,
+    "location": "room-138",
+    "properties": {
+      "osize": 3,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 142,
+      "messageIndex": -14396,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "object-143",
+    "name": "Object 143",
+    "aliases": [
+      "object 143"
+    ],
+    "description": "Object 143",
+    "portable": false,
+    "visible": true,
+    "location": "room-147",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 143,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-144",
+    "name": "Object 144",
+    "aliases": [
+      "object 144"
+    ],
+    "description": "Object 144",
+    "portable": false,
+    "visible": true,
+    "location": "room-33",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 144,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-145",
+    "name": "Object 145",
+    "aliases": [
+      "object 145"
+    ],
+    "description": "Object 145",
+    "portable": false,
+    "visible": true,
+    "location": "room-123",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 145,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-146",
+    "name": "Object 146",
+    "aliases": [
+      "object 146"
+    ],
+    "description": "Object 146",
+    "portable": false,
+    "visible": true,
+    "location": "room-110",
+    "properties": {
+      "oactio": 37,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 146,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "water-level-is-now-147",
+    "name": "Water Level Is Now",
+    "aliases": [
+      "water level is now",
+      "water",
+      "level",
+      "now"
+    ],
+    "description": "The water level is now high in your lungs.",
+    "portable": true,
+    "visible": true,
+    "location": "room-154",
+    "properties": {
+      "oactio": 32,
+      "ofval": 10,
+      "otval": 15,
+      "osize": 10,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 147,
+      "messageIndex": -14457,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "you-hear-a-scream-148",
+    "name": "You Hear A Scream",
+    "aliases": [
+      "you hear a scream",
+      "you",
+      "hear",
+      "scream"
+    ],
+    "description": "You hear a scream of anguish as you violate the robber's hideaway.\nUsing passages unknown to you, he rushes to its defense.",
+    "portable": true,
+    "visible": true,
+    "location": "room-156",
+    "properties": {
+      "ofval": 10,
+      "otval": 5,
+      "osize": 25,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 148,
+      "messageIndex": -14614,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "object-149",
+    "name": "Object 149",
+    "aliases": [
+      "object 149"
+    ],
+    "description": "Object 149",
+    "portable": false,
+    "visible": true,
+    "location": "room-155",
+    "properties": {
+      "osize": 5,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 149,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-150",
+    "name": "Object 150",
+    "aliases": [
+      "object 150"
+    ],
+    "description": "Object 150",
+    "portable": false,
+    "visible": true,
+    "location": "room-155",
+    "properties": {
+      "oactio": 33,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 150,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "thief-gestures-mysteriously-and-151",
+    "name": "Thief Gestures Mysteriously, And",
+    "aliases": [
+      "thief gestures mysteriously, and",
+      "thief",
+      "gestures",
+      "mysteriously,",
+      "and"
+    ],
+    "description": "The thief gestures mysteriously, and the treasures in the room\nsuddenly vanish.",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 34,
+      "osize": 5,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 151,
+      "messageIndex": -14749,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "thief-gestures-mysteriously-and-152",
+    "name": "Thief Gestures Mysteriously, And",
+    "aliases": [
+      "thief gestures mysteriously, and",
+      "thief",
+      "gestures",
+      "mysteriously,",
+      "and"
+    ],
+    "description": "The thief gestures mysteriously, and the treasures in the room\nsuddenly vanish.",
+    "portable": true,
+    "visible": true,
+    "location": "room-147",
+    "properties": {
+      "osize": 20
+    },
+    "cIndexTrace": {
+      "objectIndex": 152,
+      "messageIndex": -14756,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "thief-gestures-mysteriously-and-153",
+    "name": "Thief Gestures Mysteriously, And",
+    "aliases": [
+      "thief gestures mysteriously, and",
+      "thief",
+      "gestures",
+      "mysteriously,",
+      "and"
+    ],
+    "description": "The thief gestures mysteriously, and the treasures in the room\nsuddenly vanish.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 35,
+      "ofval": 5,
+      "otval": 5,
+      "osize": 6,
+      "isContainer": true,
+      "capacity": 6,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 153,
+      "messageIndex": -14768,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "something-seems-funny-about-154",
+    "name": "Something Seems Funny About",
+    "aliases": [
+      "something seems funny about",
+      "something",
+      "seems",
+      "funny",
+      "about"
+    ],
+    "description": "Something seems funny about the feel of the buoy.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 6,
+      "isContainer": true,
+      "capacity": 6,
+      "acceptsPrepositions": [
+        "in"
+      ]
+    },
+    "cIndexTrace": {
+      "objectIndex": 154,
+      "messageIndex": -14819,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "CONTBT"
+      ]
+    }
+  },
+  {
+    "id": "something-seems-funny-about-155",
+    "name": "Something Seems Funny About",
+    "aliases": [
+      "something seems funny about",
+      "something",
+      "seems",
+      "funny",
+      "about"
+    ],
+    "description": "Something seems funny about the feel of the buoy.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "ofval": 1,
+      "otval": 1,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 155,
+      "messageIndex": -14828,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "something-seems-funny-about-156",
+    "name": "Something Seems Funny About",
+    "aliases": [
+      "something seems funny about",
+      "something",
+      "seems",
+      "funny",
+      "about"
+    ],
+    "description": "Something seems funny about the feel of the buoy.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 36,
+      "ofval": 6,
+      "otval": 2,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 156,
+      "messageIndex": -14836,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "oh-dear-you-seem-157",
+    "name": "Oh Dear, You Seem",
+    "aliases": [
+      "oh dear, you seem",
+      "dear,",
+      "you",
+      "seem"
+    ],
+    "description": "Oh dear, you seem to have gone over Aragain Falls.  Not a very\nsmart thing to do, apparently.",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 36,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 157,
+      "messageIndex": -14872,
+      "flags": [
+        "VISIBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-158",
+    "name": "Object 158",
+    "aliases": [
+      "object 158"
+    ],
+    "description": "Object 158",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 158,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-159",
+    "name": "Object 159",
+    "aliases": [
+      "object 159"
+    ],
+    "description": "Object 159",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 159,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-160",
+    "name": "Object 160",
+    "aliases": [
+      "object 160"
+    ],
+    "description": "Object 160",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 160,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-161",
+    "name": "Object 161",
+    "aliases": [
+      "object 161"
+    ],
+    "description": "Object 161",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 125,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 161,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-162",
+    "name": "Object 162",
+    "aliases": [
+      "object 162"
+    ],
+    "description": "Object 162",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 126,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 162,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-163",
+    "name": "Object 163",
+    "aliases": [
+      "object 163"
+    ],
+    "description": "Object 163",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 126,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 163,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-164",
+    "name": "Object 164",
+    "aliases": [
+      "object 164"
+    ],
+    "description": "Object 164",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 164,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-165",
+    "name": "Object 165",
+    "aliases": [
+      "object 165"
+    ],
+    "description": "Object 165",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 165,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-166",
+    "name": "Object 166",
+    "aliases": [
+      "object 166"
+    ],
+    "description": "Object 166",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "oactio": 41,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 166,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-167",
+    "name": "Object 167",
+    "aliases": [
+      "object 167"
+    ],
+    "description": "Object 167",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 167,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-168",
+    "name": "Object 168",
+    "aliases": [
+      "object 168"
+    ],
+    "description": "Object 168",
+    "portable": false,
+    "visible": true,
+    "location": "room-177",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 168,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-169",
+    "name": "Object 169",
+    "aliases": [
+      "object 169"
+    ],
+    "description": "Object 169",
+    "portable": false,
+    "visible": true,
+    "location": "room-159",
+    "properties": {
+      "oactio": 42,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 169,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-170",
+    "name": "Object 170",
+    "aliases": [
+      "object 170"
+    ],
+    "description": "Object 170",
+    "portable": false,
+    "visible": true,
+    "location": "room-160",
+    "properties": {
+      "oactio": 43,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 170,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-171",
+    "name": "Object 171",
+    "aliases": [
+      "object 171"
+    ],
+    "description": "Object 171",
+    "portable": true,
+    "visible": false,
+    "location": "room-179",
+    "properties": {
+      "oactio": 44,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 171,
+      "messageIndex": 0,
+      "flags": [
+        "TAKEBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-172",
+    "name": "Object 172",
+    "aliases": [
+      "object 172"
+    ],
+    "description": "Object 172",
+    "portable": false,
+    "visible": true,
+    "location": "room-166",
+    "properties": {
+      "oactio": 45,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 172,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-173",
+    "name": "Object 173",
+    "aliases": [
+      "object 173"
+    ],
+    "description": "Object 173",
+    "portable": false,
+    "visible": true,
+    "location": "room-185",
+    "properties": {
+      "oactio": 46,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 173,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-174",
+    "name": "Object 174",
+    "aliases": [
+      "object 174"
+    ],
+    "description": "Object 174",
+    "portable": false,
+    "visible": true,
+    "location": "room-182",
+    "properties": {
+      "oactio": 47,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 174,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "DOORBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-175",
+    "name": "Object 175",
+    "aliases": [
+      "object 175"
+    ],
+    "description": "Object 175",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "oactio": 48,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 175,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-176",
+    "name": "Object 176",
+    "aliases": [
+      "object 176"
+    ],
+    "description": "Object 176",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "oactio": 49,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 176,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-177",
+    "name": "Object 177",
+    "aliases": [
+      "object 177"
+    ],
+    "description": "Object 177",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 177,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-178",
+    "name": "Object 178",
+    "aliases": [
+      "object 178"
+    ],
+    "description": "Object 178",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 178,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-179",
+    "name": "Object 179",
+    "aliases": [
+      "object 179"
+    ],
+    "description": "Object 179",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 179,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-180",
+    "name": "Object 180",
+    "aliases": [
+      "object 180"
+    ],
+    "description": "Object 180",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 180,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-181",
+    "name": "Object 181",
+    "aliases": [
+      "object 181"
+    ],
+    "description": "Object 181",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "oactio": 129,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 181,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-182",
+    "name": "Object 182",
+    "aliases": [
+      "object 182"
+    ],
+    "description": "Object 182",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 182,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-183",
+    "name": "Object 183",
+    "aliases": [
+      "object 183"
+    ],
+    "description": "Object 183",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 183,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-184",
+    "name": "Object 184",
+    "aliases": [
+      "object 184"
+    ],
+    "description": "Object 184",
+    "portable": false,
+    "visible": true,
+    "location": "room-183",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 184,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "you-seem-to-be-185",
+    "name": "You Seem To Be",
+    "aliases": [
+      "you seem to be",
+      "you",
+      "seem"
+    ],
+    "description": "You seem to be digging a hole here.",
+    "portable": true,
+    "visible": true,
+    "location": "room-188",
+    "properties": {
+      "osize": 4,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 185,
+      "messageIndex": -14980,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT",
+        "BURNBT"
+      ]
+    }
+  },
+  {
+    "id": "object-186",
+    "name": "Object 186",
+    "aliases": [
+      "object 186"
+    ],
+    "description": "Object 186",
+    "portable": false,
+    "visible": true,
+    "location": "room-26000",
+    "properties": {
+      "oactio": 52,
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 186,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-surrounded-by-187",
+    "name": "You Are Surrounded By",
+    "aliases": [
+      "you are surrounded by",
+      "you",
+      "are",
+      "surrounded"
+    ],
+    "description": "You are surrounded by a wall of sand on all sides.",
+    "portable": true,
+    "visible": true,
+    "location": "room-18500",
+    "properties": {
+      "ofval": 15,
+      "otval": 10,
+      "osize": 4,
+      "readableText": ""
+    },
+    "cIndexTrace": {
+      "objectIndex": 187,
+      "messageIndex": -15047,
+      "flags": [
+        "VISIBT",
+        "READBT",
+        "TAKEBT"
+      ]
+    }
+  },
+  {
+    "id": "object-188",
+    "name": "Object 188",
+    "aliases": [
+      "object 188"
+    ],
+    "description": "Object 188",
+    "portable": false,
+    "visible": true,
+    "location": "room-26000",
+    "properties": {
+      "osize": 5
+    },
+    "cIndexTrace": {
+      "objectIndex": 188,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-189",
+    "name": "Object 189",
+    "aliases": [
+      "object 189"
+    ],
+    "description": "Object 189",
+    "portable": false,
+    "visible": false,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 189,
+      "messageIndex": 0,
+      "flags": []
+    }
+  },
+  {
+    "id": "object-190",
+    "name": "Object 190",
+    "aliases": [
+      "object 190"
+    ],
+    "description": "Object 190",
+    "portable": false,
+    "visible": false,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 190,
+      "messageIndex": 0,
+      "flags": []
+    }
+  },
+  {
+    "id": "object-191",
+    "name": "Object 191",
+    "aliases": [
+      "object 191"
+    ],
+    "description": "Object 191",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 191,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-192",
+    "name": "Object 192",
+    "aliases": [
+      "object 192"
+    ],
+    "description": "Object 192",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 124,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 192,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-193",
+    "name": "Object 193",
+    "aliases": [
+      "object 193"
+    ],
+    "description": "Object 193",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 193,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-194",
+    "name": "Object 194",
+    "aliases": [
+      "object 194"
+    ],
+    "description": "Object 194",
+    "portable": true,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 194,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "TAKEBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-195",
+    "name": "Object 195",
+    "aliases": [
+      "object 195"
+    ],
+    "description": "Object 195",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 195,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-196",
+    "name": "Object 196",
+    "aliases": [
+      "object 196"
+    ],
+    "description": "Object 196",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 196,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-197",
+    "name": "Object 197",
+    "aliases": [
+      "object 197"
+    ],
+    "description": "Object 197",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 38,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 197,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-198",
+    "name": "Object 198",
+    "aliases": [
+      "object 198"
+    ],
+    "description": "Object 198",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 31,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 198,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT"
+      ]
+    }
+  },
+  {
+    "id": "object-199",
+    "name": "Object 199",
+    "aliases": [
+      "object 199"
+    ],
+    "description": "Object 199",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 199,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "object-200",
+    "name": "Object 200",
+    "aliases": [
+      "object 200"
+    ],
+    "description": "Object 200",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 200,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "TOOLBT"
+      ]
+    }
+  },
+  {
+    "id": "object-201",
+    "name": "Object 201",
+    "aliases": [
+      "object 201"
+    ],
+    "description": "Object 201",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 201,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-202",
+    "name": "Object 202",
+    "aliases": [
+      "object 202"
+    ],
+    "description": "Object 202",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 39,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 202,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-203",
+    "name": "Object 203",
+    "aliases": [
+      "object 203"
+    ],
+    "description": "Object 203",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 203,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-204",
+    "name": "Object 204",
+    "aliases": [
+      "object 204"
+    ],
+    "description": "Object 204",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 204,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-205",
+    "name": "Object 205",
+    "aliases": [
+      "object 205"
+    ],
+    "description": "Object 205",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 205,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-206",
+    "name": "Object 206",
+    "aliases": [
+      "object 206"
+    ],
+    "description": "Object 206",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 206,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-207",
+    "name": "Object 207",
+    "aliases": [
+      "object 207"
+    ],
+    "description": "Object 207",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 40,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 207,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-208",
+    "name": "Object 208",
+    "aliases": [
+      "object 208"
+    ],
+    "description": "Object 208",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 101,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 208,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "TRANBT"
+      ]
+    }
+  },
+  {
+    "id": "object-209",
+    "name": "Object 209",
+    "aliases": [
+      "object 209"
+    ],
+    "description": "Object 209",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 127,
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 209,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "object-210",
+    "name": "Object 210",
+    "aliases": [
+      "object 210"
+    ],
+    "description": "Object 210",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 210,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-211",
+    "name": "Object 211",
+    "aliases": [
+      "object 211"
+    ],
+    "description": "Object 211",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 50,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 211,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-212",
+    "name": "Object 212",
+    "aliases": [
+      "object 212"
+    ],
+    "description": "Object 212",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 51,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 212,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "object-213",
+    "name": "Object 213",
+    "aliases": [
+      "object 213"
+    ],
+    "description": "Object 213",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 213,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  },
+  {
+    "id": "you-are-digging-into-214",
+    "name": "You Are Digging Into",
+    "aliases": [
+      "you are digging into",
+      "you",
+      "are",
+      "digging",
+      "into"
+    ],
+    "description": "You are digging into a pile of bat guano.",
+    "portable": false,
+    "visible": true,
+    "location": "room-178",
+    "properties": {
+      "oactio": 128,
+      "osize": 0,
+      "isNPC": true,
+      "npcState": "idle"
+    },
+    "cIndexTrace": {
+      "objectIndex": 214,
+      "messageIndex": -15236,
+      "flags": [
+        "VISIBT",
+        "VICTBT"
+      ]
+    }
+  },
+  {
+    "id": "object-215",
+    "name": "Object 215",
+    "aliases": [
+      "object 215"
+    ],
+    "description": "Object 215",
+    "portable": false,
+    "visible": true,
+    "location": "void",
+    "properties": {
+      "oactio": 131,
+      "osize": 0
+    },
+    "cIndexTrace": {
+      "objectIndex": 215,
+      "messageIndex": 0,
+      "flags": [
+        "VISIBT",
+        "NDSCBT"
+      ]
+    }
+  }
+]
