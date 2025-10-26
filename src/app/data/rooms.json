@@ -76,11 +76,11 @@
       "conditionalExits": {
         "west": {
           "type": "objectOpen",
-          "objectId": "water",
+          "objectId": "kitchen-window",
           "failureMessage": "The window is closed."
         }
       },
-      "objectIds": ["water"],
+      "objectIds": ["kitchen-window"],
       "visited": false,
       "isDark": false
     },
@@ -210,16 +210,16 @@
       "conditionalExits": {
         "east": {
           "type": "objectOpen",
-          "objectId": "water",
+          "objectId": "kitchen-window",
           "failureMessage": "The window is closed."
         },
         "out": {
           "type": "objectOpen",
-          "objectId": "water",
+          "objectId": "kitchen-window",
           "failureMessage": "The window is closed."
         }
       },
-      "objectIds": ["water", "kitchen-table"],
+      "objectIds": ["kitchen-window", "kitchen-table"],
       "visited": false,
       "isDark": false
     },
