@@ -73,7 +73,14 @@
         "west": "kitchen",
         "east": "clearing"
       },
-      "objectIds": [],
+      "conditionalExits": {
+        "west": {
+          "type": "objectOpen",
+          "objectId": "water",
+          "failureMessage": "The window is closed."
+        }
+      },
+      "objectIds": ["water"],
       "visited": false,
       "isDark": false
     },
@@ -200,7 +207,19 @@
         "up": "attic",
         "down": "studio"
       },
-      "objectIds": [],
+      "conditionalExits": {
+        "east": {
+          "type": "objectOpen",
+          "objectId": "water",
+          "failureMessage": "The window is closed."
+        },
+        "out": {
+          "type": "objectOpen",
+          "objectId": "water",
+          "failureMessage": "The window is closed."
+        }
+      },
+      "objectIds": ["water"],
       "visited": false,
       "isDark": false
     },
@@ -225,6 +244,13 @@
         "east": "kitchen",
         "down": "cellar"
       },
+      "conditionalExits": {
+        "down": {
+          "type": "objectOpen",
+          "objectId": "trap-door",
+          "failureMessage": "The trap door is closed."
+        }
+      },
       "objectIds": [],
       "visited": false,
       "isDark": false
@@ -238,6 +264,13 @@
         "north": "troll-room",
         "south": "east-of-chasm",
         "up": "living-room"
+      },
+      "conditionalExits": {
+        "up": {
+          "type": "objectOpen",
+          "objectId": "trap-door",
+          "failureMessage": "The trap door is closed."
+        }
       },
       "objectIds": [],
       "visited": false,

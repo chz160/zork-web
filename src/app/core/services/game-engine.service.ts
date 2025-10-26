@@ -7,6 +7,7 @@ import {
   CommandOutput,
   Direction,
   ObjectCandidate,
+  ExitCondition,
 } from '../models';
 import { DataLoaderService } from './data-loader.service';
 import { CommandParserService } from './command-parser.service';
@@ -351,8 +352,96 @@ export class GameEngineService {
       };
     }
 
+    // Check if there's a conditional exit (e.g., door that must be open)
+    if (currentRoom.conditionalExits) {
+      const condition = currentRoom.conditionalExits.get(normalizedDir);
+      if (condition) {
+        const conditionResult = this.checkExitCondition(condition);
+        if (!conditionResult.success) {
+          return {
+            messages: [conditionResult.message],
+            success: false,
+            type: 'error',
+          };
+        }
+      }
+    }
+
     this.moveToRoom(nextRoomId);
     return { messages: [], success: true, type: 'description' };
+  }
+
+  /**
+   * Check if an exit condition is satisfied.
+   */
+  private checkExitCondition(condition: ExitCondition): {
+    success: boolean;
+    message: string;
+  } {
+    switch (condition.type) {
+      case 'objectOpen': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const obj = this.gameObjects().get(condition.objectId);
+        if (!obj) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const isOpen = obj.properties?.isOpen ?? false;
+        if (!isOpen) {
+          return {
+            success: false,
+            message: condition.failureMessage || `The ${obj.name} is closed.`,
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'objectClosed': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const obj = this.gameObjects().get(condition.objectId);
+        if (!obj) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const isOpen = obj.properties?.isOpen ?? false;
+        if (isOpen) {
+          return {
+            success: false,
+            message: condition.failureMessage || `The ${obj.name} is open.`,
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'hasObject': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const hasObject = this.playerState().inventory.includes(condition.objectId);
+        if (!hasObject) {
+          return {
+            success: false,
+            message: condition.failureMessage || 'You need something to proceed.',
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'flag': {
+        if (!condition.flag) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const flagValue = this.playerState().flags.get(condition.flag) ?? false;
+        if (!flagValue) {
+          return {
+            success: false,
+            message: condition.failureMessage || "You can't go that way.",
+          };
+        }
+        return { success: true, message: '' };
+      }
+      default:
+        return { success: false, message: "You can't go that way." };
+    }
   }
 
   /**

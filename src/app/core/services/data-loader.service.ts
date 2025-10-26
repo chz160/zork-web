@@ -1,7 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Room, GameObject, Direction } from '../models';
+import { Room, GameObject, Direction, ExitCondition } from '../models';
 import roomsData from '../../data/rooms.json';
 import objectsData from '../../data/objects.json';
+
+/**
+ * Interface for exit condition from JSON files.
+ */
+interface ExitConditionJson {
+  type: 'objectOpen' | 'objectClosed' | 'hasObject' | 'flag';
+  objectId?: string;
+  flag?: string;
+  failureMessage?: string;
+}
 
 /**
  * Interface for raw room data from JSON files.
@@ -16,6 +26,7 @@ interface RoomJson {
   objectIds: string[];
   visited: boolean;
   isDark?: boolean;
+  conditionalExits?: Record<string, ExitConditionJson>;
 }
 
 /**
@@ -73,6 +84,15 @@ export class DataLoaderService {
       exitsMap.set(direction as Direction, targetRoomId);
     });
 
+    // Convert conditional exits if present
+    let conditionalExitsMap: Map<Direction, ExitCondition> | undefined;
+    if (roomJson.conditionalExits) {
+      conditionalExitsMap = new Map<Direction, ExitCondition>();
+      Object.entries(roomJson.conditionalExits).forEach(([direction, condition]) => {
+        conditionalExitsMap!.set(direction as Direction, condition);
+      });
+    }
+
     return {
       id: roomJson.id,
       name: roomJson.name,
@@ -81,6 +101,7 @@ export class DataLoaderService {
       exits: exitsMap,
       objectIds: roomJson.objectIds,
       visited: roomJson.visited,
+      conditionalExits: conditionalExitsMap,
     };
   }
 }
