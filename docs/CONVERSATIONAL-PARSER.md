@@ -1185,6 +1185,11 @@ console.log('Parser enhancements:', currentFlags['COMMAND_PARSER_ENHANCEMENTS'])
 
 Feature flags are automatically persisted to `localStorage` under the key `zork_feature_flags`. This ensures settings survive page refreshes and persist across sessions.
 
+**Fallback Behavior:**
+- If `localStorage` is unavailable (private browsing, server-side rendering), flags remain in memory only
+- Service continues to work normally but settings won't persist across page reloads
+- No errors are thrown - the service handles unavailability gracefully
+
 **Clear Stored Flags:**
 ```typescript
 featureFlags.clearStorage();
@@ -1213,7 +1218,17 @@ if (user.isBetaTester) {
 }
 
 // Phase 3: Gradual rollout (25% -> 50% -> 100%)
-const shouldEnable = Math.random() < 0.25; // 25% rollout
+// Use consistent hash of user ID for stable assignment (not Math.random())
+const hashCode = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  return Math.abs(hash);
+};
+const userBucket = hashCode(user.id) % 100; // 0-99
+const shouldEnable = userBucket < 25; // 25% of users consistently
 featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, shouldEnable);
 
 // Phase 4: Full deployment (100%)
@@ -1253,8 +1268,9 @@ featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, false);
 
 Allow players to opt-in/opt-out:
 
+**Angular Implementation:**
 ```typescript
-// In settings UI
+// In settings component (Angular-specific syntax)
 <label>
   <input
     type="checkbox"
@@ -1268,6 +1284,18 @@ toggleEnhancements(event: Event) {
   const enabled = (event.target as HTMLInputElement).checked;
   this.featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, enabled);
 }
+```
+
+**Framework-Agnostic Implementation:**
+```typescript
+// Plain JavaScript/TypeScript
+const checkbox = document.querySelector('#enhance-parser') as HTMLInputElement;
+checkbox.checked = featureFlags.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS);
+
+checkbox.addEventListener('change', (event) => {
+  const enabled = (event.target as HTMLInputElement).checked;
+  featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, enabled);
+});
 ```
 
 ### Monitoring and Metrics
@@ -1537,15 +1565,22 @@ All UI components implement full WCAG 2.1 AA compliance:
 - Autocorrect UI: Blocking (waits for user)
 
 **Telemetry Performance:**
-- Event logging: Non-blocking (< 0.1ms)
+- Event logging: Non-blocking (< 0.1ms per event)
 - Analytics computation: 5-10ms (on-demand)
-- Memory: ~10KB per 1000 events
+- Memory: ~10KB per 1000 events (all event types: parse, execution, UI interactions - uncompressed in-memory storage)
 
 **Optimization Tips:**
-- Use `fail-early` policy for critical sequences
-- Limit multi-command chains to 5-7 commands
-- Clear telemetry periodically in long sessions
-- Disable telemetry in performance-critical contexts
+- Use `fail-early` policy for critical sequences to stop execution on first error
+- Limit multi-command chains to 5-7 commands for optimal UX
+- Clear telemetry periodically in long sessions: `telemetry.clearEvents()`
+- Disable telemetry in performance-critical contexts:
+  ```typescript
+  // Disable telemetry collection
+  telemetry.setPrivacyConfig({ enabled: false });
+  
+  // Re-enable after performance-critical section
+  telemetry.setPrivacyConfig({ enabled: true });
+  ```
 
 ## Contributing
 
