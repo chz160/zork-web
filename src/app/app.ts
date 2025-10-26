@@ -7,6 +7,7 @@ import { GameService } from './core/services/game.service';
 import { GameEngineService } from './core/services/game-engine.service';
 import { DisambiguationComponent } from './ui/disambiguation/disambiguation';
 import { AutocorrectConfirmationComponent } from './ui/autocorrect-confirmation/autocorrect-confirmation';
+import { InventoryComponent } from './ui/inventory/inventory';
 import { ObjectCandidate } from './core/models';
 
 type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
@@ -20,6 +21,7 @@ type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
     CommonModule,
     DisambiguationComponent,
     AutocorrectConfirmationComponent,
+    InventoryComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

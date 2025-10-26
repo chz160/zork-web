@@ -155,9 +155,22 @@
   .console-wrapper {
     flex: 1 1 auto;
     min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--zork-spacing-sm);
+    overflow: hidden;
+  }
+
+  .game-main {
     display: flex;
     flex-direction: column;
     gap: var(--zork-spacing-sm);
+    min-width: 0;
+  }
+
+  .inventory-sidebar {
+    min-width: 0;
+    max-height: 100%;
     overflow: hidden;
   }
 
@@ -182,6 +195,20 @@
 
     .control-label {
       min-width: auto;
+    }
+
+    .console-wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .inventory-sidebar {
+      grid-row: 1;
+      max-height: 40vh;
+    }
+
+    .game-main {
+      grid-row: 2 / 4;
     }
   }
 
@@ -262,8 +289,13 @@
   }
 
   <div class="console-wrapper">
-    <app-console />
-    <app-input />
+    <div class="game-main">
+      <app-console />
+      <app-input />
+    </div>
+    <aside class="inventory-sidebar">
+      <app-inventory />
+    </aside>
   </div>
 
   <!-- Disambiguation UI -->

@@ -1,0 +1,140 @@
+<div
+  class="inventory-panel"
+  role="region"
+  [attr.aria-label]="getAriaLabel()"
+  [class.inventory-panel--expanded]="isExpanded()"
+  [class.inventory-panel--collapsed]="!isExpanded()"
+>
+  <!-- Header with toggle button -->
+  <div class="inventory-header">
+    <h2 class="inventory-title">Inventory ({{ itemCount() }})</h2>
+    <button
+      class="inventory-toggle"
+      type="button"
+      [attr.aria-label]="isExpanded() ? 'Collapse inventory' : 'Expand inventory'"
+      [attr.aria-expanded]="isExpanded()"
+      (click)="toggleExpanded()"
+    >
+      {{ isExpanded() ? '▼' : '▶' }}
+    </button>
+  </div>
+
+  <!-- Inventory content (shown when expanded) -->
+  @if (isExpanded()) {
+    <div class="inventory-content">
+      @if (isEmpty()) {
+        <!-- Empty state -->
+        <p class="inventory-empty">{{ getEmptyMessage() }}</p>
+      } @else {
+        <!-- Item list -->
+        <ul class="inventory-list" role="list">
+          @for (item of inventoryItems(); track trackById($index, item); let i = $index) {
+            <li
+              class="inventory-item"
+              [class.inventory-item--selected]="selectedItem()?.id === item.id"
+              [attr.data-item-index]="i"
+              tabindex="0"
+              role="button"
+              [attr.aria-label]="item.name"
+              (click)="selectItem(item)"
+              (keydown)="onKeyDown($event, item, i)"
+            >
+              <span class="inventory-item-name">{{ item.name }}</span>
+              @if (item.properties?.isLit) {
+                <span class="inventory-item-badge" title="Lit">🔥</span>
+              }
+              @if (item.properties?.isOpen) {
+                <span class="inventory-item-badge" title="Open">📂</span>
+              }
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  }
+
+  <!-- Item detail panel (shown when item is selected) -->
+  @if (selectedItem()) {
+    <div
+      class="inventory-detail"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="'Details for ' + selectedItem()!.name"
+    >
+      <div class="inventory-detail-overlay" (click)="clearSelection()"></div>
+      <div class="inventory-detail-content">
+        <div class="inventory-detail-header">
+          <h3 class="inventory-detail-title">{{ selectedItem()!.name }}</h3>
+          <button
+            class="inventory-detail-close"
+            type="button"
+            aria-label="Close details"
+            (click)="clearSelection()"
+          >
+            ×
+          </button>
+        </div>
+
+        <p class="inventory-detail-description">
+          {{ selectedItem()!.description }}
+        </p>
+
+        <!-- Item properties -->
+        @if (selectedItem()!.properties) {
+          <div class="inventory-detail-properties">
+            @if (selectedItem()!.properties?.isLight) {
+              <span class="inventory-detail-property">
+                Light source
+                @if (selectedItem()!.properties?.isLit) {
+                  <span class="inventory-detail-status">(lit)</span>
+                } @else {
+                  <span class="inventory-detail-status">(not lit)</span>
+                }
+              </span>
+            }
+            @if (selectedItem()!.properties?.isOpen !== undefined) {
+              <span class="inventory-detail-property">
+                Container
+                @if (selectedItem()!.properties?.isOpen) {
+                  <span class="inventory-detail-status">(open)</span>
+                } @else {
+                  <span class="inventory-detail-status">(closed)</span>
+                }
+              </span>
+            }
+            @if (selectedItem()!.properties?.isLocked !== undefined) {
+              <span class="inventory-detail-property">
+                @if (selectedItem()!.properties?.isLocked) {
+                  <span class="inventory-detail-status">Locked</span>
+                } @else {
+                  <span class="inventory-detail-status">Unlocked</span>
+                }
+              </span>
+            }
+          </div>
+        }
+
+        <!-- Available actions -->
+        <div class="inventory-detail-actions">
+          <h4 class="inventory-detail-actions-title">Actions:</h4>
+          <div class="inventory-detail-actions-list">
+            @for (action of getAvailableActions(selectedItem()!); track action) {
+              <button
+                class="inventory-action-button"
+                type="button"
+                [attr.aria-label]="action + ' ' + selectedItem()!.name"
+                (click)="executeAction(selectedItem()!, action)"
+              >
+                {{ action }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="inventory-detail-footer">
+          <p class="inventory-detail-hint">Click an action or press Esc to close</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>
