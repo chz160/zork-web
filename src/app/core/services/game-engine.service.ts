@@ -1187,7 +1187,7 @@ export class GameEngineService {
     // Search in current room and inventory with exact matching
     for (const obj of this.gameObjects().values()) {
       const nameMatch = obj.name.toLowerCase() === lowerName;
-      const aliasMatch = obj.aliases.some((alias) => alias.toLowerCase() === lowerName);
+      const aliasMatch = obj.aliases?.some((alias) => alias.toLowerCase() === lowerName) ?? false;
 
       if (nameMatch || aliasMatch) {
         // Check if object is in current room or inventory
@@ -1220,7 +1220,7 @@ export class GameEngineService {
       if (!obj) continue;
 
       const nameMatch = obj.name.toLowerCase() === lowerName;
-      const aliasMatch = obj.aliases.some((alias) => alias.toLowerCase() === lowerName);
+      const aliasMatch = obj.aliases?.some((alias) => alias.toLowerCase() === lowerName) ?? false;
 
       if (nameMatch || aliasMatch) {
         return obj;
