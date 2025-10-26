@@ -6,8 +6,11 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 - DOS-style terminal interface
 - Command-based text adventure gameplay
+- **Interactive inventory panel** with object inspection and actions
 - Game state saved in browser's storage
 - Classic Zork-inspired world to explore
+- Accessible keyboard navigation and screen reader support
+- Responsive design for desktop and mobile devices
 
 ## Documentation Resources
 
@@ -81,6 +84,50 @@ npm run build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. The production build is optimized for performance and speed.
+
+## Using the Game
+
+### Playing Zork
+
+Type commands in the input field at the bottom of the screen to interact with the game world. Common commands include:
+
+- **Navigation**: `north`, `south`, `east`, `west`, `up`, `down` (or `n`, `s`, `e`, `w`, `u`, `d`)
+- **Looking**: `look`, `examine [object]`
+- **Inventory**: `inventory` (or `i`), `take [object]`, `drop [object]`
+- **Objects**: `open [object]`, `close [object]`, `read [object]`, `use [object]`
+- **Help**: `help` (displays available commands)
+
+### Inventory Panel
+
+The inventory panel is displayed on the right side of the screen (or at the top on mobile devices) and provides a visual way to interact with your carried items.
+
+#### Features:
+- **Collapsible Panel**: Click the arrow button to expand or collapse the inventory
+- **Item List**: Shows all items currently in your inventory with visual indicators
+  - 🔥 - Item is lit (for light sources)
+  - 📂 - Container is open
+- **Item Selection**: Click on any item to view its details and available actions
+- **Item Actions**: When an item is selected, you can:
+  - **Examine**: View the item's description
+  - **Drop**: Place the item in the current location
+  - **Use**: Interact with the item
+  - **Light/Extinguish**: For light sources (lamp, matches, etc.)
+  - **Read**: For readable items (books, leaflets, etc.)
+  - Context-specific actions based on item properties
+
+#### Keyboard Navigation:
+- **Tab**: Navigate through items
+- **Enter/Space**: Select an item to view details
+- **Arrow Up/Down**: Move between items in the list
+- **Escape**: Close the detail view
+
+#### Accessibility:
+- Full keyboard navigation support
+- ARIA labels and roles for screen readers
+- High contrast mode support
+- Reduced motion support for users with motion sensitivity
+
+The inventory panel updates automatically as you pick up or drop items during gameplay, providing a real-time view of your possessions.
 
 ## Development
 
