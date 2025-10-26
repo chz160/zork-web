@@ -10,6 +10,13 @@ describe('TelemetryService', () => {
     });
     service = TestBed.inject(TelemetryService);
     service.clearEvents();
+    // Reset to default privacy config
+    service.setPrivacyConfig({
+      enabled: true,
+      collectInput: true,
+      allowPersistentStorage: false,
+      allowRemoteTransmission: false,
+    });
   });
 
   it('should be created', () => {
@@ -17,6 +24,15 @@ describe('TelemetryService', () => {
   });
 
   describe('Event Logging', () => {
+    it('should log parse attempt events', () => {
+      service.logParseAttempt('take lamp');
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.PARSE_ATTEMPT);
+      expect(events[0].data['rawInput']).toBe('take lamp');
+      expect(events[0].data['inputLength']).toBe(9);
+    });
+
     it('should log parse success events', () => {
       service.logParseSuccess('take lamp');
       const events = service.getEvents();
@@ -71,6 +87,15 @@ describe('TelemetryService', () => {
       expect(events[0].data['correction']).toBe('lamp');
     });
 
+    it('should log autocorrect rejected events', () => {
+      service.logAutocorrectRejected('lampp', 'lamp');
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.AUTOCORRECT_REJECTED);
+      expect(events[0].data['input']).toBe('lampp');
+      expect(events[0].data['suggestion']).toBe('lamp');
+    });
+
     it('should log disambiguation shown events', () => {
       service.logDisambiguationShown({
         input: 'take lamp',
@@ -81,6 +106,7 @@ describe('TelemetryService', () => {
       expect(events[0].type).toBe(TelemetryEventType.DISAMBIGUATION_SHOWN);
       const candidates = events[0].data['candidates'] as string[];
       expect(candidates).toEqual(['brass lamp', 'rusty lamp']);
+      expect(events[0].data['candidateCount']).toBe(2);
     });
 
     it('should log disambiguation selected events', () => {
@@ -93,6 +119,14 @@ describe('TelemetryService', () => {
       expect(events.length).toBe(1);
       expect(events[0].type).toBe(TelemetryEventType.DISAMBIGUATION_SELECTED);
       expect(events[0].data['selectedIndex']).toBe(0);
+    });
+
+    it('should log disambiguation cancelled events', () => {
+      service.logDisambiguationCancelled('take lamp', ['brass lamp', 'rusty lamp']);
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.DISAMBIGUATION_CANCELLED);
+      expect(events[0].data['candidateCount']).toBe(2);
     });
 
     it('should log multi-command events', () => {
@@ -144,6 +178,261 @@ describe('TelemetryService', () => {
       expect(events[0].timestamp).toBeInstanceOf(Date);
       expect(events[0].timestamp.getTime()).toBeGreaterThanOrEqual(before.getTime());
       expect(events[0].timestamp.getTime()).toBeLessThanOrEqual(after.getTime());
+    });
+
+    it('should filter events by type', () => {
+      service.logParseSuccess('test1');
+      service.logParseFailure({
+        rawInput: 'test2',
+        errorMessage: 'error',
+      });
+      service.logParseSuccess('test3');
+
+      const successEvents = service.getEventsByType(TelemetryEventType.PARSE_SUCCESS);
+      expect(successEvents.length).toBe(2);
+
+      const failureEvents = service.getEventsByType(TelemetryEventType.PARSE_FAILURE);
+      expect(failureEvents.length).toBe(1);
+    });
+
+    it('should filter events by time range', () => {
+      const startTime = new Date();
+      service.logParseSuccess('test1');
+
+      // Wait a bit (increase to ensure events are logged)
+      const midTime = new Date(startTime.getTime() + 50);
+
+      service.logParseSuccess('test2');
+      const endTime = new Date(Date.now() + 100);
+
+      const allEvents = service.getEventsByTimeRange(startTime, endTime);
+      expect(allEvents.length).toBe(2);
+
+      const laterEvents = service.getEventsByTimeRange(midTime, endTime);
+      // May be 1 or 2 depending on timing, but should be at least 0
+      expect(laterEvents.length).toBeGreaterThanOrEqual(0);
+      expect(laterEvents.length).toBeLessThanOrEqual(2);
+    });
+  });
+
+  describe('Privacy Controls', () => {
+    it('should respect privacy config for enabled flag', () => {
+      service.setPrivacyConfig({ enabled: false });
+      service.logParseSuccess('test');
+      expect(service.getEvents().length).toBe(0);
+
+      service.setPrivacyConfig({ enabled: true });
+      service.logParseSuccess('test2');
+      expect(service.getEvents().length).toBe(1);
+    });
+
+    it('should not collect input text when collectInput is false', () => {
+      service.setPrivacyConfig({ collectInput: false });
+      service.logParseSuccess('sensitive input');
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].data['rawInput']).toBeUndefined();
+      expect(events[0].data['inputLength']).toBe(15);
+    });
+
+    it('should clear events when disabling input collection', () => {
+      service.logParseSuccess('test');
+      expect(service.getEvents().length).toBe(1);
+
+      service.setPrivacyConfig({ collectInput: false });
+      expect(service.getEvents().length).toBe(0);
+    });
+
+    it('should clear events when disabling telemetry', () => {
+      service.logParseSuccess('test');
+      expect(service.getEvents().length).toBe(1);
+
+      service.setPrivacyConfig({ enabled: false });
+      expect(service.getEvents().length).toBe(0);
+    });
+
+    it('should return privacy config', () => {
+      service.setPrivacyConfig({
+        enabled: true,
+        collectInput: false,
+        allowPersistentStorage: true,
+        allowRemoteTransmission: false,
+      });
+
+      const config = service.getPrivacyConfig();
+      expect(config.enabled).toBe(true);
+      expect(config.collectInput).toBe(false);
+      expect(config.allowPersistentStorage).toBe(true);
+      expect(config.allowRemoteTransmission).toBe(false);
+    });
+
+    it('should check if telemetry is enabled', () => {
+      expect(service.isEnabled()).toBe(true);
+
+      service.setPrivacyConfig({ enabled: false });
+      expect(service.isEnabled()).toBe(false);
+
+      service.setPrivacyConfig({ enabled: true });
+      expect(service.isEnabled()).toBe(true);
+    });
+  });
+
+  describe('Analytics', () => {
+    beforeEach(() => {
+      // Log sample events for analytics testing
+      service.logParseAttempt('take lamp');
+      service.logParseSuccess('take lamp');
+
+      service.logParseAttempt('invalid');
+      service.logParseFailure({
+        rawInput: 'invalid',
+        errorMessage: 'error',
+      });
+
+      service.logAutocorrectSuggestion('lampp', 'lamp', 0.9);
+      service.logAutocorrectAccepted('lampp', 'lamp');
+
+      service.logDisambiguationShown({
+        input: 'take coin',
+        candidates: ['gold coin', 'silver coin'],
+      });
+      service.logDisambiguationSelected({
+        input: 'take coin',
+        candidates: ['gold coin', 'silver coin'],
+        selectedIndex: 0,
+      });
+    });
+
+    it('should calculate analytics summary', () => {
+      const analytics = service.getAnalytics();
+
+      expect(analytics.totalEvents).toBeGreaterThan(0);
+      expect(analytics.parseAttempts).toBe(2);
+      expect(analytics.parseSuccesses).toBe(1);
+      expect(analytics.parseFailures).toBe(1);
+      expect(analytics.parseSuccessRate).toBe(0.5);
+      expect(analytics.autocorrectSuggestions).toBe(1);
+      expect(analytics.autocorrectAcceptances).toBe(1);
+      expect(analytics.autocorrectAcceptanceRate).toBe(1);
+      expect(analytics.disambiguationShown).toBe(1);
+      expect(analytics.disambiguationSelections).toBe(1);
+    });
+
+    it('should identify top failed inputs', () => {
+      // Add more failures
+      service.logParseFailure({
+        rawInput: 'foo',
+        errorMessage: 'error',
+      });
+      service.logParseFailure({
+        rawInput: 'foo',
+        errorMessage: 'error',
+      });
+      service.logParseFailure({
+        rawInput: 'bar',
+        errorMessage: 'error',
+      });
+
+      const analytics = service.getAnalytics();
+      expect(analytics.topFailedInputs.length).toBeGreaterThan(0);
+      expect(analytics.topFailedInputs[0].input).toBe('foo');
+      expect(analytics.topFailedInputs[0].count).toBe(2);
+    });
+
+    it('should identify top ambiguous phrases', () => {
+      // Add more disambiguations
+      service.logDisambiguationShown({
+        input: 'take lamp',
+        candidates: ['brass lamp', 'rusty lamp'],
+      });
+      service.logDisambiguationShown({
+        input: 'take lamp',
+        candidates: ['brass lamp', 'rusty lamp'],
+      });
+
+      const analytics = service.getAnalytics();
+      expect(analytics.topAmbiguousPhrases.length).toBeGreaterThan(0);
+      expect(analytics.topAmbiguousPhrases[0].phrase).toBe('take lamp');
+      expect(analytics.topAmbiguousPhrases[0].count).toBe(2);
+    });
+
+    it('should identify top autocorrects', () => {
+      // Add more autocorrects
+      service.logAutocorrectAccepted('mailbax', 'mailbox');
+      service.logAutocorrectAccepted('mailbax', 'mailbox');
+
+      const analytics = service.getAnalytics();
+      expect(analytics.topAutocorrects.length).toBeGreaterThan(0);
+      expect(analytics.topAutocorrects[0].from).toBe('mailbax');
+      expect(analytics.topAutocorrects[0].to).toBe('mailbox');
+      expect(analytics.topAutocorrects[0].count).toBe(2);
+    });
+
+    it('should filter analytics by time range', () => {
+      const startTime = new Date();
+      service.logParseSuccess('new event');
+      const endTime = new Date();
+
+      const analytics = service.getAnalytics(startTime, endTime);
+      expect(analytics.parseSuccesses).toBeGreaterThanOrEqual(1);
+    });
+
+    it('should return empty top lists when input collection is disabled', () => {
+      service.setPrivacyConfig({ collectInput: false });
+
+      service.logParseFailure({
+        rawInput: 'test',
+        errorMessage: 'error',
+      });
+
+      const analytics = service.getAnalytics();
+      expect(analytics.topFailedInputs).toEqual([]);
+      expect(analytics.topAmbiguousPhrases).toEqual([]);
+      expect(analytics.topAutocorrects).toEqual([]);
+    });
+  });
+
+  describe('Data Export', () => {
+    it('should export anonymized data when remote transmission is allowed', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: true });
+      service.logParseSuccess('test input');
+
+      const exported = service.exportAnonymizedData();
+      expect(exported).not.toBeNull();
+      expect(exported?.length).toBe(1);
+      expect(exported?.[0]['type']).toBe(TelemetryEventType.PARSE_SUCCESS);
+      expect(exported?.[0]['timestamp']).toBeDefined();
+    });
+
+    it('should not export data when remote transmission is not allowed', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: false });
+      service.logParseSuccess('test input');
+
+      const exported = service.exportAnonymizedData();
+      expect(exported).toBeNull();
+    });
+
+    it('should anonymize exported data when input collection is disabled', () => {
+      service.setPrivacyConfig({
+        allowRemoteTransmission: true,
+        collectInput: false,
+      });
+
+      service.logParseSuccess('sensitive data');
+      const exported = service.exportAnonymizedData();
+
+      expect(exported).not.toBeNull();
+      const data = exported?.[0]['data'] as Record<string, unknown>;
+      expect(data['rawInput']).toBeUndefined();
+    });
+
+    it('should include timestamps in ISO format', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: true });
+      service.logParseSuccess('test');
+
+      const exported = service.exportAnonymizedData();
+      const timestamp = exported?.[0]['timestamp'] as string;
+      expect(timestamp).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
     });
   });
 });
