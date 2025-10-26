@@ -81,25 +81,274 @@ When multiple objects match a query, the parser presents candidates for selectio
 - `1st coin`, `2nd coin`, `3rd coin` - numeric ordinals
 - `first lamp`, `second lamp`, `third lamp` - word ordinals
 
-### 4. Telemetry and Analytics
+### 4. Telemetry, Privacy, and Analytics
 
-All parser interactions are logged for analysis and improvement:
+All parser interactions are logged for analysis and improvement, with comprehensive privacy controls and analytics.
+
+#### Event Logging
 
 **Events Logged:**
+- `parse.attempt` - when parsing begins (before success/failure)
 - `parse_success` / `parse_failure` - command parsing outcomes
 - `fuzzy_match` - fuzzy matching attempts with scores
 - `autocorrect_suggestion` - suggestions offered to player
 - `autocorrect_accepted` - when fuzzy match is accepted
+- `autocorrect.rejected` - when user declines autocorrect suggestion
 - `disambiguation_shown` - when multiple candidates are presented
 - `disambiguation_selected` - player's choice from candidates
+- `disambiguation.cancelled` - when user cancels disambiguation
 - `multi_command` - multi-command execution metadata
 - `ordinal_selection` - ordinal-based object selection
+- `commandDispatcher.*` - dispatcher lifecycle events (started, commandExecuted, completed, error)
 
-**Use Cases:**
-- Identify common typos and add aliases
-- Measure parser accuracy and improvement
-- Understand player behavior and command patterns
-- Debug parsing issues in production
+Each event includes:
+- **Event type**: Categorized event identifier
+- **Timestamp**: Precise time of occurrence
+- **Event data**: Context-specific information (input length, scores, candidates, etc.)
+
+#### Privacy Controls
+
+The telemetry system implements privacy-first design with comprehensive controls:
+
+**Privacy Configuration:**
+```typescript
+interface TelemetryPrivacyConfig {
+  enabled: boolean;                    // Master on/off switch
+  collectInput: boolean;               // Collect user input text (may contain PII)
+  allowPersistentStorage: boolean;     // Allow storage beyond session
+  allowRemoteTransmission: boolean;    // Allow export/transmission of data
+}
+```
+
+**Default Settings (Privacy-Safe):**
+- ✅ Telemetry enabled
+- ✅ Input collection enabled (for analytics)
+- ❌ Persistent storage disabled (memory-only)
+- ❌ Remote transmission disabled (no export without consent)
+
+**Configuration Example:**
+```typescript
+// Opt out of telemetry entirely
+telemetry.setPrivacyConfig({ enabled: false });
+
+// Collect events but not user input (PII protection)
+telemetry.setPrivacyConfig({ collectInput: false });
+
+// Enable data export for ML training (requires explicit consent)
+telemetry.setPrivacyConfig({ allowRemoteTransmission: true });
+
+// Check current settings
+const config = telemetry.getPrivacyConfig();
+console.log('Telemetry enabled:', config.enabled);
+```
+
+**PII Protection:**
+- When `collectInput` is false, user input text is not stored
+- Input length is still recorded for aggregate statistics
+- All other event data (scores, candidates, timestamps) are collected
+- Export anonymizes data by removing input fields when configured
+
+**Data Retention:**
+- Events stored in memory only by default
+- Cleared on page refresh unless persistent storage is enabled
+- Can be manually cleared with `clearEvents()`
+- Automatically cleared when privacy settings change
+
+#### Analytics API
+
+The telemetry service provides comprehensive analytics for UX insights:
+
+**Summary Statistics:**
+```typescript
+const analytics = telemetry.getAnalytics();
+
+// Parse metrics
+console.log(`Parse success rate: ${analytics.parseSuccessRate * 100}%`);
+console.log(`Total parse attempts: ${analytics.parseAttempts}`);
+console.log(`Parse failures: ${analytics.parseFailures}`);
+
+// Autocorrect metrics
+console.log(`Autocorrect acceptance rate: ${analytics.autocorrectAcceptanceRate * 100}%`);
+console.log(`Autocorrect suggestions: ${analytics.autocorrectSuggestions}`);
+console.log(`Autocorrect acceptances: ${analytics.autocorrectAcceptances}`);
+console.log(`Autocorrect rejections: ${analytics.autocorrectRejections}`);
+
+// Disambiguation metrics
+console.log(`Disambiguation prompts: ${analytics.disambiguationShown}`);
+console.log(`Disambiguation selections: ${analytics.disambiguationSelections}`);
+console.log(`Disambiguation cancellations: ${analytics.disambiguationCancellations}`);
+
+// Other metrics
+console.log(`Multi-command inputs: ${analytics.multiCommands}`);
+console.log(`Ordinal selections: ${analytics.ordinalSelections}`);
+```
+
+**Top Failures and Patterns:**
+```typescript
+const analytics = telemetry.getAnalytics();
+
+// Most common parse failures (requires collectInput: true)
+analytics.topFailedInputs.forEach(({ input, count }) => {
+  console.log(`"${input}" failed ${count} times`);
+});
+
+// Most ambiguous phrases (requires collectInput: true)
+analytics.topAmbiguousPhrases.forEach(({ phrase, count }) => {
+  console.log(`"${phrase}" triggered disambiguation ${count} times`);
+});
+
+// Most common autocorrects (requires collectInput: true)
+analytics.topAutocorrects.forEach(({ from, to, count }) => {
+  console.log(`"${from}" → "${to}": ${count} times`);
+});
+```
+
+**Time-Range Filtering:**
+```typescript
+// Analyze last hour
+const oneHourAgo = new Date(Date.now() - 3600000);
+const now = new Date();
+const recentAnalytics = telemetry.getAnalytics(oneHourAgo, now);
+
+// Analyze specific session
+const sessionStart = new Date('2025-10-26T10:00:00Z');
+const sessionEnd = new Date('2025-10-26T11:00:00Z');
+const sessionAnalytics = telemetry.getAnalytics(sessionStart, sessionEnd);
+```
+
+**Querying Events:**
+```typescript
+// Get all events
+const allEvents = telemetry.getEvents();
+
+// Filter by event type
+const failures = telemetry.getEventsByType(TelemetryEventType.PARSE_FAILURE);
+const disambiguations = telemetry.getEventsByType(TelemetryEventType.DISAMBIGUATION_SHOWN);
+
+// Filter by time range
+const startTime = new Date('2025-10-26T10:00:00Z');
+const endTime = new Date('2025-10-26T11:00:00Z');
+const eventsInRange = telemetry.getEventsByTimeRange(startTime, endTime);
+```
+
+#### ML Readiness and Data Export
+
+The telemetry system supports future machine learning integration with anonymized data export.
+
+**Export Format:**
+```typescript
+// Enable export (requires explicit consent)
+telemetry.setPrivacyConfig({ allowRemoteTransmission: true });
+
+// Export anonymized data
+const exportedData = telemetry.exportAnonymizedData();
+
+// Returns array of events:
+[
+  {
+    type: 'parse_success',
+    timestamp: '2025-10-26T15:30:00.123Z',
+    data: {
+      rawInput: 'take lamp',      // Only if collectInput: true
+      inputLength: 9
+    }
+  },
+  {
+    type: 'autocorrect_accepted',
+    timestamp: '2025-10-26T15:31:00.456Z',
+    data: {
+      input: 'lampp',             // Only if collectInput: true
+      correction: 'lamp'
+    }
+  }
+  // ... more events
+]
+```
+
+**Anonymization:**
+- When `collectInput: false`, input text is removed from export
+- Input length and other metadata are preserved
+- Timestamps are converted to ISO 8601 strings
+- Event types and data structures remain intact
+
+**ML Training Use Cases:**
+- Intent classification from user input patterns
+- Autocorrect suggestion improvement
+- Disambiguation candidate ranking
+- Command success prediction
+- Parser error prediction and prevention
+- User behavior modeling for adaptive UX
+
+**Export Safety:**
+- Export blocked unless `allowRemoteTransmission: true`
+- Console warning displayed when export is blocked
+- Returns `null` when remote transmission is not allowed
+- Requires explicit user consent before enabling
+
+**Future ML Integration:**
+The exported data format is designed to support:
+1. **Supervised learning**: Labeled parse attempts with success/failure outcomes
+2. **Reinforcement learning**: User selections from disambiguation candidates
+3. **Transfer learning**: Pre-trained models fine-tuned on game-specific patterns
+4. **Online learning**: Incremental model updates from session data
+5. **A/B testing**: Compare parser versions with telemetry metrics
+
+#### Use Cases
+
+**For Designers:**
+- Identify common player mistakes and typos
+- Discover ambiguous object names needing better aliases
+- Measure impact of parser improvements over time
+- Understand most/least successful command patterns
+- Optimize autocorrect confidence thresholds
+
+**For Developers:**
+- Debug parser behavior in production
+- Validate new features with real usage data
+- Track performance metrics (parse success rate)
+- Identify edge cases for additional test coverage
+- Monitor error rates and failure patterns
+
+**For ML Engineers:**
+- Collect labeled training data for intent classification
+- Build autocorrect models from acceptance/rejection patterns
+- Train ranking models for disambiguation candidates
+- Develop adaptive parsers that learn from user behavior
+- Create personalized command prediction models
+
+#### Privacy Guarantees
+
+**What We Collect:**
+- Event types (parse success, autocorrect, disambiguation, etc.)
+- Timestamps of all events
+- Input length (character count)
+- Autocorrect scores and suggestions
+- Disambiguation candidates and selections
+- Command execution statistics
+
+**What We DO NOT Collect (by default):**
+- User input text (unless `collectInput: true`)
+- Personally identifiable information (PII)
+- IP addresses or device identifiers
+- Persistent user identifiers across sessions
+
+**What We DO NOT Do:**
+- Transmit data to remote servers (unless `allowRemoteTransmission: true`)
+- Store data persistently in browser storage (unless `allowPersistentStorage: true`)
+- Share data with third parties
+- Use data for advertising or tracking
+
+**User Control:**
+- Opt out entirely with `setPrivacyConfig({ enabled: false })`
+- Disable input text collection while keeping statistics
+- Clear all data manually with `clearEvents()`
+- Review privacy settings with `getPrivacyConfig()`
+
+**Compliance:**
+- GDPR-friendly: No PII collection by default, clear consent mechanism
+- CCPA-friendly: User control over data collection and retention
+- Privacy-first design: Memory-only storage by default
+- Transparent: All collected data accessible via API
 
 ### 5. Phrasal Verb Support
 
