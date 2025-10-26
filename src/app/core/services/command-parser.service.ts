@@ -99,7 +99,7 @@ export class CommandParserService {
       'go',
       {
         name: 'go',
-        aliases: ['walk', 'move', 'travel', 'head'],
+        aliases: ['walk', 'travel', 'head'],
         requiresObject: true,
         allowsIndirectObject: false,
         description: 'Move in a direction or to a location',
@@ -235,6 +235,16 @@ export class CommandParserService {
         requiresObject: true,
         allowsIndirectObject: true,
         description: 'Attack something',
+      },
+    ],
+    [
+      'push',
+      {
+        name: 'push',
+        aliases: ['move', 'shove', 'slide'],
+        requiresObject: true,
+        allowsIndirectObject: false,
+        description: 'Push or move an object',
       },
     ],
     [

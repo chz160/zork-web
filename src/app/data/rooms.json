@@ -219,7 +219,7 @@
           "failureMessage": "The window is closed."
         }
       },
-      "objectIds": ["water"],
+      "objectIds": ["water", "kitchen-table"],
       "visited": false,
       "isDark": false
     },
@@ -258,7 +258,7 @@
     {
       "id": "cellar",
       "name": "Cellar",
-      "description": "You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south.",
+      "description": "You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.",
       "shortDescription": "Cellar",
       "exits": {
         "north": "troll-room",

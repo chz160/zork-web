@@ -167,6 +167,9 @@ export class GameEngineService {
       case 'attack':
         output = this.handleAttack(parserResult.directObject, parserResult.indirectObject);
         break;
+      case 'push':
+        output = this.handlePush(parserResult.directObject);
+        break;
       case 'help':
         output = this.handleHelp();
         break;
@@ -652,6 +655,17 @@ export class GameEngineService {
     this.updateObjectProperty(obj.id, 'isOpen', true);
     this.updateObjectProperty(obj.id, 'touched', true);
 
+    // Special handling for trap door
+    if (obj.id === 'trap-door') {
+      return {
+        messages: [
+          'The door reluctantly opens to reveal a rickety staircase descending into darkness.',
+        ],
+        success: true,
+        type: 'success',
+      };
+    }
+
     // Get objects inside this container (check both location-based and contains array)
     const contentsById = obj.properties.contains || [];
     const contentsByLocation = Array.from(this.gameObjects().values())
@@ -1113,6 +1127,64 @@ export class GameEngineService {
 
     return {
       messages: [`Attacking the ${target.name} with your bare hands has no effect.`],
+      success: false,
+      type: 'info',
+    };
+  }
+
+  /**
+   * Handle pushing/moving an object.
+   */
+  private handlePush(objectName: string | null): CommandOutput {
+    if (!objectName) {
+      return { messages: ['Push what?'], success: false, type: 'error' };
+    }
+
+    const obj = this.findObject(objectName);
+    if (!obj) {
+      return {
+        messages: [`You don't see any ${objectName} here.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Special handling for the rug/carpet in living room
+    if (obj.id === 'rug' && this.playerState().currentRoomId === 'living-room') {
+      // Find the trap door
+      const trapDoor = this.gameObjects().get('trap-door');
+      if (trapDoor && !trapDoor.visible) {
+        // Make trap door visible
+        trapDoor.visible = true;
+        this.gameObjects().set('trap-door', trapDoor);
+
+        return {
+          messages: [
+            'With a great effort, the rug is moved to one side of the room, revealing the dusty cover of a closed trap door.',
+          ],
+          success: true,
+          type: 'info',
+        };
+      } else if (trapDoor && trapDoor.visible) {
+        return {
+          messages: ['The rug has already been moved.'],
+          success: false,
+          type: 'info',
+        };
+      }
+    }
+
+    // Default behavior for other objects
+    if (obj.portable) {
+      return {
+        messages: [`You can take the ${obj.name} if you want to move it.`],
+        success: false,
+        type: 'info',
+      };
+    }
+
+    return {
+      messages: [`The ${obj.name} is too heavy to move.`],
       success: false,
       type: 'info',
     };
