@@ -131,13 +131,11 @@ describe('CommandDispatcherService', () => {
           },
         ];
 
-        const executor = jasmine
-          .createSpy('executor')
-          .and.returnValue({
-            messages: ["You don't see any xyz here."],
-            success: false,
-            type: 'error',
-          });
+        const executor = jasmine.createSpy('executor').and.returnValue({
+          messages: ["You don't see any xyz here."],
+          success: false,
+          type: 'error',
+        });
 
         const report = await service.executeParsedCommands(commands, executor, {
           policy: 'fail-early',
