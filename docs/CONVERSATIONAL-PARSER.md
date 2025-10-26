@@ -51,7 +51,7 @@ Players can chain multiple commands together using natural conjunctions:
 
 **Execution Policies:**
 - **best-effort** (default): Execute all commands, even if one fails
-- **fail-fast**: Stop at first error
+- **fail-early**: Stop at first error
 
 **Game State Propagation:**
 Multi-commands execute sequentially, with each command seeing the effects of previous commands. This allows for realistic sequences like:
@@ -342,7 +342,7 @@ The following features have been fully implemented and integrated:
 2. **Multi-Part Commands** ✅
    - Support for "and", "then", "," conjunctions
    - Sequential execution with state propagation
-   - Configurable execution policies (fail-fast / best-effort)
+   - Configurable execution policies (fail-early / best-effort)
 
 3. **Object Disambiguation** ✅
    - Handle multiple similar objects
@@ -828,7 +828,7 @@ Execution policy can be configured globally in `command-config.json`:
 ```json
 {
   "parserSettings": {
-    "multiCommandPolicy": "best-effort"  // or "fail-fast"
+    "multiCommandPolicy": "best-effort"  // or "fail-early"
   }
 }
 ```
