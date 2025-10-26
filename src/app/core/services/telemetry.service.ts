@@ -85,63 +85,63 @@ export class TelemetryService {
    * Log a parse success event
    */
   logParseSuccess(rawInput: string): void {
-    this.logEvent(TelemetryEventType.PARSE_SUCCESS, { rawInput });
+    this.logTypedEvent(TelemetryEventType.PARSE_SUCCESS, { rawInput });
   }
 
   /**
    * Log a parse failure event
    */
   logParseFailure(data: ParseFailureData): void {
-    this.logEvent(TelemetryEventType.PARSE_FAILURE, data);
+    this.logTypedEvent(TelemetryEventType.PARSE_FAILURE, data);
   }
 
   /**
    * Log a fuzzy match event
    */
   logFuzzyMatch(data: FuzzyMatchData): void {
-    this.logEvent(TelemetryEventType.FUZZY_MATCH, data);
+    this.logTypedEvent(TelemetryEventType.FUZZY_MATCH, data);
   }
 
   /**
    * Log an autocorrect suggestion event
    */
   logAutocorrectSuggestion(input: string, suggestion: string, score: number): void {
-    this.logEvent(TelemetryEventType.AUTOCORRECT_SUGGESTION, { input, suggestion, score });
+    this.logTypedEvent(TelemetryEventType.AUTOCORRECT_SUGGESTION, { input, suggestion, score });
   }
 
   /**
    * Log an autocorrect accepted event
    */
   logAutocorrectAccepted(input: string, correction: string): void {
-    this.logEvent(TelemetryEventType.AUTOCORRECT_ACCEPTED, { input, correction });
+    this.logTypedEvent(TelemetryEventType.AUTOCORRECT_ACCEPTED, { input, correction });
   }
 
   /**
    * Log a disambiguation shown event
    */
   logDisambiguationShown(data: DisambiguationData): void {
-    this.logEvent(TelemetryEventType.DISAMBIGUATION_SHOWN, data);
+    this.logTypedEvent(TelemetryEventType.DISAMBIGUATION_SHOWN, data);
   }
 
   /**
    * Log a disambiguation selected event
    */
   logDisambiguationSelected(data: DisambiguationData): void {
-    this.logEvent(TelemetryEventType.DISAMBIGUATION_SELECTED, data);
+    this.logTypedEvent(TelemetryEventType.DISAMBIGUATION_SELECTED, data);
   }
 
   /**
    * Log a multi-command event
    */
   logMultiCommand(data: MultiCommandData): void {
-    this.logEvent(TelemetryEventType.MULTI_COMMAND, data);
+    this.logTypedEvent(TelemetryEventType.MULTI_COMMAND, data);
   }
 
   /**
    * Log an ordinal selection event
    */
   logOrdinalSelection(input: string, ordinal: number, object: string): void {
-    this.logEvent(TelemetryEventType.ORDINAL_SELECTION, { input, ordinal, object });
+    this.logTypedEvent(TelemetryEventType.ORDINAL_SELECTION, { input, ordinal, object });
   }
 
   /**
@@ -159,9 +159,20 @@ export class TelemetryService {
   }
 
   /**
+   * Log a custom event with arbitrary type and data.
+   * Useful for components and services that need to log domain-specific events.
+   *
+   * @param type Event type string
+   * @param data Event data
+   */
+  logEvent(type: string, data: Record<string, unknown>): void {
+    this.logTypedEvent(type as TelemetryEventType, data);
+  }
+
+  /**
    * Internal method to log an event
    */
-  private logEvent(type: TelemetryEventType, data: Record<string, unknown>): void {
+  private logTypedEvent(type: TelemetryEventType, data: Record<string, unknown>): void {
     if (!this.enabled) {
       return;
     }

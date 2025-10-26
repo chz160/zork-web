@@ -8,11 +8,14 @@ import {
   Direction,
   ObjectCandidate,
   ExitCondition,
+  ExecutionReport,
+  ExecutionOptions,
 } from '../models';
 import { DataLoaderService } from './data-loader.service';
 import { CommandParserService } from './command-parser.service';
 import { ObjectResolverService, ResolutionContext } from './object-resolver.service';
 import { TelemetryService } from './telemetry.service';
+import { CommandDispatcherService } from './command-dispatcher.service';
 
 /**
  * Core game engine service that manages game state and processes commands.
@@ -32,6 +35,7 @@ export class GameEngineService {
   private readonly commandParser = inject(CommandParserService);
   private readonly objectResolver = inject(ObjectResolverService);
   private readonly telemetry = inject(TelemetryService);
+  private readonly dispatcher = inject(CommandDispatcherService);
 
   /** Current player state */
   private readonly playerState = signal<Player>({
@@ -193,6 +197,45 @@ export class GameEngineService {
     // Add messages to output history
     output.messages.forEach((msg) => this.addOutput(msg));
     return output;
+  }
+
+  /**
+   * Execute multiple parsed commands sequentially using the CommandDispatcher.
+   * This method coordinates the execution of command sequences, managing state propagation,
+   * UI interactions (disambiguation/autocorrect), and execution policies.
+   *
+   * @param commands Array of parsed commands to execute
+   * @param options Execution options (policy, UI blocking)
+   * @returns Promise resolving to comprehensive execution report
+   *
+   * @example
+   * ```typescript
+   * const commands = [
+   *   parser.parse('open mailbox'),
+   *   parser.parse('take leaflet')
+   * ];
+   * const report = await gameEngine.executeParsedCommands(commands, { policy: 'fail-early' });
+   * console.log(`Executed ${report.executedCommands} of ${report.totalCommands} commands`);
+   * ```
+   */
+  async executeParsedCommands(
+    commands: ParserResult[],
+    options?: ExecutionOptions
+  ): Promise<ExecutionReport> {
+    // Use the dispatcher to execute commands sequentially
+    // The executor function is bound to this class to execute each command
+    const executor = (command: ParserResult): CommandOutput => {
+      return this.executeCommand(command);
+    };
+
+    // Execute through the dispatcher which handles:
+    // - Sequential execution
+    // - State propagation
+    // - Policy enforcement (fail-early vs best-effort)
+    // - Telemetry logging
+    const report = await this.dispatcher.executeParsedCommands(commands, executor, options);
+
+    return report;
   }
 
   /**

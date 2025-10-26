@@ -7,3 +7,4 @@ export * from './player.model';
 export * from './verb.model';
 export * from './parser-result.model';
 export * from './command-output.model';
+export * from './execution-report.model';
