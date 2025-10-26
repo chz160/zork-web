@@ -103,7 +103,7 @@ export class GameService {
    *
    * @param input Raw command string from the player
    */
-  submitCommand(input: string): void {
+  async submitCommand(input: string): Promise<void> {
     // Check if this is a multi-command input
     const settings = this.configService.getSettings();
     const multiCommandResult = splitCommands(input, settings.multiCommandSeparators);
@@ -116,28 +116,20 @@ export class GameService {
         policy: settings.multiCommandPolicy as 'fail-fast' | 'best-effort',
       });
 
-      // Execute each sub-command sequentially
-      const results: CommandOutput[] = [];
-      let shouldContinue = true;
+      // Parse all sub-commands
+      const parsedCommands = multiCommandResult.commands.map((cmd) =>
+        this.commandParser.parse(cmd)
+      );
 
-      for (const subCommand of multiCommandResult.commands) {
-        if (!shouldContinue) break;
+      // Execute through the dispatcher (which handles state propagation, policies, etc.)
+      const report = await this.gameEngine.executeParsedCommands(parsedCommands, {
+        policy: settings.multiCommandPolicy === 'fail-fast' ? 'fail-early' : 'best-effort',
+      });
 
-        // Parse the sub-command
-        const parserResult = this.commandParser.parse(subCommand);
-
-        // Execute through the engine
-        const output = this.gameEngine.executeCommand(parserResult);
-        results.push(output);
-
-        // Emit the command output
-        this.commandOutputSubject.next(output);
-
-        // Check if we should continue based on policy
-        if (settings.multiCommandPolicy === 'fail-fast' && !output.success) {
-          shouldContinue = false;
-        }
-      }
+      // Emit each command's output
+      report.results.forEach((result) => {
+        this.commandOutputSubject.next(result.output);
+      });
 
       // Emit updated state after all commands
       this.emitCurrentState();
