@@ -3338,6 +3338,739 @@
       "properties": {
         "rflag": 24576
       }
+    },
+    {
+      "id": "room-24",
+      "name": "Room 24",
+      "description": "Room 24",
+      "shortDescription": "Room 24",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 5,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-35",
+      "name": "Room 35",
+      "description": "Room 35",
+      "shortDescription": "Room 35",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 6,
+        "rflag": 25632
+      }
+    },
+    {
+      "id": "room-38",
+      "name": "Room 38",
+      "description": "Room 38",
+      "shortDescription": "Room 38",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 7,
+        "rflag": 8704
+      }
+    },
+    {
+      "id": "room-39",
+      "name": "Room 39",
+      "description": "Room 39",
+      "shortDescription": "Room 39",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 8,
+        "rflag": 4128
+      }
+    },
+    {
+      "id": "room-40",
+      "name": "Room 40",
+      "description": "Room 40",
+      "shortDescription": "Room 40",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 9,
+        "rflag": 8704
+      }
+    },
+    {
+      "id": "room-44",
+      "name": "Room 44",
+      "description": "Room 44",
+      "shortDescription": "Room 44",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 10,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-49",
+      "name": "Room 49",
+      "description": "Room 49",
+      "shortDescription": "Room 49",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 12,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-50",
+      "name": "Room 50",
+      "description": "Room 50",
+      "shortDescription": "Room 50",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 12,
+        "rflag": 24576
+      }
+    },
+    {
+      "id": "room-76",
+      "name": "Room 76",
+      "description": "Room 76",
+      "shortDescription": "Room 76",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 16,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-77",
+      "name": "Room 77",
+      "description": "Room 77",
+      "shortDescription": "Room 77",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 17,
+        "rflag": 9216
+      }
+    },
+    {
+      "id": "room-78",
+      "name": "Room 78",
+      "description": "Room 78",
+      "shortDescription": "Room 78",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 18,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-79",
+      "name": "Room 79",
+      "description": "Room 79",
+      "shortDescription": "Room 79",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 19,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-82",
+      "name": "Room 82",
+      "description": "Room 82",
+      "shortDescription": "Room 82",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 20,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-92",
+      "name": "Room 92",
+      "description": "Room 92",
+      "shortDescription": "Room 92",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 21,
+        "rflag": 24576
+      }
+    },
+    {
+      "id": "room-93",
+      "name": "Room 93",
+      "description": "Room 93",
+      "shortDescription": "Room 93",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 22,
+        "rval": 30,
+        "rflag": 24576
+      }
+    },
+    {
+      "id": "room-97",
+      "name": "Room 97",
+      "description": "Room 97",
+      "shortDescription": "Room 97",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 23,
+        "rflag": 25088
+      }
+    },
+    {
+      "id": "room-100",
+      "name": "Room 100",
+      "description": "Room 100",
+      "shortDescription": "Room 100",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 25,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-113",
+      "name": "Room 113",
+      "description": "Room 113",
+      "shortDescription": "Room 113",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 30,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-119",
+      "name": "Room 119",
+      "description": "Room 119",
+      "shortDescription": "Room 119",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 33,
+        "rflag": 9728
+      }
+    },
+    {
+      "id": "room-132",
+      "name": "Room 132",
+      "description": "Room 132",
+      "shortDescription": "Room 132",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 34,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-134",
+      "name": "Room 134",
+      "description": "Room 134",
+      "shortDescription": "Room 134",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 35,
+        "rflag": 24576
+      }
+    },
+    {
+      "id": "room-136",
+      "name": "Room 136",
+      "description": "Room 136",
+      "shortDescription": "Room 136",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 58,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-137",
+      "name": "Room 137",
+      "description": "Room 137",
+      "shortDescription": "Room 137",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 36,
+        "rflag": 8192
+      }
+    },
+    {
+      "id": "room-146",
+      "name": "Room 146",
+      "description": "Room 146",
+      "shortDescription": "Room 146",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 24,
+        "rflag": 24608
+      }
+    },
+    {
+      "id": "room-156",
+      "name": "Room 156",
+      "description": "Room 156",
+      "shortDescription": "Room 156",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": true,
+      "properties": {
+        "ractio": 48,
+        "rval": 5,
+        "rflag": 8208
+      }
+    },
+    {
+      "id": "room-159",
+      "name": "Room 159",
+      "description": "Room 159",
+      "shortDescription": "Room 159",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 47,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-160",
+      "name": "Room 160",
+      "description": "Room 160",
+      "shortDescription": "Room 160",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 42,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-161",
+      "name": "Room 161",
+      "description": "Room 161",
+      "shortDescription": "Room 161",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 41,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-162",
+      "name": "Room 162",
+      "description": "Room 162",
+      "shortDescription": "Room 162",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 40,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-163",
+      "name": "Room 163",
+      "description": "Room 163",
+      "shortDescription": "Room 163",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 39,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-164",
+      "name": "Room 164",
+      "description": "Room 164",
+      "shortDescription": "Room 164",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 38,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-165",
+      "name": "Room 165",
+      "description": "Room 165",
+      "shortDescription": "Room 165",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 51,
+        "rval": 15,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-166",
+      "name": "Room 166",
+      "description": "Room 166",
+      "shortDescription": "Room 166",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 45,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-167",
+      "name": "Room 167",
+      "description": "Room 167",
+      "shortDescription": "Room 167",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 45,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-168",
+      "name": "Room 168",
+      "description": "Room 168",
+      "shortDescription": "Room 168",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 44,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-169",
+      "name": "Room 169",
+      "description": "Room 169",
+      "shortDescription": "Room 169",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 44,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-170",
+      "name": "Room 170",
+      "description": "Room 170",
+      "shortDescription": "Room 170",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 43,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-171",
+      "name": "Room 171",
+      "description": "Room 171",
+      "shortDescription": "Room 171",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 43,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-172",
+      "name": "Room 172",
+      "description": "Room 172",
+      "shortDescription": "Room 172",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 39,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-173",
+      "name": "Room 173",
+      "description": "Room 173",
+      "shortDescription": "Room 173",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 39,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-174",
+      "name": "Room 174",
+      "description": "Room 174",
+      "shortDescription": "Room 174",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 39,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-175",
+      "name": "Room 175",
+      "description": "Room 175",
+      "shortDescription": "Room 175",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 39,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-176",
+      "name": "Room 176",
+      "description": "Room 176",
+      "shortDescription": "Room 176",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 46,
+        "rval": 15,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-177",
+      "name": "Room 177",
+      "description": "Room 177",
+      "shortDescription": "Room 177",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 50,
+        "rval": 20,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-178",
+      "name": "Room 178",
+      "description": "Room 178",
+      "shortDescription": "Room 178",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 49,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-181",
+      "name": "Room 181",
+      "description": "Room 181",
+      "shortDescription": "Room 181",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 52,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-182",
+      "name": "Room 182",
+      "description": "Room 182",
+      "shortDescription": "Room 182",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 53,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-183",
+      "name": "Room 183",
+      "description": "Room 183",
+      "shortDescription": "Room 183",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 54,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-184",
+      "name": "Room 184",
+      "description": "Room 184",
+      "shortDescription": "Room 184",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 55,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-185",
+      "name": "Room 185",
+      "description": "Room 185",
+      "shortDescription": "Room 185",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 56,
+        "rflag": 24592
+      }
+    },
+    {
+      "id": "room-188",
+      "name": "Room 188",
+      "description": "Room 188",
+      "shortDescription": "Room 188",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 59,
+        "rflag": 24576
+      }
+    },
+    {
+      "id": "room-189",
+      "name": "Room 189",
+      "description": "Room 189",
+      "shortDescription": "Room 189",
+      "exits": {},
+      "objectIds": [],
+      "visited": false,
+      "isDark": false,
+      "properties": {
+        "ractio": 60,
+        "rflag": 24576
+      }
     }
   ]
 }

@@ -15,7 +15,9 @@
     "cIndexTrace": {
       "roomIndex": 0,
       "messageIndex": -9590,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -33,7 +35,12 @@
     "cIndexTrace": {
       "roomIndex": 1,
       "messageIndex": -9608,
-      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
     }
   },
   {
@@ -51,7 +58,12 @@
     "cIndexTrace": {
       "roomIndex": 2,
       "messageIndex": -9620,
-      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
     }
   },
   {
@@ -69,7 +81,12 @@
     "cIndexTrace": {
       "roomIndex": 3,
       "messageIndex": -9635,
-      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
     }
   },
   {
@@ -87,7 +104,10 @@
     "cIndexTrace": {
       "roomIndex": 6,
       "messageIndex": -9653,
-      "flags": ["RLAND", "RHOUSE"]
+      "flags": [
+        "RLAND",
+        "RHOUSE"
+      ]
     }
   },
   {
@@ -105,7 +125,9 @@
     "cIndexTrace": {
       "roomIndex": 9,
       "messageIndex": -9665,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -123,7 +145,9 @@
     "cIndexTrace": {
       "roomIndex": 10,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -141,7 +165,9 @@
     "cIndexTrace": {
       "roomIndex": 11,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -159,7 +185,9 @@
     "cIndexTrace": {
       "roomIndex": 12,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -177,7 +205,9 @@
     "cIndexTrace": {
       "roomIndex": 13,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -195,7 +225,9 @@
     "cIndexTrace": {
       "roomIndex": 14,
       "messageIndex": -9692,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -213,7 +245,9 @@
     "cIndexTrace": {
       "roomIndex": 15,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -231,7 +265,9 @@
     "cIndexTrace": {
       "roomIndex": 16,
       "messageIndex": -9692,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -249,7 +285,9 @@
     "cIndexTrace": {
       "roomIndex": 17,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -267,7 +305,9 @@
     "cIndexTrace": {
       "roomIndex": 18,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -285,7 +325,9 @@
     "cIndexTrace": {
       "roomIndex": 19,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -303,7 +345,9 @@
     "cIndexTrace": {
       "roomIndex": 20,
       "messageIndex": -9692,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -321,7 +365,9 @@
     "cIndexTrace": {
       "roomIndex": 21,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -339,7 +385,9 @@
     "cIndexTrace": {
       "roomIndex": 22,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -357,7 +405,9 @@
     "cIndexTrace": {
       "roomIndex": 23,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -375,7 +425,9 @@
     "cIndexTrace": {
       "roomIndex": 25,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -393,7 +445,9 @@
     "cIndexTrace": {
       "roomIndex": 26,
       "messageIndex": -9692,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -411,7 +465,9 @@
     "cIndexTrace": {
       "roomIndex": 27,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -429,7 +485,9 @@
     "cIndexTrace": {
       "roomIndex": 28,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -447,7 +505,9 @@
     "cIndexTrace": {
       "roomIndex": 29,
       "messageIndex": -9684,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -468,7 +528,12 @@
     "cIndexTrace": {
       "roomIndex": 30,
       "messageIndex": -9698,
-      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
     }
   },
   {
@@ -487,7 +552,12 @@
     "cIndexTrace": {
       "roomIndex": 31,
       "messageIndex": -9707,
-      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
     }
   },
   {
@@ -506,7 +576,12 @@
     "cIndexTrace": {
       "roomIndex": 34,
       "messageIndex": -9698,
-      "flags": ["RLIGHT", "RLAND", "RSACRD", "REND"]
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RSACRD",
+        "REND"
+      ]
     }
   },
   {
@@ -524,7 +599,9 @@
     "cIndexTrace": {
       "roomIndex": 61,
       "messageIndex": -10183,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -542,7 +619,9 @@
     "cIndexTrace": {
       "roomIndex": 62,
       "messageIndex": -10207,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -561,7 +640,10 @@
     "cIndexTrace": {
       "roomIndex": 63,
       "messageIndex": -10229,
-      "flags": ["RLAND", "RSACRD"]
+      "flags": [
+        "RLAND",
+        "RSACRD"
+      ]
     }
   },
   {
@@ -579,7 +661,9 @@
     "cIndexTrace": {
       "roomIndex": 64,
       "messageIndex": -10239,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -597,7 +681,9 @@
     "cIndexTrace": {
       "roomIndex": 73,
       "messageIndex": -9692,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -615,7 +701,9 @@
     "cIndexTrace": {
       "roomIndex": 87,
       "messageIndex": -9692,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -633,7 +721,9 @@
     "cIndexTrace": {
       "roomIndex": 88,
       "messageIndex": -9692,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -651,7 +741,12 @@
     "cIndexTrace": {
       "roomIndex": 106,
       "messageIndex": -10857,
-      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+      "flags": [
+        "RWATER",
+        "RSACRD",
+        "RFILL",
+        "REND"
+      ]
     }
   },
   {
@@ -669,7 +764,12 @@
     "cIndexTrace": {
       "roomIndex": 107,
       "messageIndex": -10875,
-      "flags": ["RWATER", "RSACRD", "RFILL", "REND"]
+      "flags": [
+        "RWATER",
+        "RSACRD",
+        "RFILL",
+        "REND"
+      ]
     }
   },
   {
@@ -687,7 +787,9 @@
     "cIndexTrace": {
       "roomIndex": 150,
       "messageIndex": -11928,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -705,7 +807,9 @@
     "cIndexTrace": {
       "roomIndex": 151,
       "messageIndex": -11928,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -723,7 +827,9 @@
     "cIndexTrace": {
       "roomIndex": 152,
       "messageIndex": -11985,
-      "flags": ["RLAND"]
+      "flags": [
+        "RLAND"
+      ]
     }
   },
   {
@@ -743,7 +849,11 @@
     "cIndexTrace": {
       "roomIndex": 186,
       "messageIndex": -12204,
-      "flags": ["RLIGHT", "RLAND", "RNWALL"]
+      "flags": [
+        "RLIGHT",
+        "RLAND",
+        "RNWALL"
+      ]
     }
   },
   {
@@ -761,7 +871,10 @@
     "cIndexTrace": {
       "roomIndex": 187,
       "messageIndex": -12326,
-      "flags": ["RLIGHT", "RLAND"]
+      "flags": [
+        "RLIGHT",
+        "RLAND"
+      ]
     }
   }
 ]

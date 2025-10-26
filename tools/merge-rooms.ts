@@ -31,8 +31,11 @@ interface RoomsData {
   rooms: Room[];
 }
 
-// Get project root
-const projectRoot = path.join(__dirname, '..', '..');
+// Get project root - when run with tsx from tools/, go up one level
+// When run compiled from dist/tools, go up two levels
+const projectRoot = __dirname.includes('dist/tools')
+  ? path.join(__dirname, '..', '..')
+  : path.join(__dirname, '..');
 
 /**
  * Generate a unique ID from room name, description, and index
@@ -123,8 +126,9 @@ function extractBetterName(room: Room): string {
 
 /**
  * Filter rooms to only include well-formed ones
+ * skipQualityFilter: if true, only check for minimal requirements (name and description exist)
  */
-function filterQualityRooms(rooms: Room[]): Room[] {
+function filterQualityRooms(rooms: Room[], skipQualityFilter = false): Room[] {
   return rooms.filter((room) => {
     // Must have description
     if (!room.description || room.description.length < 10) {
@@ -134,6 +138,11 @@ function filterQualityRooms(rooms: Room[]): Room[] {
     // Must have name
     if (!room.name || room.name.length === 0) {
       return false;
+    }
+
+    // If skipping quality filter, accept all rooms that have name and description
+    if (skipQualityFilter) {
+      return true;
     }
 
     // Skip if name and description are identical (placeholder)
@@ -267,7 +276,12 @@ function processRoomsForMerge(newRooms: Room[], currentRooms: Room[]): Room[] {
 /**
  * Main merge function
  */
-function mergeRooms(options: { dryRun: boolean; category?: string; limit?: number }): void {
+function mergeRooms(options: {
+  dryRun: boolean;
+  category?: string;
+  limit?: number;
+  skipQualityFilter?: boolean;
+}): void {
   console.log('=== PHASE 4 ROOM MERGE TOOL ===\n');
 
   // Load data
@@ -281,9 +295,12 @@ function mergeRooms(options: { dryRun: boolean; category?: string; limit?: numbe
 
   // Filter for quality
   console.log('\nFiltering for quality rooms...');
-  const qualityRooms = filterQualityRooms(newRooms);
+  const qualityRooms = filterQualityRooms(newRooms, options.skipQualityFilter || false);
   console.log(`  ${qualityRooms.length} rooms passed quality filter`);
   console.log(`  ${newRooms.length - qualityRooms.length} rooms filtered out`);
+  if (options.skipQualityFilter) {
+    console.log('  (Quality filter skipped - including placeholder names)');
+  }
 
   // Categorize
   console.log('\nCategorizing rooms...');
@@ -363,6 +380,7 @@ if (require.main === module) {
     dryRun: args.includes('--dry-run'),
     category: args.find((arg) => arg.startsWith('--category='))?.split('=')[1],
     limit: parseInt(args.find((arg) => arg.startsWith('--limit='))?.split('=')[1] || '0', 10),
+    skipQualityFilter: args.includes('--skip-quality-filter'),
   };
 
   try {
