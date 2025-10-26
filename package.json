@@ -55,6 +55,7 @@
     "@angular/cli": "^20.3.7",
     "@angular/compiler-cli": "^20.3.0",
     "@eslint/js": "^9.38.0",
+    "@playwright/test": "^1.56.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^24.9.1",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
@@ -74,6 +75,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^16.2.6",
+    "playwright": "^1.56.1",
     "prettier": "^3.6.2",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.46.2"

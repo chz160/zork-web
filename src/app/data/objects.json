@@ -3,10 +3,7 @@
     {
       "id": "board",
       "name": "board",
-      "aliases": [
-        "boards",
-        "board"
-      ],
+      "aliases": ["boards", "board"],
       "description": "board",
       "portable": false,
       "visible": true,
@@ -15,10 +12,7 @@
     {
       "id": "teeth",
       "name": "set of teeth",
-      "aliases": [
-        "overboard",
-        "teeth"
-      ],
+      "aliases": ["overboard", "teeth"],
       "description": "set of teeth",
       "portable": false,
       "visible": true,
@@ -27,12 +21,7 @@
     {
       "id": "wall",
       "name": "Wall",
-      "aliases": [
-        "wall",
-        "walls",
-        "surrounding wall",
-        "surrounding walls"
-      ],
+      "aliases": ["wall", "walls", "surrounding wall", "surrounding walls"],
       "description": "The wall is solid rock and cannot be passed.",
       "portable": false,
       "visible": true,
@@ -41,10 +30,7 @@
     {
       "id": "granite-wall",
       "name": "granite wall",
-      "aliases": [
-        "wall",
-        "granite wall"
-      ],
+      "aliases": ["wall", "granite wall"],
       "description": "granite wall",
       "portable": false,
       "visible": true,
@@ -53,12 +39,7 @@
     {
       "id": "songbird",
       "name": "songbird",
-      "aliases": [
-        "bird",
-        "songbird",
-        "song bird",
-        "song songbird"
-      ],
+      "aliases": ["bird", "songbird", "song bird", "song songbird"],
       "description": "songbird",
       "portable": false,
       "visible": true,
@@ -67,12 +48,7 @@
     {
       "id": "white-house",
       "name": "white house",
-      "aliases": [
-        "house",
-        "white house",
-        "beauti house",
-        "coloni house"
-      ],
+      "aliases": ["house", "white house", "beauti house", "coloni house"],
       "description": "white house",
       "portable": false,
       "visible": true,
@@ -81,12 +57,7 @@
     {
       "id": "forest",
       "name": "forest",
-      "aliases": [
-        "forest",
-        "trees",
-        "pines",
-        "hemlocks"
-      ],
+      "aliases": ["forest", "trees", "pines", "hemlocks"],
       "description": "forest",
       "portable": false,
       "visible": true,
@@ -125,27 +96,20 @@
     {
       "id": "global-water",
       "name": "water",
-      "aliases": [
-        "water",
-        "quantity"
-      ],
+      "aliases": ["water", "quantity"],
       "description": "water",
       "portable": false,
       "visible": true,
       "location": "local-globals"
     },
     {
-      "id": "water",
+      "id": "kitchen-window",
       "name": "kitchen window",
-      "aliases": [
-        "window",
-        "kitchen window",
-        "small window"
-      ],
+      "aliases": ["window", "kitchen window", "small window"],
       "description": "kitchen window",
       "portable": false,
       "visible": true,
-      "location": "local-globals",
+      "location": "east-of-house",
       "properties": {
         "isOpen": false,
         "isLocked": false,
@@ -155,11 +119,7 @@
     {
       "id": "chimney",
       "name": "chimney",
-      "aliases": [
-        "chimney",
-        "dark chimney",
-        "narrow chimney"
-      ],
+      "aliases": ["chimney", "dark chimney", "narrow chimney"],
       "description": "chimney",
       "portable": false,
       "visible": true,
@@ -190,14 +150,7 @@
     {
       "id": "skull",
       "name": "crystal skull",
-      "aliases": [
-        "skull",
-        "head",
-        "treasure",
-        "crystal skull",
-        "crystal head",
-        "crystal treasure"
-      ],
+      "aliases": ["skull", "head", "treasure", "crystal skull", "crystal head", "crystal treasure"],
       "description": "It appears to be grinning at you rather nastily.",
       "portable": true,
       "visible": true,
@@ -225,11 +178,7 @@
     {
       "id": "raised-basket",
       "name": "basket",
-      "aliases": [
-        "cage",
-        "dumbwaiter",
-        "basket"
-      ],
+      "aliases": ["cage", "dumbwaiter", "basket"],
       "description": "At the end of the chain is a basket.",
       "portable": true,
       "visible": true,
@@ -285,11 +234,7 @@
     {
       "id": "bell",
       "name": "brass bell",
-      "aliases": [
-        "bell",
-        "small bell",
-        "brass bell"
-      ],
+      "aliases": ["bell", "small bell", "brass bell"],
       "description": "brass bell",
       "portable": true,
       "visible": true,
@@ -298,13 +243,7 @@
     {
       "id": "hot-bell",
       "name": "red hot brass bell",
-      "aliases": [
-        "bell",
-        "brass bell",
-        "hot bell",
-        "red bell",
-        "small bell"
-      ],
+      "aliases": ["bell", "brass bell", "hot bell", "red bell", "small bell"],
       "description": "red hot brass bell",
       "portable": true,
       "visible": true,
@@ -313,12 +252,7 @@
     {
       "id": "axe",
       "name": "bloody axe",
-      "aliases": [
-        "axe",
-        "ax",
-        "bloody axe",
-        "bloody ax"
-      ],
+      "aliases": ["axe", "ax", "bloody axe", "bloody ax"],
       "description": "On the ground is a red hot bell.\")>",
       "portable": true,
       "visible": true,
@@ -333,14 +267,7 @@
     {
       "id": "bolt",
       "name": "bolt",
-      "aliases": [
-        "bolt",
-        "nut",
-        "metal bolt",
-        "metal nut",
-        "large bolt",
-        "large nut"
-      ],
+      "aliases": ["bolt", "nut", "metal bolt", "metal nut", "large bolt", "large nut"],
       "description": "The bolt is too rusty to move.",
       "portable": true,
       "visible": true,
@@ -349,12 +276,7 @@
     {
       "id": "bubble",
       "name": "green bubble",
-      "aliases": [
-        "bubble",
-        "small bubble",
-        "green bubble",
-        "plastic bubble"
-      ],
+      "aliases": ["bubble", "small bubble", "green bubble", "plastic bubble"],
       "description": "green bubble",
       "portable": true,
       "visible": true,
@@ -363,9 +285,7 @@
     {
       "id": "altar",
       "name": "altar",
-      "aliases": [
-        "altar"
-      ],
+      "aliases": ["altar"],
       "description": "altar",
       "portable": false,
       "visible": true,
@@ -407,12 +327,7 @@
     {
       "id": "broken-lamp",
       "name": "broken lantern",
-      "aliases": [
-        "lamp",
-        "lantern",
-        "broken lamp",
-        "broken lantern"
-      ],
+      "aliases": ["lamp", "lantern", "broken lamp", "broken lantern"],
       "description": "broken lantern",
       "portable": true,
       "visible": true,
@@ -472,10 +387,7 @@
     {
       "id": "kitchen-table",
       "name": "kitchen table",
-      "aliases": [
-        "table",
-        "kitchen table"
-      ],
+      "aliases": ["table", "kitchen table"],
       "description": "kitchen table",
       "portable": false,
       "visible": true,
@@ -489,9 +401,7 @@
     {
       "id": "attic-table",
       "name": "table",
-      "aliases": [
-        "table"
-      ],
+      "aliases": ["table"],
       "description": "table",
       "portable": false,
       "visible": true,
@@ -551,12 +461,7 @@
     {
       "id": "yellow-button",
       "name": "yellow button",
-      "aliases": [
-        "button",
-        "switch",
-        "yellow button",
-        "yellow switch"
-      ],
+      "aliases": ["button", "switch", "yellow button", "yellow switch"],
       "description": "yellow button",
       "portable": false,
       "visible": true,
@@ -565,12 +470,7 @@
     {
       "id": "brown-button",
       "name": "brown button",
-      "aliases": [
-        "button",
-        "switch",
-        "brown button",
-        "brown switch"
-      ],
+      "aliases": ["button", "switch", "brown button", "brown switch"],
       "description": "brown button",
       "portable": false,
       "visible": true,
@@ -579,12 +479,7 @@
     {
       "id": "red-button",
       "name": "red button",
-      "aliases": [
-        "button",
-        "switch",
-        "red button",
-        "red switch"
-      ],
+      "aliases": ["button", "switch", "red button", "red switch"],
       "description": "red button",
       "portable": false,
       "visible": true,
@@ -593,12 +488,7 @@
     {
       "id": "blue-button",
       "name": "blue button",
-      "aliases": [
-        "button",
-        "switch",
-        "blue button",
-        "blue switch"
-      ],
+      "aliases": ["button", "switch", "blue button", "blue switch"],
       "description": "blue button",
       "portable": false,
       "visible": true,
@@ -607,10 +497,7 @@
     {
       "id": "trophy-casefirstobjsolrdesclooksright",
       "name": "trophy case",
-      "aliases": [
-        "case",
-        "trophy case"
-      ],
+      "aliases": ["case", "trophy case"],
       "description": "trophy case",
       "portable": true,
       "visible": true,
@@ -624,14 +511,7 @@
     {
       "id": "rug",
       "name": "carpet",
-      "aliases": [
-        "rug",
-        "carpet",
-        "large rug",
-        "large carpet",
-        "oriental rug",
-        "oriental carpet"
-      ],
+      "aliases": ["rug", "carpet", "large rug", "large carpet", "oriental rug", "oriental carpet"],
       "description": "carpet",
       "portable": true,
       "visible": true,
@@ -664,10 +544,7 @@
     {
       "id": "garlic",
       "name": "clove of garlic",
-      "aliases": [
-        "garlic",
-        "clove"
-      ],
+      "aliases": ["garlic", "clove"],
       "description": "clove of garlic",
       "portable": true,
       "visible": true,
@@ -724,12 +601,7 @@
     {
       "id": "dam",
       "name": "dam",
-      "aliases": [
-        "dam",
-        "gate",
-        "gates",
-        "fcd\\#3"
-      ],
+      "aliases": ["dam", "gate", "gates", "fcd\\#3"],
       "description": "The dam is extremely solid and cannot be disturbed.",
       "portable": true,
       "visible": true,
@@ -765,10 +637,7 @@
     {
       "id": "boarded-window",
       "name": "boarded window",
-      "aliases": [
-        "window",
-        "boarded window"
-      ],
+      "aliases": ["window", "boarded window"],
       "description": "boarded window",
       "portable": false,
       "visible": true,
@@ -780,11 +649,7 @@
     {
       "id": "front-door",
       "name": "door",
-      "aliases": [
-        "door",
-        "front door",
-        "boarded door"
-      ],
+      "aliases": ["door", "front door", "boarded door"],
       "description": "The door is boarded up and cannot be opened.",
       "portable": false,
       "visible": true,
@@ -798,11 +663,7 @@
     {
       "id": "barrow-door",
       "name": "stone door",
-      "aliases": [
-        "door",
-        "huge door",
-        "stone door"
-      ],
+      "aliases": ["door", "huge door", "stone door"],
       "description": "stone door",
       "portable": false,
       "visible": true,
@@ -816,14 +677,7 @@
     {
       "id": "barrow",
       "name": "stone barrow",
-      "aliases": [
-        "barrow",
-        "tomb",
-        "massive barrow",
-        "massive tomb",
-        "stone barrow",
-        "stone tomb"
-      ],
+      "aliases": ["barrow", "tomb", "massive barrow", "massive tomb", "stone barrow", "stone tomb"],
       "description": "stone barrow",
       "portable": false,
       "visible": true,
@@ -854,10 +708,7 @@
     {
       "id": "crack",
       "name": "crack",
-      "aliases": [
-        "crack",
-        "narrow crack"
-      ],
+      "aliases": ["crack", "narrow crack"],
       "description": "crack",
       "portable": false,
       "visible": true,
@@ -891,10 +742,7 @@
     {
       "id": "grate",
       "name": "grating",
-      "aliases": [
-        "grate",
-        "grating"
-      ],
+      "aliases": ["grate", "grating"],
       "description": "grating",
       "portable": false,
       "visible": false,
@@ -996,11 +844,7 @@
     {
       "id": "bones",
       "name": "skeleton",
-      "aliases": [
-        "bones",
-        "skeleton",
-        "body"
-      ],
+      "aliases": ["bones", "skeleton", "body"],
       "description": "skeleton",
       "portable": true,
       "visible": true,
@@ -1051,14 +895,7 @@
     {
       "id": "lamp",
       "name": "brass lantern",
-      "aliases": [
-        "lamp",
-        "lantern",
-        "light",
-        "brass lamp",
-        "brass lantern",
-        "brass light"
-      ],
+      "aliases": ["lamp", "lantern", "light", "brass lamp", "brass lantern", "brass light"],
       "description": "There is a brass lantern (battery-powered) here.",
       "portable": true,
       "visible": true,
@@ -1071,12 +908,7 @@
     {
       "id": "emerald",
       "name": "large emerald",
-      "aliases": [
-        "emerald",
-        "treasure",
-        "large emerald",
-        "large treasure"
-      ],
+      "aliases": ["emerald", "treasure", "large emerald", "large treasure"],
       "description": "large emerald",
       "portable": true,
       "visible": true,
@@ -1109,11 +941,7 @@
     {
       "id": "leak",
       "name": "leak",
-      "aliases": [
-        "leak",
-        "drip",
-        "pipe"
-      ],
+      "aliases": ["leak", "drip", "pipe"],
       "description": "The leak is too small to escape through.",
       "portable": false,
       "visible": false,
@@ -1122,12 +950,7 @@
     {
       "id": "machine",
       "name": "machine",
-      "aliases": [
-        "machine",
-        "pdp10",
-        "dryer",
-        "lid"
-      ],
+      "aliases": ["machine", "pdp10", "dryer", "lid"],
       "description": "machine",
       "portable": true,
       "visible": true,
@@ -1161,12 +984,7 @@
     {
       "id": "mailbox",
       "name": "small mailbox",
-      "aliases": [
-        "mailbox",
-        "box",
-        "small mailbox",
-        "small box"
-      ],
+      "aliases": ["mailbox", "box", "small mailbox", "small box"],
       "description": "A small mailbox is here.",
       "portable": false,
       "visible": true,
@@ -1199,11 +1017,7 @@
     {
       "id": "mirror-2",
       "name": "mirror",
-      "aliases": [
-        "reflection",
-        "mirror",
-        "enormous"
-      ],
+      "aliases": ["reflection", "mirror", "enormous"],
       "description": "mirror",
       "portable": true,
       "visible": true,
@@ -1212,11 +1026,7 @@
     {
       "id": "mirror-1",
       "name": "mirror",
-      "aliases": [
-        "reflection",
-        "mirror",
-        "enormous"
-      ],
+      "aliases": ["reflection", "mirror", "enormous"],
       "description": "mirror",
       "portable": true,
       "visible": true,
@@ -1246,12 +1056,7 @@
     {
       "id": "candles",
       "name": "pair of candles",
-      "aliases": [
-        "candles",
-        "pair",
-        "burning candles",
-        "burning pair"
-      ],
+      "aliases": ["candles", "pair", "burning candles", "burning pair"],
       "description": "On the two ends of the altar are burning candles.",
       "portable": true,
       "visible": true,
@@ -1301,11 +1106,7 @@
     {
       "id": "leaves",
       "name": "pile of leaves",
-      "aliases": [
-        "leaves",
-        "leaf",
-        "pile"
-      ],
+      "aliases": ["leaves", "leaf", "pile"],
       "description": "On the ground is a pile of leaves.",
       "portable": true,
       "visible": true,
@@ -1380,14 +1181,7 @@
     {
       "id": "pot-of-gold",
       "name": "pot of gold",
-      "aliases": [
-        "pot",
-        "gold",
-        "treasure",
-        "gold pot",
-        "gold gold",
-        "gold treasure"
-      ],
+      "aliases": ["pot", "gold", "treasure", "gold pot", "gold gold", "gold treasure"],
       "description": "At the end of the rainbow is a pot of gold.",
       "portable": true,
       "visible": false,
@@ -1415,12 +1209,7 @@
     {
       "id": "railing",
       "name": "wooden railing",
-      "aliases": [
-        "railing",
-        "rail",
-        "wooden railing",
-        "wooden rail"
-      ],
+      "aliases": ["railing", "rail", "wooden railing", "wooden rail"],
       "description": "wooden railing",
       "portable": false,
       "visible": true,
@@ -1429,9 +1218,7 @@
     {
       "id": "rainbow",
       "name": "rainbow",
-      "aliases": [
-        "rainbow"
-      ],
+      "aliases": ["rainbow"],
       "description": "rainbow",
       "portable": false,
       "visible": true,
@@ -1440,10 +1227,7 @@
     {
       "id": "river",
       "name": "river",
-      "aliases": [
-        "river",
-        "frigid river"
-      ],
+      "aliases": ["river", "frigid river"],
       "description": "river",
       "portable": false,
       "visible": true,
@@ -1452,10 +1236,7 @@
     {
       "id": "buoy",
       "name": "red buoy",
-      "aliases": [
-        "buoy",
-        "red buoy"
-      ],
+      "aliases": ["buoy", "red buoy"],
       "description": "There is a red buoy here (probably a warning).",
       "portable": true,
       "visible": true,
@@ -1469,14 +1250,7 @@
     {
       "id": "rope",
       "name": "rope",
-      "aliases": [
-        "rope",
-        "hemp",
-        "coil",
-        "large rope",
-        "large hemp",
-        "large coil"
-      ],
+      "aliases": ["rope", "hemp", "coil", "large rope", "large hemp", "large coil"],
       "description": "A large coil of rope is lying in the corner.",
       "portable": true,
       "visible": true,
@@ -1489,12 +1263,7 @@
     {
       "id": "rusty-knife",
       "name": "rusty knife",
-      "aliases": [
-        "knives",
-        "knife",
-        "rusty knives",
-        "rusty knife"
-      ],
+      "aliases": ["knives", "knife", "rusty knives", "rusty knife"],
       "description": "Beside the skeleton is a rusty knife.",
       "portable": true,
       "visible": true,
@@ -1508,9 +1277,7 @@
     {
       "id": "sand",
       "name": "sand",
-      "aliases": [
-        "sand"
-      ],
+      "aliases": ["sand"],
       "description": "The sand is fine and runs through your fingers.",
       "portable": false,
       "visible": true,
@@ -1561,10 +1328,7 @@
     {
       "id": "keys",
       "name": "skeleton key",
-      "aliases": [
-        "key",
-        "skeleton key"
-      ],
+      "aliases": ["key", "skeleton key"],
       "description": "skeleton key",
       "portable": true,
       "visible": true,
@@ -1577,11 +1341,7 @@
     {
       "id": "shovel",
       "name": "shovel",
-      "aliases": [
-        "shovel",
-        "tool",
-        "tools"
-      ],
+      "aliases": ["shovel", "tool", "tools"],
       "description": "shovel",
       "portable": true,
       "visible": true,
@@ -1594,14 +1354,7 @@
     {
       "id": "coal",
       "name": "small pile of coal",
-      "aliases": [
-        "coal",
-        "pile",
-        "heap",
-        "small coal",
-        "small pile",
-        "small heap"
-      ],
+      "aliases": ["coal", "pile", "heap", "small coal", "small pile", "small heap"],
       "description": "small pile of coal",
       "portable": true,
       "visible": true,
@@ -1610,12 +1363,7 @@
     {
       "id": "ladder",
       "name": "wooden ladder",
-      "aliases": [
-        "ladder",
-        "wooden ladder",
-        "rickety ladder",
-        "narrow ladder"
-      ],
+      "aliases": ["ladder", "wooden ladder", "rickety ladder", "narrow ladder"],
       "description": "wooden ladder",
       "portable": false,
       "visible": true,
@@ -1653,11 +1401,7 @@
     {
       "id": "large-bag",
       "name": "large bag",
-      "aliases": [
-        "bag",
-        "large bag",
-        "thiefs bag"
-      ],
+      "aliases": ["bag", "large bag", "thiefs bag"],
       "description": "large bag",
       "portable": true,
       "visible": true,
@@ -1666,10 +1410,7 @@
     {
       "id": "stiletto",
       "name": "stiletto",
-      "aliases": [
-        "stiletto",
-        "vicious stiletto"
-      ],
+      "aliases": ["stiletto", "vicious stiletto"],
       "description": "stiletto",
       "portable": true,
       "visible": true,
@@ -1681,9 +1422,7 @@
     {
       "id": "machine-switch",
       "name": "switch",
-      "aliases": [
-        "switch"
-      ],
+      "aliases": ["switch"],
       "description": "switch",
       "portable": false,
       "visible": true,
@@ -1823,11 +1562,7 @@
     {
       "id": "pedestal",
       "name": "pedestal",
-      "aliases": [
-        "pedestal",
-        "white pedestal",
-        "marble pedestal"
-      ],
+      "aliases": ["pedestal", "white pedestal", "marble pedestal"],
       "description": "pedestal",
       "portable": false,
       "visible": true,
@@ -1890,10 +1625,7 @@
     {
       "id": "troll",
       "name": "troll",
-      "aliases": [
-        "troll",
-        "nasty troll"
-      ],
+      "aliases": ["troll", "nasty troll"],
       "description": "A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the room.",
       "portable": true,
       "visible": true,
@@ -1923,11 +1655,7 @@
     {
       "id": "tube",
       "name": "tube",
-      "aliases": [
-        "tube",
-        "tooth",
-        "paste"
-      ],
+      "aliases": ["tube", "tooth", "paste"],
       "description": "The tube is a large metal pipe.",
       "portable": true,
       "visible": true,
@@ -1942,12 +1670,7 @@
     {
       "id": "putty",
       "name": "viscous material",
-      "aliases": [
-        "material",
-        "gunk",
-        "viscous material",
-        "viscous gunk"
-      ],
+      "aliases": ["material", "gunk", "viscous material", "viscous gunk"],
       "description": "viscous material",
       "portable": true,
       "visible": true,
@@ -2019,12 +1742,7 @@
     {
       "id": "white-cliff",
       "name": "white cliffs",
-      "aliases": [
-        "cliff",
-        "cliffs",
-        "white cliff",
-        "white cliffs"
-      ],
+      "aliases": ["cliff", "cliffs", "white cliff", "white cliffs"],
       "description": "white cliffs",
       "portable": false,
       "visible": true,
@@ -2033,11 +1751,7 @@
     {
       "id": "wrench",
       "name": "wrench",
-      "aliases": [
-        "wrench",
-        "tool",
-        "tools"
-      ],
+      "aliases": ["wrench", "tool", "tools"],
       "description": "wrench",
       "portable": true,
       "visible": true,
@@ -2050,10 +1764,7 @@
     {
       "id": "control-panel",
       "name": "control panel",
-      "aliases": [
-        "panel",
-        "control panel"
-      ],
+      "aliases": ["panel", "control panel"],
       "description": "control panel",
       "portable": false,
       "visible": true,
@@ -2062,10 +1773,7 @@
     {
       "id": "nest",
       "name": "bird's nest",
-      "aliases": [
-        "nest",
-        "birds nest"
-      ],
+      "aliases": ["nest", "birds nest"],
       "description": "Beside you on the branch is a small bird's nest.",
       "portable": true,
       "visible": true,
@@ -2245,9 +1953,7 @@
         "osize": 6,
         "isContainer": true,
         "capacity": 6,
-        "acceptsPrepositions": [
-          "in"
-        ]
+        "acceptsPrepositions": ["in"]
       }
     },
     {
@@ -2430,9 +2136,7 @@
         "osize": 6,
         "isContainer": true,
         "capacity": 6,
-        "acceptsPrepositions": [
-          "in"
-        ]
+        "acceptsPrepositions": ["in"]
       }
     },
     {

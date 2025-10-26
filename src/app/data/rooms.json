@@ -73,7 +73,14 @@
         "west": "kitchen",
         "east": "clearing"
       },
-      "objectIds": [],
+      "conditionalExits": {
+        "west": {
+          "type": "objectOpen",
+          "objectId": "kitchen-window",
+          "failureMessage": "The window is closed."
+        }
+      },
+      "objectIds": ["kitchen-window"],
       "visited": false,
       "isDark": false
     },
@@ -200,7 +207,19 @@
         "up": "attic",
         "down": "studio"
       },
-      "objectIds": [],
+      "conditionalExits": {
+        "east": {
+          "type": "objectOpen",
+          "objectId": "kitchen-window",
+          "failureMessage": "The window is closed."
+        },
+        "out": {
+          "type": "objectOpen",
+          "objectId": "kitchen-window",
+          "failureMessage": "The window is closed."
+        }
+      },
+      "objectIds": ["kitchen-window", "kitchen-table"],
       "visited": false,
       "isDark": false
     },
@@ -225,6 +244,13 @@
         "east": "kitchen",
         "down": "cellar"
       },
+      "conditionalExits": {
+        "down": {
+          "type": "objectOpen",
+          "objectId": "trap-door",
+          "failureMessage": "The trap door is closed."
+        }
+      },
       "objectIds": [],
       "visited": false,
       "isDark": false
@@ -232,12 +258,19 @@
     {
       "id": "cellar",
       "name": "Cellar",
-      "description": "You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south.",
+      "description": "You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.",
       "shortDescription": "Cellar",
       "exits": {
         "north": "troll-room",
         "south": "east-of-chasm",
         "up": "living-room"
+      },
+      "conditionalExits": {
+        "up": {
+          "type": "objectOpen",
+          "objectId": "trap-door",
+          "failureMessage": "The trap door is closed."
+        }
       },
       "objectIds": [],
       "visited": false,

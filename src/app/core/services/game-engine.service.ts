@@ -7,6 +7,7 @@ import {
   CommandOutput,
   Direction,
   ObjectCandidate,
+  ExitCondition,
 } from '../models';
 import { DataLoaderService } from './data-loader.service';
 import { CommandParserService } from './command-parser.service';
@@ -165,6 +166,9 @@ export class GameEngineService {
         break;
       case 'attack':
         output = this.handleAttack(parserResult.directObject, parserResult.indirectObject);
+        break;
+      case 'push':
+        output = this.handlePush(parserResult.directObject);
         break;
       case 'help':
         output = this.handleHelp();
@@ -351,8 +355,96 @@ export class GameEngineService {
       };
     }
 
+    // Check if there's a conditional exit (e.g., door that must be open)
+    if (currentRoom.conditionalExits) {
+      const condition = currentRoom.conditionalExits.get(normalizedDir);
+      if (condition) {
+        const conditionResult = this.checkExitCondition(condition);
+        if (!conditionResult.success) {
+          return {
+            messages: [conditionResult.message],
+            success: false,
+            type: 'error',
+          };
+        }
+      }
+    }
+
     this.moveToRoom(nextRoomId);
     return { messages: [], success: true, type: 'description' };
+  }
+
+  /**
+   * Check if an exit condition is satisfied.
+   */
+  private checkExitCondition(condition: ExitCondition): {
+    success: boolean;
+    message: string;
+  } {
+    switch (condition.type) {
+      case 'objectOpen': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const obj = this.gameObjects().get(condition.objectId);
+        if (!obj) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const isOpen = obj.properties?.isOpen ?? false;
+        if (!isOpen) {
+          return {
+            success: false,
+            message: condition.failureMessage || `The ${obj.name} is closed.`,
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'objectClosed': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const obj = this.gameObjects().get(condition.objectId);
+        if (!obj) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const isOpen = obj.properties?.isOpen ?? false;
+        if (isOpen) {
+          return {
+            success: false,
+            message: condition.failureMessage || `The ${obj.name} is open.`,
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'hasObject': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const hasObject = this.playerState().inventory.includes(condition.objectId);
+        if (!hasObject) {
+          return {
+            success: false,
+            message: condition.failureMessage || 'You need something to proceed.',
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'flag': {
+        if (!condition.flag) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const flagValue = this.playerState().flags.get(condition.flag) ?? false;
+        if (!flagValue) {
+          return {
+            success: false,
+            message: condition.failureMessage || "You can't go that way.",
+          };
+        }
+        return { success: true, message: '' };
+      }
+      default:
+        return { success: false, message: "You can't go that way." };
+    }
   }
 
   /**
@@ -562,6 +654,17 @@ export class GameEngineService {
     // Open the object and mark as touched
     this.updateObjectProperty(obj.id, 'isOpen', true);
     this.updateObjectProperty(obj.id, 'touched', true);
+
+    // Special handling for trap door
+    if (obj.id === 'trap-door') {
+      return {
+        messages: [
+          'The door reluctantly opens to reveal a rickety staircase descending into darkness.',
+        ],
+        success: true,
+        type: 'success',
+      };
+    }
 
     // Get objects inside this container (check both location-based and contains array)
     const contentsById = obj.properties.contains || [];
@@ -1030,6 +1133,64 @@ export class GameEngineService {
   }
 
   /**
+   * Handle pushing/moving an object.
+   */
+  private handlePush(objectName: string | null): CommandOutput {
+    if (!objectName) {
+      return { messages: ['Push what?'], success: false, type: 'error' };
+    }
+
+    const obj = this.findObject(objectName);
+    if (!obj) {
+      return {
+        messages: [`You don't see any ${objectName} here.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Special handling for the rug/carpet in living room
+    if (obj.id === 'rug' && this.playerState().currentRoomId === 'living-room') {
+      // Find the trap door
+      const trapDoor = this.gameObjects().get('trap-door');
+      if (trapDoor && !trapDoor.visible) {
+        // Make trap door visible
+        trapDoor.visible = true;
+        this.gameObjects().set('trap-door', trapDoor);
+
+        return {
+          messages: [
+            'With a great effort, the rug is moved to one side of the room, revealing the dusty cover of a closed trap door.',
+          ],
+          success: true,
+          type: 'info',
+        };
+      } else if (trapDoor && trapDoor.visible) {
+        return {
+          messages: ['The rug has already been moved.'],
+          success: false,
+          type: 'info',
+        };
+      }
+    }
+
+    // Default behavior for other objects
+    if (obj.portable) {
+      return {
+        messages: [`You can take the ${obj.name} if you want to move it.`],
+        success: false,
+        type: 'info',
+      };
+    }
+
+    return {
+      messages: [`The ${obj.name} is too heavy to move.`],
+      success: false,
+      type: 'info',
+    };
+  }
+
+  /**
    * Handle help command.
    */
   private handleHelp(): CommandOutput {
@@ -1187,7 +1348,7 @@ export class GameEngineService {
     // Search in current room and inventory with exact matching
     for (const obj of this.gameObjects().values()) {
       const nameMatch = obj.name.toLowerCase() === lowerName;
-      const aliasMatch = obj.aliases.some((alias) => alias.toLowerCase() === lowerName);
+      const aliasMatch = obj.aliases?.some((alias) => alias.toLowerCase() === lowerName) ?? false;
 
       if (nameMatch || aliasMatch) {
         // Check if object is in current room or inventory
@@ -1220,7 +1381,7 @@ export class GameEngineService {
       if (!obj) continue;
 
       const nameMatch = obj.name.toLowerCase() === lowerName;
-      const aliasMatch = obj.aliases.some((alias) => alias.toLowerCase() === lowerName);
+      const aliasMatch = obj.aliases?.some((alias) => alias.toLowerCase() === lowerName) ?? false;
 
       if (nameMatch || aliasMatch) {
         return obj;

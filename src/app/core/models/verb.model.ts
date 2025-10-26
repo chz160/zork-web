@@ -41,6 +41,7 @@ export type VerbType =
   | 'attack'
   | 'use'
   | 'put'
+  | 'push'
   // System
   | 'help'
   | 'save'

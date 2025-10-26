@@ -1,4 +1,21 @@
 /**
+ * Condition for a conditional exit.
+ */
+export interface ExitCondition {
+  /** Type of condition to check */
+  type: 'objectOpen' | 'objectClosed' | 'hasObject' | 'flag';
+
+  /** ID of the object to check (for objectOpen/objectClosed/hasObject) */
+  objectId?: string;
+
+  /** Flag name to check (for flag type) */
+  flag?: string;
+
+  /** Error message to show when condition is not met */
+  failureMessage?: string;
+}
+
+/**
  * Represents a location in the game world.
  */
 export interface Room {
@@ -25,6 +42,9 @@ export interface Room {
 
   /** Additional properties for specialized rooms */
   properties?: RoomProperties;
+
+  /** Conditional exits that require certain conditions to be met */
+  conditionalExits?: Map<Direction, ExitCondition>;
 }
 
 /**

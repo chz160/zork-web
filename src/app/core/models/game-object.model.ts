@@ -9,7 +9,7 @@ export interface GameObject {
   name: string;
 
   /** Names that can be used to refer to this object */
-  aliases: string[];
+  aliases?: string[];
 
   /** Detailed description when examined */
   description: string;
