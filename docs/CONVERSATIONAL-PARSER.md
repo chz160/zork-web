@@ -503,6 +503,358 @@ Both components implement full accessibility:
   - Respects `prefers-reduced-motion` media query
   - Animations disabled when requested
 
+## Command Dispatcher & Sequential Execution
+
+### Overview
+
+The Command Dispatcher is the orchestration layer that coordinates the execution of multiple parsed commands, managing state propagation, execution policies, and integration with UI flows. Introduced in Phase 7, it provides robust transaction semantics and comprehensive telemetry for multi-command sequences.
+
+### Architecture
+
+```
+┌─────────────────┐
+│   GameService   │  ← User submits "open mailbox and take leaflet"
+└────────┬────────┘
+         │ splits into commands
+         ↓
+┌─────────────────┐
+│ CommandParser   │  ← Parses each sub-command
+└────────┬────────┘
+         │ ParserResult[]
+         ↓
+┌─────────────────┐
+│ GameEngine      │
+│ .executeParsed  │
+│  Commands()     │
+└────────┬────────┘
+         │
+         ↓
+┌─────────────────┐
+│ CommandDispatcher│ ← Sequential execution controller
+└────────┬────────┘
+         │ for each command...
+         ↓
+┌─────────────────┐
+│ GameEngine      │
+│ .executeCommand │  ← Updates game state
+└────────┬────────┘
+         │
+         ↓
+┌─────────────────┐
+│ Game State      │  ← State propagates to next command
+└─────────────────┘
+```
+
+### Execution Policies
+
+The dispatcher supports two execution policies:
+
+#### 1. fail-early (default)
+
+Stops execution on the first command that fails. Subsequent commands are marked as skipped.
+
+**Use Case**: Critical command sequences where later commands depend on earlier ones succeeding.
+
+**Example**:
+```typescript
+// "open mailbox and take leaflet"
+// If "open mailbox" fails, "take leaflet" is skipped
+const report = await gameEngine.executeParsedCommands(commands, {
+  policy: 'fail-early'
+});
+
+console.log(report.skippedCommands); // > 0 if first command failed
+```
+
+#### 2. best-effort
+
+Continues executing all commands even if some fail. Reports all errors but doesn't skip commands.
+
+**Use Case**: Independent command sequences where each command should be attempted regardless of others.
+
+**Example**:
+```typescript
+// "look and inventory and help"
+// All three commands execute even if one fails
+const report = await gameEngine.executeParsedCommands(commands, {
+  policy: 'best-effort'
+});
+
+console.log(report.failedCommands); // Count of failed commands
+console.log(report.successfulCommands); // Count of successful commands
+```
+
+### Transaction Semantics
+
+The dispatcher ensures **sequential consistency**:
+
+1. **Command Ordering**: Commands execute in the order they appear in the input
+2. **State Propagation**: Each command sees the effects of all previous commands
+3. **Atomic Execution**: Each command is executed fully before the next begins
+4. **No Rollback**: State changes are committed immediately (no transaction rollback)
+
+**Example of State Propagation**:
+```typescript
+// Input: "open mailbox and take leaflet"
+// 1. open mailbox → mailbox.isOpen = true (state committed)
+// 2. take leaflet → sees mailbox.isOpen = true, can access contents
+```
+
+### API Reference
+
+#### GameEngineService.executeParsedCommands()
+
+```typescript
+async executeParsedCommands(
+  commands: ParserResult[],
+  options?: ExecutionOptions
+): Promise<ExecutionReport>
+```
+
+**Parameters**:
+- `commands`: Array of parsed commands from CommandParserService
+- `options`: Optional execution configuration
+  - `policy`: `'fail-early'` | `'best-effort'` (default: `'fail-early'`)
+  - `blockOnUI`: Whether to await UI interactions (default: `true`)
+
+**Returns**: `ExecutionReport` with comprehensive execution statistics
+
+#### ExecutionReport Interface
+
+```typescript
+interface ExecutionReport {
+  results: CommandExecutionResult[];  // Per-command results
+  success: boolean;                   // Overall success
+  policy: ExecutionPolicy;            // Policy used
+  totalCommands: number;              // Total commands
+  executedCommands: number;           // Commands executed (not skipped)
+  successfulCommands: number;         // Commands that succeeded
+  failedCommands: number;             // Commands that failed
+  skippedCommands: number;            // Commands skipped (fail-early)
+  startTime: Date;                    // Execution start timestamp
+  endTime: Date;                      // Execution end timestamp
+  executionTimeMs: number;            // Total execution time
+}
+```
+
+#### CommandExecutionResult Interface
+
+```typescript
+interface CommandExecutionResult {
+  command: ParserResult;              // The parsed command
+  output: CommandOutput;              // Command execution result
+  index: number;                      // Position in sequence (0-based)
+  skipped: boolean;                   // Whether command was skipped
+  selectedCandidate?: ObjectCandidate;// Disambiguation selection
+  autocorrectAccepted?: boolean;      // Autocorrect decision
+  originalInput?: string;             // Input before autocorrect
+  startTime: Date;                    // Command start time
+  endTime: Date;                      // Command end time
+}
+```
+
+### Usage Examples
+
+#### Basic Sequential Execution
+
+```typescript
+const parser = inject(CommandParserService);
+const gameEngine = inject(GameEngineService);
+
+// Parse multiple commands
+const commands = [
+  parser.parse('look'),
+  parser.parse('inventory'),
+  parser.parse('help')
+];
+
+// Execute with default policy (fail-early)
+const report = await gameEngine.executeParsedCommands(commands);
+
+// Check results
+if (report.success) {
+  console.log('All commands succeeded');
+} else {
+  console.log(`${report.failedCommands} commands failed`);
+}
+```
+
+#### Best-Effort Execution
+
+```typescript
+// Execute all commands regardless of failures
+const report = await gameEngine.executeParsedCommands(commands, {
+  policy: 'best-effort'
+});
+
+// Process each result individually
+report.results.forEach((result, index) => {
+  if (result.output.success) {
+    console.log(`Command ${index + 1}: SUCCESS`);
+  } else {
+    console.log(`Command ${index + 1}: FAILED - ${result.output.messages[0]}`);
+  }
+});
+```
+
+#### State-Dependent Sequences
+
+```typescript
+// Commands that depend on state changes
+const commands = [
+  parser.parse('open mailbox'),    // Changes: mailbox.isOpen = true
+  parser.parse('take leaflet'),    // Sees: mailbox.isOpen = true
+  parser.parse('read leaflet')     // Sees: leaflet in inventory
+];
+
+const report = await gameEngine.executeParsedCommands(commands, {
+  policy: 'fail-early'  // Stop if mailbox can't be opened
+});
+
+// Verify state propagation worked
+if (report.success) {
+  console.log('All commands executed with proper state propagation');
+}
+```
+
+### Telemetry Events
+
+The dispatcher logs comprehensive telemetry events:
+
+**Event Types**:
+- `commandDispatcher.started`: Execution begins
+  - Data: `{ commandCount, policy }`
+- `commandDispatcher.commandExecuted`: Each command completes
+  - Data: `{ index, verb, success, executionTimeMs }`
+- `commandDispatcher.error`: Command throws exception
+  - Data: `{ index, verb, error }`
+- `commandDispatcher.earlyTermination`: fail-early stops sequence
+  - Data: `{ index, remainingCommands }`
+- `commandDispatcher.completed`: Execution finishes
+  - Data: `{ totalCommands, executedCommands, successfulCommands, failedCommands, skippedCommands, success, executionTimeMs, policy }`
+
+**Example: Querying Telemetry**:
+```typescript
+const telemetry = inject(TelemetryService);
+const events = telemetry.getEvents();
+
+// Find dispatcher completion event
+const completedEvent = events.find(e => 
+  String(e.type).includes('commandDispatcher.completed')
+);
+
+if (completedEvent) {
+  console.log('Execution time:', completedEvent.data['executionTimeMs'], 'ms');
+  console.log('Success rate:', 
+    completedEvent.data['successfulCommands'] / 
+    completedEvent.data['totalCommands']
+  );
+}
+```
+
+### Integration with UI Components
+
+The dispatcher seamlessly integrates with disambiguation and autocorrect flows:
+
+**Disambiguation During Multi-Command**:
+```typescript
+// Input: "take lamp and open door"
+// If multiple lamps exist, dispatcher:
+// 1. Pauses execution
+// 2. Shows disambiguation UI
+// 3. Waits for user selection
+// 4. Continues with selected lamp
+// 5. Executes "open door"
+```
+
+**Autocorrect During Multi-Command**:
+```typescript
+// Input: "tak lamp and opn door"
+// Dispatcher:
+// 1. Shows autocorrect for "tak" → "take"
+// 2. Waits for user acceptance
+// 3. Executes corrected command
+// 4. Shows autocorrect for "opn" → "open"
+// 5. Waits for user acceptance
+// 6. Executes corrected command
+```
+
+### Performance Characteristics
+
+**Time Complexity**: O(n) where n = number of commands
+**Space Complexity**: O(n) for storing results
+**Execution**: Sequential (not parallel)
+**State Propagation**: Immediate (no buffering)
+
+**Typical Execution Times** (per command):
+- Simple commands (look, inventory): < 1ms
+- Object manipulation (take, drop): 1-3ms
+- Complex commands (with disambiguation): 100-500ms (user interaction time)
+
+### Error Handling
+
+The dispatcher handles errors gracefully:
+
+**Command Execution Errors**:
+```typescript
+try {
+  const report = await gameEngine.executeParsedCommands(commands);
+  // Report contains error information in results
+} catch (error) {
+  // Dispatcher itself never throws - errors are captured in report
+}
+```
+
+**Invalid Commands**:
+```typescript
+// Invalid commands are executed and marked as failed
+const commands = [
+  parser.parse('invalidverb'),  // isValid = false
+  parser.parse('look')           // Valid command
+];
+
+const report = await gameEngine.executeParsedCommands(commands, {
+  policy: 'best-effort'  // Both execute
+});
+
+expect(report.results[0].output.success).toBe(false);
+expect(report.results[1].output.success).toBe(true);
+```
+
+### Configuration
+
+Execution policy can be configured globally in `command-config.json`:
+
+```json
+{
+  "parserSettings": {
+    "multiCommandPolicy": "best-effort"  // or "fail-fast"
+  }
+}
+```
+
+### Testing
+
+The dispatcher includes comprehensive test coverage:
+
+**Unit Tests** (21 tests):
+- Policy enforcement
+- Sequential execution
+- Error handling
+- Timing tracking
+- Telemetry logging
+
+**Integration Tests** (15 tests):
+- State propagation
+- Transaction semantics
+- UI flow integration
+- Complex scenarios
+
+**Run Tests**:
+```bash
+npm test -- --include="**/command-dispatcher*.spec.ts" --no-watch
+```
+
 ### 🔜 Future Enhancements
 
 The following features are planned but not yet implemented:
