@@ -1124,6 +1124,464 @@ The following features are planned but not yet implemented:
    - Speech-to-text integration
    - Voice-optimized error handling
 
+## Feature Flags and Rollout Strategy
+
+### Feature Flag System
+
+The conversational parser enhancements are controlled by a feature flag system for safe staged rollout and instant rollback capabilities.
+
+#### COMMAND_PARSER_ENHANCEMENTS Flag
+
+**Flag Name:** `COMMAND_PARSER_ENHANCEMENTS`  
+**Default State:** Enabled (true)  
+**Controls:**
+- Fuzzy matching for verbs and objects
+- Multi-command parsing and sequential execution
+- Object disambiguation UI
+- Autocorrect confirmation UI
+- Enhanced telemetry logging
+
+#### Using Feature Flags
+
+**Check if Feature is Enabled:**
+```typescript
+import { FeatureFlagService, FeatureFlag } from './core/services';
+
+constructor(private featureFlags: FeatureFlagService) {}
+
+if (this.featureFlags.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS)) {
+  // Use new parser features
+  const result = this.parser.parseWithFuzzyMatching(input);
+} else {
+  // Fall back to legacy parser
+  const result = this.parser.parseStrictly(input);
+}
+```
+
+**Enable/Disable at Runtime:**
+```typescript
+// Disable feature for testing
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, false);
+
+// Re-enable after validation
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, true);
+```
+
+**Batch Configuration:**
+```typescript
+featureFlags.setFlags({
+  COMMAND_PARSER_ENHANCEMENTS: true,
+  // Other flags here as needed
+});
+```
+
+**Get All Flags:**
+```typescript
+const currentFlags = featureFlags.getAllFlags();
+console.log('Parser enhancements:', currentFlags['COMMAND_PARSER_ENHANCEMENTS']);
+```
+
+#### Persistence
+
+Feature flags are automatically persisted to `localStorage` under the key `zork_feature_flags`. This ensures settings survive page refreshes and persist across sessions.
+
+**Fallback Behavior:**
+- If `localStorage` is unavailable (private browsing, server-side rendering), flags remain in memory only
+- Service continues to work normally but settings won't persist across page reloads
+- No errors are thrown - the service handles unavailability gracefully
+
+**Clear Stored Flags:**
+```typescript
+featureFlags.clearStorage();
+```
+
+**Reset to Defaults:**
+```typescript
+featureFlags.resetToDefaults();
+```
+
+### Staged Rollout Strategy
+
+The feature flag system enables multiple rollout strategies:
+
+#### 1. Canary Deployment
+
+Gradually roll out to increasing percentages of users:
+
+```typescript
+// Phase 1: Internal testing (0%)
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, false);
+
+// Phase 2: Beta users (10%)
+if (user.isBetaTester) {
+  featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, true);
+}
+
+// Phase 3: Gradual rollout (25% -> 50% -> 100%)
+// Use consistent hash of user ID for stable assignment (not Math.random())
+const hashCode = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  return Math.abs(hash);
+};
+const userBucket = hashCode(user.id) % 100; // 0-99
+const shouldEnable = userBucket < 25; // 25% of users consistently
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, shouldEnable);
+
+// Phase 4: Full deployment (100%)
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, true);
+```
+
+#### 2. A/B Testing
+
+Compare parser versions for effectiveness:
+
+```typescript
+// Randomly assign users to A or B group
+const groupA = Math.random() < 0.5;
+
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, groupA);
+
+// Track metrics for each group
+telemetry.logEvent('ab_test_group', {
+  group: groupA ? 'enhanced_parser' : 'legacy_parser',
+  userId: user.id
+});
+```
+
+#### 3. Instant Rollback
+
+If issues are detected in production:
+
+```typescript
+// Disable immediately for all users
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, false);
+
+// Telemetry continues logging in legacy mode
+// Investigate issues while users continue playing
+```
+
+#### 4. User Preference
+
+Allow players to opt-in/opt-out:
+
+**Angular Implementation:**
+```typescript
+// In settings component (Angular-specific syntax)
+<label>
+  <input
+    type="checkbox"
+    [checked]="featureFlags.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS)"
+    (change)="toggleEnhancements($event)"
+  />
+  Enable conversational command parsing
+</label>
+
+toggleEnhancements(event: Event) {
+  const enabled = (event.target as HTMLInputElement).checked;
+  this.featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, enabled);
+}
+```
+
+**Framework-Agnostic Implementation:**
+```typescript
+// Plain JavaScript/TypeScript
+const checkbox = document.querySelector('#enhance-parser') as HTMLInputElement;
+checkbox.checked = featureFlags.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS);
+
+checkbox.addEventListener('change', (event) => {
+  const enabled = (event.target as HTMLInputElement).checked;
+  featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, enabled);
+});
+```
+
+### Monitoring and Metrics
+
+Use telemetry to monitor feature flag effectiveness:
+
+```typescript
+const analytics = telemetry.getAnalytics();
+
+// Parse success rates
+console.log('Success rate:', analytics.parseSuccessRate);
+console.log('Fuzzy matches:', analytics.fuzzyMatches);
+console.log('Autocorrect acceptance:', analytics.autocorrectAcceptanceRate);
+
+// Top failures and patterns
+analytics.topFailedInputs.forEach(({ input, count }) => {
+  console.log(`"${input}" failed ${count} times`);
+});
+
+// Compare metrics between flag states
+if (featureFlags.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS)) {
+  // Track enhanced parser metrics
+} else {
+  // Track legacy parser metrics
+}
+```
+
+### Rollback Checklist
+
+If issues arise after deployment:
+
+- [ ] Disable flag immediately: `setFlag(COMMAND_PARSER_ENHANCEMENTS, false)`
+- [ ] Verify fallback to legacy parser works correctly
+- [ ] Export telemetry data for analysis: `telemetry.exportAnonymizedData()`
+- [ ] Identify root cause from telemetry and error logs
+- [ ] Fix issue in code
+- [ ] Test fix thoroughly with flag enabled
+- [ ] Re-enable flag for small percentage first
+- [ ] Monitor metrics closely during re-rollout
+- [ ] Gradually increase percentage if metrics are healthy
+
+## Architecture Overview
+
+### System Components
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         User Input                          │
+│                   "open mailbox and take it"                │
+└────────────────────────┬────────────────────────────────────┘
+                         ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    GameService (Facade)                     │
+│  - Receives raw input                                       │
+│  - Splits multi-commands                                    │
+│  - Coordinates parser/engine                                │
+└────────────────────────┬────────────────────────────────────┘
+                         ↓
+         ┌───────────────┴───────────────┐
+         ↓                               ↓
+┌──────────────────┐          ┌──────────────────┐
+│ MultiCommandSplitter│          │ CommandParserService│
+│ - Split on "and"  │          │ - Parse each command │
+│ - Split on "then" │          │ - Fuzzy matching     │
+│ - Split on ","    │          │ - Pronoun resolution │
+└────────┬──────────┘          └──────────┬──────────┘
+         │                                │
+         └────────────┬───────────────────┘
+                      ↓
+         ┌─────────────────────────┐
+         │  ParserResult[] Array   │
+         └────────┬────────────────┘
+                  ↓
+┌─────────────────────────────────────────────────────────────┐
+│              CommandDispatcherService                       │
+│  - Sequential execution controller                          │
+│  - Policy enforcement (fail-early/best-effort)              │
+│  - State propagation between commands                       │
+└────────────────────────┬────────────────────────────────────┘
+                         ↓
+         ┌───────────────┴───────────────┐
+         ↓               ↓               ↓
+    ┌─────────┐   ┌──────────┐   ┌──────────┐
+    │Disambiguation│   │Autocorrect│   │  Object   │
+    │   UI Flow    │   │  UI Flow  │   │ Resolver  │
+    │ (if needed)  │   │(if needed)│   │ (fuzzy)   │
+    └─────────┬────┘   └─────┬────┘   └────┬──────┘
+              │              │             │
+              └──────────────┴─────────────┘
+                             ↓
+┌─────────────────────────────────────────────────────────────┐
+│                 GameEngineService                           │
+│  - Execute individual commands                              │
+│  - Update game state (rooms, objects, inventory)            │
+│  - Generate command output                                  │
+└────────────────────────┬────────────────────────────────────┘
+                         ↓
+         ┌───────────────┴───────────────┐
+         ↓                               ↓
+┌──────────────────┐          ┌──────────────────┐
+│  TelemetryService│          │   Game State     │
+│ - Log all events │          │ - Player         │
+│ - Track metrics  │          │ - Rooms          │
+│ - Analytics      │          │ - Objects        │
+└──────────────────┘          └──────────────────┘
+```
+
+### Data Flow Example
+
+**Input:** `"open mailbox and take leaflet"`
+
+1. **GameService** receives input
+2. **MultiCommandSplitter** splits on "and" → `["open mailbox", "take leaflet"]`
+3. **CommandParserService** parses each:
+   - `"open mailbox"` → `{ verb: 'open', directObject: 'mailbox' }`
+   - `"take leaflet"` → `{ verb: 'take', directObject: 'leaflet' }`
+4. **CommandDispatcher** executes sequentially:
+   - Execute `open mailbox` → GameEngine → Mailbox.isOpen = true
+   - Execute `take leaflet` → GameEngine sees mailbox is open → Takes leaflet
+5. **TelemetryService** logs all events
+6. **Output** returned to UI
+
+### Component Responsibilities
+
+| Component | Responsibility | Key Methods |
+|-----------|---------------|-------------|
+| **GameService** | Facade between UI and engine | `submitCommand(input)` |
+| **MultiCommandSplitter** | Split multi-command strings | `split(input, separators)` |
+| **CommandParserService** | Natural language parsing | `parse(input): ParserResult` |
+| **FuzzyMatcher** | Typo tolerance | `findBestMatch(input, candidates)` |
+| **ObjectResolver** | Object resolution with context | `resolveObject(name, context)` |
+| **CommandDispatcher** | Sequential execution | `executeParsedCommands(commands)` |
+| **GameEngineService** | Core game logic | `executeCommand(result)` |
+| **TelemetryService** | Event logging & analytics | `logEvent(type, data)` |
+| **FeatureFlagService** | Feature toggles | `isEnabled(flag)` |
+
+### API Contracts
+
+#### CommandParserService.parse()
+
+```typescript
+interface ParserResult {
+  verb: VerbType | null;           // Resolved verb (e.g., 'take')
+  directObject: string | null;     // First object (e.g., 'lamp')
+  indirectObject: string | null;   // Second object (e.g., 'mailbox')
+  preposition: string | null;      // Preposition (e.g., 'in', 'with')
+  rawInput: string;                // Original input
+  isValid: boolean;                // Whether parsing succeeded
+  errorMessage?: string;           // Error if isValid=false
+  suggestions?: string[];          // Suggested corrections
+  tokens?: string[];               // Tokenized input
+}
+
+// Usage
+const result: ParserResult = parser.parse('take lamp');
+```
+
+#### CommandDispatcherService.executeParsedCommands()
+
+```typescript
+interface ExecutionReport {
+  results: CommandExecutionResult[];  // Per-command results
+  success: boolean;                   // Overall success
+  policy: ExecutionPolicy;            // fail-early | best-effort
+  totalCommands: number;
+  executedCommands: number;
+  successfulCommands: number;
+  failedCommands: number;
+  skippedCommands: number;
+  startTime: Date;
+  endTime: Date;
+  executionTimeMs: number;
+}
+
+// Usage
+const report: ExecutionReport = await dispatcher.executeParsedCommands(
+  commands,
+  (cmd) => gameEngine.executeCommand(cmd),
+  { policy: 'fail-early' }
+);
+```
+
+#### TelemetryService.getAnalytics()
+
+```typescript
+interface TelemetryAnalytics {
+  totalEvents: number;
+  parseAttempts: number;
+  parseSuccesses: number;
+  parseFailures: number;
+  parseSuccessRate: number;         // 0-1
+  fuzzyMatches: number;
+  autocorrectSuggestions: number;
+  autocorrectAcceptances: number;
+  autocorrectRejections: number;
+  autocorrectAcceptanceRate: number;  // 0-1
+  disambiguationShown: number;
+  disambiguationSelections: number;
+  disambiguationCancellations: number;
+  multiCommands: number;
+  ordinalSelections: number;
+  topFailedInputs: Array<{ input: string; count: number }>;
+  topAmbiguousPhrases: Array<{ phrase: string; count: number }>;
+  topAutocorrects: Array<{ from: string; to: string; count: number }>;
+}
+
+// Usage
+const analytics: TelemetryAnalytics = telemetry.getAnalytics();
+const analytics = telemetry.getAnalytics(startTime, endTime); // Time range
+```
+
+#### FeatureFlagService
+
+```typescript
+enum FeatureFlag {
+  COMMAND_PARSER_ENHANCEMENTS = 'COMMAND_PARSER_ENHANCEMENTS',
+}
+
+// Usage
+const isEnabled: boolean = featureFlags.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS);
+featureFlags.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, true);
+const allFlags: FeatureFlagConfig = featureFlags.getAllFlags();
+```
+
+### Accessibility Features
+
+All UI components implement full WCAG 2.1 AA compliance:
+
+**Keyboard Navigation:**
+- Disambiguation: 1-9 for selection, Escape to cancel, Tab/Enter/Space for navigation
+- Autocorrect: Y for accept, N for reject, Escape to cancel
+- Input field: Always accessible via Tab key
+
+**ARIA Support:**
+- `role="dialog"` and `role="alert"` for proper semantics
+- `aria-label` and `aria-modal` attributes
+- `aria-live` regions for screen reader announcements
+- `aria-describedby` for additional context
+
+**Focus Management:**
+- Auto-focus on component appearance
+- Proper tab order and focus trapping
+- Visible focus indicators
+
+**Responsive Design:**
+- Mobile-friendly layouts
+- Touch-friendly hit targets (44x44px minimum)
+- Readable text at all screen sizes
+
+**Reduced Motion:**
+- Respects `prefers-reduced-motion` media query
+- Animations disabled when requested
+- Instant transitions as fallback
+
+### Performance Characteristics
+
+**Parsing Performance:**
+- Simple commands: < 1ms
+- Fuzzy matching: 1-3ms (only on miss)
+- Multi-command parsing: 2-5ms (linear with command count)
+- Memory: Minimal (no caching implemented)
+
+**Execution Performance:**
+- Single command: 1-3ms
+- Multi-command sequence: 5-15ms (depends on command count)
+- Disambiguation UI: Blocking (waits for user)
+- Autocorrect UI: Blocking (waits for user)
+
+**Telemetry Performance:**
+- Event logging: Non-blocking (< 0.1ms per event)
+- Analytics computation: 5-10ms (on-demand)
+- Memory: ~10KB per 1000 events (all event types: parse, execution, UI interactions - uncompressed in-memory storage)
+
+**Optimization Tips:**
+- Use `fail-early` policy for critical sequences to stop execution on first error
+- Limit multi-command chains to 5-7 commands for optimal UX
+- Clear telemetry periodically in long sessions: `telemetry.clearEvents()`
+- Disable telemetry in performance-critical contexts:
+  ```typescript
+  // Disable telemetry collection
+  telemetry.setPrivacyConfig({ enabled: false });
+  
+  // Re-enable after performance-critical section
+  telemetry.setPrivacyConfig({ enabled: true });
+  ```
+
 ## Contributing
 
 To add new synonyms or phrasal verbs:

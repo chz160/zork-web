@@ -627,6 +627,9 @@ The `CommandParserService` handles natural language parsing of player commands i
 
 **Features:**
 - **Conversational Input**: Supports phrasal verbs like "look in", "pick up", "turn on"
+- **Fuzzy Matching**: Typo-tolerant parsing with autocorrect suggestions
+- **Multi-Command Support**: Chain commands with "and", "then", or "," separators
+- **Disambiguation UI**: Interactive prompts when multiple objects match
 - **Pronoun Resolution**: Use "it", "them", "that" to refer to recently mentioned objects
 - **Data-Driven Configuration**: Synonyms and phrasal verbs defined in JSON for easy extension
 - **Tokenization**: Breaks down raw input into meaningful tokens
@@ -636,9 +639,17 @@ The `CommandParserService` handles natural language parsing of player commands i
 - **Direction Shortcuts**: Handles abbreviated directions (n, s, e, w, etc.)
 - **Error Handling**: Provides clear error messages for invalid commands
 - **Preposition Support**: Handles complex interactions with indirect objects
+- **Telemetry & Analytics**: Comprehensive event logging with privacy controls
+- **Feature Flags**: Staged rollout support with instant rollback capability
 - **Backward Compatible**: All original commands continue to work
 
-> 📖 **See [Conversational Parser Documentation](docs/CONVERSATIONAL-PARSER.md) for complete details on phrasal verbs, pronouns, and natural language support.**
+> 📖 **See [Conversational Parser Documentation](docs/CONVERSATIONAL-PARSER.md) for complete details on:
+> - Fuzzy matching and autocorrect
+> - Multi-command parsing and sequential execution
+> - Disambiguation and pronoun resolution
+> - Telemetry, privacy, and analytics
+> - Feature flags and rollout strategy
+> - Architecture and API contracts**
 
 **Supported Command Patterns:**
 
