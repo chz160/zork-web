@@ -445,13 +445,23 @@ describe('CommandParserService', () => {
       });
     });
 
-    it('should handle walk/move/travel as go aliases', () => {
-      const aliases = ['walk', 'move', 'travel'];
+    it('should handle walk/travel as go aliases', () => {
+      const aliases = ['walk', 'travel'];
       aliases.forEach((alias) => {
         const result = service.parse(`${alias} north`);
         expect(result.isValid).toBe(true);
         expect(result.verb).toBe('go');
         expect(result.directObject).toBe('north');
+      });
+    });
+
+    it('should handle move/shove/slide as push aliases', () => {
+      const aliases = ['move', 'shove', 'slide'];
+      aliases.forEach((alias) => {
+        const result = service.parse(`${alias} rug`);
+        expect(result.isValid).toBe(true);
+        expect(result.verb).toBe('push');
+        expect(result.directObject).toBe('rug');
       });
     });
 
