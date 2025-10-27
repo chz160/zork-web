@@ -930,12 +930,13 @@
         "small booklet",
         "small mail"
       ],
-      "description": "A small leaflet is on the ground.",
+      "description": "A small leaflet.",
       "portable": true,
       "visible": true,
       "location": "mailbox",
       "properties": {
-        "isReadable": true
+        "isReadable": true,
+        "readableText": "\"WELCOME TO ZORK!\n\nZORK is a game of adventure, danger, and low cunning. In it you will explore some of the most amazing territory ever seen by mortals. No computer should be without one!\""
       }
     },
     {
