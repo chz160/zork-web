@@ -1134,6 +1134,31 @@ describe('GameEngineService', () => {
     });
 
     describe('mailbox scenario', () => {
+      /**
+       * Helper function to open mailbox and take leaflet
+       */
+      function openMailboxAndTakeLeaflet(): void {
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'mailbox',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open mailbox',
+          isValid: true,
+        };
+        service.executeCommand(openCommand);
+
+        const takeCommand: ParserResult = {
+          verb: 'take',
+          directObject: 'leaflet',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'take leaflet',
+          isValid: true,
+        };
+        service.executeCommand(takeCommand);
+      }
+
       it('should properly open mailbox and reveal leaflet', () => {
         service.initializeGame();
 
@@ -1183,25 +1208,7 @@ describe('GameEngineService', () => {
         service.initializeGame();
 
         // Open mailbox and take leaflet
-        const openCommand: ParserResult = {
-          verb: 'open',
-          directObject: 'mailbox',
-          indirectObject: null,
-          preposition: null,
-          rawInput: 'open mailbox',
-          isValid: true,
-        };
-        service.executeCommand(openCommand);
-
-        const takeCommand: ParserResult = {
-          verb: 'take',
-          directObject: 'leaflet',
-          indirectObject: null,
-          preposition: null,
-          rawInput: 'take leaflet',
-          isValid: true,
-        };
-        service.executeCommand(takeCommand);
+        openMailboxAndTakeLeaflet();
 
         // Now examine the leaflet - should not say "on the ground"
         const examineCommand: ParserResult = {
@@ -1226,25 +1233,7 @@ describe('GameEngineService', () => {
         service.initializeGame();
 
         // Open mailbox and take leaflet
-        const openCommand: ParserResult = {
-          verb: 'open',
-          directObject: 'mailbox',
-          indirectObject: null,
-          preposition: null,
-          rawInput: 'open mailbox',
-          isValid: true,
-        };
-        service.executeCommand(openCommand);
-
-        const takeCommand: ParserResult = {
-          verb: 'take',
-          directObject: 'leaflet',
-          indirectObject: null,
-          preposition: null,
-          rawInput: 'take leaflet',
-          isValid: true,
-        };
-        service.executeCommand(takeCommand);
+        openMailboxAndTakeLeaflet();
 
         // Read the leaflet - should display the readable text
         const readCommand: ParserResult = {
