@@ -134,7 +134,7 @@ export class InventoryComponent {
     if (item.properties?.isLight) {
       actions.push(item.properties.isLit ? 'extinguish' : 'light');
     }
-    if (item.properties?.isReadable || item.properties?.readText) {
+    if (item.properties?.isReadable || item.properties?.readableText) {
       actions.push('read');
     }
     if (item.properties?.isFood || item.properties?.edible) {

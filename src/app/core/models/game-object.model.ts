@@ -62,7 +62,7 @@ export interface GameObjectProperties {
   isReadable?: boolean;
 
   /** Text content for readable objects */
-  readText?: string;
+  readableText?: string;
 
   /** Whether the object has been read */
   hasBeenRead?: boolean;
