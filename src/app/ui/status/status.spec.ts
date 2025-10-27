@@ -275,8 +275,9 @@ describe('StatusComponent', () => {
 
   describe('Health Status', () => {
     it('should show "Alive" when player is alive', () => {
-      const healthRow = Array.from(fixture.nativeElement.querySelectorAll('.status-row')).find(
-        (row: Element) => row.textContent?.includes('Health')
+      const rows = fixture.nativeElement.querySelectorAll('.status-row');
+      const healthRow = Array.from<Element>(rows).find((row) =>
+        row.textContent?.includes('Health')
       ) as HTMLElement;
       const value = healthRow?.querySelector('.status-value');
       expect(value?.textContent?.trim()).toBe('Alive');
@@ -326,8 +327,9 @@ describe('StatusComponent', () => {
       const newFixture = TestBed.createComponent(StatusComponent);
       newFixture.detectChanges();
 
-      const healthRow = Array.from(newFixture.nativeElement.querySelectorAll('.status-row')).find(
-        (row: Element) => row.textContent?.includes('Health')
+      const rows = newFixture.nativeElement.querySelectorAll('.status-row');
+      const healthRow = Array.from<Element>(rows).find((row) =>
+        row.textContent?.includes('Health')
       ) as HTMLElement;
       const value = healthRow?.querySelector('.status-value');
       expect(value?.textContent?.trim()).toBe('Dead');
