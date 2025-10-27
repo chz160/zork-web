@@ -1178,6 +1178,93 @@ describe('GameEngineService', () => {
         expect(takeResult.success).toBe(true);
         expect(takeResult.messages[0]).toContain('Taken');
       });
+
+      it('should examine leaflet without location context when in inventory', () => {
+        service.initializeGame();
+
+        // Open mailbox and take leaflet
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'mailbox',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open mailbox',
+          isValid: true,
+        };
+        service.executeCommand(openCommand);
+
+        const takeCommand: ParserResult = {
+          verb: 'take',
+          directObject: 'leaflet',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'take leaflet',
+          isValid: true,
+        };
+        service.executeCommand(takeCommand);
+
+        // Now examine the leaflet - should not say "on the ground"
+        const examineCommand: ParserResult = {
+          verb: 'examine',
+          directObject: 'leaflet',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'examine leaflet',
+          isValid: true,
+        };
+
+        const result = service.executeCommand(examineCommand);
+        expect(result.success).toBe(true);
+        expect(result.messages.length).toBeGreaterThan(0);
+        // Should NOT contain location-specific text like "on the ground"
+        expect(result.messages[0]).not.toContain('on the ground');
+        // Should be a simple, context-independent description
+        expect(result.messages[0]).toContain('leaflet');
+      });
+
+      it('should read leaflet and display readable text', () => {
+        service.initializeGame();
+
+        // Open mailbox and take leaflet
+        const openCommand: ParserResult = {
+          verb: 'open',
+          directObject: 'mailbox',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'open mailbox',
+          isValid: true,
+        };
+        service.executeCommand(openCommand);
+
+        const takeCommand: ParserResult = {
+          verb: 'take',
+          directObject: 'leaflet',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'take leaflet',
+          isValid: true,
+        };
+        service.executeCommand(takeCommand);
+
+        // Read the leaflet - should display the readable text
+        const readCommand: ParserResult = {
+          verb: 'read',
+          directObject: 'leaflet',
+          indirectObject: null,
+          preposition: null,
+          rawInput: 'read leaflet',
+          isValid: true,
+        };
+
+        const result = service.executeCommand(readCommand);
+        expect(result.success).toBe(true);
+        expect(result.messages.length).toBeGreaterThan(0);
+        // Should contain the Zork welcome text
+        expect(result.messages[0]).toContain('WELCOME TO ZORK');
+        expect(result.messages[0]).toContain('adventure');
+        // Should NOT say "nothing to read"
+        expect(result.messages[0]).not.toContain("There's nothing to read");
+      });
     });
 
     describe('autocorrect confirmation', () => {
