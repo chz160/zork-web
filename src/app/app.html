@@ -157,6 +157,7 @@
     min-height: 0;
     display: grid;
     grid-template-columns: 1fr 320px;
+    grid-template-rows: auto 1fr;
     gap: var(--zork-spacing-sm);
     overflow: hidden;
   }
@@ -166,11 +167,26 @@
     flex-direction: column;
     gap: var(--zork-spacing-sm);
     min-width: 0;
+    grid-row: 1 / 3;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zork-spacing-sm);
+    min-width: 0;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .status-sidebar {
+    flex: 0 0 auto;
+    min-height: 0;
   }
 
   .inventory-sidebar {
-    min-width: 0;
-    max-height: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
     overflow: hidden;
   }
 
@@ -199,16 +215,37 @@
 
     .console-wrapper {
       grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr auto;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    .sidebar {
+      grid-row: 1 / 3;
+      max-height: 50vh;
+      flex-direction: row;
+      gap: var(--zork-spacing-sm);
+    }
+
+    .status-sidebar {
+      flex: 1 1 50%;
     }
 
     .inventory-sidebar {
-      grid-row: 1;
-      max-height: 40vh;
+      flex: 1 1 50%;
     }
 
     .game-main {
-      grid-row: 2 / 4;
+      grid-row: 3 / 5;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sidebar {
+      flex-direction: column;
+    }
+
+    .status-sidebar,
+    .inventory-sidebar {
+      flex: 1 1 auto;
     }
   }
 
@@ -293,8 +330,13 @@
       <app-console />
       <app-input />
     </div>
-    <aside class="inventory-sidebar">
-      <app-inventory />
+    <aside class="sidebar">
+      <div class="status-sidebar">
+        <app-status />
+      </div>
+      <div class="inventory-sidebar">
+        <app-inventory />
+      </div>
     </aside>
   </div>
 

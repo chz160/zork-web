@@ -129,6 +129,33 @@ The inventory panel is displayed on the right side of the screen (or at the top 
 
 The inventory panel updates automatically as you pick up or drop items during gameplay, providing a real-time view of your possessions.
 
+### Status Panel
+
+The status panel is displayed at the top of the right sidebar (above the inventory) and provides a real-time view of your game progress and player information.
+
+#### Features:
+- **Real-time Updates**: Displays current score, move count, location, inventory count, and health status
+- **Status Effects**: Shows active status effects like "Has light", "In darkness", "Blessed", "Cursed", etc.
+- **Responsive Layout**: Adapts to different screen sizes, showing side-by-side with inventory on mobile
+- **Accessibility**: Full ARIA support with live regions for screen readers
+- **Classic Zork Aesthetic**: Green-on-black terminal styling with phosphor glow effects
+
+#### Information Displayed:
+- **Score**: Your current game score (updated when you complete objectives)
+- **Moves**: Number of turns/commands you've executed
+- **Location**: Your current room name
+- **Items**: Count of items in your inventory
+- **Health**: Whether you are alive or dead
+- **Effects**: Active status effects (shown as badges when present)
+
+#### Accessibility:
+- ARIA live regions announce score and move changes
+- Screen reader friendly with proper labels and roles
+- High contrast mode support
+- Reduced motion support for users with motion sensitivity
+
+The status panel updates automatically with every command you execute, providing instant feedback on your game progress.
+
 ## Development
 
 ### Code Quality and Linting

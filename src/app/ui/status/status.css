@@ -1,0 +1,195 @@
+/* Status Panel - Zork Terminal Aesthetic */
+.status-panel {
+  background: var(--zork-background);
+  border: var(--zork-border-width) solid var(--zork-primary);
+  border-radius: var(--zork-border-radius);
+  padding: var(--zork-spacing-md);
+  font-family: var(--zork-font-family);
+  box-shadow: var(--zork-glow-subtle);
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Header */
+.status-header {
+  border-bottom: 1px solid var(--zork-primary);
+  padding-bottom: var(--zork-spacing-xs);
+  margin-bottom: var(--zork-spacing-md);
+}
+
+.status-title {
+  margin: 0;
+  color: var(--zork-primary);
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: var(--zork-glow-subtle);
+}
+
+/* Content */
+.status-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zork-spacing-sm);
+}
+
+/* Status Row */
+.status-row {
+  display: flex;
+  gap: var(--zork-spacing-sm);
+}
+
+/* Status Item */
+.status-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zork-spacing-xs);
+}
+
+.status-item--wide {
+  flex: 1 1 100%;
+}
+
+.status-label {
+  color: var(--zork-primary-dim);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-value {
+  color: var(--zork-primary);
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-shadow: var(--zork-glow-subtle);
+}
+
+.status-value--danger {
+  color: var(--zork-error);
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+}
+
+/* Status Effects */
+.status-effects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zork-spacing-xs);
+  padding-top: var(--zork-spacing-sm);
+  border-top: 1px solid var(--zork-primary-faint);
+}
+
+.status-effects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zork-spacing-xs);
+}
+
+.status-effect-badge {
+  display: inline-block;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid var(--zork-primary);
+  color: var(--zork-primary);
+  padding: var(--zork-spacing-xs) var(--zork-spacing-sm);
+  border-radius: var(--zork-border-radius);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--zork-glow-subtle);
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Custom scrollbar */
+.status-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.status-panel::-webkit-scrollbar-track {
+  background: var(--zork-background-dark);
+}
+
+.status-panel::-webkit-scrollbar-thumb {
+  background: var(--zork-primary);
+  border-radius: 4px;
+  box-shadow: var(--zork-glow-subtle);
+}
+
+.status-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--zork-primary-bright);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .status-panel {
+    border-width: 3px;
+  }
+
+  .status-value,
+  .status-title {
+    font-weight: 900;
+  }
+
+  .status-effect-badge {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .status-panel {
+    transition: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .status-panel {
+    padding: var(--zork-spacing-sm);
+  }
+
+  .status-title {
+    font-size: 0.9rem;
+  }
+
+  .status-label {
+    font-size: 0.7rem;
+  }
+
+  .status-value {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-row {
+    flex-direction: column;
+  }
+
+  .status-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .status-label {
+    flex: 0 0 auto;
+  }
+
+  .status-value {
+    flex: 0 0 auto;
+  }
+}

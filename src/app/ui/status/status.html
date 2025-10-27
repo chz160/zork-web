@@ -1,0 +1,62 @@
+<div class="status-panel" role="region" [attr.aria-label]="getAriaLabel()" aria-live="polite">
+  <div class="status-header">
+    <h2 class="status-title">Status</h2>
+  </div>
+
+  <div class="status-content">
+    <!-- Score and Moves -->
+    <div class="status-row">
+      <div class="status-item">
+        <span class="status-label">Score:</span>
+        <span class="status-value" aria-live="polite">{{ score() }}</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Moves:</span>
+        <span class="status-value" aria-live="polite">{{ moveCount() }}</span>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div class="status-row">
+      <div class="status-item status-item--wide">
+        <span class="status-label">Location:</span>
+        <span class="status-value">{{ locationName() }}</span>
+      </div>
+    </div>
+
+    <!-- Inventory Count -->
+    <div class="status-row">
+      <div class="status-item status-item--wide">
+        <span class="status-label">Items:</span>
+        <span class="status-value">{{ inventoryCount() }}</span>
+      </div>
+    </div>
+
+    <!-- Player Status -->
+    <div class="status-row">
+      <div class="status-item status-item--wide">
+        <span class="status-label">Health:</span>
+        <span class="status-value" [class.status-value--danger]="!isAlive()">
+          {{ isAlive() ? 'Alive' : 'Dead' }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Status Effects -->
+    @if (statusEffects().length > 0) {
+      <div class="status-effects">
+        <span class="status-label">Effects:</span>
+        <div class="status-effects-list">
+          @for (effect of statusEffects(); track effect) {
+            <span class="status-effect-badge">{{ effect }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Screen reader only - full status text -->
+  <div class="sr-only" aria-live="polite" aria-atomic="true">
+    {{ getStatusText() }}
+  </div>
+</div>
