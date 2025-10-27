@@ -1,0 +1,300 @@
+/* Location Panel - Classic Zork Terminal Aesthetic */
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.location-panel {
+  background: var(--zork-background);
+  border: var(--zork-border-width) solid var(--zork-primary);
+  border-radius: var(--zork-border-radius);
+  padding: var(--zork-spacing-md);
+  color: var(--zork-primary);
+  font-family: var(--zork-font-family);
+  box-shadow: var(--zork-glow-medium);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zork-spacing-md);
+  overflow-y: auto;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Header */
+.location-header {
+  border-bottom: 1px solid var(--zork-primary-dim);
+  padding-bottom: var(--zork-spacing-sm);
+}
+
+.location-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--zork-primary-bright);
+  text-shadow: var(--zork-glow-subtle);
+  letter-spacing: 0.05em;
+}
+
+/* Description */
+.location-description {
+  flex: 0 0 auto;
+}
+
+.location-description p {
+  margin: 0;
+  line-height: var(--zork-line-height);
+  color: var(--zork-primary-dim);
+  font-style: italic;
+}
+
+/* Sections */
+.location-section {
+  flex: 0 0 auto;
+  border-top: 1px solid var(--zork-primary-faint);
+  padding-top: var(--zork-spacing-sm);
+}
+
+.section-title {
+  margin: 0 0 var(--zork-spacing-sm) 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--zork-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Object List */
+.object-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zork-spacing-xs);
+}
+
+.object-item {
+  padding: var(--zork-spacing-xs) var(--zork-spacing-sm);
+  background: rgba(0, 255, 0, 0.05);
+  border: 1px solid var(--zork-primary-faint);
+  border-radius: var(--zork-border-radius);
+  display: flex;
+  align-items: center;
+  gap: var(--zork-spacing-xs);
+  transition: all 0.2s ease;
+}
+
+.object-item:hover {
+  background: rgba(0, 255, 0, 0.1);
+  border-color: var(--zork-primary);
+  box-shadow: var(--zork-glow-subtle);
+}
+
+.object-name {
+  color: var(--zork-primary);
+  font-weight: 500;
+  flex: 1;
+}
+
+.object-state {
+  color: var(--zork-primary-dim);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.object-state--open {
+  color: var(--zork-success);
+}
+
+.object-state--lit {
+  color: var(--zork-warning);
+}
+
+/* Exit List */
+.exits-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zork-spacing-sm);
+}
+
+.exit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: var(--zork-spacing-xs);
+}
+
+.exit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--zork-spacing-xs);
+  padding: var(--zork-spacing-sm);
+  background: rgba(0, 255, 0, 0.05);
+  border: 1px solid var(--zork-primary);
+  border-radius: var(--zork-border-radius);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.exit-item:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: var(--zork-glow-subtle);
+}
+
+.exit-direction {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--zork-primary-bright);
+  text-shadow: var(--zork-glow-subtle);
+}
+
+.exit-label {
+  font-size: 0.75rem;
+  color: var(--zork-primary-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.exit-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--zork-primary-faint);
+  font-style: italic;
+  text-align: center;
+}
+
+.no-exits {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--zork-primary-dim);
+  font-style: italic;
+  text-align: center;
+  padding: var(--zork-spacing-md);
+}
+
+/* Scrollbar styling */
+.location-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.location-panel::-webkit-scrollbar-track {
+  background: var(--zork-background-dark);
+  border-radius: 4px;
+}
+
+.location-panel::-webkit-scrollbar-thumb {
+  background: var(--zork-primary);
+  border-radius: 4px;
+  box-shadow: var(--zork-glow-subtle);
+}
+
+.location-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--zork-primary-bright);
+}
+
+/* Firefox scrollbar */
+.location-panel {
+  scrollbar-width: thin;
+  scrollbar-color: var(--zork-primary) var(--zork-background-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .location-panel {
+    padding: var(--zork-spacing-sm);
+    font-size: 0.9rem;
+  }
+
+  .location-title {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 0.85rem;
+  }
+
+  .exit-list {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+
+  .exit-direction {
+    font-size: 1.2rem;
+  }
+
+  .exit-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-panel {
+    padding: var(--zork-spacing-xs);
+    gap: var(--zork-spacing-sm);
+  }
+
+  .location-title {
+    font-size: 0.95rem;
+  }
+
+  .location-description p {
+    font-size: 0.85rem;
+  }
+
+  .object-item {
+    padding: var(--zork-spacing-xs);
+  }
+
+  .exit-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Accessibility: High contrast mode */
+@media (prefers-contrast: high) {
+  .location-panel {
+    border-width: 3px;
+  }
+
+  .object-item,
+  .exit-item {
+    border-width: 2px;
+  }
+
+  .location-title,
+  .section-title,
+  .exit-direction {
+    font-weight: bolder;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .object-item,
+  .exit-item {
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.object-item:focus-within,
+.exit-item:focus-within {
+  outline: 2px solid var(--zork-primary-bright);
+  outline-offset: 2px;
+}
