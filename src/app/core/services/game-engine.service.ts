@@ -413,8 +413,27 @@ export class GameEngineService {
       }
     }
 
+    // Get the destination room before moving
+    const nextRoom = this.rooms().get(nextRoomId);
+    if (!nextRoom) {
+      return {
+        messages: ["You can't go that way."],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Move to the new room
     this.moveToRoom(nextRoomId);
-    return { messages: [], success: true, type: 'description' };
+
+    // Get and return the room description
+    const updatedRoom = this.rooms().get(nextRoomId);
+    if (!updatedRoom) {
+      return { messages: [], success: true, type: 'description' };
+    }
+
+    const messages = this.getRoomDescription(updatedRoom, !nextRoom.visited);
+    return { messages, success: true, type: 'description' };
   }
 
   /**
