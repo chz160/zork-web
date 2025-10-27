@@ -6,7 +6,9 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 - DOS-style terminal interface
 - Command-based text adventure gameplay
+- **Location details panel** with room descriptions, objects, and exits
 - **Interactive inventory panel** with object inspection and actions
+- **Status panel** with real-time game progress tracking
 - Game state saved in browser's storage
 - Classic Zork-inspired world to explore
 - Accessible keyboard navigation and screen reader support
@@ -155,6 +157,55 @@ The status panel is displayed at the top of the right sidebar (above the invento
 - Reduced motion support for users with motion sensitivity
 
 The status panel updates automatically with every command you execute, providing instant feedback on your game progress.
+
+### Location Panel
+
+The location panel is displayed prominently above the console and provides detailed information about your current location in the game world.
+
+#### Features:
+- **Room Information**: Displays the current room name and description
+- **Visible Objects**: Lists all interactive objects you can see in the room
+  - Shows object states (open/closed for containers)
+  - Visual indicators for lit objects (🔥)
+  - Hover effects for better visibility
+- **Available Exits**: Shows all available directions you can move
+  - Compass-style layout with direction abbreviations (N, S, E, W, U, D)
+  - Full direction names for clarity
+  - Visual hints for using movement commands
+- **Real-time Updates**: Automatically updates as you move between rooms
+- **Responsive Layout**: Adapts to different screen sizes
+  - Desktop: Full-width panel above console with maximum height of 300px
+  - Tablet: Reduced height for better space utilization
+  - Mobile: Compact layout optimized for small screens
+- **Classic Zork Aesthetic**: Green-on-black terminal styling with phosphor glow effects
+
+#### Information Displayed:
+- **Room Name**: Bold, highlighted title of your current location
+- **Room Description**: Full description on first visit, short description on subsequent visits
+- **Objects Section**: List of all visible objects in the room
+  - Object names with state indicators
+  - Hover effects for interactivity
+- **Exits Section**: Grid of available exits
+  - Direction abbreviation (N, S, E, W, U, D)
+  - Full direction name below abbreviation
+  - "No obvious exits" message when trapped
+  - Helpful hint about using direction commands
+
+#### Accessibility:
+- **ARIA Live Regions**: Announces location changes to screen readers
+- **Semantic HTML**: Proper heading hierarchy (h2 for location, h3 for sections)
+- **Screen Reader Support**: Comprehensive location text for assistive technology
+- **Keyboard Navigation**: Full keyboard support for interactive elements
+- **High Contrast Mode**: Enhanced borders and text weight
+- **Reduced Motion**: Disabled animations when user prefers reduced motion
+
+#### Usage:
+The location panel updates automatically as you navigate the game world. It provides a persistent view of:
+1. Where you are (room name and description)
+2. What you can interact with (visible objects)
+3. Where you can go (available exits)
+
+This makes it easier to explore and understand the game world without constantly typing "look" commands.
 
 ## Development
 
