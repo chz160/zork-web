@@ -5,16 +5,16 @@
  * Uses Zork's green phosphor color palette.
  */
 
-/* Flicker animation - subtle screen brightness variation */
+/* Flicker animation - very subtle screen brightness variation */
 @keyframes crt-flicker {
   0% {
-    opacity: 0.98;
+    opacity: 0.995;
   }
   50% {
     opacity: 1;
   }
   100% {
-    opacity: 0.97;
+    opacity: 0.996;
   }
 }
 
@@ -43,7 +43,7 @@
 /* Main CRT effect class */
 .crt-effect {
   position: relative;
-  animation: crt-flicker 0.15s infinite alternate;
+  animation: crt-flicker 0.3s infinite alternate;
 }
 
 /* Scanlines overlay - horizontal interlacing lines */
@@ -56,14 +56,14 @@
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.15) 0px,
-    rgba(0, 0, 0, 0.15) 1px,
+    rgba(0, 0, 0, 0.3) 0px,
+    rgba(0, 0, 0, 0.3) 1px,
     transparent 1px,
     transparent 2px
   );
   pointer-events: none;
   z-index: 10;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 /* Color separation and glow overlay - simulates RGB phosphor dots */
