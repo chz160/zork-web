@@ -8,3 +8,4 @@ export * from './game.service';
 export * from './feature-flag.service';
 export * from './telemetry.service';
 export * from './command-dispatcher.service';
+export * from './map.service';

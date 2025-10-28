@@ -9,6 +9,7 @@ import { DisambiguationComponent } from './ui/disambiguation/disambiguation';
 import { AutocorrectConfirmationComponent } from './ui/autocorrect-confirmation/autocorrect-confirmation';
 import { InventoryComponent } from './ui/inventory/inventory';
 import { StatusComponent } from './ui/status/status';
+import { MapComponent } from './ui/map/map';
 import { ObjectCandidate } from './core/models';
 
 type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
@@ -24,6 +25,7 @@ type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
     AutocorrectConfirmationComponent,
     InventoryComponent,
     StatusComponent,
+    MapComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -38,6 +40,9 @@ export class App implements OnInit {
 
   /** Show/hide controls panel */
   protected readonly showControls = signal(false);
+
+  /** Show/hide map visualization */
+  protected readonly showMap = signal(false);
 
   /** Disambiguation UI state */
   protected readonly disambiguationCandidates = signal<ObjectCandidate[] | null>(null);
@@ -69,6 +74,7 @@ export class App implements OnInit {
    * Ctrl/Cmd + Plus: Increase font size
    * Ctrl/Cmd + Minus: Decrease font size
    * Ctrl/Cmd + 0: Reset to medium
+   * Ctrl/Cmd + M: Toggle map
    */
   @HostListener('window:keydown', ['$event'])
   handleKeyboardShortcut(event: KeyboardEvent): void {
@@ -83,6 +89,9 @@ export class App implements OnInit {
       } else if (event.key === '0') {
         event.preventDefault();
         this.setFontSize('medium');
+      } else if (event.key === 'm' || event.key === 'M') {
+        event.preventDefault();
+        this.toggleMap();
       }
     }
   }
@@ -123,6 +132,13 @@ export class App implements OnInit {
    */
   toggleControls(): void {
     this.showControls.set(!this.showControls());
+  }
+
+  /**
+   * Toggle map visualization visibility
+   */
+  toggleMap(): void {
+    this.showMap.set(!this.showMap());
   }
 
   /**

@@ -1,0 +1,91 @@
+<div class="map-container" role="region" [attr.aria-label]="getMapAriaLabel()">
+  <!-- Map header with stats -->
+  <div class="map-header">
+    <h2 class="map-title">Explored World Map</h2>
+    <div class="map-stats">
+      <span class="map-stat">
+        <span class="map-stat-label">Rooms:</span>
+        <span class="map-stat-value">{{ exploredCount() }}</span>
+      </span>
+      <span class="map-stat">
+        <span class="map-stat-label">Connections:</span>
+        <span class="map-stat-value">{{ connectionCount() }}</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- SVG map visualization -->
+  <svg
+    #mapSvg
+    class="map-svg"
+    [attr.viewBox]="viewBox()"
+    preserveAspectRatio="xMidYMid meet"
+    role="img"
+    [attr.aria-label]="getMapAriaLabel()"
+  >
+    <!-- Grid background (optional) -->
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 255, 0, 0.1)" stroke-width="1" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+
+    <!-- Edges (connections between rooms) -->
+    <g class="edges">
+      @for (edge of edges(); track trackByEdge($index, edge)) {
+        <path
+          class="edge"
+          [attr.d]="getEdgePath(edge)"
+          [attr.aria-label]="edge.from + ' to ' + edge.to + ' via ' + edge.direction"
+        />
+      }
+    </g>
+
+    <!-- Nodes (rooms) -->
+    <g class="nodes">
+      @for (node of nodes(); track trackByNodeId($index, node)) {
+        <g class="room-node-group" [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
+          <!-- Room circle -->
+          <circle
+            [attr.class]="getNodeClass(node)"
+            r="30"
+            [attr.aria-label]="getNodeAriaLabel(node)"
+            role="img"
+          />
+          <!-- Current location marker -->
+          @if (node.isCurrent) {
+            <circle class="current-marker" r="10" />
+          }
+          <!-- Room name label -->
+          <text class="room-label" text-anchor="middle" dy="55">
+            {{ node.name }}
+          </text>
+        </g>
+      }
+    </g>
+  </svg>
+
+  <!-- Empty state when no rooms explored -->
+  @if (exploredCount() === 0) {
+    <div class="map-empty-state">
+      <p>No rooms explored yet. Start exploring to see the map!</p>
+    </div>
+  }
+
+  <!-- Legend -->
+  <div class="map-legend">
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--current"></span>
+      <span class="legend-label">Current Location</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--visited"></span>
+      <span class="legend-label">Explored Room</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--connection"></span>
+      <span class="legend-label">Connection</span>
+    </div>
+  </div>
+</div>
