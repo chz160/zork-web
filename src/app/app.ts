@@ -67,6 +67,14 @@ export class App implements OnInit {
 
     // Wire up UI callbacks to game engine
     this.setupUICallbacks();
+
+    // Subscribe to command output to intercept map command
+    this.gameService.commandOutput$.subscribe((output) => {
+      // Check if this is a map command by checking the output type or messages
+      if (output.metadata && output.metadata['isMapCommand']) {
+        this.showMap.set(true);
+      }
+    });
   }
 
   /**

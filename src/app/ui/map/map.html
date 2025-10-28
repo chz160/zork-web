@@ -35,10 +35,20 @@
     <g class="edges">
       @for (edge of edges(); track trackByEdge($index, edge)) {
         <path
-          class="edge"
+          [attr.class]="getEdgeClass(edge)"
           [attr.d]="getEdgePath(edge)"
           [attr.aria-label]="edge.from + ' to ' + edge.to + ' via ' + edge.direction"
         />
+        @if (isVerticalEdge(edge)) {
+          <text
+            class="edge-label"
+            [attr.x]="getEdgeMidpoint(edge).x"
+            [attr.y]="getEdgeMidpoint(edge).y"
+            text-anchor="middle"
+          >
+            {{ edge.direction === 'up' ? '↑' : '↓' }}
+          </text>
+        }
       }
     </g>
 
@@ -57,10 +67,33 @@
           @if (node.isCurrent) {
             <circle class="current-marker" r="10" />
           }
+          <!-- Vertical exit indicator -->
+          @if (hasVerticalExits(node)) {
+            <text class="vertical-indicator" text-anchor="middle" dy="5">
+              {{ getVerticalIndicator(node) }}
+            </text>
+          }
           <!-- Room name label -->
           <text class="room-label" text-anchor="middle" dy="55">
             {{ node.name }}
           </text>
+          <!-- Exit indicators -->
+          <g class="exit-indicators">
+            @for (exit of getNodeExits(node); track exit) {
+              @if (exit === 'north') {
+                <path class="exit-arrow exit-arrow--north" d="M 0,-35 L -5,-40 M 0,-35 L 5,-40" />
+              }
+              @if (exit === 'south') {
+                <path class="exit-arrow exit-arrow--south" d="M 0,35 L -5,40 M 0,35 L 5,40" />
+              }
+              @if (exit === 'east') {
+                <path class="exit-arrow exit-arrow--east" d="M 35,0 L 40,-5 M 35,0 L 40,5" />
+              }
+              @if (exit === 'west') {
+                <path class="exit-arrow exit-arrow--west" d="M -35,0 L -40,-5 M -35,0 L -40,5" />
+              }
+            }
+          </g>
         </g>
       }
     </g>
@@ -85,7 +118,15 @@
     </div>
     <div class="legend-item">
       <span class="legend-symbol legend-symbol--connection"></span>
-      <span class="legend-label">Connection</span>
+      <span class="legend-label">Horizontal</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--up"></span>
+      <span class="legend-label">Up ↑</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--down"></span>
+      <span class="legend-label">Down ↓</span>
     </div>
   </div>
 </div>

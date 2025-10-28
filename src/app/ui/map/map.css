@@ -81,6 +81,31 @@
   filter: drop-shadow(0 0 2px rgba(0, 255, 0, 0.5));
 }
 
+/* Vertical edges with different styling */
+.edge--up {
+  stroke-dasharray: 5, 5;
+  opacity: 0.8;
+  stroke: var(--zork-warning, #ffff00);
+  filter: drop-shadow(0 0 3px rgba(255, 255, 0, 0.6));
+}
+
+.edge--down {
+  stroke-dasharray: 2, 4;
+  opacity: 0.8;
+  stroke: var(--zork-info, #00ffff);
+  filter: drop-shadow(0 0 3px rgba(0, 255, 255, 0.6));
+}
+
+/* Edge labels for vertical connections */
+.edge-label {
+  fill: var(--zork-primary, #00ff00);
+  font-family: var(--zork-font-family, 'Courier New', monospace);
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+  pointer-events: none;
+}
+
 /* Room nodes */
 .room-node-group {
   cursor: pointer;
@@ -131,6 +156,42 @@
   text-anchor: middle;
   pointer-events: none;
   text-shadow: 0 0 3px rgba(0, 255, 0, 0.8);
+}
+
+/* Vertical exit indicator */
+.vertical-indicator {
+  fill: var(--zork-warning, #ffff00);
+  font-family: var(--zork-font-family, 'Courier New', monospace);
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.9);
+  pointer-events: none;
+}
+
+/* Exit arrows on room nodes */
+.exit-indicators {
+  opacity: 0.7;
+}
+
+.exit-arrow {
+  stroke: var(--zork-primary-dim, #88ff88);
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+  filter: drop-shadow(0 0 2px rgba(0, 255, 0, 0.4));
+}
+
+.exit-arrow--north,
+.exit-arrow--south,
+.exit-arrow--east,
+.exit-arrow--west {
+  stroke: var(--zork-primary-dim, #88ff88);
+}
+
+.room-node-group:hover .exit-arrow {
+  opacity: 1;
+  stroke: var(--zork-primary-bright, #44ff44);
+  filter: drop-shadow(0 0 4px rgba(68, 255, 68, 0.8));
 }
 
 /* Empty state */
@@ -186,6 +247,34 @@
   border-radius: 0;
   background-color: var(--zork-primary, #00ff00);
   box-shadow: 0 0 2px rgba(0, 255, 0, 0.5);
+}
+
+.legend-symbol--up {
+  width: 30px;
+  height: 2px;
+  border-radius: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--zork-warning, #ffff00) 0px,
+    var(--zork-warning, #ffff00) 5px,
+    transparent 5px,
+    transparent 10px
+  );
+  box-shadow: 0 0 2px rgba(255, 255, 0, 0.5);
+}
+
+.legend-symbol--down {
+  width: 30px;
+  height: 2px;
+  border-radius: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--zork-info, #00ffff) 0px,
+    var(--zork-info, #00ffff) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  box-shadow: 0 0 2px rgba(0, 255, 255, 0.5);
 }
 
 /* Responsive design */

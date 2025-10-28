@@ -109,6 +109,80 @@ export class MapComponent implements OnInit {
   }
 
   /**
+   * Get CSS class for edge based on direction
+   */
+  getEdgeClass(edge: RoomEdge): string {
+    const baseClass = 'edge';
+    if (edge.direction === 'up') {
+      return `${baseClass} edge--up`;
+    } else if (edge.direction === 'down') {
+      return `${baseClass} edge--down`;
+    }
+    return baseClass;
+  }
+
+  /**
+   * Check if an edge is vertical (up/down)
+   */
+  isVerticalEdge(edge: RoomEdge): boolean {
+    return edge.direction === 'up' || edge.direction === 'down';
+  }
+
+  /**
+   * Get exit directions for a node
+   */
+  getNodeExits(node: RoomNode): string[] {
+    const exits: string[] = [];
+    node.exits.forEach((_, direction) => {
+      exits.push(direction);
+    });
+    return exits;
+  }
+
+  /**
+   * Check if node has vertical exits (up/down)
+   */
+  hasVerticalExits(node: RoomNode): boolean {
+    const exits = this.getNodeExits(node);
+    return exits.includes('up') || exits.includes('down');
+  }
+
+  /**
+   * Get vertical exit indicator text
+   */
+  getVerticalIndicator(node: RoomNode): string {
+    const exits = this.getNodeExits(node);
+    const hasUp = exits.includes('up');
+    const hasDown = exits.includes('down');
+
+    if (hasUp && hasDown) {
+      return '↕';
+    } else if (hasUp) {
+      return '↑';
+    } else if (hasDown) {
+      return '↓';
+    }
+    return '';
+  }
+
+  /**
+   * Get midpoint position for edge label
+   */
+  getEdgeMidpoint(edge: RoomEdge): { x: number; y: number } {
+    const fromNode = this.nodes().find((n) => n.id === edge.from);
+    const toNode = this.nodes().find((n) => n.id === edge.to);
+
+    if (!fromNode || !toNode) {
+      return { x: 0, y: 0 };
+    }
+
+    return {
+      x: (fromNode.x + toNode.x) / 2,
+      y: (fromNode.y + toNode.y) / 2,
+    };
+  }
+
+  /**
    * Get ARIA label for a room node
    */
   getNodeAriaLabel(node: RoomNode): string {

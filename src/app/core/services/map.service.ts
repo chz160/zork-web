@@ -12,6 +12,7 @@ export interface RoomNode {
   y: number;
   isCurrent: boolean;
   visited: boolean;
+  exits: Map<string, string>; // direction -> targetRoomId
 }
 
 /**
@@ -76,6 +77,7 @@ export class MapService {
       y: positions.get(room.id)?.y ?? 0,
       isCurrent: room.id === currentId,
       visited: true,
+      exits: room.exits,
     }));
   });
 
