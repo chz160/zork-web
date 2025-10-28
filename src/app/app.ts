@@ -47,6 +47,9 @@ export class App implements OnInit {
   /** Show/hide map visualization */
   protected readonly showMap = signal(false);
 
+  /** CRT effect enabled state */
+  protected readonly crtEffectEnabled = signal(true);
+
   /** Disambiguation UI state */
   protected readonly disambiguationCandidates = signal<ObjectCandidate[] | null>(null);
   protected readonly disambiguationPrompt = signal<string>('');
@@ -66,6 +69,12 @@ export class App implements OnInit {
     const savedFontSize = localStorage.getItem('zork-font-size') as FontSize;
     if (savedFontSize) {
       this.setFontSize(savedFontSize);
+    }
+
+    // Load saved CRT effect preference
+    const savedCrtEffect = localStorage.getItem('zork-crt-effect');
+    if (savedCrtEffect !== null) {
+      this.crtEffectEnabled.set(savedCrtEffect === 'true');
     }
 
     // Wire up UI callbacks to game engine
@@ -196,6 +205,14 @@ export class App implements OnInit {
     setTimeout(() => {
       this.inputComponent?.focusInput();
     }, 100);
+  }
+
+   * Toggle CRT effect on/off
+   */
+  toggleCrtEffect(): void {
+    const newValue = !this.crtEffectEnabled();
+    this.crtEffectEnabled.set(newValue);
+    localStorage.setItem('zork-crt-effect', String(newValue));
   }
 
   /**

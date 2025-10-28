@@ -446,13 +446,30 @@
         </div>
         <span class="font-size-indicator" aria-live="polite">{{ getFontSizeLabel() }}</span>
       </div>
+      <div class="control-group">
+        <span class="control-label">CRT Effect:</span>
+        <div class="control-buttons">
+          <button
+            class="control-btn"
+            (click)="toggleCrtEffect()"
+            aria-label="Toggle CRT screen effect"
+            [attr.aria-pressed]="crtEffectEnabled()"
+            title="Toggle vintage CRT monitor effect (scanlines, flicker)"
+          >
+            {{ crtEffectEnabled() ? '✓ ON' : '✕ OFF' }}
+          </button>
+        </div>
+        <span class="font-size-indicator" aria-live="polite">
+          {{ crtEffectEnabled() ? 'Enabled' : 'Disabled' }}
+        </span>
+      </div>
       <div class="keyboard-hint">Keyboard shortcuts: Ctrl/Cmd + (+/-/0) to adjust font size</div>
     </div>
   }
 
   <div class="console-wrapper">
     <div class="game-main">
-      <app-console />
+      <app-console [crtEffectEnabled]="crtEffectEnabled()" />
       <app-input />
     </div>
     <aside class="sidebar">

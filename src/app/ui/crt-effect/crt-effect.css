@@ -1,0 +1,100 @@
+/**
+ * CRT Effect Styles
+ *
+ * Provides CSS classes for vintage CRT monitor effects.
+ * Uses Zork's green phosphor color palette.
+ */
+
+/* Flicker animation - very subtle screen brightness variation */
+@keyframes crt-flicker {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Main CRT effect class */
+.crt-effect {
+  position: relative;
+}
+
+/* Scanlines overlay - horizontal interlacing lines */
+.crt-effect::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.06));
+  background-size:
+    100% 2px,
+    3px 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Flicker overlay */
+.crt-effect::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: crt-flicker 0.15s infinite;
+}
+
+/* Text shadow - simulates phosphor glow (static, no animation) */
+.crt-effect p,
+.crt-effect span,
+.crt-effect div,
+.crt-effect pre,
+.crt-effect code {
+  text-shadow:
+    0 0 2px rgba(0, 255, 0, 0.8),
+    0 0 4px rgba(0, 255, 0, 0.5),
+    0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+/* Disable CRT effects when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .crt-effect::before,
+  .crt-effect::after {
+    display: none;
+  }
+
+  .crt-effect p,
+  .crt-effect span,
+  .crt-effect div,
+  .crt-effect pre,
+  .crt-effect code {
+    text-shadow: none;
+  }
+}
+
+/* Disable CRT effects in print */
+@media print {
+  .crt-effect::before,
+  .crt-effect::after {
+    display: none;
+  }
+
+  .crt-effect p,
+  .crt-effect span,
+  .crt-effect div,
+  .crt-effect pre,
+  .crt-effect code {
+    text-shadow: none !important;
+  }
+}
