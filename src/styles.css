@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Import CRT effect styles */
+@import './app/ui/crt-effect/crt-effect.css';
+
 /* CSS Custom Properties for Zork Theme Customization */
 :root {
   /* Primary colors - classic green phosphor terminal */
