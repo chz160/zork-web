@@ -1370,19 +1370,38 @@ export class GameEngineService {
       const eastPart = hasEast ? '[E] East' : '';
       const centerSymbol = '┼';
 
-      // Build the compass line with proper spacing
-      // Format: "     [W] West     ┼     [E] East     "
-      const westWidth = 20; // Fixed width for west section
-      const centerWidth = 8; // Width for center symbol with padding
-      const eastWidth = boxWidth - westWidth - centerWidth;
+      // Build the compass line with proper centering
+      // The cross should be centered in the box, with West and East balanced
+      const centerPos = Math.floor(boxWidth / 2);
+      const spacing = 12; // Space between direction and center symbol
 
-      const westSection = westPart.padEnd(westWidth, ' ');
-      const centerSection = centerSymbol
-        .padStart(centerWidth / 2 + 1, ' ')
-        .padEnd(centerWidth, ' ');
-      const eastSection = eastPart.padEnd(eastWidth, ' ');
+      // Calculate positions
+      const westEnd = centerPos - spacing;
+      const eastStart = centerPos + spacing;
 
-      messages.push('║' + westSection + centerSection + eastSection + '║');
+      // Build the line parts
+      const compassLine = ' '.repeat(boxWidth);
+      const compassArray = compassLine.split('');
+
+      // Place center symbol
+      compassArray[centerPos] = centerSymbol;
+
+      // Place west if present (right-aligned to center)
+      if (westPart) {
+        const westStart = westEnd - westPart.length;
+        for (let i = 0; i < westPart.length; i++) {
+          compassArray[westStart + i] = westPart[i];
+        }
+      }
+
+      // Place east if present (left-aligned from center)
+      if (eastPart) {
+        for (let i = 0; i < eastPart.length; i++) {
+          compassArray[eastStart + i] = eastPart[i];
+        }
+      }
+
+      messages.push('║' + compassArray.join('') + '║');
 
       // South
       const southLine = hasSouth ? '[S] South' : '';
