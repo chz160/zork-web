@@ -1,4 +1,4 @@
-import { Component, signal, inject, OnInit, HostListener } from '@angular/core';
+import { Component, signal, inject, OnInit, HostListener, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Console } from './console/console';
@@ -9,6 +9,7 @@ import { DisambiguationComponent } from './ui/disambiguation/disambiguation';
 import { AutocorrectConfirmationComponent } from './ui/autocorrect-confirmation/autocorrect-confirmation';
 import { InventoryComponent } from './ui/inventory/inventory';
 import { StatusComponent } from './ui/status/status';
+import { MapComponent } from './ui/map/map';
 import { ObjectCandidate } from './core/models';
 
 type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
@@ -24,6 +25,7 @@ type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
     AutocorrectConfirmationComponent,
     InventoryComponent,
     StatusComponent,
+    MapComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -33,11 +35,17 @@ export class App implements OnInit {
   private readonly gameService = inject(GameService);
   private readonly gameEngine = inject(GameEngineService);
 
+  /** Reference to input component for focus management */
+  @ViewChild(Input) inputComponent?: Input;
+
   /** Current font size setting */
   protected readonly fontSize = signal<FontSize>('medium');
 
   /** Show/hide controls panel */
   protected readonly showControls = signal(false);
+
+  /** Show/hide map visualization */
+  protected readonly showMap = signal(false);
 
   /** CRT effect enabled state */
   protected readonly crtEffectEnabled = signal(true);
@@ -71,16 +79,50 @@ export class App implements OnInit {
 
     // Wire up UI callbacks to game engine
     this.setupUICallbacks();
+
+    // Subscribe to command output to intercept map command
+    this.gameService.commandOutput$.subscribe((output) => {
+      // Check if this is a map command by checking the output type or messages
+      if (output.metadata && output.metadata['isMapCommand']) {
+        this.showMap.set(true);
+      }
+    });
   }
 
   /**
-   * Handle keyboard shortcuts for font size adjustment
+   * Handle keyboard shortcuts for font size adjustment and dialog management
    * Ctrl/Cmd + Plus: Increase font size
    * Ctrl/Cmd + Minus: Decrease font size
    * Ctrl/Cmd + 0: Reset to medium
+   * Ctrl/Cmd + M: Toggle map
+   * ESC: Close any open dialog
    */
   @HostListener('window:keydown', ['$event'])
   handleKeyboardShortcut(event: KeyboardEvent): void {
+    // ESC key closes any open dialog
+    if (event.key === 'Escape') {
+      if (this.showMap()) {
+        event.preventDefault();
+        this.closeMap();
+        return;
+      }
+      if (this.disambiguationCandidates()) {
+        event.preventDefault();
+        this.onDisambiguationCancelled();
+        return;
+      }
+      if (this.autocorrectOriginalInput()) {
+        event.preventDefault();
+        this.onAutocorrectRejected();
+        return;
+      }
+      if (this.showControls()) {
+        event.preventDefault();
+        this.toggleControls();
+        return;
+      }
+    }
+
     // Check for Ctrl (Windows/Linux) or Cmd (Mac)
     if (event.ctrlKey || event.metaKey) {
       if (event.key === '+' || event.key === '=') {
@@ -92,6 +134,9 @@ export class App implements OnInit {
       } else if (event.key === '0') {
         event.preventDefault();
         this.setFontSize('medium');
+      } else if (event.key === 'm' || event.key === 'M') {
+        event.preventDefault();
+        this.toggleMap();
       }
     }
   }
@@ -132,6 +177,34 @@ export class App implements OnInit {
    */
   toggleControls(): void {
     this.showControls.set(!this.showControls());
+  }
+
+  /**
+   * Toggle map visualization visibility
+   */
+  toggleMap(): void {
+    this.showMap.set(!this.showMap());
+    if (!this.showMap()) {
+      // Focus input when map closes
+      this.focusCommandInput();
+    }
+  }
+
+  /**
+   * Close the map modal
+   */
+  closeMap(): void {
+    this.showMap.set(false);
+    this.focusCommandInput();
+  }
+
+  /**
+   * Focus the command input field
+   */
+  private focusCommandInput(): void {
+    setTimeout(() => {
+      this.inputComponent?.focusInput();
+    }, 100);
   }
 
   /**
@@ -189,6 +262,7 @@ export class App implements OnInit {
       this.disambiguationResolve = null;
     }
     this.disambiguationCandidates.set(null);
+    this.focusCommandInput();
   }
 
   /**
@@ -200,6 +274,7 @@ export class App implements OnInit {
       this.disambiguationResolve = null;
     }
     this.disambiguationCandidates.set(null);
+    this.focusCommandInput();
   }
 
   /**
@@ -211,6 +286,7 @@ export class App implements OnInit {
       this.autocorrectResolve = null;
     }
     this.autocorrectOriginalInput.set('');
+    this.focusCommandInput();
   }
 
   /**
@@ -222,5 +298,6 @@ export class App implements OnInit {
       this.autocorrectResolve = null;
     }
     this.autocorrectOriginalInput.set('');
+    this.focusCommandInput();
   }
 }

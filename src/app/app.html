@@ -270,6 +270,128 @@
       animation: none;
     }
   }
+
+  /* Map overlay and modal */
+  .map-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--zork-spacing-lg);
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .map-modal {
+    background-color: var(--zork-background);
+    border: var(--zork-border-width) solid var(--zork-primary);
+    border-radius: var(--zork-border-radius);
+    box-shadow: var(--zork-glow-strong);
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow: auto;
+    animation: slideUp 0.3s ease-out;
+    /* Firefox scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--zork-primary) var(--zork-background-alt);
+  }
+
+  /* Webkit scrollbar styling for map modal - matches terminal look */
+  .map-modal::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .map-modal::-webkit-scrollbar-track {
+    background: var(--zork-background-alt);
+    border-left: 1px solid var(--zork-primary);
+  }
+
+  .map-modal::-webkit-scrollbar-thumb {
+    background: var(--zork-primary);
+    border: 2px solid var(--zork-background);
+    border-radius: 2px;
+  }
+
+  .map-modal::-webkit-scrollbar-thumb:hover {
+    background: var(--zork-primary-bright);
+    box-shadow: var(--zork-glow-subtle);
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .map-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--zork-spacing-md);
+    border-bottom: 1px solid var(--zork-primary);
+    background-color: var(--zork-background-alt);
+  }
+
+  .map-modal-header h2 {
+    margin: 0;
+    color: var(--zork-primary);
+    font-family: var(--zork-font-family);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .map-close-btn {
+    background: transparent;
+    border: 1px solid var(--zork-primary);
+    color: var(--zork-primary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .map-close-btn:hover {
+    background: var(--zork-primary);
+    color: var(--zork-background);
+    box-shadow: var(--zork-glow-subtle);
+  }
+
+  .map-close-btn:focus {
+    outline: 2px solid var(--zork-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .map-overlay,
+    .map-modal {
+      animation: none;
+    }
+  }
 </style>
 
 <div class="app-container">
@@ -377,6 +499,25 @@
       (rejected)="onAutocorrectRejected()"
     />
   }
+
+  <!-- Map Visualization Modal -->
+  @if (showMap()) {
+    <div
+      class="map-overlay"
+      (click)="closeMap()"
+      role="dialog"
+      aria-modal="true"
+      aria-label="World map"
+    >
+      <div class="map-modal" (click)="$event.stopPropagation()">
+        <div class="map-modal-header">
+          <h2>Explored World Map</h2>
+          <button class="map-close-btn" (click)="closeMap()" aria-label="Close map">✕</button>
+        </div>
+        <app-map />
+      </div>
+    </div>
+  @}
 </div>
 
 <router-outlet />
