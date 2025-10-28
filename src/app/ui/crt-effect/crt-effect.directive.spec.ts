@@ -6,7 +6,7 @@ import { CrtEffectDirective } from './crt-effect.directive';
   selector: 'app-test-host',
   standalone: true,
   imports: [CrtEffectDirective],
-  template: '<div appCrtEffect [enabled]="enabled()">Test Content</div>',
+  template: '<div [appCrtEffect]="enabled()">Test Content</div>',
 })
 class TestHostComponent {
   enabled = signal(true);

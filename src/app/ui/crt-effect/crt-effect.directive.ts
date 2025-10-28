@@ -13,7 +13,7 @@ import { Directive, ElementRef, input, effect, inject } from '@angular/core';
  *
  * Usage:
  * ```html
- * <div appCrtEffect [enabled]="crtEnabled()">Content</div>
+ * <div [appCrtEffect]="crtEnabled()">Content</div>
  * ```
  *
  * Features:
@@ -30,12 +30,12 @@ export class CrtEffectDirective {
   private readonly element = inject(ElementRef<HTMLElement>);
 
   /** Whether the CRT effect is enabled */
-  readonly enabled = input<boolean>(true);
+  readonly appCrtEffect = input<boolean>(true);
 
   constructor() {
     // Apply/remove effect when enabled state changes
     effect(() => {
-      const isEnabled = this.enabled();
+      const isEnabled = this.appCrtEffect();
       this.toggleEffect(isEnabled);
     });
   }

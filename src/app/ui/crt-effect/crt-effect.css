@@ -86,7 +86,11 @@
 }
 
 /* Enhanced text glow for content inside CRT effect */
-.crt-effect * {
+.crt-effect p,
+.crt-effect span,
+.crt-effect div,
+.crt-effect pre,
+.crt-effect code {
   animation: crt-text-shadow 0.2s infinite alternate;
 }
 
@@ -101,7 +105,11 @@
     display: none;
   }
 
-  .crt-effect * {
+  .crt-effect p,
+  .crt-effect span,
+  .crt-effect div,
+  .crt-effect pre,
+  .crt-effect code {
     animation: none;
   }
 }
@@ -117,7 +125,11 @@
     display: none;
   }
 
-  .crt-effect * {
+  .crt-effect p,
+  .crt-effect span,
+  .crt-effect div,
+  .crt-effect pre,
+  .crt-effect code {
     animation: none;
     text-shadow: none !important;
   }
