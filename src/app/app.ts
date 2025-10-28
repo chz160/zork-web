@@ -1,4 +1,4 @@
-import { Component, signal, inject, OnInit, HostListener } from '@angular/core';
+import { Component, signal, inject, OnInit, HostListener, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Console } from './console/console';
@@ -34,6 +34,9 @@ export class App implements OnInit {
   protected readonly title = signal('zork-web');
   private readonly gameService = inject(GameService);
   private readonly gameEngine = inject(GameEngineService);
+
+  /** Reference to input component for focus management */
+  @ViewChild(Input) inputComponent?: Input;
 
   /** Current font size setting */
   protected readonly fontSize = signal<FontSize>('medium');
@@ -78,14 +81,39 @@ export class App implements OnInit {
   }
 
   /**
-   * Handle keyboard shortcuts for font size adjustment
+   * Handle keyboard shortcuts for font size adjustment and dialog management
    * Ctrl/Cmd + Plus: Increase font size
    * Ctrl/Cmd + Minus: Decrease font size
    * Ctrl/Cmd + 0: Reset to medium
    * Ctrl/Cmd + M: Toggle map
+   * ESC: Close any open dialog
    */
   @HostListener('window:keydown', ['$event'])
   handleKeyboardShortcut(event: KeyboardEvent): void {
+    // ESC key closes any open dialog
+    if (event.key === 'Escape') {
+      if (this.showMap()) {
+        event.preventDefault();
+        this.closeMap();
+        return;
+      }
+      if (this.disambiguationCandidates()) {
+        event.preventDefault();
+        this.onDisambiguationCancelled();
+        return;
+      }
+      if (this.autocorrectOriginalInput()) {
+        event.preventDefault();
+        this.onAutocorrectRejected();
+        return;
+      }
+      if (this.showControls()) {
+        event.preventDefault();
+        this.toggleControls();
+        return;
+      }
+    }
+
     // Check for Ctrl (Windows/Linux) or Cmd (Mac)
     if (event.ctrlKey || event.metaKey) {
       if (event.key === '+' || event.key === '=') {
@@ -147,6 +175,27 @@ export class App implements OnInit {
    */
   toggleMap(): void {
     this.showMap.set(!this.showMap());
+    if (!this.showMap()) {
+      // Focus input when map closes
+      this.focusCommandInput();
+    }
+  }
+
+  /**
+   * Close the map modal
+   */
+  closeMap(): void {
+    this.showMap.set(false);
+    this.focusCommandInput();
+  }
+
+  /**
+   * Focus the command input field
+   */
+  private focusCommandInput(): void {
+    setTimeout(() => {
+      this.inputComponent?.focusInput();
+    }, 100);
   }
 
   /**
@@ -195,6 +244,7 @@ export class App implements OnInit {
       this.disambiguationResolve = null;
     }
     this.disambiguationCandidates.set(null);
+    this.focusCommandInput();
   }
 
   /**
@@ -206,6 +256,7 @@ export class App implements OnInit {
       this.disambiguationResolve = null;
     }
     this.disambiguationCandidates.set(null);
+    this.focusCommandInput();
   }
 
   /**
@@ -217,6 +268,7 @@ export class App implements OnInit {
       this.autocorrectResolve = null;
     }
     this.autocorrectOriginalInput.set('');
+    this.focusCommandInput();
   }
 
   /**
@@ -228,5 +280,6 @@ export class App implements OnInit {
       this.autocorrectResolve = null;
     }
     this.autocorrectOriginalInput.set('');
+    this.focusCommandInput();
   }
 }

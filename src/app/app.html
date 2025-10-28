@@ -463,7 +463,7 @@
   @if (showMap()) {
     <div
       class="map-overlay"
-      (click)="toggleMap()"
+      (click)="closeMap()"
       role="dialog"
       aria-modal="true"
       aria-label="World map"
@@ -471,7 +471,7 @@
       <div class="map-modal" (click)="$event.stopPropagation()">
         <div class="map-modal-header">
           <h2>Explored World Map</h2>
-          <button class="map-close-btn" (click)="toggleMap()" aria-label="Close map">✕</button>
+          <button class="map-close-btn" (click)="closeMap()" aria-label="Close map">✕</button>
         </div>
         <app-map />
       </div>
