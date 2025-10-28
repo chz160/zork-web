@@ -6,7 +6,8 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 - DOS-style terminal interface
 - Command-based text adventure gameplay
-- **ASCII art location map** with room details, objects, and compass-style exits (Ctrl+L or `map` command)
+- **Interactive world map** showing explored rooms and connections (Ctrl+M or `map` command)
+- **ASCII art location details** with room descriptions, objects, and compass-style exits (console view)
 - **Interactive inventory panel** with object inspection and actions
 - **Status panel** with real-time game progress tracking
 - Game state saved in browser's storage
@@ -97,30 +98,32 @@ Type commands in the input field at the bottom of the screen to interact with th
 - **Looking**: `look`, `examine [object]`
 - **Inventory**: `inventory` (or `i`), `take [object]`, `drop [object]`
 - **Objects**: `open [object]`, `close [object]`, `read [object]`, `use [object]`
-- **Location Map**: `map` or `location` (displays detailed ASCII map with exits and objects)
+- **World Map**: `map` (opens visual graph of explored rooms and connections)
 - **Help**: `help` (displays available commands)
 
 #### Keyboard Shortcuts:
-- **Ctrl+L** (or **Cmd+L** on Mac): Show location map with ASCII art
+- **Ctrl+M** (or **Cmd+M** on Mac): Toggle interactive world map
+- **Arrow Up/Down**: Navigate command history
+- **Esc**: Clear input field
 
-### Location Map
+### World Map Visualization
 
-The location map feature displays detailed information about your current location directly in the console output with ASCII art borders.
+The world map provides an interactive visual representation of the explored Zork world showing rooms and their connections.
 
 #### Features:
-- **ASCII Art Display**: Beautifully formatted box with your current room details
-- **Room Description**: Full description of where you are
-- **Visible Objects**: List of all objects you can see and interact with
-  - Shows state indicators: (open/closed) for containers, [lit] for light sources
-- **Compass-Style Exits**: Visual compass layout showing available directions (N, S, E, W, U, D)
-- **Triggered by Command or Shortcut**: Type `map` or `location`, or press **Ctrl+L**
+- **Graph Visualization**: Displays explored rooms as nodes connected by edges
+- **Current Location**: Highlights your current position with bright green glow and pulsing animation
+- **Auto-Layout**: Automatically positions rooms based on their directional connections (N, S, E, W, Up, Down)
+- **Room Counter**: Shows total explored rooms and connections
+- **Responsive**: Works on desktop and mobile devices
+- **Accessibility**: Full ARIA support with keyboard navigation and screen reader announcements
 
 #### How to Use:
-1. **Via Command**: Type `map` or `location` in the command prompt
-2. **Via Keyboard**: Press **Ctrl+L** (or **Cmd+L** on Mac) at any time
-3. The map will appear in the console output with formatted ASCII art
+1. **Via Command**: Type `map` in the command prompt to open the world map
+2. **Via Keyboard**: Press **Ctrl+M** (or **Cmd+M** on Mac) to toggle the map modal
+3. **Close Map**: Click the ✕ button, press Ctrl+M again, or click outside the map
 
-This provides a quick overview of your surroundings without taking up permanent screen space.
+The map updates automatically as you explore new rooms, showing your progress through the Zork world.
 
 ### Inventory Panel
 
