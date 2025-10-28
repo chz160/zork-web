@@ -207,6 +207,7 @@ export class App implements OnInit {
     }, 100);
   }
 
+  /**
    * Toggle CRT effect on/off
    */
   toggleCrtEffect(): void {
