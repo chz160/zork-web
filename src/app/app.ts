@@ -9,7 +9,6 @@ import { DisambiguationComponent } from './ui/disambiguation/disambiguation';
 import { AutocorrectConfirmationComponent } from './ui/autocorrect-confirmation/autocorrect-confirmation';
 import { InventoryComponent } from './ui/inventory/inventory';
 import { StatusComponent } from './ui/status/status';
-import { LocationPanelComponent } from './ui/location-panel/location-panel';
 import { ObjectCandidate } from './core/models';
 
 type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
@@ -25,7 +24,6 @@ type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
     AutocorrectConfirmationComponent,
     InventoryComponent,
     StatusComponent,
-    LocationPanelComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

@@ -177,6 +177,10 @@ export class GameEngineService {
       case 'help':
         output = this.handleHelp();
         break;
+      case 'map':
+      case 'location':
+        output = this.handleMap();
+        break;
       case 'save':
         output = this.handleSave();
         break;
@@ -1281,12 +1285,151 @@ export class GameEngineService {
       '',
       'System:',
       '  help - Show this help message',
+      '  map or location - Show location details with ASCII map',
       '  save - Save the game',
       '  load - Load a saved game',
       '  quit - Quit the game',
+      '',
+      'Keyboard Shortcuts:',
+      '  Ctrl+L - Show location map',
     ];
 
     return { messages, success: true, type: 'help' };
+  }
+
+  /**
+   * Handle map/location command to show location details with ASCII art.
+   */
+  private handleMap(): CommandOutput {
+    const room = this.getCurrentRoom();
+    if (!room) {
+      return {
+        messages: ['You are nowhere. This is a bug.'],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    const messages: string[] = [];
+
+    // ASCII border top
+    messages.push('╔════════════════════════════════════════════════════════════════════════════╗');
+
+    // Room name centered
+    const roomName = room.name.toUpperCase();
+    const padding = Math.floor((76 - roomName.length) / 2);
+    messages.push(
+      '║' + ' '.repeat(padding) + roomName + ' '.repeat(76 - padding - roomName.length) + '║'
+    );
+    messages.push('╠════════════════════════════════════════════════════════════════════════════╣');
+
+    // Room description (word wrap at 74 chars)
+    const descLines = this.wrapText(room.description, 74);
+    descLines.forEach((line) => {
+      messages.push('║ ' + line + ' '.repeat(74 - line.length) + ' ║');
+    });
+
+    // Visible objects
+    const roomObjects = Array.from(this.gameObjects().values()).filter(
+      (obj) => obj.location === room.id && obj.visible && obj.portable
+    );
+
+    if (roomObjects.length > 0) {
+      messages.push(
+        '╠════════════════════════════════════════════════════════════════════════════╣'
+      );
+      messages.push(
+        '║ OBJECTS:                                                                   ║'
+      );
+      roomObjects.forEach((obj) => {
+        let objLine = '  • ' + obj.name;
+        if (obj.properties?.isOpen !== undefined) {
+          objLine += obj.properties.isOpen ? ' (open)' : ' (closed)';
+        }
+        if (obj.properties?.isLit) {
+          objLine += ' [lit]';
+        }
+        messages.push('║ ' + objLine + ' '.repeat(74 - objLine.length) + ' ║');
+      });
+    }
+
+    // Exits in compass layout
+    messages.push('╠════════════════════════════════════════════════════════════════════════════╣');
+    messages.push('║ EXITS:                                                                     ║');
+
+    const exits = Array.from(room.exits.entries());
+    if (exits.length > 0) {
+      // Create a simple compass-style layout
+      const hasNorth = exits.some(([dir]) => dir === 'north');
+      const hasSouth = exits.some(([dir]) => dir === 'south');
+      const hasEast = exits.some(([dir]) => dir === 'east');
+      const hasWest = exits.some(([dir]) => dir === 'west');
+      const hasUp = exits.some(([dir]) => dir === 'up');
+      const hasDown = exits.some(([dir]) => dir === 'down');
+
+      // North
+      messages.push(
+        '║                              ' +
+          (hasNorth ? '[N] North' : '          ') +
+          '                                   ║'
+      );
+      // West - Center - East
+      const westStr = hasWest ? '[W] West' : '        ';
+      const eastStr = hasEast ? '[E] East' : '        ';
+      messages.push(
+        '║              ' + westStr + '            ┼            ' + eastStr + '              ║'
+      );
+      // South
+      messages.push(
+        '║                              ' +
+          (hasSouth ? '[S] South' : '          ') +
+          '                                   ║'
+      );
+
+      // Up/Down if present
+      if (hasUp || hasDown) {
+        messages.push(
+          '║                                                                            ║'
+        );
+        if (hasUp)
+          messages.push(
+            '║                              [U] Up                                        ║'
+          );
+        if (hasDown)
+          messages.push(
+            '║                              [D] Down                                      ║'
+          );
+      }
+    } else {
+      messages.push(
+        '║   No obvious exits                                                         ║'
+      );
+    }
+
+    messages.push('╚════════════════════════════════════════════════════════════════════════════╝');
+
+    return { messages, success: true, type: 'description' };
+  }
+
+  /**
+   * Word wrap text to fit within a specified width.
+   */
+  private wrapText(text: string, width: number): string[] {
+    const words = text.split(' ');
+    const lines: string[] = [];
+    let currentLine = '';
+
+    for (const word of words) {
+      if (currentLine.length + word.length + 1 <= width) {
+        currentLine += (currentLine ? ' ' : '') + word;
+      } else {
+        if (currentLine) lines.push(currentLine);
+        currentLine = word;
+      }
+    }
+    if (currentLine) lines.push(currentLine);
+
+    return lines;
   }
 
   /**

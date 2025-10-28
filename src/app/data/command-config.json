@@ -10,7 +10,8 @@
     "put": ["place", "insert", "stow"],
     "use": ["activate", "employ"],
     "talk": ["speak", "converse", "chat"],
-    "wait": ["z", "rest"]
+    "wait": ["z", "rest"],
+    "map": ["location", "where", "whereami"]
   },
   "phrasalVerbs": {
     "look in": { "intent": "examine", "preposition": "in" },
