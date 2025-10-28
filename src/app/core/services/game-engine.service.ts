@@ -273,9 +273,7 @@ export class GameEngineService {
     this.rooms.update((rooms) => new Map(rooms).set(roomId, updatedRoom));
     this.currentRoom.set(updatedRoom);
 
-    // Display room description
-    const messages = this.getRoomDescription(updatedRoom, !room.visited);
-    messages.forEach((msg) => this.addOutput(msg));
+    // Note: Room description is added by the caller (handleGo, initializeGame, etc.)
   }
 
   /**
@@ -430,8 +428,14 @@ export class GameEngineService {
     // Move to the new room
     this.moveToRoom(nextRoomId);
 
-    // moveToRoom already adds the room description to output, so just return success
-    return { messages: [], success: true, type: 'description' };
+    // Get and return the room description (moveToRoom no longer adds it)
+    const updatedRoom = this.rooms().get(nextRoomId);
+    if (!updatedRoom) {
+      return { messages: [], success: true, type: 'description' };
+    }
+
+    const messages = this.getRoomDescription(updatedRoom, !nextRoom.visited);
+    return { messages, success: true, type: 'description' };
   }
 
   /**
