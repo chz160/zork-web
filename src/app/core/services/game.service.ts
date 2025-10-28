@@ -131,14 +131,13 @@ export class GameService {
         this.commandOutputSubject.next(result.output);
       });
 
-      // Emit updated state after all commands
-      this.emitCurrentState();
+      // State updates are automatically emitted via signal-to-observable bridge effects
     } else {
       // Single command - execute as before
       const parserResult = this.commandParser.parse(input);
       const output = this.gameEngine.executeCommand(parserResult);
       this.commandOutputSubject.next(output);
-      this.emitCurrentState();
+      // State updates are automatically emitted via signal-to-observable bridge effects
     }
   }
 
@@ -192,6 +191,7 @@ export class GameService {
 
   /**
    * Emit the current state to all observables.
+   * Used only during initialization to ensure initial state is properly emitted.
    */
   private emitCurrentState(): void {
     this.outputSubject.next(this.gameEngine.output());
