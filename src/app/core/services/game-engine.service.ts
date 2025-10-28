@@ -1285,13 +1285,13 @@ export class GameEngineService {
       '',
       'System:',
       '  help - Show this help message',
-      '  map or location - Show location details with ASCII map',
+      '  map - Open visual map of explored world',
       '  save - Save the game',
       '  load - Load a saved game',
       '  quit - Quit the game',
       '',
       'Keyboard Shortcuts:',
-      '  Ctrl+L - Show location map',
+      '  Ctrl+M (Cmd+M on Mac) - Toggle visual world map',
     ];
 
     return { messages, success: true, type: 'help' };
