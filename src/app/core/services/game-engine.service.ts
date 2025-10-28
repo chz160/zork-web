@@ -1311,22 +1311,20 @@ export class GameEngineService {
     }
 
     const messages: string[] = [];
+    const boxWidth = 76; // Internal width (excluding borders)
 
     // ASCII border top
-    messages.push('╔════════════════════════════════════════════════════════════════════════════╗');
+    messages.push('╔' + '═'.repeat(boxWidth) + '╗');
 
     // Room name centered
     const roomName = room.name.toUpperCase();
-    const padding = Math.floor((76 - roomName.length) / 2);
-    messages.push(
-      '║' + ' '.repeat(padding) + roomName + ' '.repeat(76 - padding - roomName.length) + '║'
-    );
-    messages.push('╠════════════════════════════════════════════════════════════════════════════╣');
+    messages.push(this.padLine(roomName, boxWidth, true));
+    messages.push('╠' + '═'.repeat(boxWidth) + '╣');
 
-    // Room description (word wrap at 74 chars)
-    const descLines = this.wrapText(room.description, 74);
+    // Room description (word wrap at boxWidth - 2 for padding)
+    const descLines = this.wrapText(room.description, boxWidth - 2);
     descLines.forEach((line) => {
-      messages.push('║ ' + line + ' '.repeat(74 - line.length) + ' ║');
+      messages.push(this.padLine(' ' + line, boxWidth, false));
     });
 
     // Visible objects
@@ -1335,12 +1333,8 @@ export class GameEngineService {
     );
 
     if (roomObjects.length > 0) {
-      messages.push(
-        '╠════════════════════════════════════════════════════════════════════════════╣'
-      );
-      messages.push(
-        '║ OBJECTS:                                                                   ║'
-      );
+      messages.push('╠' + '═'.repeat(boxWidth) + '╣');
+      messages.push(this.padLine(' OBJECTS:', boxWidth, false));
       roomObjects.forEach((obj) => {
         let objLine = '  • ' + obj.name;
         if (obj.properties?.isOpen !== undefined) {
@@ -1349,13 +1343,13 @@ export class GameEngineService {
         if (obj.properties?.isLit) {
           objLine += ' [lit]';
         }
-        messages.push('║ ' + objLine + ' '.repeat(74 - objLine.length) + ' ║');
+        messages.push(this.padLine(' ' + objLine, boxWidth, false));
       });
     }
 
     // Exits in compass layout
-    messages.push('╠════════════════════════════════════════════════════════════════════════════╣');
-    messages.push('║ EXITS:                                                                     ║');
+    messages.push('╠' + '═'.repeat(boxWidth) + '╣');
+    messages.push(this.padLine(' EXITS:', boxWidth, false));
 
     const exits = Array.from(room.exits.entries());
     if (exits.length > 0) {
@@ -1368,47 +1362,63 @@ export class GameEngineService {
       const hasDown = exits.some(([dir]) => dir === 'down');
 
       // North
-      messages.push(
-        '║                              ' +
-          (hasNorth ? '[N] North' : '          ') +
-          '                                   ║'
-      );
+      const northLine = hasNorth ? '[N] North' : '';
+      messages.push(this.padLine(northLine, boxWidth, true));
+
       // West - Center - East
-      const westStr = hasWest ? '[W] West' : '        ';
-      const eastStr = hasEast ? '[E] East' : '        ';
-      messages.push(
-        '║              ' + westStr + '            ┼            ' + eastStr + '              ║'
-      );
+      const westPart = hasWest ? '[W] West' : '';
+      const eastPart = hasEast ? '[E] East' : '';
+      const centerSymbol = '┼';
+
+      // Build the compass line with proper spacing
+      // Format: "     [W] West     ┼     [E] East     "
+      const westWidth = 20; // Fixed width for west section
+      const centerWidth = 8; // Width for center symbol with padding
+      const eastWidth = boxWidth - westWidth - centerWidth;
+
+      const westSection = westPart.padEnd(westWidth, ' ');
+      const centerSection = centerSymbol
+        .padStart(centerWidth / 2 + 1, ' ')
+        .padEnd(centerWidth, ' ');
+      const eastSection = eastPart.padEnd(eastWidth, ' ');
+
+      messages.push('║' + westSection + centerSection + eastSection + '║');
+
       // South
-      messages.push(
-        '║                              ' +
-          (hasSouth ? '[S] South' : '          ') +
-          '                                   ║'
-      );
+      const southLine = hasSouth ? '[S] South' : '';
+      messages.push(this.padLine(southLine, boxWidth, true));
 
       // Up/Down if present
       if (hasUp || hasDown) {
-        messages.push(
-          '║                                                                            ║'
-        );
-        if (hasUp)
-          messages.push(
-            '║                              [U] Up                                        ║'
-          );
-        if (hasDown)
-          messages.push(
-            '║                              [D] Down                                      ║'
-          );
+        messages.push(this.padLine('', boxWidth, false));
+        if (hasUp) messages.push(this.padLine('[U] Up', boxWidth, true));
+        if (hasDown) messages.push(this.padLine('[D] Down', boxWidth, true));
       }
     } else {
-      messages.push(
-        '║   No obvious exits                                                         ║'
-      );
+      messages.push(this.padLine('   No obvious exits', boxWidth, false));
     }
 
-    messages.push('╚════════════════════════════════════════════════════════════════════════════╝');
+    messages.push('╚' + '═'.repeat(boxWidth) + '╝');
 
     return { messages, success: true, type: 'description' };
+  }
+
+  /**
+   * Pad a line to fit within the box with proper border alignment.
+   * @param content The content to display
+   * @param width The total width (excluding borders)
+   * @param center Whether to center the content
+   */
+  private padLine(content: string, width: number, center: boolean): string {
+    if (center) {
+      const padding = Math.floor((width - content.length) / 2);
+      const leftPad = ' '.repeat(padding);
+      const rightPad = ' '.repeat(width - padding - content.length);
+      return '║' + leftPad + content + rightPad + '║';
+    } else {
+      const rightPad = ' '.repeat(width - content.length);
+      return '║' + content + rightPad + '║';
+    }
   }
 
   /**
