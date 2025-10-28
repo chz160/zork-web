@@ -6,7 +6,9 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 - DOS-style terminal interface
 - Command-based text adventure gameplay
+- **ASCII art location map** with room details, objects, and compass-style exits (Ctrl+L or `map` command)
 - **Interactive inventory panel** with object inspection and actions
+- **Status panel** with real-time game progress tracking
 - Game state saved in browser's storage
 - Classic Zork-inspired world to explore
 - Accessible keyboard navigation and screen reader support
@@ -95,7 +97,30 @@ Type commands in the input field at the bottom of the screen to interact with th
 - **Looking**: `look`, `examine [object]`
 - **Inventory**: `inventory` (or `i`), `take [object]`, `drop [object]`
 - **Objects**: `open [object]`, `close [object]`, `read [object]`, `use [object]`
+- **Location Map**: `map` or `location` (displays detailed ASCII map with exits and objects)
 - **Help**: `help` (displays available commands)
+
+#### Keyboard Shortcuts:
+- **Ctrl+L** (or **Cmd+L** on Mac): Show location map with ASCII art
+
+### Location Map
+
+The location map feature displays detailed information about your current location directly in the console output with ASCII art borders.
+
+#### Features:
+- **ASCII Art Display**: Beautifully formatted box with your current room details
+- **Room Description**: Full description of where you are
+- **Visible Objects**: List of all objects you can see and interact with
+  - Shows state indicators: (open/closed) for containers, [lit] for light sources
+- **Compass-Style Exits**: Visual compass layout showing available directions (N, S, E, W, U, D)
+- **Triggered by Command or Shortcut**: Type `map` or `location`, or press **Ctrl+L**
+
+#### How to Use:
+1. **Via Command**: Type `map` or `location` in the command prompt
+2. **Via Keyboard**: Press **Ctrl+L** (or **Cmd+L** on Mac) at any time
+3. The map will appear in the console output with formatted ASCII art
+
+This provides a quick overview of your surroundings without taking up permanent screen space.
 
 ### Inventory Panel
 
@@ -1033,6 +1058,7 @@ The input component maintains a history of up to 100 previously entered commands
 - **Up Arrow**: Navigate to previous command in history
 - **Down Arrow**: Navigate to next command in history
 - **Escape**: Clear the current input field
+- **Ctrl+L** (or **Cmd+L** on Mac): Show location map with ASCII art
 
 ### Accessibility Features
 

@@ -121,7 +121,18 @@ export class Input implements AfterViewInit {
     } else if (event.key === 'Escape') {
       event.preventDefault();
       this.clearInput();
+    } else if (event.key === 'l' && (event.ctrlKey || event.metaKey)) {
+      // Ctrl+L or Cmd+L: Show location map
+      event.preventDefault();
+      this.showLocationMap();
     }
+  }
+
+  /**
+   * Show the location map by submitting the 'map' command.
+   */
+  private showLocationMap(): void {
+    this.gameService.submitCommand('map');
   }
 
   /**

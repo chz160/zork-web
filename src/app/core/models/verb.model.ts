@@ -44,6 +44,8 @@ export type VerbType =
   | 'push'
   // System
   | 'help'
+  | 'map'
+  | 'location'
   | 'save'
   | 'load'
   | 'quit';

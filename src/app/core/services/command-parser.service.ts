@@ -279,6 +279,16 @@ export class CommandParserService {
       },
     ],
     [
+      'map',
+      {
+        name: 'map',
+        aliases: ['location', 'where', 'whereami'],
+        requiresObject: false,
+        allowsIndirectObject: false,
+        description: 'Show location map with exits and objects',
+      },
+    ],
+    [
       'save',
       {
         name: 'save',
