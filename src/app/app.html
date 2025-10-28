@@ -306,6 +306,9 @@
     max-height: 90vh;
     overflow: auto;
     animation: slideUp 0.3s ease-out;
+    /* Firefox scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--zork-primary) var(--zork-background-alt);
   }
 
   /* Webkit scrollbar styling for map modal - matches terminal look */
@@ -327,12 +330,6 @@
   .map-modal::-webkit-scrollbar-thumb:hover {
     background: var(--zork-primary-bright);
     box-shadow: var(--zork-glow-subtle);
-  }
-
-  /* Firefox scrollbar styling */
-  .map-modal {
-    scrollbar-width: thin;
-    scrollbar-color: var(--zork-primary) var(--zork-background-alt);
   }
 
   @keyframes slideUp {
@@ -520,7 +517,7 @@
         <app-map />
       </div>
     </div>
-  }
+  @}
 </div>
 
 <router-outlet />
