@@ -308,6 +308,33 @@
     animation: slideUp 0.3s ease-out;
   }
 
+  /* Webkit scrollbar styling for map modal - matches terminal look */
+  .map-modal::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .map-modal::-webkit-scrollbar-track {
+    background: var(--zork-background-alt);
+    border-left: 1px solid var(--zork-primary);
+  }
+
+  .map-modal::-webkit-scrollbar-thumb {
+    background: var(--zork-primary);
+    border: 2px solid var(--zork-background);
+    border-radius: 2px;
+  }
+
+  .map-modal::-webkit-scrollbar-thumb:hover {
+    background: var(--zork-primary-bright);
+    box-shadow: var(--zork-glow-subtle);
+  }
+
+  /* Firefox scrollbar styling */
+  .map-modal {
+    scrollbar-width: thin;
+    scrollbar-color: var(--zork-primary) var(--zork-background-alt);
+  }
+
   @keyframes slideUp {
     from {
       opacity: 0;
