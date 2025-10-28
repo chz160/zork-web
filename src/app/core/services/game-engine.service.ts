@@ -430,14 +430,8 @@ export class GameEngineService {
     // Move to the new room
     this.moveToRoom(nextRoomId);
 
-    // Get and return the room description
-    const updatedRoom = this.rooms().get(nextRoomId);
-    if (!updatedRoom) {
-      return { messages: [], success: true, type: 'description' };
-    }
-
-    const messages = this.getRoomDescription(updatedRoom, !nextRoom.visited);
-    return { messages, success: true, type: 'description' };
+    // moveToRoom already adds the room description to output, so just return success
+    return { messages: [], success: true, type: 'description' };
   }
 
   /**
