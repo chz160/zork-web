@@ -9,10 +9,12 @@ import {
   ElementRef,
   AfterViewInit,
   OnDestroy,
+  input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../core/services/game.service';
 import { Subscription } from 'rxjs';
+import { CrtEffectDirective } from '../ui/crt-effect/crt-effect.directive';
 
 /**
  * Console interface representing a line of output with metadata.
@@ -45,7 +47,7 @@ export interface ConsoleLine {
  */
 @Component({
   selector: 'app-console',
-  imports: [CommonModule],
+  imports: [CommonModule, CrtEffectDirective],
   templateUrl: './console.html',
   styleUrl: './console.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -53,6 +55,9 @@ export interface ConsoleLine {
 export class Console implements AfterViewInit, OnDestroy {
   private readonly gameService = inject(GameService);
   private readonly subscriptions = new Subscription();
+
+  /** Whether CRT effect is enabled */
+  readonly crtEffectEnabled = input<boolean>(true);
 
   /** Reference to scrollable output container for auto-scroll */
   @ViewChild('outputContainer') outputContainer?: ElementRef<HTMLDivElement>;
