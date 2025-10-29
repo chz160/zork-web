@@ -288,9 +288,7 @@ describe('Console', () => {
       component.currentCommand.set('inventory');
       component.onSubmit();
 
-      // Access private property for testing
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const history = (component as any).commandHistory();
+      const history = component['commandHistory']();
       expect(history).toEqual(['look', 'inventory']);
     });
 
@@ -301,8 +299,7 @@ describe('Console', () => {
       component.currentCommand.set('look');
       component.onSubmit();
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const history = (component as any).commandHistory();
+      const history = component['commandHistory']();
       expect(history).toEqual(['look']);
     });
 
@@ -356,8 +353,7 @@ describe('Console', () => {
       component.onInputChange('new command');
       expect(component.currentCommand()).toBe('new command');
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const historyIndex = (component as any).historyIndex();
+      const historyIndex = component['historyIndex']();
       expect(historyIndex).toBe(-1);
     });
   });

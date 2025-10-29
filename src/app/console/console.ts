@@ -73,10 +73,10 @@ export class Console implements AfterViewInit, OnDestroy {
   readonly currentCommand = signal<string>('');
 
   /** History of previously submitted commands */
-  private readonly commandHistory = signal<string[]>([]);
+  protected readonly commandHistory = signal<string[]>([]);
 
   /** Current position in command history (for Up/Down navigation) */
-  private readonly historyIndex = signal<number>(-1);
+  protected readonly historyIndex = signal<number>(-1);
 
   /** Temporary storage for current input when navigating history */
   private temporaryCommand = '';
