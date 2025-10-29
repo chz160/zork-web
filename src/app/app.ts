@@ -2,7 +2,6 @@ import { Component, signal, inject, OnInit, HostListener, ViewChild } from '@ang
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Console } from './console/console';
-import { Input } from './input/input';
 import { GameService } from './core/services/game.service';
 import { GameEngineService } from './core/services/game-engine.service';
 import { DisambiguationComponent } from './ui/disambiguation/disambiguation';
@@ -19,7 +18,6 @@ type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
   imports: [
     RouterOutlet,
     Console,
-    Input,
     CommonModule,
     DisambiguationComponent,
     AutocorrectConfirmationComponent,
@@ -35,8 +33,8 @@ export class App implements OnInit {
   private readonly gameService = inject(GameService);
   private readonly gameEngine = inject(GameEngineService);
 
-  /** Reference to input component for focus management */
-  @ViewChild(Input) inputComponent?: Input;
+  /** Reference to console component for focus management */
+  @ViewChild(Console) consoleComponent?: Console;
 
   /** Current font size setting */
   protected readonly fontSize = signal<FontSize>('medium');
@@ -272,7 +270,7 @@ export class App implements OnInit {
    */
   private focusCommandInput(): void {
     setTimeout(() => {
-      this.inputComponent?.focusInput();
+      this.consoleComponent?.focusInput();
     }, 100);
   }
 

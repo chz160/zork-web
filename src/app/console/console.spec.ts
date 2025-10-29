@@ -43,17 +43,32 @@ describe('Console', () => {
       outputSubject.next(['Welcome to Zork!', 'You are standing west of a white house.']);
       fixture.detectChanges();
 
-      const lines = fixture.nativeElement.querySelectorAll('.console-line');
+      const lines = fixture.nativeElement.querySelectorAll(
+        '.console-line:not(.console-line--input)'
+      );
       expect(lines.length).toBe(2);
       expect(lines[0].textContent).toContain('Welcome to Zork!');
       expect(lines[1].textContent).toContain('You are standing west of a white house.');
     });
 
-    it('should render lines with prompts', () => {
+    it('should not render prompts for output lines', () => {
       outputSubject.next(['Test message']);
       fixture.detectChanges();
 
-      const prompt = fixture.nativeElement.querySelector('.console-prompt');
+      // Output lines should not have prompts
+      const outputLines = fixture.nativeElement.querySelectorAll(
+        '.console-line:not(.console-line--input)'
+      );
+      const prompts: (Element | null)[] = [];
+      outputLines.forEach((line: Element) => {
+        prompts.push(line.querySelector('.console-prompt'));
+      });
+      expect(prompts.every((p) => p === null)).toBe(true);
+    });
+
+    it('should render input line with prompt', () => {
+      const inputLine = fixture.nativeElement.querySelector('.console-line--input');
+      const prompt = inputLine?.querySelector('.console-prompt');
       expect(prompt?.textContent).toBe('>');
     });
 
@@ -61,7 +76,9 @@ describe('Console', () => {
       outputSubject.next(["I don't understand that.", 'Taken.']);
       fixture.detectChanges();
 
-      const lines = fixture.nativeElement.querySelectorAll('.console-line');
+      const lines = fixture.nativeElement.querySelectorAll(
+        '.console-line:not(.console-line--input)'
+      );
       expect(lines[0].classList.contains('console-line--error')).toBe(true);
       expect(lines[1].classList.contains('console-line--success')).toBe(true);
     });
@@ -137,6 +154,18 @@ describe('Console', () => {
       const ariaLabel = output?.getAttribute('aria-label');
       expect(ariaLabel).toContain('2 lines');
     });
+
+    it('should have proper input ARIA labels', () => {
+      const input = fixture.nativeElement.querySelector('.command-input');
+      expect(input?.getAttribute('aria-label')).toBe('Game command input');
+      expect(input?.getAttribute('aria-describedby')).toBe('input-instructions');
+    });
+
+    it('should have hidden instructions for screen readers', () => {
+      const instructions = fixture.nativeElement.querySelector('#input-instructions');
+      expect(instructions).toBeTruthy();
+      expect(instructions?.classList.contains('sr-only')).toBe(true);
+    });
   });
 
   describe('Responsive Design', () => {
@@ -153,6 +182,202 @@ describe('Console', () => {
     it('should track lines by index', () => {
       expect(component.trackByIndex(0)).toBe(0);
       expect(component.trackByIndex(5)).toBe(5);
+    });
+  });
+
+  describe('Integrated Input - Focus Management', () => {
+    it('should focus input when container is clicked', (done) => {
+      const inputElement = fixture.nativeElement.querySelector(
+        '.command-input'
+      ) as HTMLInputElement;
+      spyOn(inputElement, 'focus');
+
+      const container = fixture.nativeElement.querySelector('.console-container');
+      container?.dispatchEvent(new Event('click'));
+
+      setTimeout(() => {
+        expect(inputElement.focus).toHaveBeenCalled();
+        done();
+      }, 10);
+    });
+
+    it('should auto-focus input field after initialization', (done) => {
+      const inputElement = fixture.nativeElement.querySelector(
+        '.command-input'
+      ) as HTMLInputElement;
+      spyOn(inputElement, 'focus');
+
+      component.ngAfterViewInit();
+
+      setTimeout(() => {
+        expect(inputElement.focus).toHaveBeenCalled();
+        done();
+      }, 10);
+    });
+
+    it('should maintain focus after command submission', (done) => {
+      const inputElement = fixture.nativeElement.querySelector(
+        '.command-input'
+      ) as HTMLInputElement;
+      spyOn(inputElement, 'focus');
+
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      setTimeout(() => {
+        expect(inputElement.focus).toHaveBeenCalled();
+        done();
+      }, 10);
+    });
+
+    it('should stop propagation on input click', () => {
+      const event = new Event('click');
+      spyOn(event, 'stopPropagation');
+
+      component.onInputClick(event);
+
+      expect(event.stopPropagation).toHaveBeenCalled();
+    });
+  });
+
+  describe('Integrated Input - Command Submission', () => {
+    it('should submit command on Enter key press', () => {
+      component.currentCommand.set('look');
+      fixture.detectChanges();
+
+      component.onSubmit();
+
+      expect(mockGameService.submitCommand).toHaveBeenCalledWith('look');
+      expect(component.currentCommand()).toBe('');
+    });
+
+    it('should not submit empty command', () => {
+      component.currentCommand.set('');
+      component.onSubmit();
+
+      expect(mockGameService.submitCommand).not.toHaveBeenCalled();
+    });
+
+    it('should not submit whitespace-only command', () => {
+      component.currentCommand.set('   ');
+      component.onSubmit();
+
+      expect(mockGameService.submitCommand).not.toHaveBeenCalled();
+    });
+
+    it('should trim command before submission', () => {
+      component.currentCommand.set('  look  ');
+      component.onSubmit();
+
+      expect(mockGameService.submitCommand).toHaveBeenCalledWith('look');
+    });
+
+    it('should clear input after submission', () => {
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      expect(component.currentCommand()).toBe('');
+    });
+  });
+
+  describe('Integrated Input - Command History', () => {
+    it('should add commands to history on submission', () => {
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      component.currentCommand.set('inventory');
+      component.onSubmit();
+
+      // Access private property for testing
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const history = (component as any).commandHistory();
+      expect(history).toEqual(['look', 'inventory']);
+    });
+
+    it('should not add duplicate consecutive commands', () => {
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const history = (component as any).commandHistory();
+      expect(history).toEqual(['look']);
+    });
+
+    it('should navigate to previous command with Up arrow', () => {
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      component.currentCommand.set('inventory');
+      component.onSubmit();
+
+      const event = new KeyboardEvent('keydown', { key: 'ArrowUp' });
+      spyOn(event, 'preventDefault');
+      component.onKeyDown(event);
+
+      expect(event.preventDefault).toHaveBeenCalled();
+      expect(component.currentCommand()).toBe('inventory');
+    });
+
+    it('should navigate to next command with Down arrow', () => {
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      component.currentCommand.set('inventory');
+      component.onSubmit();
+
+      component.onKeyDown(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+      component.onKeyDown(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+      component.onKeyDown(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+
+      expect(component.currentCommand()).toBe('inventory');
+    });
+
+    it('should clear input on Escape key', () => {
+      component.currentCommand.set('test command');
+
+      const event = new KeyboardEvent('keydown', { key: 'Escape' });
+      spyOn(event, 'preventDefault');
+      component.onKeyDown(event);
+
+      expect(event.preventDefault).toHaveBeenCalled();
+      expect(component.currentCommand()).toBe('');
+    });
+
+    it('should reset history navigation when typing', () => {
+      component.currentCommand.set('look');
+      component.onSubmit();
+
+      component.onKeyDown(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+      expect(component.currentCommand()).toBe('look');
+
+      component.onInputChange('new command');
+      expect(component.currentCommand()).toBe('new command');
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const historyIndex = (component as any).historyIndex();
+      expect(historyIndex).toBe(-1);
+    });
+  });
+
+  describe('Integrated Input - Rendering', () => {
+    it('should render input field with correct attributes', () => {
+      const input = fixture.nativeElement.querySelector('.command-input') as HTMLInputElement;
+
+      expect(input).toBeTruthy();
+      expect(input.getAttribute('autocomplete')).toBe('off');
+      expect(input.getAttribute('spellcheck')).toBe('false');
+      expect(input.getAttribute('autocorrect')).toBe('off');
+      expect(input.getAttribute('autocapitalize')).toBe('off');
+    });
+
+    it('should display placeholder text', () => {
+      const input = fixture.nativeElement.querySelector('.command-input') as HTMLInputElement;
+
+      expect(input.placeholder).toContain('Enter command');
+      expect(input.placeholder).toContain('help');
     });
   });
 });

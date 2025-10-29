@@ -1,6 +1,7 @@
 <div
   class="console-container"
   [appCrtEffect]="crtEffectEnabled()"
+  (click)="focusInput()"
   role="log"
   aria-live="polite"
   aria-atomic="false"
@@ -16,17 +17,37 @@
   >
     @if (consoleLines().length === 0) {
       <div class="console-line console-line--info">
-        <span class="console-prompt">&gt;</span>
         <span>Waiting for game to start...</span>
       </div>
     }
     @for (line of consoleLines(); track trackByIndex($index)) {
       <div [class]="getLineClasses(line).join(' ')">
-        @if (line.type !== 'command') {
-          <span class="console-prompt">&gt;</span>
-        }
         <span class="console-text">{{ line.text }}</span>
       </div>
     }
+    <div class="console-line console-line--input">
+      <span class="console-prompt" aria-hidden="true">&gt;</span>
+      <input
+        #commandInput
+        type="text"
+        class="command-input"
+        [ngModel]="currentCommand()"
+        (ngModelChange)="onInputChange($event)"
+        (keydown)="onKeyDown($event)"
+        (keydown.enter)="onSubmit()"
+        (click)="onInputClick($event)"
+        [placeholder]="getPlaceholder()"
+        aria-label="Game command input"
+        aria-describedby="input-instructions"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+    </div>
+  </div>
+  <div id="input-instructions" class="sr-only">
+    Enter a command and press Enter to submit. Use Up and Down arrow keys to navigate command
+    history. Press Escape to clear the input.
   </div>
 </div>

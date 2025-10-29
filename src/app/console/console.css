@@ -166,6 +166,55 @@
   font-weight: bold;
 }
 
+/* Input line styling - integrated into terminal */
+.console-line--input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0.125rem 0;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--zork-background);
+}
+
+.command-input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  color: var(--zork-primary);
+  font-family: var(--zork-font-family);
+  font-size: var(--zork-font-size-base);
+  line-height: var(--zork-line-height);
+  outline: none;
+  padding: 0;
+  caret-color: var(--zork-primary);
+  /* Subtle text glow for phosphor effect */
+  text-shadow: 0 0 2px rgba(0, 255, 0, 0.2);
+}
+
+.command-input::placeholder {
+  color: var(--zork-primary-faint);
+  opacity: 1;
+}
+
+.command-input:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .console-output {
