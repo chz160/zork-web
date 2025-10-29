@@ -155,10 +155,8 @@
   .console-wrapper {
     flex: 1 1 auto;
     min-height: 0;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    grid-template-rows: auto 1fr;
-    gap: var(--zork-spacing-sm);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
   }
 
@@ -167,27 +165,7 @@
     flex-direction: column;
     gap: var(--zork-spacing-sm);
     min-width: 0;
-    grid-row: 1 / 3;
-  }
-
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: var(--zork-spacing-sm);
-    min-width: 0;
-    max-height: 100%;
-    overflow: hidden;
-  }
-
-  .status-sidebar {
-    flex: 0 0 auto;
-    min-height: 0;
-  }
-
-  .inventory-sidebar {
     flex: 1 1 auto;
-    min-height: 0;
-    overflow: hidden;
   }
 
   @media (max-width: 768px) {
@@ -212,40 +190,15 @@
     .control-label {
       min-width: auto;
     }
-
-    .console-wrapper {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto 1fr auto;
-    }
-
-    .sidebar {
-      grid-row: 1 / 3;
-      max-height: 50vh;
-      flex-direction: row;
-      gap: var(--zork-spacing-sm);
-    }
-
-    .status-sidebar {
-      flex: 1 1 50%;
-    }
-
-    .inventory-sidebar {
-      flex: 1 1 50%;
-    }
-
-    .game-main {
-      grid-row: 3 / 5;
-    }
   }
 
   @media (max-width: 480px) {
-    .sidebar {
-      flex-direction: column;
+    .app-header h1 {
+      font-size: 1.25rem;
     }
 
-    .status-sidebar,
-    .inventory-sidebar {
-      flex: 1 1 auto;
+    .app-header p {
+      font-size: 0.75rem;
     }
   }
 
@@ -469,14 +422,6 @@
       <app-console [crtEffectEnabled]="crtEffectEnabled()" />
       <app-input />
     </div>
-    <aside class="sidebar">
-      <div class="status-sidebar">
-        <app-status />
-      </div>
-      <div class="inventory-sidebar">
-        <app-inventory />
-      </div>
-    </aside>
   </div>
 
   <!-- Disambiguation UI -->
@@ -517,7 +462,47 @@
         <app-map />
       </div>
     </div>
-  @}
+  }
+
+  <!-- Status Dialog -->
+  @if (showStatus()) {
+    <div
+      class="map-overlay"
+      (click)="closeStatus()"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Player status"
+    >
+      <div class="map-modal" (click)="$event.stopPropagation()">
+        <div class="map-modal-header">
+          <h2>Status</h2>
+          <button class="map-close-btn" (click)="closeStatus()" aria-label="Close status">✕</button>
+        </div>
+        <app-status />
+      </div>
+    </div>
+  }
+
+  <!-- Inventory Dialog -->
+  @if (showInventory()) {
+    <div
+      class="map-overlay"
+      (click)="closeInventory()"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Inventory"
+    >
+      <div class="map-modal" (click)="$event.stopPropagation()">
+        <div class="map-modal-header">
+          <h2>Inventory</h2>
+          <button class="map-close-btn" (click)="closeInventory()" aria-label="Close inventory">
+            ✕
+          </button>
+        </div>
+        <app-inventory />
+      </div>
+    </div>
+  }
 </div>
 
 <router-outlet />

@@ -47,6 +47,12 @@ export class App implements OnInit {
   /** Show/hide map visualization */
   protected readonly showMap = signal(false);
 
+  /** Show/hide status dialog */
+  protected readonly showStatus = signal(false);
+
+  /** Show/hide inventory dialog */
+  protected readonly showInventory = signal(false);
+
   /** CRT effect enabled state */
   protected readonly crtEffectEnabled = signal(true);
 
@@ -80,11 +86,17 @@ export class App implements OnInit {
     // Wire up UI callbacks to game engine
     this.setupUICallbacks();
 
-    // Subscribe to command output to intercept map command
+    // Subscribe to command output to intercept map, status, and inventory commands
     this.gameService.commandOutput$.subscribe((output) => {
       // Check if this is a map command by checking the output type or messages
       if (output.metadata && output.metadata['isMapCommand']) {
         this.showMap.set(true);
+      }
+      if (output.metadata && output.metadata['isStatusCommand']) {
+        this.showStatus.set(true);
+      }
+      if (output.metadata && output.metadata['isInventoryCommand']) {
+        this.showInventory.set(true);
       }
     });
   }
@@ -95,6 +107,8 @@ export class App implements OnInit {
    * Ctrl/Cmd + Minus: Decrease font size
    * Ctrl/Cmd + 0: Reset to medium
    * Ctrl/Cmd + M: Toggle map
+   * Ctrl/Cmd + I: Toggle inventory
+   * Ctrl/Cmd + T: Toggle status
    * ESC: Close any open dialog
    */
   @HostListener('window:keydown', ['$event'])
@@ -104,6 +118,16 @@ export class App implements OnInit {
       if (this.showMap()) {
         event.preventDefault();
         this.closeMap();
+        return;
+      }
+      if (this.showStatus()) {
+        event.preventDefault();
+        this.closeStatus();
+        return;
+      }
+      if (this.showInventory()) {
+        event.preventDefault();
+        this.closeInventory();
         return;
       }
       if (this.disambiguationCandidates()) {
@@ -137,6 +161,12 @@ export class App implements OnInit {
       } else if (event.key === 'm' || event.key === 'M') {
         event.preventDefault();
         this.toggleMap();
+      } else if (event.key === 'i' || event.key === 'I') {
+        event.preventDefault();
+        this.toggleInventory();
+      } else if (event.key === 't' || event.key === 'T') {
+        event.preventDefault();
+        this.toggleStatus();
       }
     }
   }
@@ -195,6 +225,44 @@ export class App implements OnInit {
    */
   closeMap(): void {
     this.showMap.set(false);
+    this.focusCommandInput();
+  }
+
+  /**
+   * Toggle status dialog visibility
+   */
+  toggleStatus(): void {
+    this.showStatus.set(!this.showStatus());
+    if (!this.showStatus()) {
+      // Focus input when status closes
+      this.focusCommandInput();
+    }
+  }
+
+  /**
+   * Close the status dialog
+   */
+  closeStatus(): void {
+    this.showStatus.set(false);
+    this.focusCommandInput();
+  }
+
+  /**
+   * Toggle inventory dialog visibility
+   */
+  toggleInventory(): void {
+    this.showInventory.set(!this.showInventory());
+    if (!this.showInventory()) {
+      // Focus input when inventory closes
+      this.focusCommandInput();
+    }
+  }
+
+  /**
+   * Close the inventory dialog
+   */
+  closeInventory(): void {
+    this.showInventory.set(false);
     this.focusCommandInput();
   }
 
