@@ -187,8 +187,9 @@ describe('GameEngine Integration with Converted Data', () => {
       const result = engine.executeCommand(command);
 
       expect(result.success).toBe(true);
-      expect(result.type).toBe('inventory');
+      expect(result.type).toBe('system');
       expect(result.messages.length).toBeGreaterThan(0);
+      expect(result.metadata?.['isInventoryCommand']).toBe(true);
     });
   });
 

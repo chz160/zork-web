@@ -205,8 +205,9 @@ describe('GameEngineService', () => {
 
       const result = service.executeCommand(inventoryCommand);
       expect(result.success).toBe(true);
-      expect(result.type).toBe('inventory');
-      expect(result.messages).toContain('You are empty-handed.');
+      expect(result.type).toBe('system');
+      expect(result.messages).toContain('Opening inventory...');
+      expect(result.metadata?.['isInventoryCommand']).toBe(true);
     });
 
     it('should process help command', () => {
