@@ -141,6 +141,9 @@ export class GameEngineService {
       case 'inventory':
         output = this.handleInventory();
         break;
+      case 'status':
+        output = this.handleStatus();
+        break;
       case 'open':
         output = this.handleOpen(parserResult.directObject);
         break;
@@ -654,24 +657,26 @@ export class GameEngineService {
    * Handle showing inventory.
    */
   private handleInventory(): CommandOutput {
-    const inventory = this.playerState().inventory;
+    // Return a special output that signals to open the inventory dialog
+    return {
+      messages: ['Opening inventory...'],
+      success: true,
+      type: 'system',
+      metadata: { isInventoryCommand: true },
+    };
+  }
 
-    if (inventory.length === 0) {
-      return {
-        messages: ['You are empty-handed.'],
-        success: true,
-        type: 'inventory',
-      };
-    }
-
-    const items = inventory
-      .map((id) => this.gameObjects().get(id))
-      .filter((obj): obj is GameObject => obj !== undefined)
-      .map((obj) => obj.name);
-
-    const messages = ['You are carrying:', ...items.map((name) => `  ${name}`)];
-
-    return { messages, success: true, type: 'inventory' };
+  /**
+   * Handle status command to show player status.
+   */
+  private handleStatus(): CommandOutput {
+    // Return a special output that signals to open the status dialog
+    return {
+      messages: ['Opening status...'],
+      success: true,
+      type: 'system',
+      metadata: { isStatusCommand: true },
+    };
   }
 
   /**
@@ -1269,7 +1274,7 @@ export class GameEngineService {
       'Inventory:',
       '  take [object] - Pick up an object',
       '  drop [object] - Drop an object',
-      '  inventory (or i) - Check what you are carrying',
+      '  inventory (or i) - Open inventory dialog',
       '',
       'Objects:',
       '  open [object] - Open something',
@@ -1283,6 +1288,7 @@ export class GameEngineService {
       '',
       'System:',
       '  help - Show this help message',
+      '  status - Open status dialog',
       '  map - Open visual map of explored world',
       '  save - Save the game',
       '  load - Load a saved game',
@@ -1290,6 +1296,8 @@ export class GameEngineService {
       '',
       'Keyboard Shortcuts:',
       '  Ctrl+M (Cmd+M on Mac) - Toggle visual world map',
+      '  Ctrl+I (Cmd+I on Mac) - Toggle inventory dialog',
+      '  Ctrl+Shift+S (Cmd+Shift+S on Mac) - Toggle status dialog',
     ];
 
     return { messages, success: true, type: 'help' };

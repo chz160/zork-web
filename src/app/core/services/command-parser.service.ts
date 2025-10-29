@@ -289,6 +289,16 @@ export class CommandParserService {
       },
     ],
     [
+      'status',
+      {
+        name: 'status',
+        aliases: [],
+        requiresObject: false,
+        allowsIndirectObject: false,
+        description: 'Show player status',
+      },
+    ],
+    [
       'save',
       {
         name: 'save',
