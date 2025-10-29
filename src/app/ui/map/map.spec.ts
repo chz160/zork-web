@@ -24,31 +24,71 @@ describe('MapComponent', () => {
   });
 
   it('should compute correct node class for current room', () => {
-    const currentNode = { id: 'room1', name: 'Room 1', x: 0, y: 0, isCurrent: true, visited: true };
+    const currentNode = {
+      id: 'room1',
+      name: 'Room 1',
+      x: 0,
+      y: 0,
+      isCurrent: true,
+      visited: true,
+      exits: new Map(),
+    };
     const nodeClass = component.getNodeClass(currentNode);
     expect(nodeClass).toBe('room-node room-node--current');
   });
 
   it('should compute correct node class for non-current room', () => {
-    const node = { id: 'room1', name: 'Room 1', x: 0, y: 0, isCurrent: false, visited: true };
+    const node = {
+      id: 'room1',
+      name: 'Room 1',
+      x: 0,
+      y: 0,
+      isCurrent: false,
+      visited: true,
+      exits: new Map(),
+    };
     const nodeClass = component.getNodeClass(node);
     expect(nodeClass).toBe('room-node');
   });
 
   it('should generate ARIA label for current location', () => {
-    const node = { id: 'room1', name: 'Test Room', x: 0, y: 0, isCurrent: true, visited: true };
+    const node = {
+      id: 'room1',
+      name: 'Test Room',
+      x: 0,
+      y: 0,
+      isCurrent: true,
+      visited: true,
+      exits: new Map(),
+    };
     const label = component.getNodeAriaLabel(node);
     expect(label).toBe('Test Room (current location)');
   });
 
   it('should generate ARIA label for explored room', () => {
-    const node = { id: 'room1', name: 'Test Room', x: 0, y: 0, isCurrent: false, visited: true };
+    const node = {
+      id: 'room1',
+      name: 'Test Room',
+      x: 0,
+      y: 0,
+      isCurrent: false,
+      visited: true,
+      exits: new Map(),
+    };
     const label = component.getNodeAriaLabel(node);
     expect(label).toBe('Test Room (explored)');
   });
 
   it('should track nodes by ID', () => {
-    const node = { id: 'room1', name: 'Room 1', x: 0, y: 0, isCurrent: false, visited: true };
+    const node = {
+      id: 'room1',
+      name: 'Room 1',
+      x: 0,
+      y: 0,
+      isCurrent: false,
+      visited: true,
+      exits: new Map(),
+    };
     const trackId = component.trackByNodeId(0, node);
     expect(trackId).toBe('room1');
   });
