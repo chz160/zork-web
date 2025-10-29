@@ -108,7 +108,7 @@ export class App implements OnInit {
    * Ctrl/Cmd + 0: Reset to medium
    * Ctrl/Cmd + M: Toggle map
    * Ctrl/Cmd + I: Toggle inventory
-   * Ctrl/Cmd + T: Toggle status
+   * Ctrl/Cmd + Shift + S: Toggle status
    * ESC: Close any open dialog
    */
   @HostListener('window:keydown', ['$event'])
@@ -164,7 +164,8 @@ export class App implements OnInit {
       } else if (event.key === 'i' || event.key === 'I') {
         event.preventDefault();
         this.toggleInventory();
-      } else if (event.key === 't' || event.key === 'T') {
+      } else if (event.shiftKey && (event.key === 's' || event.key === 'S')) {
+        // Ctrl/Cmd + Shift + S for status (avoids conflict with Ctrl+T for new tab)
         event.preventDefault();
         this.toggleStatus();
       }

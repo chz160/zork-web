@@ -1297,7 +1297,7 @@ export class GameEngineService {
       'Keyboard Shortcuts:',
       '  Ctrl+M (Cmd+M on Mac) - Toggle visual world map',
       '  Ctrl+I (Cmd+I on Mac) - Toggle inventory dialog',
-      '  Ctrl+T (Cmd+T on Mac) - Toggle status dialog',
+      '  Ctrl+Shift+S (Cmd+Shift+S on Mac) - Toggle status dialog',
     ];
 
     return { messages, success: true, type: 'help' };
