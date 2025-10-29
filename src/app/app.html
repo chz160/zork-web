@@ -10,37 +10,16 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: var(--zork-spacing-lg);
+    padding: 0;
     box-sizing: border-box;
-  }
-
-  .app-header {
-    text-align: center;
-    color: var(--zork-primary);
-    font-family: var(--zork-font-family);
-    margin-bottom: var(--zork-spacing-lg);
-    text-shadow: var(--zork-glow-medium);
     position: relative;
-  }
-
-  .app-header h1 {
-    margin: 0 0 var(--zork-spacing-sm) 0;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-  }
-
-  .app-header p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--zork-primary-dim);
   }
 
   /* Controls button */
   .controls-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: fixed;
+    top: var(--zork-spacing-lg);
+    right: var(--zork-spacing-lg);
     background: transparent;
     border: 1px solid var(--zork-primary);
     color: var(--zork-primary);
@@ -50,6 +29,7 @@
     cursor: pointer;
     border-radius: var(--zork-border-radius);
     transition: all 0.2s ease;
+    z-index: 100;
   }
 
   .controls-toggle:hover {
@@ -69,8 +49,13 @@
     border: var(--zork-border-width) solid var(--zork-primary);
     border-radius: var(--zork-border-radius);
     padding: var(--zork-spacing-md);
-    margin-bottom: var(--zork-spacing-sm);
+    margin: var(--zork-spacing-sm);
     box-shadow: var(--zork-glow-medium);
+    position: fixed;
+    top: 50px;
+    right: var(--zork-spacing-lg);
+    z-index: 99;
+    max-width: 400px;
   }
 
   .controls-panel h3 {
@@ -169,17 +154,9 @@
   }
 
   @media (max-width: 768px) {
-    .app-header h1 {
-      font-size: 1.5rem;
-    }
-
-    .app-header p {
-      font-size: 0.8rem;
-    }
-
     .controls-toggle {
-      position: static;
-      margin-top: var(--zork-spacing-sm);
+      top: var(--zork-spacing-sm);
+      right: var(--zork-spacing-sm);
     }
 
     .control-group {
@@ -193,12 +170,9 @@
   }
 
   @media (max-width: 480px) {
-    .app-header h1 {
-      font-size: 1.25rem;
-    }
-
-    .app-header p {
-      font-size: 0.75rem;
+    .controls-toggle {
+      font-size: 0.7rem;
+      padding: var(--zork-spacing-xs);
     }
   }
 
@@ -348,18 +322,14 @@
 </style>
 
 <div class="app-container">
-  <header class="app-header">
-    <h1>ZORK WEB</h1>
-    <p>A Text Adventure Game - Built with Angular 20</p>
-    <button
-      class="controls-toggle"
-      (click)="toggleControls()"
-      [attr.aria-expanded]="showControls()"
-      aria-label="Toggle accessibility controls"
-    >
-      {{ showControls() ? '✕ Close' : '⚙ Controls' }}
-    </button>
-  </header>
+  <button
+    class="controls-toggle"
+    (click)="toggleControls()"
+    [attr.aria-expanded]="showControls()"
+    aria-label="Toggle accessibility controls"
+  >
+    {{ showControls() ? '✕ Close' : '⚙ Controls' }}
+  </button>
 
   @if (showControls()) {
     <div class="controls-panel" role="region" aria-label="Accessibility controls">
