@@ -319,6 +319,56 @@ npm test -- --include='**/room-data-quality.spec.ts' --no-watch --browsers=Chrom
 
 See [docs/ROOM-DATA-QUALITY-FIX.md](docs/ROOM-DATA-QUALITY-FIX.md) for details on data quality issues and fixes.
 
+### Running E2E Tests
+
+Zork Web includes end-to-end tests using Playwright that simulate real user interactions with the game. These tests verify gameplay flows, UI behavior, and command processing.
+
+#### Running All E2E Tests
+
+To execute all Playwright tests:
+
+```bash
+npm run test:e2e
+```
+
+#### Running Specific E2E Tests
+
+To run a specific test file:
+
+```bash
+npm run test:e2e -- e2e/troll-room-gameplay.spec.ts
+```
+
+#### Running E2E Tests with UI
+
+To run tests with Playwright's interactive UI mode:
+
+```bash
+npm run test:e2e:ui
+```
+
+#### Running E2E Tests in Headed Mode
+
+To see the browser while tests run:
+
+```bash
+npm run test:e2e:headed
+```
+
+#### Configuring Chromium Path
+
+If Playwright cannot find the Chromium browser, you can specify a custom path using the `CHROMIUM_PATH` environment variable:
+
+```bash
+CHROMIUM_PATH=/usr/bin/chromium npm run test:e2e
+```
+
+Common paths for system-installed Chromium:
+- Linux: `/usr/bin/chromium` or `/usr/bin/chromium-browser`
+- macOS: `/Applications/Chromium.app/Contents/MacOS/Chromium`
+- Windows: `C:\Program Files\Chromium\Application\chromium.exe`
+
+
 #### Test Coverage
 
 The project maintains high test coverage across core components:
