@@ -110,14 +110,15 @@ describe('MapComponent', () => {
     const legend = fixture.nativeElement.querySelector('.map-legend');
     expect(legend).toBeTruthy();
     const legendItems = fixture.nativeElement.querySelectorAll('.legend-item');
-    expect(legendItems.length).toBe(3);
+    expect(legendItems.length).toBe(5);
   });
 
-  it('should display map header with title', () => {
+  it('should display map header with stats', () => {
     fixture.detectChanges();
-    const title = fixture.nativeElement.querySelector('.map-title');
-    expect(title).toBeTruthy();
-    expect(title.textContent).toContain('Explored World Map');
+    const header = fixture.nativeElement.querySelector('.map-header');
+    expect(header).toBeTruthy();
+    const stats = fixture.nativeElement.querySelector('.map-stats');
+    expect(stats).toBeTruthy();
   });
 
   it('should display map stats', () => {
