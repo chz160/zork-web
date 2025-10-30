@@ -405,4 +405,48 @@ describe('GameEngine Integration with Converted Data', () => {
       expect(result.messages[0]).toContain("can't enter");
     });
   });
+
+  describe('Room Description with Objects on Surfaces', () => {
+    it('should list objects on surfaces/containers when entering a room', () => {
+      // Navigate to the kitchen which has objects on the kitchen table
+      let command = parser.parse('go north');
+      engine.executeCommand(command);
+
+      command = parser.parse('go east');
+      engine.executeCommand(command);
+
+      // Open and enter the window
+      command = parser.parse('open window');
+      engine.executeCommand(command);
+
+      command = parser.parse('enter window');
+      const result = engine.executeCommand(command);
+
+      // Verify we're in the kitchen
+      const currentRoom = engine.getCurrentRoom();
+      expect(currentRoom?.id).toBe('kitchen');
+
+      // Verify the output includes the room description
+      expect(result.messages).toContain('Kitchen');
+      expect(result.messages.some((msg) => msg.includes('kitchen of the white house'))).toBe(true);
+
+      // Verify objects on the table are listed (brown sack and bottle)
+      const outputText = result.messages.join(' ');
+      expect(outputText).toMatch(/sack|bag/i);
+      expect(outputText).toMatch(/bottle/i);
+    });
+
+    it('should list portable objects in rooms when entering', () => {
+      // Start at west-of-house which has a mailbox (non-portable) and leaflet (portable)
+      const currentRoom = engine.getCurrentRoom();
+      expect(currentRoom?.id).toBe('west-of-house');
+
+      // Get the room description
+      const output = engine.output();
+
+      // The leaflet should be listed
+      const outputText = output.join(' ');
+      expect(outputText).toMatch(/leaflet/i);
+    });
+  });
 });
