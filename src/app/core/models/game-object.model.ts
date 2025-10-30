@@ -70,7 +70,7 @@ export interface GameObjectProperties {
   /** Whether the object is a door (DOORBT flag) */
   isDoor?: boolean;
 
-  /** Whether the door blocks passage when closed */
+  /** Whether the object blocks passage (for doors when closed, or actors like troll) */
   blocksPassage?: boolean;
 
   /** Object ID of key required to unlock */
@@ -99,6 +99,27 @@ export interface GameObjectProperties {
 
   /** Whether the object can burn (BURNBT flag) */
   flammable?: boolean;
+
+  /** Whether the elvish sword is glowing (proximity to enemies) */
+  isGlowing?: boolean;
+
+  /** Glow intensity level for elvish sword */
+  glowIntensity?: 'none' | 'faint' | 'bright';
+
+  /** Whether the object is an actor/NPC (ACTORBIT flag) */
+  isActor?: boolean;
+
+  /** Combat strength for actors (negative = unconscious, 0 = dead) */
+  strength?: number;
+
+  /** Maximum strength for actors */
+  maxStrength?: number;
+
+  /** Whether actor is currently fighting */
+  isFighting?: boolean;
+
+  /** Actor state for complex NPCs like troll */
+  actorState?: 'armed' | 'disarmed' | 'unconscious' | 'dead' | 'awake';
 
   /** Custom state properties for specific objects */
   [key: string]: unknown;

@@ -203,6 +203,10 @@ export class GameEngineService {
 
     // Add messages to output history
     output.messages.forEach((msg) => this.addOutput(msg));
+
+    // Check sword glow state after each command (like the I-SWORD daemon in original)
+    this.updateSwordGlowState(this.playerState().currentRoomId);
+
     return output;
   }
 
@@ -285,6 +289,102 @@ export class GameEngineService {
    */
   private addOutput(message: string): void {
     this.outputHistory.update((history) => [...history, message]);
+  }
+
+  /**
+   * Update the elvish sword's glow state based on proximity to the troll.
+   * The sword glows when near enemies (the troll in this case).
+   * @param currentRoomId The room the player just entered
+   */
+  private updateSwordGlowState(currentRoomId: string): void {
+    // Check if player has the sword in inventory
+    const sword = this.gameObjects().get('sword');
+    const hasSword = this.playerState().inventory.includes('sword');
+
+    if (!sword || !hasSword) {
+      return;
+    }
+
+    // Find the troll's location
+    const troll = this.gameObjects().get('troll');
+    if (!troll || !troll.visible) {
+      // If troll doesn't exist or isn't visible, sword shouldn't glow
+      this.setSwordGlowIntensity('none');
+      return;
+    }
+
+    const trollRoomId = troll.location;
+
+    // Determine glow intensity based on proximity
+    let newIntensity: 'none' | 'faint' | 'bright' = 'none';
+
+    if (currentRoomId === trollRoomId) {
+      // Troll is in the same room - bright glow
+      newIntensity = 'bright';
+    } else {
+      // Check if troll is in an adjacent room
+      const currentRoom = this.rooms().get(currentRoomId);
+      if (currentRoom?.exits) {
+        const adjacentRoomIds = Array.from(currentRoom.exits.values());
+        if (adjacentRoomIds.includes(trollRoomId)) {
+          // Troll is in adjacent room - faint glow
+          newIntensity = 'faint';
+        }
+      }
+    }
+
+    // Update sword glow state and notify player if changed
+    this.setSwordGlowIntensity(newIntensity);
+  }
+
+  /**
+   * Set the sword's glow intensity and display appropriate message if changed.
+   */
+  private setSwordGlowIntensity(newIntensity: 'none' | 'faint' | 'bright'): void {
+    // Get the current sword state
+    const sword = this.gameObjects().get('sword');
+    if (!sword) {
+      return;
+    }
+
+    const currentIntensity =
+      (sword.properties?.glowIntensity as 'none' | 'faint' | 'bright') || 'none';
+
+    // No change, no message needed
+    if (currentIntensity === newIntensity) {
+      return;
+    }
+
+    // Update the sword's properties
+    this.gameObjects.update((objects) => {
+      const updated = new Map(objects);
+      const currentSword = updated.get('sword');
+      if (currentSword) {
+        const updatedSword = {
+          ...currentSword,
+          properties: {
+            ...(currentSword.properties || {}),
+            isGlowing: newIntensity !== 'none',
+            glowIntensity: newIntensity,
+          },
+        };
+        updated.set('sword', updatedSword);
+      }
+      return updated;
+    });
+
+    // Display appropriate message based on new state
+    switch (newIntensity) {
+      case 'none':
+        this.addOutput('Your sword is no longer glowing.');
+        break;
+      case 'faint':
+        this.addOutput('Your sword is glowing with a faint blue glow.');
+        break;
+      case 'bright':
+        this.addOutput('Your sword has begun to glow very brightly.');
+        break;
+    }
   }
 
   /**
@@ -403,7 +503,7 @@ export class GameEngineService {
       };
     }
 
-    // Check if there's a conditional exit (e.g., door that must be open)
+    // Check if there's a conditional exit (e.g., door that must be open, or troll blocking passage)
     if (currentRoom.conditionalExits) {
       const condition = currentRoom.conditionalExits.get(normalizedDir);
       if (condition) {
@@ -505,6 +605,32 @@ export class GameEngineService {
           return {
             success: false,
             message: condition.failureMessage || "You can't go that way.",
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'actorState': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const actor = this.gameObjects().get(condition.objectId);
+        if (!actor) {
+          // If actor doesn't exist, allow passage
+          return { success: true, message: '' };
+        }
+        const actorState = actor.properties?.actorState;
+        const requiredState = condition.requiredActorState;
+
+        // Check if condition is met
+        const conditionMet = actorState === requiredState;
+
+        // Invert if specified (allow passage when state does NOT match)
+        const shouldAllow = condition.invertCondition ? !conditionMet : conditionMet;
+
+        if (!shouldAllow) {
+          return {
+            success: false,
+            message: condition.failureMessage || 'The troll fends you off with a menacing gesture.',
           };
         }
         return { success: true, message: '' };
@@ -1178,6 +1304,11 @@ export class GameEngineService {
       };
     }
 
+    // Special handling for troll combat
+    if (target.id === 'troll' && target.properties?.isActor) {
+      return this.handleTrollCombat(weaponName);
+    }
+
     if (weaponName) {
       const weapon = this.findObjectInInventory(weaponName);
       if (!weapon) {
@@ -1199,6 +1330,141 @@ export class GameEngineService {
       success: false,
       type: 'info',
     };
+  }
+
+  /**
+   * Handle combat with the troll based on original Zork behavior.
+   */
+  private handleTrollCombat(weaponName: string | null): CommandOutput {
+    const troll = this.gameObjects().get('troll');
+    if (!troll) {
+      return { messages: ['The troll is not here.'], success: false, type: 'error' };
+    }
+
+    // Check troll state
+    const trollState = troll.properties?.actorState;
+    const trollStrength = troll.properties?.strength || 0;
+
+    // Can't attack unconscious or dead troll
+    if (trollState === 'unconscious') {
+      return {
+        messages: ['The troll is unconscious.'],
+        success: false,
+        type: 'info',
+      };
+    }
+
+    if (trollState === 'dead' || trollStrength <= 0) {
+      return {
+        messages: ['The troll is already dead.'],
+        success: false,
+        type: 'info',
+      };
+    }
+
+    // Get weapon if specified
+    let weapon: GameObject | null = null;
+    if (weaponName) {
+      weapon = this.findObjectInInventory(weaponName);
+      if (!weapon) {
+        return {
+          messages: [`You don't have any ${weaponName}.`],
+          success: false,
+          type: 'error',
+        };
+      }
+    }
+
+    // Simulate combat - random outcome
+    const attackRoll = Math.random();
+    const messages: string[] = [];
+
+    // Player attacks troll
+    if (weapon?.properties?.isWeapon) {
+      messages.push(`Attacking the troll with the ${weapon.name}...`);
+
+      if (attackRoll > 0.7) {
+        // Good hit - damage troll
+        const newStrength = (troll.properties?.strength || 2) - 1;
+        this.updateTrollState(newStrength);
+
+        if (newStrength <= 0) {
+          messages.push('Your blow knocks the troll unconscious!');
+        } else {
+          messages.push(`You strike the troll! The troll looks injured.`);
+        }
+      } else if (attackRoll > 0.3) {
+        messages.push('You hit the troll with a glancing blow.');
+      } else {
+        messages.push('Your blow misses the troll.');
+      }
+    } else {
+      messages.push('Attacking the troll with your bare hands...');
+      messages.push('The troll laughs at your puny gesture.');
+    }
+
+    // Troll counterattacks if still conscious
+    if (trollStrength > 0 && (trollState as string) !== 'unconscious') {
+      const trollAttackRoll = Math.random();
+      if (trollAttackRoll > 0.6) {
+        messages.push('The troll swings his axe, but it misses.');
+      } else if (trollAttackRoll > 0.3) {
+        messages.push("The troll's axe barely misses your ear.");
+      } else {
+        messages.push(
+          'The troll swings.  The blade turns on your armor but crashes broadside into your head.'
+        );
+      }
+    }
+
+    return {
+      messages,
+      success: true,
+      type: 'info',
+    };
+  }
+
+  /**
+   * Update troll's state based on strength.
+   */
+  private updateTrollState(newStrength: number): void {
+    this.gameObjects.update((objects) => {
+      const troll = objects.get('troll');
+      if (!troll) return objects;
+
+      const updated = new Map(objects);
+      let newState: 'armed' | 'disarmed' | 'unconscious' | 'dead' = 'armed';
+      let newDescription = troll.description;
+
+      if (newStrength <= 0) {
+        // Troll is unconscious
+        newState = 'unconscious';
+        newDescription =
+          'An unconscious troll is sprawled on the floor. All passages out of the room are open.';
+
+        // Drop axe if troll had it
+        const axe = objects.get('axe');
+        if (axe && axe.location === 'troll') {
+          const droppedAxe = { ...axe, location: 'troll-room' };
+          updated.set('axe', droppedAxe);
+        }
+      }
+
+      const updatedTroll = {
+        ...troll,
+        description: newDescription,
+        properties: {
+          ...troll.properties,
+          strength: newStrength,
+          actorState: newState,
+          isFighting: newStrength > 0,
+          blocksPassage: newStrength > 0,
+        },
+      };
+
+      updated.set('troll', updatedTroll);
+      return updated;
+    });
   }
 
   /**
@@ -1540,10 +1806,11 @@ export class GameEngineService {
       messages.push(room.description);
     }
 
-    // List visible portable objects in the room using their long descriptions
+    // List visible objects in the room using their long descriptions
+    // Include portable objects and actors (like troll)
     // Fixed/scenery objects are typically mentioned in the room description itself
     const roomObjects = Array.from(this.gameObjects().values()).filter(
-      (obj) => obj.location === room.id && obj.visible && obj.portable
+      (obj) => obj.location === room.id && obj.visible && (obj.portable || obj.properties?.isActor)
     );
 
     if (roomObjects.length > 0) {

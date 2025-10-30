@@ -1628,9 +1628,17 @@
       "name": "troll",
       "aliases": ["troll", "nasty troll"],
       "description": "A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the room.",
-      "portable": true,
+      "portable": false,
       "visible": true,
-      "location": "troll-room"
+      "location": "troll-room",
+      "properties": {
+        "isActor": true,
+        "strength": 2,
+        "maxStrength": 2,
+        "isFighting": true,
+        "actorState": "armed",
+        "blocksPassage": true
+      }
     },
     {
       "id": "trunk",
