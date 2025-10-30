@@ -503,6 +503,16 @@ export class GameEngineService {
       };
     }
 
+    // Check for blocking actors (like the troll)
+    const blockingActor = this.checkForBlockingActors(currentRoom.id);
+    if (blockingActor) {
+      return {
+        messages: [blockingActor],
+        success: false,
+        type: 'error',
+      };
+    }
+
     // Check if there's a conditional exit (e.g., door that must be open)
     if (currentRoom.conditionalExits) {
       const condition = currentRoom.conditionalExits.get(normalizedDir);
@@ -539,6 +549,29 @@ export class GameEngineService {
 
     const messages = this.getRoomDescription(updatedRoom, !nextRoom.visited);
     return { messages, success: true, type: 'description' };
+  }
+
+  /**
+   * Check for actors blocking passage from the current room.
+   * Returns error message if blocked, null otherwise.
+   */
+  private checkForBlockingActors(roomId: string): string | null {
+    // Check all objects in the current room for blocking actors
+    const objectsInRoom = Array.from(this.gameObjects().values()).filter(
+      (obj) => obj.location === roomId && obj.properties?.isActor && obj.properties?.blocksPassage
+    );
+
+    for (const actor of objectsInRoom) {
+      // Troll blocks all passages when armed and conscious
+      if (actor.id === 'troll') {
+        const trollState = actor.properties?.actorState;
+        if (trollState === 'armed' && actor.properties?.isFighting) {
+          return 'The troll blocks your way with his axe, refusing to let you pass.';
+        }
+      }
+    }
+
+    return null;
   }
 
   /**
@@ -1278,6 +1311,11 @@ export class GameEngineService {
       };
     }
 
+    // Special handling for troll combat
+    if (target.id === 'troll' && target.properties?.isActor) {
+      return this.handleTrollCombat(weaponName);
+    }
+
     if (weaponName) {
       const weapon = this.findObjectInInventory(weaponName);
       if (!weapon) {
@@ -1299,6 +1337,141 @@ export class GameEngineService {
       success: false,
       type: 'info',
     };
+  }
+
+  /**
+   * Handle combat with the troll based on original Zork behavior.
+   */
+  private handleTrollCombat(weaponName: string | null): CommandOutput {
+    const troll = this.gameObjects().get('troll');
+    if (!troll) {
+      return { messages: ['The troll is not here.'], success: false, type: 'error' };
+    }
+
+    // Check troll state
+    const trollState = troll.properties?.actorState;
+    const trollStrength = troll.properties?.strength || 0;
+
+    // Can't attack unconscious or dead troll
+    if (trollState === 'unconscious') {
+      return {
+        messages: ['The troll is unconscious.'],
+        success: false,
+        type: 'info',
+      };
+    }
+
+    if (trollState === 'dead' || trollStrength <= 0) {
+      return {
+        messages: ['The troll is already dead.'],
+        success: false,
+        type: 'info',
+      };
+    }
+
+    // Get weapon if specified
+    let weapon: GameObject | null = null;
+    if (weaponName) {
+      weapon = this.findObjectInInventory(weaponName);
+      if (!weapon) {
+        return {
+          messages: [`You don't have any ${weaponName}.`],
+          success: false,
+          type: 'error',
+        };
+      }
+    }
+
+    // Simulate combat - random outcome
+    const attackRoll = Math.random();
+    const messages: string[] = [];
+
+    // Player attacks troll
+    if (weapon?.properties?.isWeapon) {
+      messages.push(`Attacking the troll with the ${weapon.name}...`);
+
+      if (attackRoll > 0.7) {
+        // Good hit - damage troll
+        const newStrength = (troll.properties?.strength || 2) - 1;
+        this.updateTrollState(newStrength);
+
+        if (newStrength <= 0) {
+          messages.push('Your blow knocks the troll unconscious!');
+        } else {
+          messages.push(`You strike the troll! The troll looks injured.`);
+        }
+      } else if (attackRoll > 0.3) {
+        messages.push('You hit the troll with a glancing blow.');
+      } else {
+        messages.push('Your blow misses the troll.');
+      }
+    } else {
+      messages.push('Attacking the troll with your bare hands...');
+      messages.push('The troll laughs at your puny gesture.');
+    }
+
+    // Troll counterattacks if still conscious
+    if (trollStrength > 0 && (trollState as string) !== 'unconscious') {
+      const trollAttackRoll = Math.random();
+      if (trollAttackRoll > 0.6) {
+        messages.push('The troll swings his axe, but it misses.');
+      } else if (trollAttackRoll > 0.3) {
+        messages.push("The troll's axe barely misses your ear.");
+      } else {
+        messages.push(
+          'The troll swings.  The blade turns on your armor but crashes broadside into your head.'
+        );
+      }
+    }
+
+    return {
+      messages,
+      success: true,
+      type: 'info',
+    };
+  }
+
+  /**
+   * Update troll's state based on strength.
+   */
+  private updateTrollState(newStrength: number): void {
+    this.gameObjects.update((objects) => {
+      const troll = objects.get('troll');
+      if (!troll) return objects;
+
+      const updated = new Map(objects);
+      let newState: 'armed' | 'disarmed' | 'unconscious' | 'dead' = 'armed';
+      let newDescription = troll.description;
+
+      if (newStrength <= 0) {
+        // Troll is unconscious
+        newState = 'unconscious';
+        newDescription =
+          'An unconscious troll is sprawled on the floor. All passages out of the room are open.';
+
+        // Drop axe if troll had it
+        const axe = objects.get('axe');
+        if (axe && axe.location === 'troll') {
+          const droppedAxe = { ...axe, location: 'troll-room' };
+          updated.set('axe', droppedAxe);
+        }
+      }
+
+      const updatedTroll = {
+        ...troll,
+        description: newDescription,
+        properties: {
+          ...troll.properties,
+          strength: newStrength,
+          actorState: newState,
+          isFighting: newStrength > 0,
+          blocksPassage: newStrength > 0,
+        },
+      };
+
+      updated.set('troll', updatedTroll);
+      return updated;
+    });
   }
 
   /**
