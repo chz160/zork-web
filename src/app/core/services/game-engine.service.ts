@@ -203,6 +203,10 @@ export class GameEngineService {
 
     // Add messages to output history
     output.messages.forEach((msg) => this.addOutput(msg));
+
+    // Check sword glow state after each command (like the I-SWORD daemon in original)
+    this.updateSwordGlowState(this.playerState().currentRoomId);
+
     return output;
   }
 
@@ -285,6 +289,102 @@ export class GameEngineService {
    */
   private addOutput(message: string): void {
     this.outputHistory.update((history) => [...history, message]);
+  }
+
+  /**
+   * Update the elvish sword's glow state based on proximity to the troll.
+   * The sword glows when near enemies (the troll in this case).
+   * @param currentRoomId The room the player just entered
+   */
+  private updateSwordGlowState(currentRoomId: string): void {
+    // Check if player has the sword in inventory
+    const sword = this.gameObjects().get('sword');
+    const hasSword = this.playerState().inventory.includes('sword');
+
+    if (!sword || !hasSword) {
+      return;
+    }
+
+    // Find the troll's location
+    const troll = this.gameObjects().get('troll');
+    if (!troll || !troll.visible) {
+      // If troll doesn't exist or isn't visible, sword shouldn't glow
+      this.setSwordGlowIntensity('none');
+      return;
+    }
+
+    const trollRoomId = troll.location;
+
+    // Determine glow intensity based on proximity
+    let newIntensity: 'none' | 'faint' | 'bright' = 'none';
+
+    if (currentRoomId === trollRoomId) {
+      // Troll is in the same room - bright glow
+      newIntensity = 'bright';
+    } else {
+      // Check if troll is in an adjacent room
+      const currentRoom = this.rooms().get(currentRoomId);
+      if (currentRoom?.exits) {
+        const adjacentRoomIds = Object.values(currentRoom.exits);
+        if (adjacentRoomIds.includes(trollRoomId)) {
+          // Troll is in adjacent room - faint glow
+          newIntensity = 'faint';
+        }
+      }
+    }
+
+    // Update sword glow state and notify player if changed
+    this.setSwordGlowIntensity(newIntensity);
+  }
+
+  /**
+   * Set the sword's glow intensity and display appropriate message if changed.
+   */
+  private setSwordGlowIntensity(newIntensity: 'none' | 'faint' | 'bright'): void {
+    // Get the current sword state
+    const sword = this.gameObjects().get('sword');
+    if (!sword) {
+      return;
+    }
+
+    const currentIntensity =
+      (sword.properties?.glowIntensity as 'none' | 'faint' | 'bright') || 'none';
+
+    // No change, no message needed
+    if (currentIntensity === newIntensity) {
+      return;
+    }
+
+    // Update the sword's properties
+    this.gameObjects.update((objects) => {
+      const updated = new Map(objects);
+      const currentSword = updated.get('sword');
+      if (currentSword) {
+        const updatedSword = {
+          ...currentSword,
+          properties: {
+            ...(currentSword.properties || {}),
+            isGlowing: newIntensity !== 'none',
+            glowIntensity: newIntensity,
+          },
+        };
+        updated.set('sword', updatedSword);
+      }
+      return updated;
+    });
+
+    // Display appropriate message based on new state
+    switch (newIntensity) {
+      case 'none':
+        this.addOutput('Your sword is no longer glowing.');
+        break;
+      case 'faint':
+        this.addOutput('Your sword is glowing with a faint blue glow.');
+        break;
+      case 'bright':
+        this.addOutput('Your sword has begun to glow very brightly.');
+        break;
+    }
   }
 
   /**

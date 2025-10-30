@@ -100,6 +100,12 @@ export interface GameObjectProperties {
   /** Whether the object can burn (BURNBT flag) */
   flammable?: boolean;
 
+  /** Whether the elvish sword is glowing (proximity to enemies) */
+  isGlowing?: boolean;
+
+  /** Glow intensity level for elvish sword */
+  glowIntensity?: 'none' | 'faint' | 'bright';
+
   /** Custom state properties for specific objects */
   [key: string]: unknown;
 }
