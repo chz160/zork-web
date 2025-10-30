@@ -1868,13 +1868,25 @@ export class GameEngineService {
 
     messages.push(room.name);
 
+    // Get the room description (may need dynamic adjustments)
+    let description = room.description;
+
+    // Special handling for kitchen: adjust window state in description
+    if (room.id === 'kitchen') {
+      const kitchenWindow = this.gameObjects().get('kitchen-window');
+      if (kitchenWindow?.properties?.isOpen) {
+        // Window is open - replace "slightly ajar" with "open"
+        description = description.replace('which is slightly ajar', 'which is open');
+      }
+    }
+
     // Use full description on first visit or when explicitly looking
     if (fullDescription || !room.visited) {
-      messages.push(room.description);
+      messages.push(description);
     } else if (room.shortDescription) {
       messages.push(room.shortDescription);
     } else {
-      messages.push(room.description);
+      messages.push(description);
     }
 
     // Describe objects in the room following original Zork PRINT-CONT logic

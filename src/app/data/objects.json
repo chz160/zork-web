@@ -946,7 +946,6 @@
         "small mail"
       ],
       "description": "leaflet",
-      "firstDescription": "A small leaflet is on the ground.",
       "portable": true,
       "visible": true,
       "location": "mailbox",
