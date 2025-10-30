@@ -1806,10 +1806,11 @@ export class GameEngineService {
       messages.push(room.description);
     }
 
-    // List visible portable objects in the room using their long descriptions
+    // List visible objects in the room using their long descriptions
+    // Include portable objects and actors (like troll)
     // Fixed/scenery objects are typically mentioned in the room description itself
     const roomObjects = Array.from(this.gameObjects().values()).filter(
-      (obj) => obj.location === room.id && obj.visible && obj.portable
+      (obj) => obj.location === room.id && obj.visible && (obj.portable || obj.properties?.isActor)
     );
 
     if (roomObjects.length > 0) {
