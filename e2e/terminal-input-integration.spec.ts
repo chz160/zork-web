@@ -12,9 +12,9 @@ test.describe('Terminal Input Integration', () => {
     const inputLine = page.locator('.console-line--input');
     await expect(inputLine).toBeVisible();
 
-    // Verify input is inside the console output container
-    const consoleOutput = page.locator('.console-output');
-    const inputInConsole = consoleOutput.locator('.command-input');
+    // Verify input is within the console container (as a sibling to console output)
+    const consoleContainer = page.locator('.console-container');
+    const inputInConsole = consoleContainer.locator('.command-input');
     await expect(inputInConsole).toBeVisible();
   });
 
