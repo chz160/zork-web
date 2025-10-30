@@ -325,7 +325,7 @@ export class GameEngineService {
       // Check if troll is in an adjacent room
       const currentRoom = this.rooms().get(currentRoomId);
       if (currentRoom?.exits) {
-        const adjacentRoomIds = Object.values(currentRoom.exits);
+        const adjacentRoomIds = Array.from(currentRoom.exits.values());
         if (adjacentRoomIds.includes(trollRoomId)) {
           // Troll is in adjacent room - faint glow
           newIntensity = 'faint';
