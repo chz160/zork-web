@@ -58,6 +58,9 @@ export interface GameObjectProperties {
   /** Whether the container is transparent */
   transparent?: boolean;
 
+  /** Whether the object should not be listed in room descriptions (NDESCBIT flag) */
+  noDescription?: boolean;
+
   /** Whether the object can be read (READBT flag) */
   isReadable?: boolean;
 

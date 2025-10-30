@@ -436,16 +436,33 @@ describe('GameEngine Integration with Converted Data', () => {
       expect(outputText).toMatch(/bottle/i);
     });
 
-    it('should list portable objects in rooms when entering', () => {
-      // Start at west-of-house which has a mailbox (non-portable) and leaflet (portable)
+    it('should NOT list objects inside closed containers', () => {
+      // Start at west-of-house which has a mailbox (closed) containing leaflet
       const currentRoom = engine.getCurrentRoom();
       expect(currentRoom?.id).toBe('west-of-house');
 
       // Get the room description
       const output = engine.output();
 
-      // The leaflet should be listed
+      // The leaflet should NOT be listed because it's in a closed mailbox
       const outputText = output.join(' ');
+      expect(outputText).not.toMatch(/leaflet/i);
+
+      // The mailbox itself should be mentioned in the room description
+      expect(outputText).toMatch(/mailbox/i);
+    });
+
+    it('should list objects from open containers', () => {
+      // Open the mailbox and check if leaflet becomes visible
+      let command = parser.parse('open mailbox');
+      let result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Now look around - the leaflet should be visible
+      command = parser.parse('look');
+      result = engine.executeCommand(command);
+
+      const outputText = result.messages.join(' ');
       expect(outputText).toMatch(/leaflet/i);
     });
   });

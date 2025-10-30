@@ -1877,56 +1877,92 @@ export class GameEngineService {
       messages.push(room.description);
     }
 
-    // List visible objects in the room and on surfaces/containers
-    // This includes:
-    // - Portable objects in the room
-    // - Actors (like the troll) in the room
-    // - Objects on surfaces/containers (like items on the kitchen table)
-    const allObjects = Array.from(this.gameObjects().values());
-
-    // First, find objects directly in the room
-    const roomObjects = allObjects.filter(
-      (obj) => obj.location === room.id && obj.visible && (obj.portable || obj.properties?.isActor)
-    );
-
-    // Then, find containers/surfaces in the room (open containers or surfaces can have visible items)
-    const containersInRoom = allObjects.filter(
-      (obj) =>
-        obj.location === room.id &&
-        obj.visible &&
-        (obj.properties?.isOpen || obj.properties?.capacity !== undefined) // Open containers or any object with capacity (surfaces)
-    );
-
-    // For each container/surface, find objects ON/IN it
-    const objectsOnSurfaces: GameObject[] = [];
-    containersInRoom.forEach((container) => {
-      const objectsOnContainer = allObjects.filter(
-        (obj) => obj.location === container.id && obj.visible && obj.portable
-      );
-      objectsOnSurfaces.push(...objectsOnContainer);
-    });
-
-    // Add descriptions for room objects
-    roomObjects.forEach((obj) => {
-      // Use firstDescription if object hasn't been touched, otherwise use regular description
-      if (obj.firstDescription && !obj.properties?.touched) {
-        messages.push(obj.firstDescription);
-      } else {
-        messages.push(obj.description);
-      }
-    });
-
-    // Add descriptions for objects on surfaces
-    objectsOnSurfaces.forEach((obj) => {
-      // Use firstDescription if object hasn't been touched, otherwise use regular description
-      if (obj.firstDescription && !obj.properties?.touched) {
-        messages.push(obj.firstDescription);
-      } else {
-        messages.push(obj.description);
-      }
-    });
+    // Describe objects in the room following original Zork PRINT-CONT logic
+    this.describeRoomContents(room, messages);
 
     return messages;
+  }
+
+  /**
+   * Describe objects in a room, following original Zork PRINT-CONT/DESCRIBE-OBJECT logic.
+   * Objects are shown if:
+   * - They are visible
+   * - They are portable OR actors
+   * - They are NOT in containers/surfaces (those are handled separately)
+   * - For objects in open/transparent containers: show them with indentation
+   */
+  private describeRoomContents(room: Room, messages: string[]): void {
+    const allObjects = Array.from(this.gameObjects().values());
+
+    // Find all objects directly in the room
+    const objectsInRoom = allObjects.filter((obj) => obj.location === room.id && obj.visible);
+
+    // Process each object in the room
+    objectsInRoom.forEach((obj) => {
+      // Skip objects marked as non-describing (equivalent to NDESCBIT in original Zork)
+      // These are typically scenery objects mentioned in the room description
+      if (obj.properties?.noDescription) {
+        return;
+      }
+
+      // Show portable objects and actors
+      if (obj.portable || obj.properties?.isActor) {
+        // Use firstDescription if untouched, otherwise use regular description
+        if (obj.firstDescription && !obj.properties?.touched) {
+          messages.push(obj.firstDescription);
+        } else {
+          messages.push(obj.description);
+        }
+      }
+
+      // Check if this object is a container/surface with visible contents
+      if (this.canSeeInside(obj)) {
+        this.describeContainerContents(obj, messages, allObjects);
+      }
+    });
+  }
+
+  /**
+   * Check if we can see inside a container (SEE-INSIDE? in original Zork).
+   * Returns true if the object is open OR transparent.
+   */
+  private canSeeInside(obj: GameObject): boolean {
+    if (!obj.visible) {
+      return false;
+    }
+    // Can see inside if it's open OR transparent
+    return obj.properties?.isOpen === true || obj.properties?.transparent === true;
+  }
+
+  /**
+   * Describe contents of a container/surface, following PRINT-CONT logic.
+   */
+  private describeContainerContents(
+    container: GameObject,
+    messages: string[],
+    allObjects: GameObject[]
+  ): void {
+    const contents = allObjects.filter(
+      (obj) => obj.location === container.id && obj.visible && obj.portable
+    );
+
+    if (contents.length === 0) {
+      return;
+    }
+
+    // Show container contents
+    contents.forEach((obj) => {
+      if (obj.firstDescription && !obj.properties?.touched) {
+        messages.push(obj.firstDescription);
+      } else {
+        messages.push(obj.description);
+      }
+
+      // Recursively show contents of transparent/open containers
+      if (this.canSeeInside(obj)) {
+        this.describeContainerContents(obj, messages, allObjects);
+      }
+    });
   }
 
   /**
