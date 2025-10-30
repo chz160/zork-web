@@ -62,12 +62,20 @@ test.describe('Troll Room Gameplay', () => {
     // Descend to the cellar
     await submitCommand('down');
     await expect(page.locator('.console-output')).toContainText('Cellar');
+    // Sword should glow faintly (troll is in adjacent room)
+    await expect(page.locator('.console-output')).toContainText(
+      'Your sword is glowing with a faint blue glow'
+    );
 
     // Go north to the troll room
     await submitCommand('north');
     await expect(page.locator('.console-output')).toContainText('Troll Room');
     await expect(page.locator('.console-output')).toContainText(
       'nasty-looking troll, brandishing a bloody axe'
+    );
+    // Sword should glow brightly (troll is in same room)
+    await expect(page.locator('.console-output')).toContainText(
+      'Your sword has begun to glow very brightly'
     );
 
     // Kill the troll with the sword
