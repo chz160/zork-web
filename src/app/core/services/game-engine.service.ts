@@ -1899,14 +1899,12 @@ export class GameEngineService {
 
     // Process each object in the room
     objectsInRoom.forEach((obj) => {
-      // Skip objects marked as non-describing (equivalent to NDESCBIT in original Zork)
-      // These are typically scenery objects mentioned in the room description
-      if (obj.properties?.noDescription) {
-        return;
-      }
+      // Objects marked with noDescription (NDESCBIT) shouldn't be described themselves,
+      // but we still need to check if they have visible contents (like a table with items on it)
+      const skipDescription = obj.properties?.noDescription;
 
-      // Show portable objects and actors
-      if (obj.portable || obj.properties?.isActor) {
+      // Show portable objects and actors (unless they have noDescription flag)
+      if (!skipDescription && (obj.portable || obj.properties?.isActor)) {
         // Use firstDescription if untouched, otherwise use regular description
         if (obj.firstDescription && !obj.properties?.touched) {
           messages.push(obj.firstDescription);
@@ -1916,6 +1914,7 @@ export class GameEngineService {
       }
 
       // Check if this object is a container/surface with visible contents
+      // This should happen regardless of noDescription flag
       if (this.canSeeInside(obj)) {
         this.describeContainerContents(obj, messages, allObjects);
       }

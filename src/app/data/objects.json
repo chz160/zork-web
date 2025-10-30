@@ -103,6 +103,18 @@
       "location": "local-globals"
     },
     {
+      "id": "water",
+      "name": "quantity of water",
+      "aliases": ["water", "quantity", "liquid", "h2o"],
+      "description": "A quantity of water",
+      "portable": true,
+      "visible": true,
+      "location": "bottle",
+      "properties": {
+        "drinkable": true
+      }
+    },
+    {
       "id": "kitchen-window",
       "name": "kitchen window",
       "aliases": ["window", "kitchen window", "small window"],
@@ -395,7 +407,8 @@
       "properties": {
         "isOpen": true,
         "contains": [],
-        "capacity": 50
+        "capacity": 50,
+        "noDescription": true
       }
     },
     {
@@ -426,6 +439,7 @@
         "smelly sack"
       ],
       "description": "brown sack",
+      "firstDescription": "On the table is an elongated brown sack, smelling of hot peppers.",
       "portable": true,
       "visible": true,
       "location": "kitchen-table",
@@ -694,7 +708,8 @@
         "glass bottle",
         "glass container"
       ],
-      "description": "A bottle is sitting on the table.",
+      "description": "glass bottle",
+      "firstDescription": "A bottle is sitting on the table.",
       "portable": true,
       "visible": true,
       "location": "kitchen-table",
@@ -930,7 +945,8 @@
         "small booklet",
         "small mail"
       ],
-      "description": "A small leaflet.",
+      "description": "leaflet",
+      "firstDescription": "A small leaflet is on the ground.",
       "portable": true,
       "visible": true,
       "location": "mailbox",
