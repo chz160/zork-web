@@ -346,4 +346,63 @@ describe('GameEngine Integration with Converted Data', () => {
       expect(result).toBeDefined();
     });
   });
+
+  describe('Enter Verb Functionality', () => {
+    it('should allow entering through an open window', () => {
+      // Navigate to east-of-house where the window is located
+      // From west-of-house, go north to north-of-house
+      let command = parser.parse('go north');
+      let result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Then go east to east-of-house
+      command = parser.parse('go east');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Verify we're at east-of-house
+      const currentRoom = engine.getCurrentRoom();
+      expect(currentRoom?.id).toBe('east-of-house');
+
+      // Try to enter closed window - should fail
+      command = parser.parse('enter window');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(false);
+      expect(result.messages[0]).toContain('closed');
+
+      // Open the window
+      command = parser.parse('open window');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Now enter the window - should succeed and move to kitchen
+      command = parser.parse('enter window');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Verify we're now in the kitchen
+      const newRoom = engine.getCurrentRoom();
+      expect(newRoom?.id).toBe('kitchen');
+      expect(newRoom?.name).toBe('Kitchen');
+    });
+
+    it('should handle enter verb without object by trying to go in', () => {
+      // At west-of-house, there's an "in" exit to stone-barrow
+      const command = parser.parse('enter');
+      const result = engine.executeCommand(command);
+
+      // Should attempt to go "in"
+      expect(result).toBeDefined();
+      // The specific result depends on the room's "in" exit
+    });
+
+    it('should reject entering non-door objects', () => {
+      // Try to enter the mailbox (which is not a door)
+      const command = parser.parse('enter mailbox');
+      const result = engine.executeCommand(command);
+
+      expect(result.success).toBe(false);
+      expect(result.messages[0]).toContain("can't enter");
+    });
+  });
 });

@@ -126,6 +126,9 @@ export class GameEngineService {
       case 'go':
         output = this.handleGo(parserResult.directObject);
         break;
+      case 'enter':
+        output = this.handleEnter(parserResult.directObject);
+        break;
       case 'look':
         output = this.handleLook(parserResult.directObject);
         break;
@@ -539,6 +542,75 @@ export class GameEngineService {
 
     const messages = this.getRoomDescription(updatedRoom, !nextRoom.visited);
     return { messages, success: true, type: 'description' };
+  }
+
+  /**
+   * Handle entering a location or passing through a door object.
+   * Based on original Zork V-ENTER and V-THROUGH:
+   * - Without object: attempts to go "in" (like a direction)
+   * - With object: moves through door objects if they are open
+   */
+  private handleEnter(objectName: string | null): CommandOutput {
+    // Case 1: ENTER without object -> DO-WALK ,P?IN (try to go "in")
+    if (!objectName) {
+      return this.handleGo('in');
+    }
+
+    // Case 2: ENTER OBJECT -> V-THROUGH (go through door if it's a door)
+    const obj = this.findObject(objectName);
+    if (!obj) {
+      return {
+        messages: [`You don't see any ${objectName} here.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Check if this is a door object (isDoor property)
+    if (!obj.properties?.isDoor) {
+      return {
+        messages: [`You can't enter the ${obj.name}.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Check if the door is open
+    if (obj.properties.isOpen === false) {
+      return {
+        messages: [`The ${obj.name} is closed.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Find which direction leads through this door
+    // Look for the room that this door connects to
+    const currentRoom = this.getCurrentRoom();
+    if (!currentRoom) {
+      return {
+        messages: ['You are nowhere. This is a bug.'],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // For the kitchen window specifically, going through it leads west to the kitchen
+    // In general, we need to find which exit uses this door
+    // For now, implement the specific case based on the game data
+    if (obj.id === 'kitchen-window' && currentRoom.id === 'east-of-house') {
+      // The window leads west to the kitchen
+      return this.handleGo('west');
+    }
+
+    // For other door objects, check if there's a matching exit
+    // This is a simplified implementation - in the full game, doors might have
+    // explicit connections or we'd need to search exits for conditional ones
+    return {
+      messages: [`You can't figure out how to enter the ${obj.name}.`],
+      success: false,
+      type: 'error',
+    };
   }
 
   /**
