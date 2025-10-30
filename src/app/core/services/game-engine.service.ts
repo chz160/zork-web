@@ -584,8 +584,7 @@ export class GameEngineService {
       };
     }
 
-    // Find which direction leads through this door
-    // Look for the room that this door connects to
+    // Find which direction leads through this door by searching conditional exits
     const currentRoom = this.getCurrentRoom();
     if (!currentRoom) {
       return {
@@ -595,19 +594,19 @@ export class GameEngineService {
       };
     }
 
-    // For the kitchen window specifically, going through it leads west to the kitchen
-    // In general, we need to find which exit uses this door
-    // For now, implement the specific case based on the game data
-    if (obj.id === 'kitchen-window' && currentRoom.id === 'east-of-house') {
-      // The window leads west to the kitchen
-      return this.handleGo('west');
+    // Generic door traversal: search room's conditional exits for this door object
+    if (currentRoom.conditionalExits) {
+      for (const [direction, condition] of currentRoom.conditionalExits.entries()) {
+        if (condition.type === 'objectOpen' && condition.objectId === obj.id) {
+          // Found the direction associated with this door
+          return this.handleGo(direction);
+        }
+      }
     }
 
-    // For other door objects, check if there's a matching exit
-    // This is a simplified implementation - in the full game, doors might have
-    // explicit connections or we'd need to search exits for conditional ones
+    // If no conditional exit found, the door doesn't lead anywhere from this room
     return {
-      messages: [`You can't figure out how to enter the ${obj.name}.`],
+      messages: [`The ${obj.name} doesn't lead anywhere from here.`],
       success: false,
       type: 'error',
     };
