@@ -3,13 +3,19 @@
  */
 export interface ExitCondition {
   /** Type of condition to check */
-  type: 'objectOpen' | 'objectClosed' | 'hasObject' | 'flag';
+  type: 'objectOpen' | 'objectClosed' | 'hasObject' | 'flag' | 'actorState';
 
   /** ID of the object to check (for objectOpen/objectClosed/hasObject) */
   objectId?: string;
 
   /** Flag name to check (for flag type) */
   flag?: string;
+
+  /** Required actor state for passage (for actorState type) */
+  requiredActorState?: 'dead' | 'unconscious' | 'disarmed' | 'armed' | 'awake';
+
+  /** Whether to invert the condition (allow passage when state does NOT match) */
+  invertCondition?: boolean;
 
   /** Error message to show when condition is not met */
   failureMessage?: string;

@@ -503,17 +503,7 @@ export class GameEngineService {
       };
     }
 
-    // Check for blocking actors (like the troll)
-    const blockingActor = this.checkForBlockingActors(currentRoom.id);
-    if (blockingActor) {
-      return {
-        messages: [blockingActor],
-        success: false,
-        type: 'error',
-      };
-    }
-
-    // Check if there's a conditional exit (e.g., door that must be open)
+    // Check if there's a conditional exit (e.g., door that must be open, or troll blocking passage)
     if (currentRoom.conditionalExits) {
       const condition = currentRoom.conditionalExits.get(normalizedDir);
       if (condition) {
@@ -549,29 +539,6 @@ export class GameEngineService {
 
     const messages = this.getRoomDescription(updatedRoom, !nextRoom.visited);
     return { messages, success: true, type: 'description' };
-  }
-
-  /**
-   * Check for actors blocking passage from the current room.
-   * Returns error message if blocked, null otherwise.
-   */
-  private checkForBlockingActors(roomId: string): string | null {
-    // Check all objects in the current room for blocking actors
-    const objectsInRoom = Array.from(this.gameObjects().values()).filter(
-      (obj) => obj.location === roomId && obj.properties?.isActor && obj.properties?.blocksPassage
-    );
-
-    for (const actor of objectsInRoom) {
-      // Troll blocks all passages when armed and conscious
-      if (actor.id === 'troll') {
-        const trollState = actor.properties?.actorState;
-        if (trollState === 'armed' && actor.properties?.isFighting) {
-          return 'The troll blocks your way with his axe, refusing to let you pass.';
-        }
-      }
-    }
-
-    return null;
   }
 
   /**
@@ -638,6 +605,32 @@ export class GameEngineService {
           return {
             success: false,
             message: condition.failureMessage || "You can't go that way.",
+          };
+        }
+        return { success: true, message: '' };
+      }
+      case 'actorState': {
+        if (!condition.objectId) {
+          return { success: false, message: 'Invalid condition configuration.' };
+        }
+        const actor = this.gameObjects().get(condition.objectId);
+        if (!actor) {
+          // If actor doesn't exist, allow passage
+          return { success: true, message: '' };
+        }
+        const actorState = actor.properties?.actorState;
+        const requiredState = condition.requiredActorState;
+
+        // Check if condition is met
+        const conditionMet = actorState === requiredState;
+
+        // Invert if specified (allow passage when state does NOT match)
+        const shouldAllow = condition.invertCondition ? !conditionMet : conditionMet;
+
+        if (!shouldAllow) {
+          return {
+            success: false,
+            message: condition.failureMessage || 'The troll fends you off with a menacing gesture.',
           };
         }
         return { success: true, message: '' };

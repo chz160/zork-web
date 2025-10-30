@@ -286,6 +286,22 @@
         "east": "ew-passage",
         "west": "maze-1"
       },
+      "conditionalExits": {
+        "east": {
+          "type": "actorState",
+          "objectId": "troll",
+          "requiredActorState": "armed",
+          "invertCondition": true,
+          "failureMessage": "The troll fends you off with a menacing gesture."
+        },
+        "west": {
+          "type": "actorState",
+          "objectId": "troll",
+          "requiredActorState": "armed",
+          "invertCondition": true,
+          "failureMessage": "The troll fends you off with a menacing gesture."
+        }
+      },
       "objectIds": [],
       "visited": false,
       "isDark": false
