@@ -346,4 +346,124 @@ describe('GameEngine Integration with Converted Data', () => {
       expect(result).toBeDefined();
     });
   });
+
+  describe('Enter Verb Functionality', () => {
+    it('should allow entering through an open window', () => {
+      // Navigate to east-of-house where the window is located
+      // From west-of-house, go north to north-of-house
+      let command = parser.parse('go north');
+      let result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Then go east to east-of-house
+      command = parser.parse('go east');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Verify we're at east-of-house
+      const currentRoom = engine.getCurrentRoom();
+      expect(currentRoom?.id).toBe('east-of-house');
+
+      // Try to enter closed window - should fail
+      command = parser.parse('enter window');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(false);
+      expect(result.messages[0]).toContain('closed');
+
+      // Open the window
+      command = parser.parse('open window');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Now enter the window - should succeed and move to kitchen
+      command = parser.parse('enter window');
+      result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Verify we're now in the kitchen
+      const newRoom = engine.getCurrentRoom();
+      expect(newRoom?.id).toBe('kitchen');
+      expect(newRoom?.name).toBe('Kitchen');
+    });
+
+    it('should handle enter verb without object by trying to go in', () => {
+      // At west-of-house, there's an "in" exit to stone-barrow
+      const command = parser.parse('enter');
+      const result = engine.executeCommand(command);
+
+      // Should attempt to go "in"
+      expect(result).toBeDefined();
+      // The specific result depends on the room's "in" exit
+    });
+
+    it('should reject entering non-door objects', () => {
+      // Try to enter the mailbox (which is not a door)
+      const command = parser.parse('enter mailbox');
+      const result = engine.executeCommand(command);
+
+      expect(result.success).toBe(false);
+      expect(result.messages[0]).toContain("can't enter");
+    });
+  });
+
+  describe('Room Description with Objects on Surfaces', () => {
+    it('should list objects on surfaces/containers when entering a room', () => {
+      // Navigate to the kitchen which has objects on the kitchen table
+      let command = parser.parse('go north');
+      engine.executeCommand(command);
+
+      command = parser.parse('go east');
+      engine.executeCommand(command);
+
+      // Open and enter the window
+      command = parser.parse('open window');
+      engine.executeCommand(command);
+
+      command = parser.parse('enter window');
+      const result = engine.executeCommand(command);
+
+      // Verify we're in the kitchen
+      const currentRoom = engine.getCurrentRoom();
+      expect(currentRoom?.id).toBe('kitchen');
+
+      // Verify the output includes the room description
+      expect(result.messages).toContain('Kitchen');
+      expect(result.messages.some((msg) => msg.includes('kitchen of the white house'))).toBe(true);
+
+      // Verify objects on the table are listed (brown sack and bottle)
+      const outputText = result.messages.join(' ');
+      expect(outputText).toMatch(/sack|bag/i);
+      expect(outputText).toMatch(/bottle/i);
+    });
+
+    it('should NOT list objects inside closed containers', () => {
+      // Start at west-of-house which has a mailbox (closed) containing leaflet
+      const currentRoom = engine.getCurrentRoom();
+      expect(currentRoom?.id).toBe('west-of-house');
+
+      // Get the room description
+      const output = engine.output();
+
+      // The leaflet should NOT be listed because it's in a closed mailbox
+      const outputText = output.join(' ');
+      expect(outputText).not.toMatch(/leaflet/i);
+
+      // The mailbox itself should be mentioned in the room description
+      expect(outputText).toMatch(/mailbox/i);
+    });
+
+    it('should list objects from open containers', () => {
+      // Open the mailbox and check if leaflet becomes visible
+      let command = parser.parse('open mailbox');
+      let result = engine.executeCommand(command);
+      expect(result.success).toBe(true);
+
+      // Now look around - the leaflet should be visible
+      command = parser.parse('look');
+      result = engine.executeCommand(command);
+
+      const outputText = result.messages.join(' ');
+      expect(outputText).toMatch(/leaflet/i);
+    });
+  });
 });

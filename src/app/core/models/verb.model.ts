@@ -24,6 +24,7 @@ export interface Verb {
 export type VerbType =
   // Navigation
   | 'go'
+  | 'enter'
   | 'look'
   | 'examine'
   // Inventory management

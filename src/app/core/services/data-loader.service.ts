@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Room, GameObject, Direction, ExitCondition } from '../models';
+import {
+  Room,
+  GameObject,
+  Direction,
+  ExitCondition,
+  DescriptionSubstitution,
+  RoomProperties,
+} from '../models';
 import roomsData from '../../data/rooms.json';
 import objectsData from '../../data/objects.json';
 
@@ -11,6 +18,16 @@ interface ExitConditionJson {
   objectId?: string;
   flag?: string;
   failureMessage?: string;
+}
+
+/**
+ * Interface for description substitution from JSON files.
+ */
+interface DescriptionSubstitutionJson {
+  property: string;
+  value: boolean | string | number;
+  find: string;
+  replace: string;
 }
 
 /**
@@ -27,6 +44,14 @@ interface RoomJson {
   visited: boolean;
   isDark?: boolean;
   conditionalExits?: Record<string, ExitConditionJson>;
+  properties?: RoomPropertiesJson;
+}
+
+/**
+ * Interface for room properties from JSON files.
+ */
+interface RoomPropertiesJson extends Omit<RoomProperties, 'descriptionSubstitutions'> {
+  descriptionSubstitutions?: Record<string, DescriptionSubstitutionJson[]>;
 }
 
 /**
@@ -93,6 +118,23 @@ export class DataLoaderService {
       });
     }
 
+    // Convert properties if present (including descriptionSubstitutions)
+    let properties: RoomProperties | undefined;
+    if (roomJson.properties) {
+      // Create base properties without descriptionSubstitutions
+      const { descriptionSubstitutions, ...baseProperties } = roomJson.properties;
+      properties = baseProperties;
+
+      // Convert descriptionSubstitutions object to Map
+      if (descriptionSubstitutions) {
+        const substitutionsMap = new Map<string, DescriptionSubstitution[]>();
+        Object.entries(descriptionSubstitutions).forEach(([objectId, substitutions]) => {
+          substitutionsMap.set(objectId, substitutions);
+        });
+        properties.descriptionSubstitutions = substitutionsMap;
+      }
+    }
+
     return {
       id: roomJson.id,
       name: roomJson.name,
@@ -102,6 +144,7 @@ export class DataLoaderService {
       objectIds: roomJson.objectIds,
       visited: roomJson.visited,
       conditionalExits: conditionalExitsMap,
+      properties: properties,
     };
   }
 }

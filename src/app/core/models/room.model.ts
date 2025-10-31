@@ -83,6 +83,30 @@ export interface RoomProperties {
 
   /** Whether flight is required to access this location */
   requiresFlight?: boolean;
+
+  /**
+   * Dynamic description substitutions based on object state.
+   * Key: object ID to check
+   * Value: substitution rules based on object properties
+   */
+  descriptionSubstitutions?: Map<string, DescriptionSubstitution[]>;
+}
+
+/**
+ * Rule for dynamically substituting text in room descriptions based on object state.
+ */
+export interface DescriptionSubstitution {
+  /** Property of the object to check (e.g., 'isOpen', 'isLit') */
+  property: string;
+
+  /** Expected value of the property to trigger this substitution */
+  value: boolean | string | number;
+
+  /** Text to find in the description */
+  find: string;
+
+  /** Text to replace it with when condition is met */
+  replace: string;
 }
 
 /**

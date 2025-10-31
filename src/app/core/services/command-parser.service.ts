@@ -106,6 +106,16 @@ export class CommandParserService {
       },
     ],
     [
+      'enter',
+      {
+        name: 'enter',
+        aliases: [],
+        requiresObject: false,
+        allowsIndirectObject: false,
+        description: 'Enter a location or go through an object like a door',
+      },
+    ],
+    [
       'look',
       {
         name: 'look',

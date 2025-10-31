@@ -126,6 +126,9 @@ export class GameEngineService {
       case 'go':
         output = this.handleGo(parserResult.directObject);
         break;
+      case 'enter':
+        output = this.handleEnter(parserResult.directObject);
+        break;
       case 'look':
         output = this.handleLook(parserResult.directObject);
         break;
@@ -539,6 +542,74 @@ export class GameEngineService {
 
     const messages = this.getRoomDescription(updatedRoom, !nextRoom.visited);
     return { messages, success: true, type: 'description' };
+  }
+
+  /**
+   * Handle entering a location or passing through a door object.
+   * Based on original Zork V-ENTER and V-THROUGH:
+   * - Without object: attempts to go "in" (like a direction)
+   * - With object: moves through door objects if they are open
+   */
+  private handleEnter(objectName: string | null): CommandOutput {
+    // Case 1: ENTER without object -> DO-WALK ,P?IN (try to go "in")
+    if (!objectName) {
+      return this.handleGo('in');
+    }
+
+    // Case 2: ENTER OBJECT -> V-THROUGH (go through door if it's a door)
+    const obj = this.findObject(objectName);
+    if (!obj) {
+      return {
+        messages: [`You don't see any ${objectName} here.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Check if this is a door object (isDoor property)
+    if (!obj.properties?.isDoor) {
+      return {
+        messages: [`You can't enter the ${obj.name}.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Check if the door is open
+    if (obj.properties.isOpen === false) {
+      return {
+        messages: [`The ${obj.name} is closed.`],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Find which direction leads through this door by searching conditional exits
+    const currentRoom = this.getCurrentRoom();
+    if (!currentRoom) {
+      return {
+        messages: ['You are nowhere. This is a bug.'],
+        success: false,
+        type: 'error',
+      };
+    }
+
+    // Generic door traversal: search room's conditional exits for this door object
+    if (currentRoom.conditionalExits) {
+      for (const [direction, condition] of currentRoom.conditionalExits.entries()) {
+        if (condition.type === 'objectOpen' && condition.objectId === obj.id) {
+          // Found the direction associated with this door
+          return this.handleGo(direction);
+        }
+      }
+    }
+
+    // If no conditional exit found, the door doesn't lead anywhere from this room
+    return {
+      messages: [`The ${obj.name} doesn't lead anywhere from here.`],
+      success: false,
+      type: 'error',
+    };
   }
 
   /**
@@ -1797,29 +1868,130 @@ export class GameEngineService {
 
     messages.push(room.name);
 
+    // Get the room description with dynamic substitutions applied
+    const description = this.applyDescriptionSubstitutions(room);
+
     // Use full description on first visit or when explicitly looking
     if (fullDescription || !room.visited) {
-      messages.push(room.description);
+      messages.push(description);
     } else if (room.shortDescription) {
       messages.push(room.shortDescription);
     } else {
-      messages.push(room.description);
+      messages.push(description);
     }
 
-    // List visible objects in the room using their long descriptions
-    // Include portable objects and actors (like troll)
-    // Fixed/scenery objects are typically mentioned in the room description itself
-    const roomObjects = Array.from(this.gameObjects().values()).filter(
-      (obj) => obj.location === room.id && obj.visible && (obj.portable || obj.properties?.isActor)
-    );
+    // Describe objects in the room following original Zork PRINT-CONT logic
+    this.describeRoomContents(room, messages);
 
-    if (roomObjects.length > 0) {
-      roomObjects.forEach((obj) => {
-        messages.push(obj.description);
+    return messages;
+  }
+
+  /**
+   * Apply dynamic description substitutions based on object state.
+   * This allows room descriptions to change based on object properties without hardcoding room-specific logic.
+   */
+  private applyDescriptionSubstitutions(room: Room): string {
+    let description = room.description;
+
+    // Check if room has dynamic substitution rules
+    if (room.properties?.descriptionSubstitutions) {
+      room.properties.descriptionSubstitutions.forEach((substitutions, objectId) => {
+        const obj = this.gameObjects().get(objectId);
+        if (obj) {
+          substitutions.forEach((rule) => {
+            // Check if the object property matches the expected value
+            const propertyValue = obj.properties?.[rule.property];
+            if (propertyValue === rule.value) {
+              // Apply the substitution using replaceAll to handle all occurrences
+              description = description.replaceAll(rule.find, rule.replace);
+            }
+          });
+        }
       });
     }
 
-    return messages;
+    return description;
+  }
+
+  /**
+   * Describe objects in a room, following original Zork PRINT-CONT/DESCRIBE-OBJECT logic.
+   * Objects are shown if:
+   * - They are visible
+   * - They are portable OR actors
+   * - They are NOT in containers/surfaces (those are handled separately)
+   * - For objects in open/transparent containers: show them with indentation
+   */
+  private describeRoomContents(room: Room, messages: string[]): void {
+    const allObjects = Array.from(this.gameObjects().values());
+
+    // Find all objects directly in the room
+    const objectsInRoom = allObjects.filter((obj) => obj.location === room.id && obj.visible);
+
+    // Process each object in the room
+    objectsInRoom.forEach((obj) => {
+      // Objects marked with noDescription (NDESCBIT) shouldn't be described themselves,
+      // but we still need to check if they have visible contents (like a table with items on it)
+      const skipDescription = obj.properties?.noDescription;
+
+      // Show portable objects and actors (unless they have noDescription flag)
+      if (!skipDescription && (obj.portable || obj.properties?.isActor)) {
+        // Use firstDescription if untouched, otherwise use regular description
+        if (obj.firstDescription && !obj.properties?.touched) {
+          messages.push(obj.firstDescription);
+        } else {
+          messages.push(obj.description);
+        }
+      }
+
+      // Check if this object is a container/surface with visible contents
+      // This should happen regardless of noDescription flag
+      if (this.canSeeInside(obj)) {
+        this.describeContainerContents(obj, messages, allObjects);
+      }
+    });
+  }
+
+  /**
+   * Check if we can see inside a container (SEE-INSIDE? in original Zork).
+   * Returns true if the object is open OR transparent.
+   */
+  private canSeeInside(obj: GameObject): boolean {
+    if (!obj.visible) {
+      return false;
+    }
+    // Can see inside if it's open OR transparent
+    return obj.properties?.isOpen === true || obj.properties?.transparent === true;
+  }
+
+  /**
+   * Describe contents of a container/surface, following PRINT-CONT logic.
+   */
+  private describeContainerContents(
+    container: GameObject,
+    messages: string[],
+    allObjects: GameObject[]
+  ): void {
+    const contents = allObjects.filter(
+      (obj) => obj.location === container.id && obj.visible && obj.portable
+    );
+
+    if (contents.length === 0) {
+      return;
+    }
+
+    // Show container contents
+    contents.forEach((obj) => {
+      if (obj.firstDescription && !obj.properties?.touched) {
+        messages.push(obj.firstDescription);
+      } else {
+        messages.push(obj.description);
+      }
+
+      // Recursively show contents of transparent/open containers
+      if (this.canSeeInside(obj)) {
+        this.describeContainerContents(obj, messages, allObjects);
+      }
+    });
   }
 
   /**
