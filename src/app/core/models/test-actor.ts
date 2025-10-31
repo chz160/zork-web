@@ -61,7 +61,7 @@ export class TestActor extends BaseActor {
    */
   override onEncounter(playerRoomId: string): void {
     this.flags.set('lastEncounterRoom', playerRoomId);
-    this.flags.set('encounterCount', (this.flags.get('encounterCount') as number) + 1 || 1);
+    this.flags.set('encounterCount', ((this.flags.get('encounterCount') as number) || 0) + 1);
   }
 
   /**

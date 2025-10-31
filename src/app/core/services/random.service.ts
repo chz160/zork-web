@@ -12,6 +12,11 @@ import { Injectable } from '@angular/core';
 })
 export class RandomService {
   private seed: number;
+  /**
+   * LCG parameters chosen to match the standard glibc implementation (glibc's rand()).
+   * See: https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use
+   * These values provide compatibility and predictable results for deterministic testing.
+   */
   private readonly a = 1103515245;
   private readonly c = 12345;
   private readonly m = 2 ** 31;
