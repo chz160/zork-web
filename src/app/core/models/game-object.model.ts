@@ -124,6 +124,15 @@ export interface GameObjectProperties {
   /** Actor state for complex NPCs like troll */
   actorState?: 'armed' | 'disarmed' | 'unconscious' | 'dead' | 'awake';
 
+  /** Treasure value of the object (TVALUE property) */
+  value?: number;
+
+  /** Whether the object is sacred and cannot be stolen or defiled (SACREDBIT flag) */
+  isSacred?: boolean;
+
+  /** Whether the object can be drunk (DRINKBIT flag) */
+  drinkable?: boolean;
+
   /** Custom state properties for specific objects */
   [key: string]: unknown;
 }

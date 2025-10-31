@@ -9,7 +9,7 @@ export interface MoveItemsOptions {
   /** Probability that each item will be moved (0-1). If not provided, all items are moved. */
   probability?: number;
 
-  /** Whether to hide moved items (set hidden property to true). */
+  /** Whether to hide moved items (set visible to false). */
   hideOnMove?: boolean;
 
   /** Whether to set touchbit on moved items (marks them as having been interacted with). */
