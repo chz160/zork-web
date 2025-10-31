@@ -145,6 +145,16 @@ describe('ThiefActor', () => {
       expect(thief.inventory).toContain('coin');
       expect(thief.inventory).toContain('gem');
     });
+
+    it('should throw error if item ID is empty', () => {
+      expect(() => thief.acceptGift('', 10)).toThrowError('Item ID cannot be empty');
+      expect(() => thief.acceptGift('  ', 10)).toThrowError('Item ID cannot be empty');
+    });
+
+    it('should throw error if item value is negative', () => {
+      expect(() => thief.acceptGift('item', -1)).toThrowError('Item value cannot be negative');
+      expect(() => thief.acceptGift('item', -100)).toThrowError('Item value cannot be negative');
+    });
   });
 
   describe('hasStilettoInInventory', () => {

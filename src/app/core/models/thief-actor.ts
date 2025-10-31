@@ -140,22 +140,20 @@ export class ThiefActor extends BaseActor {
    * @param amount Amount of damage taken
    */
   override onDamage(amount: number): void {
-    const currentStrength = (this.flags.get('strength') as number) || 0;
+    const currentStrength = this.flags.get('strength') as number;
     const newStrength = currentStrength - amount;
     this.flags.set('strength', newStrength);
 
-    if (newStrength <= 0) {
-      if (newStrength === 0) {
-        // Dead
-        this.onDeath();
-      } else {
-        // Unconscious (strength < 0)
-        this.mode = ThiefMode.UNCONSCIOUS;
-        this.tickEnabled = false;
-        this.flags.set('fighting', false);
+    if (newStrength < 0) {
+      // Unconscious (strength < 0)
+      this.mode = ThiefMode.UNCONSCIOUS;
+      this.tickEnabled = false;
+      this.flags.set('fighting', false);
 
-        // TODO: Drop stiletto in current location
-      }
+      // TODO: Drop stiletto in current location
+    } else if (newStrength === 0) {
+      // Dead (strength = 0)
+      this.onDeath();
     }
   }
 
@@ -177,8 +175,16 @@ export class ThiefActor extends BaseActor {
    *
    * @param itemId The ID of the item being given
    * @param itemValue The treasure value of the item (TVALUE)
+   * @throws Error if itemId is empty or itemValue is negative
    */
   acceptGift(itemId: string, itemValue: number): void {
+    if (!itemId || itemId.trim() === '') {
+      throw new Error('Item ID cannot be empty');
+    }
+    if (itemValue < 0) {
+      throw new Error('Item value cannot be negative');
+    }
+
     // Move item to thief's inventory
     this.inventory.push(itemId);
 
