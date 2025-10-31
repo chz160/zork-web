@@ -341,10 +341,10 @@ describe('InventoryService', () => {
         }
       }
 
-      // With 30% probability, we expect roughly 30 out of 100 steals
-      // Allow for statistical variance (15-45 range is reasonable)
-      expect(stolenCount).toBeGreaterThan(15);
-      expect(stolenCount).toBeLessThan(45);
+      // With 10% probability, we expect roughly 10 out of 100 steals
+      // Allow for statistical variance (3-20 range is reasonable)
+      expect(stolenCount).toBeGreaterThan(3);
+      expect(stolenCount).toBeLessThan(20);
     });
 
     it('should return empty result when room has no eligible items', () => {

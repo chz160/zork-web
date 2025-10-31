@@ -102,7 +102,7 @@ export class InventoryService {
    * - Are takeable (portable)
    * - Are not sacred
    * - Are not already invisible
-   * - Pass a 30% probability check (or 100% for stiletto)
+   * - Pass a 10% probability check (or 100% for stiletto)
    *
    * @param roomId Room ID to steal from
    * @param items Map of all game objects
@@ -149,8 +149,8 @@ export class InventoryService {
         continue;
       }
 
-      // Otherwise, 30% probability (PROB 30 in legacy = 30/100 = 0.3)
-      if (this.random.nextBoolean(0.3)) {
+      // Otherwise, 10% probability (PROB 10 in legacy = 10/100 = 0.1)
+      if (this.random.nextBoolean(0.1)) {
         eligibleItems.push(itemId);
       }
     }
