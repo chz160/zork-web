@@ -1,5 +1,5 @@
 import { Injectable, signal, inject, DestroyRef } from '@angular/core';
-import { interval, Subject } from 'rxjs';
+import { interval, Subject, Subscription } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 /**
@@ -20,7 +20,7 @@ export class GameTickService {
   private readonly tickSubject = new Subject<number>();
   private tickCount = signal(0);
   private isRunning = signal(false);
-  private autoTickInterval: number | null = null;
+  private autoTickSubscription: Subscription | null = null;
 
   /** Observable stream of tick events */
   readonly tick$ = this.tickSubject.asObservable();
@@ -52,7 +52,7 @@ export class GameTickService {
     }
 
     this.isRunning.set(true);
-    interval(intervalMs)
+    this.autoTickSubscription = interval(intervalMs)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         if (this.isRunning()) {
@@ -66,6 +66,10 @@ export class GameTickService {
    */
   stopAutoTick(): void {
     this.isRunning.set(false);
+    if (this.autoTickSubscription) {
+      this.autoTickSubscription.unsubscribe();
+      this.autoTickSubscription = null;
+    }
   }
 
   /**
