@@ -9,7 +9,7 @@ export enum ThiefMode {
   CONSCIOUS = 'CONSCIOUS',
   /** Thief is unconscious (strength < 0) */
   UNCONSCIOUS = 'UNCONSCIOUS',
-  /** Thief is dead (strength = 0) */
+  /** Thief is dead (strength === 0) */
   DEAD = 'DEAD',
   /** Thief is busy (used for special behaviors) */
   BUSY = 'BUSY',
@@ -135,25 +135,33 @@ export class ThiefActor extends BaseActor {
 
   /**
    * Called when this actor takes damage.
-   * Handles transitions to unconscious state.
+   * Handles transitions to unconscious and dead states.
    *
    * @param amount Amount of damage taken
    */
   override onDamage(amount: number): void {
     const currentStrength = this.flags.get('strength') as number;
     const newStrength = currentStrength - amount;
-    this.flags.set('strength', newStrength);
 
-    if (newStrength === 0) {
-      // Dead (strength = 0)
+    // Clamp strength to minimum of -1 to prevent it from becoming increasingly negative
+    // when taking damage while unconscious. Legacy behavior treats all negative values
+    // as unconscious, so there's no need to track how negative it gets.
+    const clampedStrength = Math.max(newStrength, -1);
+    this.flags.set('strength', clampedStrength);
+
+    if (clampedStrength === 0) {
+      // Dead (strength === 0)
       this.onDeath();
-    } else if (newStrength < 0) {
+    } else if (clampedStrength < 0) {
       // Unconscious (strength < 0)
-      this.mode = ThiefMode.UNCONSCIOUS;
-      this.tickEnabled = false;
-      this.flags.set('fighting', false);
+      // Only transition if not already unconscious to avoid redundant state changes
+      if (this.mode !== ThiefMode.UNCONSCIOUS) {
+        this.mode = ThiefMode.UNCONSCIOUS;
+        this.tickEnabled = false;
+        this.flags.set('fighting', false);
 
-      // TODO: Drop stiletto in current location
+        // TODO: Drop stiletto in current location
+      }
     }
   }
 
