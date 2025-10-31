@@ -221,7 +221,19 @@
       },
       "objectIds": ["kitchen-window", "kitchen-table"],
       "visited": false,
-      "isDark": false
+      "isDark": false,
+      "properties": {
+        "descriptionSubstitutions": {
+          "kitchen-window": [
+            {
+              "property": "isOpen",
+              "value": true,
+              "find": "which is slightly ajar",
+              "replace": "which is open"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "attic",

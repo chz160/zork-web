@@ -1868,17 +1868,8 @@ export class GameEngineService {
 
     messages.push(room.name);
 
-    // Get the room description (may need dynamic adjustments)
-    let description = room.description;
-
-    // Special handling for kitchen: adjust window state in description
-    if (room.id === 'kitchen') {
-      const kitchenWindow = this.gameObjects().get('kitchen-window');
-      if (kitchenWindow?.properties?.isOpen) {
-        // Window is open - replace "slightly ajar" with "open"
-        description = description.replace('which is slightly ajar', 'which is open');
-      }
-    }
+    // Get the room description with dynamic substitutions applied
+    const description = this.applyDescriptionSubstitutions(room);
 
     // Use full description on first visit or when explicitly looking
     if (fullDescription || !room.visited) {
@@ -1893,6 +1884,33 @@ export class GameEngineService {
     this.describeRoomContents(room, messages);
 
     return messages;
+  }
+
+  /**
+   * Apply dynamic description substitutions based on object state.
+   * This allows room descriptions to change based on object properties without hardcoding room-specific logic.
+   */
+  private applyDescriptionSubstitutions(room: Room): string {
+    let description = room.description;
+
+    // Check if room has dynamic substitution rules
+    if (room.properties?.descriptionSubstitutions) {
+      room.properties.descriptionSubstitutions.forEach((substitutions, objectId) => {
+        const obj = this.gameObjects().get(objectId);
+        if (obj) {
+          substitutions.forEach((rule) => {
+            // Check if the object property matches the expected value
+            const propertyValue = obj.properties?.[rule.property];
+            if (propertyValue === rule.value) {
+              // Apply the substitution using replaceAll to handle all occurrences
+              description = description.replaceAll(rule.find, rule.replace);
+            }
+          });
+        }
+      });
+    }
+
+    return description;
   }
 
   /**
