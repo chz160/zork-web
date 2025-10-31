@@ -144,16 +144,16 @@ export class ThiefActor extends BaseActor {
     const newStrength = currentStrength - amount;
     this.flags.set('strength', newStrength);
 
-    if (newStrength < 0) {
+    if (newStrength === 0) {
+      // Dead (strength = 0)
+      this.onDeath();
+    } else if (newStrength < 0) {
       // Unconscious (strength < 0)
       this.mode = ThiefMode.UNCONSCIOUS;
       this.tickEnabled = false;
       this.flags.set('fighting', false);
 
       // TODO: Drop stiletto in current location
-    } else if (newStrength === 0) {
-      // Dead (strength = 0)
-      this.onDeath();
     }
   }
 
