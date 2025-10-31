@@ -9,3 +9,4 @@ export * from './parser-result.model';
 export * from './command-output.model';
 export * from './execution-report.model';
 export * from './actor.model';
+export * from './thief-actor';
