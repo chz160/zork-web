@@ -372,6 +372,28 @@ describe('InventoryService', () => {
       expect(result.movedItemIds).not.toContain('other-junk');
       expect(items.get('other-junk')?.location).toBe('maze-1');
     });
+
+    it('should support custom alwaysStealItemIds', () => {
+      // Add a custom worthless item
+      items.set('custom-item', {
+        id: 'custom-item',
+        name: 'custom item',
+        description: 'A custom worthless item',
+        portable: true,
+        visible: true,
+        location: 'round-room',
+        properties: { value: 0 },
+      });
+
+      randomService.setSeed(12345);
+
+      // Steal with custom always-steal list
+      const result = service.stealJunk('round-room', items, undefined, ['custom-item']);
+
+      // Custom item should always be stolen
+      expect(result.movedItemIds).toContain('custom-item');
+      expect(items.get('custom-item')?.location).toBe('thief');
+    });
   });
 
   describe('robMaze', () => {

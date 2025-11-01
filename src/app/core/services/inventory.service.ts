@@ -102,17 +102,19 @@ export class InventoryService {
    * - Are takeable (portable)
    * - Are not sacred
    * - Are not already invisible
-   * - Pass a 10% probability check (or 100% for stiletto)
+   * - Pass a 10% probability check (or 100% for items in alwaysStealItemIds)
    *
    * @param roomId Room ID to steal from
    * @param items Map of all game objects
    * @param playerRoomId Current player room ID (for messages)
+   * @param alwaysStealItemIds Optional array of item IDs that should always be stolen (defaults to ['stiletto'])
    * @returns Result containing stolen item IDs and whether any were stolen
    */
   stealJunk(
     roomId: string,
     items: Map<string, GameObject>,
-    _playerRoomId?: string
+    _playerRoomId?: string,
+    alwaysStealItemIds: string[] = ['stiletto']
   ): MoveItemsResult {
     const eligibleItems: string[] = [];
 
@@ -137,14 +139,15 @@ export class InventoryService {
         continue;
       }
 
-      // Check if item is worthless (value == 0 or undefined)
+      // Only steal worthless items (value must be 0 or undefined)
       const value = item.properties?.['value'] ?? 0;
-      if (value !== 0) {
+      const isWorthless = value === 0;
+      if (!isWorthless) {
         continue;
       }
 
-      // Special case: stiletto is always stolen if present
-      if (itemId === 'stiletto') {
+      // Special case: some items are always stolen if present (e.g., stiletto)
+      if (alwaysStealItemIds.includes(itemId)) {
         eligibleItems.push(itemId);
         continue;
       }
@@ -169,11 +172,17 @@ export class InventoryService {
    * @param roomId Room ID to rob from
    * @param items Map of all game objects
    * @param playerRoomId Current player room ID (for messages)
+   * @param alwaysStealItemIds Optional array of item IDs that should always be stolen (defaults to ['stiletto'])
    * @returns Result containing stolen item IDs and whether any were stolen
    */
-  robMaze(roomId: string, items: Map<string, GameObject>, _playerRoomId?: string): MoveItemsResult {
+  robMaze(
+    roomId: string,
+    items: Map<string, GameObject>,
+    _playerRoomId?: string,
+    alwaysStealItemIds: string[] = ['stiletto']
+  ): MoveItemsResult {
     // For now, robMaze uses the same logic as stealJunk
     // The legacy ROB-MAZE had similar logic but in maze context
-    return this.stealJunk(roomId, items, _playerRoomId);
+    return this.stealJunk(roomId, items, _playerRoomId, alwaysStealItemIds);
   }
 }
