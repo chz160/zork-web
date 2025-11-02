@@ -75,7 +75,7 @@ export class VisibilityInspectorService {
         : 'Item is invisible (game state)';
     } else if (hasConditions) {
       effectiveVisibility = 'conditional';
-      explanation = `Item visibility is conditional on: ${item.visibleFor.join(', ')}`;
+      explanation = `Item visibility is conditional on: ${item.visibleFor?.join(', ')}`;
     } else {
       effectiveVisibility = 'visible';
       explanation = 'Item is visible normally';
