@@ -16,6 +16,7 @@ import { CommandParserService } from './command-parser.service';
 import { ObjectResolverService, ResolutionContext } from './object-resolver.service';
 import { TelemetryService } from './telemetry.service';
 import { CommandDispatcherService } from './command-dispatcher.service';
+import { VisibilityInspectorService } from './visibility-inspector.service';
 
 /**
  * Core game engine service that manages game state and processes commands.
@@ -36,6 +37,7 @@ export class GameEngineService {
   private readonly objectResolver = inject(ObjectResolverService);
   private readonly telemetry = inject(TelemetryService);
   private readonly dispatcher = inject(CommandDispatcherService);
+  private readonly visibilityInspector = inject(VisibilityInspectorService);
 
   /** Current player state */
   private readonly playerState = signal<Player>({
@@ -195,6 +197,9 @@ export class GameEngineService {
         break;
       case 'quit':
         output = this.handleQuit();
+        break;
+      case 'debug':
+        output = this.handleDebug(parserResult.directObject ?? undefined);
         break;
       default:
         output = {
@@ -1698,6 +1703,114 @@ export class GameEngineService {
       type: 'system',
       metadata: { action: 'quit' },
     };
+  }
+
+  /**
+   * Handle debug commands for inspecting item visibility.
+   * Developer tool for inspecting invisible/hidden items and visibility state.
+   * @param subCommand The debug subcommand (e.g., 'invisible', 'touched', 'item', 'location')
+   */
+  private handleDebug(subCommand?: string): CommandOutput {
+    if (!subCommand) {
+      return {
+        messages: [
+          'Debug commands available:',
+          '  debug invisible - Show all invisible items',
+          '  debug touched - Show all touched items (touchbit)',
+          '  debug location <room-id> - Show all items in a location',
+          '  debug item <item-id> - Inspect a specific item',
+        ],
+        success: true,
+        type: 'system',
+      };
+    }
+
+    const parts = subCommand.split(' ');
+    const command = parts[0].toLowerCase();
+    const arg = parts.slice(1).join(' ');
+
+    switch (command) {
+      case 'invisible': {
+        const invisibleItems = this.visibilityInspector.findInvisibleItems(
+          this.gameObjects(),
+          true
+        );
+        const formatted = this.visibilityInspector.formatListForConsole(
+          invisibleItems,
+          'Invisible/Hidden Items:'
+        );
+        return {
+          messages: [formatted],
+          success: true,
+          type: 'system',
+        };
+      }
+
+      case 'touched': {
+        const touchedItems = this.visibilityInspector.findTouchedItems(this.gameObjects());
+        const formatted = this.visibilityInspector.formatListForConsole(
+          touchedItems,
+          'Touched Items (TOUCHBIT):'
+        );
+        return {
+          messages: [formatted],
+          success: true,
+          type: 'system',
+        };
+      }
+
+      case 'location': {
+        if (!arg) {
+          return {
+            messages: ['Usage: debug location <room-id>'],
+            success: false,
+            type: 'error',
+          };
+        }
+        const locationItems = this.visibilityInspector.inspectLocation(this.gameObjects(), arg);
+        const formatted = this.visibilityInspector.formatListForConsole(
+          locationItems,
+          `Items in location "${arg}":`
+        );
+        return {
+          messages: [formatted],
+          success: true,
+          type: 'system',
+        };
+      }
+
+      case 'item': {
+        if (!arg) {
+          return {
+            messages: ['Usage: debug item <item-id>'],
+            success: false,
+            type: 'error',
+          };
+        }
+        const item = this.gameObjects().get(arg);
+        if (!item) {
+          return {
+            messages: [`Item "${arg}" not found.`],
+            success: false,
+            type: 'error',
+          };
+        }
+        const info = this.visibilityInspector.inspectItem(item);
+        const formatted = this.visibilityInspector.formatForConsole(info);
+        return {
+          messages: [formatted],
+          success: true,
+          type: 'system',
+        };
+      }
+
+      default:
+        return {
+          messages: [`Unknown debug command: ${command}`, 'Type "debug" for help.'],
+          success: false,
+          type: 'error',
+        };
+    }
   }
 
   // ===== Helper Methods =====
