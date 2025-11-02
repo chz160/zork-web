@@ -229,6 +229,9 @@ npm test -- --include='**/thief-probability.spec.ts' --browsers=ChromeHeadless -
 
 # Run all thief-related tests
 npm test -- --include='**/thief*.spec.ts' --browsers=ChromeHeadless --watch=false
+
+# Alternative: Run by specifying the file path directly (if include flag is not available)
+npm test src/app/core/integration/thief-probability.spec.ts --browsers=ChromeHeadless --watch=false
 ```
 
 ## Acceptance Criteria ✅
