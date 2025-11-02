@@ -1,0 +1,166 @@
+{
+  "events": [
+    {
+      "type": "thief.tick",
+      "timestamp": "2025-11-02T17:00:00.000Z",
+      "data": {
+        "actorId": "thief",
+        "fromRoomId": "round-room",
+        "mode": "CONSCIOUS"
+      }
+    },
+    {
+      "type": "thief.item_stolen",
+      "timestamp": "2025-11-02T17:00:05.123Z",
+      "data": {
+        "actorId": "thief",
+        "itemIds": ["brass-lantern", "rope"],
+        "fromRoomId": "round-room",
+        "toRoomId": "thief",
+        "probability": 0.1
+      }
+    },
+    {
+      "type": "thief.tick",
+      "timestamp": "2025-11-02T17:00:10.456Z",
+      "data": {
+        "actorId": "thief",
+        "fromRoomId": "round-room",
+        "toRoomId": "maze-1",
+        "mode": "CONSCIOUS"
+      }
+    },
+    {
+      "type": "thief.gift_accepted",
+      "timestamp": "2025-11-02T17:01:00.789Z",
+      "data": {
+        "actorId": "thief",
+        "itemId": "gold-coin",
+        "itemValue": 10,
+        "roomId": "round-room",
+        "engrossed": true
+      }
+    },
+    {
+      "type": "thief.tick",
+      "timestamp": "2025-11-02T17:01:30.012Z",
+      "data": {
+        "actorId": "thief",
+        "fromRoomId": "maze-1",
+        "toRoomId": "treasure-room",
+        "mode": "CONSCIOUS"
+      }
+    },
+    {
+      "type": "thief.item_deposited",
+      "timestamp": "2025-11-02T17:01:35.345Z",
+      "data": {
+        "actorId": "thief",
+        "itemIds": ["gold-coin", "jeweled-egg"],
+        "fromRoomId": "thief",
+        "toRoomId": "treasure-room"
+      }
+    },
+    {
+      "type": "parse.attempt",
+      "timestamp": "2025-11-02T17:02:00.000Z",
+      "data": {
+        "inputLength": 14
+      }
+    },
+    {
+      "type": "parse_success",
+      "timestamp": "2025-11-02T17:02:00.050Z",
+      "data": {
+        "inputLength": 14
+      }
+    },
+    {
+      "type": "thief.death",
+      "timestamp": "2025-11-02T17:02:30.678Z",
+      "data": {
+        "actorId": "thief",
+        "roomId": "round-room",
+        "strength": 0
+      }
+    },
+    {
+      "type": "thief.item_deposited",
+      "timestamp": "2025-11-02T17:02:30.712Z",
+      "data": {
+        "actorId": "thief",
+        "itemIds": ["stiletto", "large-bag", "silver-chalice"],
+        "fromRoomId": "thief",
+        "toRoomId": "treasure-room"
+      }
+    },
+    {
+      "type": "parse.attempt",
+      "timestamp": "2025-11-02T17:03:00.000Z",
+      "data": {
+        "inputLength": 10
+      }
+    },
+    {
+      "type": "parse_success",
+      "timestamp": "2025-11-02T17:03:00.030Z",
+      "data": {
+        "inputLength": 10
+      }
+    },
+    {
+      "type": "thief.revived",
+      "timestamp": "2025-11-02T17:03:15.901Z",
+      "data": {
+        "actorId": "thief",
+        "roomId": "treasure-room",
+        "newStrength": 5
+      }
+    },
+    {
+      "type": "thief.tick",
+      "timestamp": "2025-11-02T17:03:45.234Z",
+      "data": {
+        "actorId": "thief",
+        "fromRoomId": "treasure-room",
+        "toRoomId": "maze-2",
+        "mode": "CONSCIOUS"
+      }
+    }
+  ],
+  "analytics": {
+    "totalEvents": 14,
+    "parseAttempts": 2,
+    "parseSuccesses": 2,
+    "parseFailures": 0,
+    "parseSuccessRate": 1,
+    "fuzzyMatches": 0,
+    "autocorrectSuggestions": 0,
+    "autocorrectAcceptances": 0,
+    "autocorrectRejections": 0,
+    "autocorrectAcceptanceRate": 0,
+    "disambiguationShown": 0,
+    "disambiguationSelections": 0,
+    "disambiguationCancellations": 0,
+    "multiCommands": 0,
+    "ordinalSelections": 0,
+    "thiefTicks": 4,
+    "itemsStolen": 1,
+    "itemsDeposited": 2,
+    "thiefDeaths": 1,
+    "thiefRevivals": 1,
+    "thiefGiftsAccepted": 1,
+    "topFailedInputs": [],
+    "topAmbiguousPhrases": [],
+    "topAutocorrects": [],
+    "startTime": "2025-11-02T17:00:00.000Z",
+    "endTime": "2025-11-02T17:03:45.234Z"
+  },
+  "exportedAt": "2025-11-02T17:05:00.000Z",
+  "privacyConfig": {
+    "enabled": true,
+    "collectInput": false,
+    "allowPersistentStorage": false,
+    "allowRemoteTransmission": true
+  }
+}

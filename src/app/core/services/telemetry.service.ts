@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 /**
- * Telemetry event types for parser interactions
+ * Telemetry event types for parser interactions and thief behavior
  */
 export enum TelemetryEventType {
   // Parser events
@@ -23,6 +23,14 @@ export enum TelemetryEventType {
   // Multi-command and ordinals
   MULTI_COMMAND = 'multi_command',
   ORDINAL_SELECTION = 'ordinal_selection',
+
+  // Thief events
+  THIEF_TICK = 'thief.tick',
+  ITEM_STOLEN = 'thief.item_stolen',
+  ITEM_DEPOSITED = 'thief.item_deposited',
+  THIEF_DEATH = 'thief.death',
+  THIEF_REVIVED = 'thief.revived',
+  THIEF_GIFT_ACCEPTED = 'thief.gift_accepted',
 }
 
 /**
@@ -68,6 +76,66 @@ export interface MultiCommandData extends Record<string, unknown> {
   rawInput: string;
   commandCount: number;
   policy: 'fail-fast' | 'best-effort';
+}
+
+/**
+ * Thief tick event data
+ */
+export interface ThiefTickData extends Record<string, unknown> {
+  actorId: string;
+  fromRoomId: string;
+  toRoomId?: string;
+  mode: string;
+}
+
+/**
+ * Item stolen event data
+ */
+export interface ItemStolenData extends Record<string, unknown> {
+  actorId: string;
+  itemIds: string[];
+  fromRoomId: string;
+  toRoomId: string;
+  probability?: number;
+}
+
+/**
+ * Item deposited event data
+ */
+export interface ItemDepositedData extends Record<string, unknown> {
+  actorId: string;
+  itemIds: string[];
+  fromRoomId: string;
+  toRoomId: string;
+}
+
+/**
+ * Thief death event data
+ */
+export interface ThiefDeathData extends Record<string, unknown> {
+  actorId: string;
+  roomId: string;
+  strength: number;
+}
+
+/**
+ * Thief revived event data
+ */
+export interface ThiefRevivedData extends Record<string, unknown> {
+  actorId: string;
+  roomId: string;
+  newStrength: number;
+}
+
+/**
+ * Thief gift accepted event data
+ */
+export interface ThiefGiftAcceptedData extends Record<string, unknown> {
+  actorId: string;
+  itemId: string;
+  itemValue: number;
+  roomId: string;
+  engrossed: boolean;
 }
 
 /**
@@ -118,6 +186,18 @@ export interface TelemetryAnalytics {
   multiCommands: number;
   /** Number of ordinal selections */
   ordinalSelections: number;
+  /** Number of thief tick events */
+  thiefTicks: number;
+  /** Number of items stolen by thief */
+  itemsStolen: number;
+  /** Number of items deposited by thief */
+  itemsDeposited: number;
+  /** Number of thief deaths */
+  thiefDeaths: number;
+  /** Number of thief revivals */
+  thiefRevivals: number;
+  /** Number of gifts accepted by thief */
+  thiefGiftsAccepted: number;
   /** Most common failed inputs (top 10) */
   topFailedInputs: { input: string; count: number }[];
   /** Most common ambiguous phrases (top 10) */
@@ -367,6 +447,48 @@ export class TelemetryService {
   }
 
   /**
+   * Log a thief tick event
+   */
+  logThiefTick(data: ThiefTickData): void {
+    this.logTypedEvent(TelemetryEventType.THIEF_TICK, data);
+  }
+
+  /**
+   * Log an item stolen event
+   */
+  logItemStolen(data: ItemStolenData): void {
+    this.logTypedEvent(TelemetryEventType.ITEM_STOLEN, data);
+  }
+
+  /**
+   * Log an item deposited event
+   */
+  logItemDeposited(data: ItemDepositedData): void {
+    this.logTypedEvent(TelemetryEventType.ITEM_DEPOSITED, data);
+  }
+
+  /**
+   * Log a thief death event
+   */
+  logThiefDeath(data: ThiefDeathData): void {
+    this.logTypedEvent(TelemetryEventType.THIEF_DEATH, data);
+  }
+
+  /**
+   * Log a thief revived event
+   */
+  logThiefRevived(data: ThiefRevivedData): void {
+    this.logTypedEvent(TelemetryEventType.THIEF_REVIVED, data);
+  }
+
+  /**
+   * Log a thief gift accepted event
+   */
+  logThiefGiftAccepted(data: ThiefGiftAcceptedData): void {
+    this.logTypedEvent(TelemetryEventType.THIEF_GIFT_ACCEPTED, data);
+  }
+
+  /**
    * Get all logged events
    */
   getEvents(): TelemetryEvent[] {
@@ -427,6 +549,16 @@ export class TelemetryService {
     const ordinalSelections = events.filter(
       (e) => e.type === TelemetryEventType.ORDINAL_SELECTION
     ).length;
+    const thiefTicks = events.filter((e) => e.type === TelemetryEventType.THIEF_TICK).length;
+    const itemsStolen = events.filter((e) => e.type === TelemetryEventType.ITEM_STOLEN).length;
+    const itemsDeposited = events.filter(
+      (e) => e.type === TelemetryEventType.ITEM_DEPOSITED
+    ).length;
+    const thiefDeaths = events.filter((e) => e.type === TelemetryEventType.THIEF_DEATH).length;
+    const thiefRevivals = events.filter((e) => e.type === TelemetryEventType.THIEF_REVIVED).length;
+    const thiefGiftsAccepted = events.filter(
+      (e) => e.type === TelemetryEventType.THIEF_GIFT_ACCEPTED
+    ).length;
 
     // Calculate rates
     const parseSuccessRate = parseAttempts > 0 ? parseSuccesses / parseAttempts : 0;
@@ -460,6 +592,12 @@ export class TelemetryService {
       disambiguationCancellations,
       multiCommands,
       ordinalSelections,
+      thiefTicks,
+      itemsStolen,
+      itemsDeposited,
+      thiefDeaths,
+      thiefRevivals,
+      thiefGiftsAccepted,
       topFailedInputs,
       topAmbiguousPhrases,
       topAutocorrects,
@@ -487,6 +625,68 @@ export class TelemetryService {
       // Remove any potentially identifying information
       data: this.anonymizeEventData(event.data),
     }));
+  }
+
+  /**
+   * Export telemetry data as JSON string for download.
+   * This method respects privacy settings and only exports data that is allowed.
+   *
+   * @param includeAnalytics Whether to include analytics summary in the export
+   * @returns JSON string of telemetry data or null if export is not allowed
+   */
+  exportAsJSON(includeAnalytics = true): string | null {
+    const data = this.exportAnonymizedData();
+    if (!data) {
+      return null;
+    }
+
+    const exportData: Record<string, unknown> = {
+      events: data,
+      exportedAt: new Date().toISOString(),
+      privacyConfig: this.privacyConfig,
+    };
+
+    if (includeAnalytics) {
+      exportData['analytics'] = this.getAnalytics();
+    }
+
+    return JSON.stringify(exportData, null, 2);
+  }
+
+  /**
+   * Download telemetry data as a JSON file.
+   * This triggers a browser download with the telemetry data.
+   *
+   * @param filename Optional filename for the download (default: telemetry-YYYY-MM-DD.json)
+   * @param includeAnalytics Whether to include analytics summary in the export
+   * @returns true if download was initiated, false if export was blocked
+   */
+  downloadAsJSON(filename?: string, includeAnalytics = true): boolean {
+    const json = this.exportAsJSON(includeAnalytics);
+    if (!json) {
+      return false;
+    }
+
+    // Generate filename with timestamp if not provided
+    const defaultFilename = `telemetry-${new Date().toISOString().split('T')[0]}.json`;
+    const finalFilename = filename || defaultFilename;
+
+    // Create a blob and download link
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = finalFilename;
+
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Clean up
+    URL.revokeObjectURL(url);
+
+    return true;
   }
 
   /**

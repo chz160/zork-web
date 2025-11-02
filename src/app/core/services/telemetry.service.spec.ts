@@ -434,5 +434,195 @@ describe('TelemetryService', () => {
       const timestamp = exported?.[0]['timestamp'] as string;
       expect(timestamp).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
     });
+
+    it('should export data as JSON string with analytics', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: true });
+      service.logParseSuccess('test');
+      service.logThiefTick({
+        actorId: 'thief',
+        fromRoomId: 'round-room',
+        mode: 'CONSCIOUS',
+      });
+
+      const json = service.exportAsJSON(true);
+      expect(json).not.toBeNull();
+
+      const parsed = JSON.parse(json!);
+      expect(parsed.events).toBeDefined();
+      expect(parsed.events.length).toBe(2);
+      expect(parsed.analytics).toBeDefined();
+      expect(parsed.analytics.thiefTicks).toBe(1);
+      expect(parsed.exportedAt).toBeDefined();
+      expect(parsed.privacyConfig).toBeDefined();
+    });
+
+    it('should export data as JSON string without analytics', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: true });
+      service.logParseSuccess('test');
+
+      const json = service.exportAsJSON(false);
+      expect(json).not.toBeNull();
+
+      const parsed = JSON.parse(json!);
+      expect(parsed.events).toBeDefined();
+      expect(parsed.analytics).toBeUndefined();
+    });
+
+    it('should return null when exporting as JSON is not allowed', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: false });
+      service.logParseSuccess('test');
+
+      const json = service.exportAsJSON();
+      expect(json).toBeNull();
+    });
+  });
+
+  describe('Thief Telemetry Events', () => {
+    it('should log thief tick events', () => {
+      service.logThiefTick({
+        actorId: 'thief',
+        fromRoomId: 'round-room',
+        toRoomId: 'maze-1',
+        mode: 'CONSCIOUS',
+      });
+
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.THIEF_TICK);
+      expect(events[0].data['actorId']).toBe('thief');
+      expect(events[0].data['fromRoomId']).toBe('round-room');
+      expect(events[0].data['toRoomId']).toBe('maze-1');
+      expect(events[0].data['mode']).toBe('CONSCIOUS');
+    });
+
+    it('should log item stolen events', () => {
+      service.logItemStolen({
+        actorId: 'thief',
+        itemIds: ['sword', 'lamp'],
+        fromRoomId: 'round-room',
+        toRoomId: 'thief',
+        probability: 0.1,
+      });
+
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.ITEM_STOLEN);
+      expect(events[0].data['actorId']).toBe('thief');
+      expect(events[0].data['itemIds']).toEqual(['sword', 'lamp']);
+      expect(events[0].data['fromRoomId']).toBe('round-room');
+      expect(events[0].data['toRoomId']).toBe('thief');
+      expect(events[0].data['probability']).toBe(0.1);
+    });
+
+    it('should log item deposited events', () => {
+      service.logItemDeposited({
+        actorId: 'thief',
+        itemIds: ['treasure', 'jewel'],
+        fromRoomId: 'thief',
+        toRoomId: 'treasure-room',
+      });
+
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.ITEM_DEPOSITED);
+      expect(events[0].data['actorId']).toBe('thief');
+      expect(events[0].data['itemIds']).toEqual(['treasure', 'jewel']);
+      expect(events[0].data['fromRoomId']).toBe('thief');
+      expect(events[0].data['toRoomId']).toBe('treasure-room');
+    });
+
+    it('should log thief death events', () => {
+      service.logThiefDeath({
+        actorId: 'thief',
+        roomId: 'round-room',
+        strength: 0,
+      });
+
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.THIEF_DEATH);
+      expect(events[0].data['actorId']).toBe('thief');
+      expect(events[0].data['roomId']).toBe('round-room');
+      expect(events[0].data['strength']).toBe(0);
+    });
+
+    it('should log thief revived events', () => {
+      service.logThiefRevived({
+        actorId: 'thief',
+        roomId: 'round-room',
+        newStrength: 5,
+      });
+
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.THIEF_REVIVED);
+      expect(events[0].data['actorId']).toBe('thief');
+      expect(events[0].data['roomId']).toBe('round-room');
+      expect(events[0].data['newStrength']).toBe(5);
+    });
+
+    it('should log thief gift accepted events', () => {
+      service.logThiefGiftAccepted({
+        actorId: 'thief',
+        itemId: 'gold-coin',
+        itemValue: 10,
+        roomId: 'round-room',
+        engrossed: true,
+      });
+
+      const events = service.getEvents();
+      expect(events.length).toBe(1);
+      expect(events[0].type).toBe(TelemetryEventType.THIEF_GIFT_ACCEPTED);
+      expect(events[0].data['actorId']).toBe('thief');
+      expect(events[0].data['itemId']).toBe('gold-coin');
+      expect(events[0].data['itemValue']).toBe(10);
+      expect(events[0].data['roomId']).toBe('round-room');
+      expect(events[0].data['engrossed']).toBe(true);
+    });
+
+    it('should include thief events in analytics', () => {
+      service.logThiefTick({
+        actorId: 'thief',
+        fromRoomId: 'round-room',
+        mode: 'CONSCIOUS',
+      });
+      service.logItemStolen({
+        actorId: 'thief',
+        itemIds: ['sword'],
+        fromRoomId: 'round-room',
+        toRoomId: 'thief',
+      });
+      service.logItemDeposited({
+        actorId: 'thief',
+        itemIds: ['treasure'],
+        fromRoomId: 'thief',
+        toRoomId: 'treasure-room',
+      });
+      service.logThiefDeath({
+        actorId: 'thief',
+        roomId: 'round-room',
+        strength: 0,
+      });
+      service.logThiefRevived({
+        actorId: 'thief',
+        roomId: 'round-room',
+        newStrength: 5,
+      });
+      service.logThiefGiftAccepted({
+        actorId: 'thief',
+        itemId: 'gold-coin',
+        itemValue: 10,
+        roomId: 'round-room',
+        engrossed: true,
+      });
+
+      const analytics = service.getAnalytics();
+      expect(analytics.thiefTicks).toBe(1);
+      expect(analytics.itemsStolen).toBe(1);
+      expect(analytics.itemsDeposited).toBe(1);
+      expect(analytics.thiefDeaths).toBe(1);
+      expect(analytics.thiefRevivals).toBe(1);
+      expect(analytics.thiefGiftsAccepted).toBe(1);
+    });
   });
 });

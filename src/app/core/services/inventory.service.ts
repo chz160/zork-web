@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { RandomService } from './random.service';
+import { TelemetryService } from './telemetry.service';
 import { GameObject } from '../models/game-object.model';
 
 /**
@@ -41,6 +42,7 @@ export interface MoveItemsResult {
 })
 export class InventoryService {
   private readonly random = inject(RandomService);
+  private readonly telemetry = inject(TelemetryService);
 
   /**
    * Move items from one location/owner to another with optional probability and hiding.
@@ -170,10 +172,23 @@ export class InventoryService {
     }
 
     // Move eligible items to thief with hiding
-    return this.moveItems(eligibleItems, 'thief', items, {
+    const result = this.moveItems(eligibleItems, 'thief', items, {
       hideOnMove: true,
       touchBit: true,
     });
+
+    // Log telemetry for stolen items
+    if (result.anyMoved && this.telemetry.isEnabled()) {
+      this.telemetry.logItemStolen({
+        actorId: 'thief',
+        itemIds: result.movedItemIds,
+        fromRoomId: roomId,
+        toRoomId: 'thief',
+        probability: 0.1,
+      });
+    }
+
+    return result;
   }
 
   /**
@@ -268,10 +283,22 @@ export class InventoryService {
       depositedItemIds.push(itemId);
     }
 
-    return {
+    const result = {
       movedItemIds: depositedItemIds,
       anyMoved: depositedItemIds.length > 0,
       stoleLitLight,
     };
+
+    // Log telemetry for deposited items
+    if (result.anyMoved && this.telemetry.isEnabled()) {
+      this.telemetry.logItemDeposited({
+        actorId: 'thief',
+        itemIds: result.movedItemIds,
+        fromRoomId: 'thief',
+        toRoomId,
+      });
+    }
+
+    return result;
   }
 }
