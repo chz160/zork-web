@@ -338,6 +338,16 @@ export class CommandParserService {
         description: 'Quit the game',
       },
     ],
+    [
+      'debug',
+      {
+        name: 'debug',
+        aliases: [],
+        requiresObject: false,
+        allowsIndirectObject: false,
+        description: 'Debug commands for developers',
+      },
+    ],
   ]);
 
   /** Direction keywords that are handled specially */

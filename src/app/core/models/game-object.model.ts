@@ -20,6 +20,22 @@ export interface GameObject {
   /** Whether the object is currently visible to the player */
   visible: boolean;
 
+  /**
+   * Whether the object is explicitly hidden (for puzzles/secrets).
+   * Hidden items are not shown in room descriptions even if visible=true.
+   * This is distinct from invisible (INVISIBLE flag in legacy) which is used
+   * for items stolen by thief or moved by game mechanics.
+   */
+  hidden?: boolean;
+
+  /**
+   * Optional list of conditions under which this item is visible.
+   * If undefined, item visibility is determined solely by visible flag.
+   * If defined, item is visible only if conditions are met.
+   * Examples: ['has_lantern', 'after_puzzle_solved', 'daylight']
+   */
+  visibleFor?: string[];
+
   /** Current location: room ID or 'inventory' if carried by player */
   location: string;
 

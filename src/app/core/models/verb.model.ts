@@ -50,4 +50,5 @@ export type VerbType =
   | 'location'
   | 'save'
   | 'load'
-  | 'quit';
+  | 'quit'
+  | 'debug';
