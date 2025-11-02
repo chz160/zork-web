@@ -13,3 +13,4 @@ export * from './actor-manager.service';
 export * from './game-tick.service';
 export * from './random.service';
 export * from './inventory.service';
+export * from './light.service';
