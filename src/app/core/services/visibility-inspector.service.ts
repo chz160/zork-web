@@ -60,7 +60,7 @@ export class VisibilityInspectorService {
   inspectItem(item: GameObject): VisibilityInfo {
     const touched = item.properties?.touched ?? false;
     const hidden = item.hidden ?? false;
-    const hasConditions = Array.isArray(item.visibleFor) && item.visibleFor.length > 0;
+    const hasConditions = item.visibleFor !== undefined && item.visibleFor.length > 0;
 
     let effectiveVisibility: VisibilityInfo['effectiveVisibility'];
     let explanation: string;
@@ -107,12 +107,15 @@ export class VisibilityInspectorService {
     for (const item of items.values()) {
       const info = this.inspectItem(item);
 
-      if (info.effectiveVisibility !== 'visible') {
-        if (!includeHidden && info.effectiveVisibility === 'hidden') {
-          continue;
-        }
-        invisibleItems.push(info);
+      // Skip visible items or hidden items when not requested
+      if (
+        info.effectiveVisibility === 'visible' ||
+        (!includeHidden && info.effectiveVisibility === 'hidden')
+      ) {
+        continue;
       }
+
+      invisibleItems.push(info);
     }
 
     return invisibleItems;
@@ -191,13 +194,8 @@ export class VisibilityInspectorService {
       return title ? `${title}\n(none)` : '(none)';
     }
 
-    const lines = title ? [title, ''] : [];
+    const formattedItems = infos.map((info) => this.formatForConsole(info)).join('\n\n');
 
-    for (const info of infos) {
-      lines.push(this.formatForConsole(info));
-      lines.push(''); // Empty line between items
-    }
-
-    return lines.join('\n');
+    return title ? `${title}\n\n${formattedItems}` : formattedItems;
   }
 }

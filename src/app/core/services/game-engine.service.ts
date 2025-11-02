@@ -1727,6 +1727,7 @@ export class GameEngineService {
 
     const parts = subCommand.split(' ');
     const command = parts[0].toLowerCase();
+    // Join remaining parts (after first word) as the argument
     const arg = parts.slice(1).join(' ');
 
     switch (command) {
