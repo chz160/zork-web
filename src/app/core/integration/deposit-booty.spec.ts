@@ -350,7 +350,7 @@ describe('depositBooty integration', () => {
       // - result.movedItemIds contains items to list
       // Expected messages:
       // 1. "As the thief dies, the power of his magic decreases, and his treasures reappear:"
-      // 2. List each item: "  A chalice", "  A painting", "  A egg"
+      // 2. List each item: "  A chalice", "  A painting", "  An egg"
       // 3. "The chalice is now safe to take."
 
       expect(thief.isInTreasureRoom()).toBe(true);
