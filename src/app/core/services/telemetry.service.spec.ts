@@ -434,6 +434,47 @@ describe('TelemetryService', () => {
       const timestamp = exported?.[0]['timestamp'] as string;
       expect(timestamp).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
     });
+
+    it('should export data as JSON string with analytics', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: true });
+      service.logParseSuccess('test');
+      service.logThiefTick({
+        actorId: 'thief',
+        fromRoomId: 'round-room',
+        mode: 'CONSCIOUS',
+      });
+
+      const json = service.exportAsJSON(true);
+      expect(json).not.toBeNull();
+
+      const parsed = JSON.parse(json!);
+      expect(parsed.events).toBeDefined();
+      expect(parsed.events.length).toBe(2);
+      expect(parsed.analytics).toBeDefined();
+      expect(parsed.analytics.thiefTicks).toBe(1);
+      expect(parsed.exportedAt).toBeDefined();
+      expect(parsed.privacyConfig).toBeDefined();
+    });
+
+    it('should export data as JSON string without analytics', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: true });
+      service.logParseSuccess('test');
+
+      const json = service.exportAsJSON(false);
+      expect(json).not.toBeNull();
+
+      const parsed = JSON.parse(json!);
+      expect(parsed.events).toBeDefined();
+      expect(parsed.analytics).toBeUndefined();
+    });
+
+    it('should return null when exporting as JSON is not allowed', () => {
+      service.setPrivacyConfig({ allowRemoteTransmission: false });
+      service.logParseSuccess('test');
+
+      const json = service.exportAsJSON();
+      expect(json).toBeNull();
+    });
   });
 
   describe('Thief Telemetry Events', () => {

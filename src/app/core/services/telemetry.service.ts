@@ -628,6 +628,68 @@ export class TelemetryService {
   }
 
   /**
+   * Export telemetry data as JSON string for download.
+   * This method respects privacy settings and only exports data that is allowed.
+   *
+   * @param includeAnalytics Whether to include analytics summary in the export
+   * @returns JSON string of telemetry data or null if export is not allowed
+   */
+  exportAsJSON(includeAnalytics = true): string | null {
+    const data = this.exportAnonymizedData();
+    if (!data) {
+      return null;
+    }
+
+    const exportData: Record<string, unknown> = {
+      events: data,
+      exportedAt: new Date().toISOString(),
+      privacyConfig: this.privacyConfig,
+    };
+
+    if (includeAnalytics) {
+      exportData['analytics'] = this.getAnalytics();
+    }
+
+    return JSON.stringify(exportData, null, 2);
+  }
+
+  /**
+   * Download telemetry data as a JSON file.
+   * This triggers a browser download with the telemetry data.
+   *
+   * @param filename Optional filename for the download (default: telemetry-YYYY-MM-DD.json)
+   * @param includeAnalytics Whether to include analytics summary in the export
+   * @returns true if download was initiated, false if export was blocked
+   */
+  downloadAsJSON(filename?: string, includeAnalytics = true): boolean {
+    const json = this.exportAsJSON(includeAnalytics);
+    if (!json) {
+      return false;
+    }
+
+    // Generate filename with timestamp if not provided
+    const defaultFilename = `telemetry-${new Date().toISOString().split('T')[0]}.json`;
+    const finalFilename = filename || defaultFilename;
+
+    // Create a blob and download link
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = finalFilename;
+
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Clean up
+    URL.revokeObjectURL(url);
+
+    return true;
+  }
+
+  /**
    * Clear all logged events
    */
   clearEvents(): void {
