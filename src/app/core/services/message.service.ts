@@ -111,7 +111,7 @@ export class MessageService {
   private applyReplacements(message: string, replacements: Record<string, string>): string {
     let result = message;
     for (const [key, value] of Object.entries(replacements)) {
-      result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+      result = result.replaceAll(`{${key}}`, value);
     }
     return result;
   }
