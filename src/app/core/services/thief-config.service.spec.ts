@@ -9,6 +9,10 @@ describe('ThiefConfigService', () => {
       providers: [ThiefConfigService],
     });
     service = TestBed.inject(ThiefConfigService);
+    // Reset devMode to its default state for each test
+    service.setDevMode(false);
+    // Reset difficulty to default
+    service.setDifficulty('normal');
   });
 
   it('should be created', () => {

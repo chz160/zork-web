@@ -109,6 +109,7 @@ describe('AutocorrectConfirmationComponent', () => {
 
     it('should emit accepted event when accept button is clicked', (done) => {
       component.accepted.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
@@ -127,6 +128,7 @@ describe('AutocorrectConfirmationComponent', () => {
 
     it('should emit rejected event when reject button is clicked', (done) => {
       component.rejected.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
@@ -153,6 +155,7 @@ describe('AutocorrectConfirmationComponent', () => {
 
     it('should accept on "y" key press', (done) => {
       component.accepted.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
@@ -162,6 +165,7 @@ describe('AutocorrectConfirmationComponent', () => {
 
     it('should accept on "Y" key press', (done) => {
       component.accepted.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
@@ -171,6 +175,7 @@ describe('AutocorrectConfirmationComponent', () => {
 
     it('should reject on "n" key press', (done) => {
       component.rejected.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
@@ -180,6 +185,7 @@ describe('AutocorrectConfirmationComponent', () => {
 
     it('should reject on "N" key press', (done) => {
       component.rejected.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
@@ -189,6 +195,7 @@ describe('AutocorrectConfirmationComponent', () => {
 
     it('should reject on Escape key press', (done) => {
       component.rejected.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
