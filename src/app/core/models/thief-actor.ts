@@ -1,4 +1,5 @@
 import { BaseActor } from './actor.model';
+import { MessageService } from '../services/message.service';
 
 /**
  * Modes for the thief actor's state machine.
@@ -13,6 +14,22 @@ export enum ThiefMode {
   DEAD = 'DEAD',
   /** Thief is busy (used for special behaviors) */
   BUSY = 'BUSY',
+}
+
+/**
+ * Combat message category types for thief melee attacks.
+ * Maps to THIEF-MELEE table categories from legacy code.
+ */
+export enum ThiefCombatMessageType {
+  MISS = 'THIEF_MELEE_MISS',
+  UNCONSCIOUS = 'THIEF_MELEE_UNCONSCIOUS',
+  KILL = 'THIEF_MELEE_KILL',
+  LIGHT_WOUND = 'THIEF_MELEE_LIGHT_WOUND',
+  SERIOUS_WOUND = 'THIEF_MELEE_SERIOUS_WOUND',
+  STAGGER = 'THIEF_MELEE_STAGGER',
+  DISARM = 'THIEF_MELEE_DISARM',
+  PAUSE = 'THIEF_MELEE_PAUSE',
+  FINAL_BLOW = 'THIEF_MELEE_FINAL_BLOW',
 }
 
 /**
@@ -44,7 +61,10 @@ export class ThiefActor extends BaseActor {
   /** ID of the treasure room where loot is deposited */
   private readonly treasureRoomId = 'treasure-room';
 
-  constructor() {
+  /** Optional message service for generating flavor text */
+  private messageService?: MessageService;
+
+  constructor(messageService?: MessageService) {
     super('thief', 'thief', {
       locationId: 'round-room',
       inventory: [],
@@ -55,6 +75,7 @@ export class ThiefActor extends BaseActor {
     this.flags.set('strength', 5);
     this.flags.set('maxStrength', 5);
     this.flags.set('fighting', false);
+    this.messageService = messageService;
   }
 
   /**
@@ -219,5 +240,67 @@ export class ThiefActor extends BaseActor {
    */
   getTreasureRoomId(): string {
     return this.treasureRoomId;
+  }
+
+  /**
+   * Get a combat message for the thief's attack.
+   * Uses MessageService if available, otherwise returns a default message.
+   *
+   * @param messageType The type of combat message to retrieve
+   * @param replacements Optional template replacements (e.g., {weapon: 'sword'})
+   * @returns A combat message string
+   */
+  getCombatMessage(
+    messageType: ThiefCombatMessageType,
+    replacements?: Record<string, string>
+  ): string {
+    if (this.messageService) {
+      const message = this.messageService.getRandomMessage('thief', messageType, replacements);
+      if (message) {
+        return message;
+      }
+    }
+
+    // Fallback messages if MessageService not available or message not found
+    switch (messageType) {
+      case ThiefCombatMessageType.MISS:
+        return 'The thief attacks but misses.';
+      case ThiefCombatMessageType.LIGHT_WOUND:
+        return 'The thief strikes, drawing blood.';
+      case ThiefCombatMessageType.SERIOUS_WOUND:
+        return 'The thief lands a serious blow!';
+      case ThiefCombatMessageType.UNCONSCIOUS:
+        return 'The thief knocks you out.';
+      case ThiefCombatMessageType.KILL:
+        return 'The thief delivers a fatal blow.';
+      case ThiefCombatMessageType.STAGGER:
+        return 'The thief attacks, and you stagger back.';
+      case ThiefCombatMessageType.DISARM:
+        return 'The thief disarms you!';
+      case ThiefCombatMessageType.PAUSE:
+        return 'The thief pauses momentarily.';
+      case ThiefCombatMessageType.FINAL_BLOW:
+        return 'The thief finishes you off.';
+      default:
+        return 'The thief attacks.';
+    }
+  }
+
+  /**
+   * Get an action message for non-combat thief behavior.
+   * Uses MessageService if available.
+   *
+   * @param messageCategory The message category (e.g., 'THIEF_EXAMINE')
+   * @param replacements Optional template replacements
+   * @returns An action message string or undefined if not found
+   */
+  getActionMessage(
+    messageCategory: string,
+    replacements?: Record<string, string>
+  ): string | undefined {
+    if (this.messageService) {
+      return this.messageService.getRandomMessage('thief', messageCategory, replacements);
+    }
+    return undefined;
   }
 }

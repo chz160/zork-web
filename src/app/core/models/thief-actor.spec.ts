@@ -1,4 +1,6 @@
-import { ThiefActor, ThiefMode } from './thief-actor';
+import { ThiefActor, ThiefMode, ThiefCombatMessageType } from './thief-actor';
+import { MessageService } from '../services/message.service';
+import { RandomService } from '../services/random.service';
 
 describe('ThiefActor', () => {
   let thief: ThiefActor;
@@ -231,6 +233,131 @@ describe('ThiefActor', () => {
 
     it('should return treasure room ID', () => {
       expect(thief.getTreasureRoomId()).toBe('treasure-room');
+    });
+  });
+
+  describe('combat messages', () => {
+    describe('without MessageService', () => {
+      it('should return fallback message for MISS', () => {
+        const message = thief.getCombatMessage(ThiefCombatMessageType.MISS);
+        expect(message).toBe('The thief attacks but misses.');
+      });
+
+      it('should return fallback message for LIGHT_WOUND', () => {
+        const message = thief.getCombatMessage(ThiefCombatMessageType.LIGHT_WOUND);
+        expect(message).toBe('The thief strikes, drawing blood.');
+      });
+
+      it('should return fallback message for KILL', () => {
+        const message = thief.getCombatMessage(ThiefCombatMessageType.KILL);
+        expect(message).toBe('The thief delivers a fatal blow.');
+      });
+    });
+
+    describe('with MessageService', () => {
+      let messageService: MessageService;
+      let randomService: RandomService;
+      let thiefWithMessages: ThiefActor;
+
+      beforeEach(() => {
+        randomService = new RandomService();
+        messageService = new MessageService(randomService);
+
+        // Register test messages
+        messageService.registerTable('thief', {
+          tables: {
+            THIEF_MELEE_MISS: [
+              'The thief stabs nonchalantly with his stiletto and misses.',
+              'You dodge as the thief comes in low.',
+            ],
+            THIEF_MELEE_DISARM: ['The thief flips your {weapon} out of your hands.'],
+          },
+        });
+
+        thiefWithMessages = new ThiefActor(messageService);
+      });
+
+      it('should use MessageService when available', () => {
+        randomService.setSeed(42);
+        const message = thiefWithMessages.getCombatMessage(ThiefCombatMessageType.MISS);
+
+        expect(message).toBeDefined();
+        expect(message).not.toBe('The thief attacks but misses.');
+        expect(
+          message === 'The thief stabs nonchalantly with his stiletto and misses.' ||
+            message === 'You dodge as the thief comes in low.'
+        ).toBe(true);
+      });
+
+      it('should support template replacements', () => {
+        const message = thiefWithMessages.getCombatMessage(ThiefCombatMessageType.DISARM, {
+          weapon: 'sword',
+        });
+
+        expect(message).toBe('The thief flips your sword out of your hands.');
+      });
+
+      it('should fall back if message not found in service', () => {
+        const message = thiefWithMessages.getCombatMessage(ThiefCombatMessageType.KILL);
+
+        // KILL not registered in test messages, should use fallback
+        expect(message).toBe('The thief delivers a fatal blow.');
+      });
+
+      it('should produce deterministic messages with same seed', () => {
+        randomService.setSeed(12345);
+        const message1 = thiefWithMessages.getCombatMessage(ThiefCombatMessageType.MISS);
+
+        randomService.setSeed(12345);
+        const message2 = thiefWithMessages.getCombatMessage(ThiefCombatMessageType.MISS);
+
+        expect(message2).toBe(message1);
+      });
+    });
+  });
+
+  describe('action messages', () => {
+    describe('without MessageService', () => {
+      it('should return undefined for action messages', () => {
+        const message = thief.getActionMessage('THIEF_EXAMINE');
+        expect(message).toBeUndefined();
+      });
+    });
+
+    describe('with MessageService', () => {
+      let messageService: MessageService;
+      let thiefWithMessages: ThiefActor;
+
+      beforeEach(() => {
+        const randomService = new RandomService();
+        messageService = new MessageService(randomService);
+
+        messageService.registerTable('thief', {
+          tables: {
+            THIEF_EXAMINE: ['The thief is a slippery character with beady eyes.'],
+            THIEF_GIFT_VALUABLE: ['The thief accepts the {item} and admires it.'],
+          },
+        });
+
+        thiefWithMessages = new ThiefActor(messageService);
+      });
+
+      it('should retrieve action messages', () => {
+        const message = thiefWithMessages.getActionMessage('THIEF_EXAMINE');
+        expect(message).toBe('The thief is a slippery character with beady eyes.');
+      });
+
+      it('should support template replacements in action messages', () => {
+        const message = thiefWithMessages.getActionMessage('THIEF_GIFT_VALUABLE', {
+          item: 'jewel',
+        });
+        expect(message).toBe('The thief accepts the jewel and admires it.');
+      });
+
+      it('should return undefined for non-existent categories', () => {
+        const message = thiefWithMessages.getActionMessage('NOT_EXISTS');
+        expect(message).toBeUndefined();
+      });
     });
   });
 });

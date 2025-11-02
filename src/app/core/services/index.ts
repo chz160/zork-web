@@ -14,3 +14,4 @@ export * from './game-tick.service';
 export * from './random.service';
 export * from './inventory.service';
 export * from './light.service';
+export * from './message.service';
