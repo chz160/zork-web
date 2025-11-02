@@ -19,6 +19,13 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 This project includes valuable reference materials in the `/docs` folder:
 
+- **Thief Configuration & Difficulty Modes** (`/docs/THIEF-DIFFICULTY-CONFIG.md`) - Complete guide to the configurable thief behavior system including:
+  - How to use difficulty modes (easy, normal, hard)
+  - Configurable parameters and probability tuning
+  - Legacy PROB and STRENGTH mapping
+  - API reference for `ThiefConfigService`
+  - Testing and development mode features
+
 - **Entity Mapping Guide** (`/docs/reference/entity-mapping.md`) - Comprehensive mapping from original Zork entities (rooms, objects, verbs) to TypeScript/JSON schema. This is the primary reference for implementing game content and includes:
   - Complete catalog of 110+ rooms, 150+ objects, and 109 verbs
   - TypeScript/JSON schema mapping for each entity type
