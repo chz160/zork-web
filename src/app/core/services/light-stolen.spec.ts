@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { LightService } from './light.service';
+import { LightService, STOLE_LIGHT_MESSAGE } from './light.service';
 import { InventoryService } from './inventory.service';
 import { RandomService } from './random.service';
 import { GameObject } from '../models/game-object.model';
@@ -105,7 +105,7 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
       expect(result.isLit).toBe(false);
       expect(result.stateChanged).toBe(true);
       expect(result.leftInDark).toBe(true);
-      expect(result.message).toBe('The thief seems to have left you in the dark.');
+      expect(result.message).toBe(STOLE_LIGHT_MESSAGE);
     });
 
     it('should handle thief stealing multiple items including light source', () => {
@@ -120,7 +120,7 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
       const result = lightService.updatePlayerLight(wasLit, newInventory, items);
 
       expect(result.leftInDark).toBe(true);
-      expect(result.message).toBe('The thief seems to have left you in the dark.');
+      expect(result.message).toBe(STOLE_LIGHT_MESSAGE);
     });
   });
 
@@ -156,7 +156,7 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
       const result = lightService.updatePlayerLight(wasLit, newInventory, items);
 
       expect(result.leftInDark).toBe(true);
-      expect(result.message).toBe('The thief seems to have left you in the dark.');
+      expect(result.message).toBe(STOLE_LIGHT_MESSAGE);
     });
   });
 
@@ -255,7 +255,7 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
       // If lamp was stolen, player should be in dark
       if (result.movedItemIds.includes('lamp')) {
         expect(lightResult.leftInDark).toBe(true);
-        expect(lightResult.message).toBe('The thief seems to have left you in the dark.');
+        expect(lightResult.message).toBe(STOLE_LIGHT_MESSAGE);
       } else {
         expect(lightResult.leftInDark).toBe(false);
         expect(lightResult.message).toBeUndefined();
@@ -286,7 +286,7 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
       // Validate: newLit should be false, and message should be shown
       expect(result.isLit).toBe(false);
       expect(result.leftInDark).toBe(true);
-      expect(result.message).toBe('The thief seems to have left you in the dark.');
+      expect(result.message).toBe(STOLE_LIGHT_MESSAGE);
     });
   });
 
@@ -306,7 +306,7 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
         const lightResult = lightService.updatePlayerLight(wasLit, newInventory, items);
 
         expect(lightResult.leftInDark).toBe(true);
-        expect(lightResult.message).toBe('The thief seems to have left you in the dark.');
+        expect(lightResult.message).toBe(STOLE_LIGHT_MESSAGE);
       }
 
       expect(moveResult.stoleLitLight).toBe(true);
@@ -348,7 +348,7 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
         // Step 3: Display message if player was left in dark
         if (lightResult.leftInDark) {
           // This message would be added to the game output
-          expect(lightResult.message).toBe('The thief seems to have left you in the dark.');
+          expect(lightResult.message).toBe(STOLE_LIGHT_MESSAGE);
         }
       }
 

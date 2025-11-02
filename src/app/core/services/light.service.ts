@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { GameObject } from '../models/game-object.model';
 
 /**
+ * Message displayed when the player is left in the dark after theft.
+ * Based on legacy STOLE-LIGHT? routine message.
+ */
+export const STOLE_LIGHT_MESSAGE = 'The thief seems to have left you in the dark.';
+
+/**
  * Result of a light state update operation.
  */
 export interface LightUpdateResult {
@@ -75,7 +81,7 @@ export class LightService {
       isLit: currentLit,
       stateChanged,
       leftInDark,
-      message: leftInDark ? 'The thief seems to have left you in the dark.' : undefined,
+      message: leftInDark ? STOLE_LIGHT_MESSAGE : undefined,
     };
   }
 

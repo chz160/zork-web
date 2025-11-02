@@ -27,7 +27,7 @@ export interface MoveItemsResult {
   anyMoved: boolean;
 
   /** Whether any lit light sources were moved (for STOLE-LIGHT? integration). */
-  stoleLitLight?: boolean;
+  stoleLitLight: boolean;
 }
 
 /**

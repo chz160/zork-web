@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { LightService } from './light.service';
+import { LightService, STOLE_LIGHT_MESSAGE } from './light.service';
 import { GameObject } from '../models/game-object.model';
 
 describe('LightService', () => {
@@ -139,7 +139,7 @@ describe('LightService', () => {
       expect(result.isLit).toBe(false);
       expect(result.stateChanged).toBe(true);
       expect(result.leftInDark).toBe(true);
-      expect(result.message).toBe('The thief seems to have left you in the dark.');
+      expect(result.message).toBe(STOLE_LIGHT_MESSAGE);
     });
 
     it('should detect when player goes from unlit to lit', () => {
@@ -210,7 +210,7 @@ describe('LightService', () => {
       expect(result.isLit).toBe(false);
       expect(result.stateChanged).toBe(true);
       expect(result.leftInDark).toBe(true);
-      expect(result.message).toBe('The thief seems to have left you in the dark.');
+      expect(result.message).toBe(STOLE_LIGHT_MESSAGE);
     });
 
     it('should handle empty inventory', () => {
@@ -219,7 +219,7 @@ describe('LightService', () => {
       expect(result.isLit).toBe(false);
       expect(result.stateChanged).toBe(true);
       expect(result.leftInDark).toBe(true);
-      expect(result.message).toBe('The thief seems to have left you in the dark.');
+      expect(result.message).toBe(STOLE_LIGHT_MESSAGE);
     });
   });
 });
