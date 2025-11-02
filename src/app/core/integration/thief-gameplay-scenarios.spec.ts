@@ -127,16 +127,17 @@ describe('Thief Gameplay Scenarios (E2E Integration)', () => {
         touchBit: true,
       });
 
-      expect(stealResult.stoleLitLight).toBe(true); // Lamp was lit when stolen
+      // stoleLitLight flag is true because a lit light source WAS stolen
+      expect(stealResult.stoleLitLight).toBe(true);
       expect(stealResult.movedItemIds).toContain('lamp');
 
-      // But player still has light (torch)
+      // But player still has light (torch), so no "left in dark" message
       playerInventory = ['torch', 'sword'];
       const isLit = lightService.isPlayerLit(playerInventory, items);
       expect(isLit).toBe(true);
 
-      // In this case, the "left in dark" message should not be shown
-      // (this is a game engine responsibility based on final light state)
+      // Game engine checks BOTH stoleLitLight AND final light state
+      // Message only shown if stoleLitLight=true AND final state is dark
     });
 
     it('should track touchbit on stolen lamp', () => {
@@ -300,12 +301,9 @@ describe('Thief Gameplay Scenarios (E2E Integration)', () => {
 
       // Step 3: Reveal all invisible items in treasure room (magic fade)
       // Legacy: "As the thief dies, the power of his magic decreases, and his treasures reappear:"
+      // Note: Legacy code filters out 'chalice' initially, and also excludes actor entities
       const treasureRoomItems = Array.from(items.values()).filter(
-        (item) =>
-          item.location === 'treasure-room' &&
-          item.id !== 'chalice' && // Chalice already revealed by depositBooty
-          item.id !== 'thief' &&
-          item.id !== 'adventurer'
+        (item) => item.location === 'treasure-room' && item.id !== 'chalice'
       );
 
       // Reveal all invisible treasures
