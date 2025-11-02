@@ -25,6 +25,9 @@ export interface MoveItemsResult {
 
   /** Whether any items were moved. */
   anyMoved: boolean;
+
+  /** Whether any lit light sources were moved (for STOLE-LIGHT? integration). */
+  stoleLitLight?: boolean;
 }
 
 /**
@@ -47,7 +50,7 @@ export class InventoryService {
    * @param toOwnerId Destination owner/location ID (e.g., 'thief', 'round-room', 'inventory')
    * @param items Map of all game objects (to read/update item properties)
    * @param options Options for probability, hiding, and touchbit
-   * @returns Result containing moved item IDs and whether any were moved
+   * @returns Result containing moved item IDs, whether any were moved, and whether any lit light sources were moved
    */
   moveItems(
     itemIds: string[],
@@ -56,6 +59,7 @@ export class InventoryService {
     options: MoveItemsOptions = {}
   ): MoveItemsResult {
     const movedItemIds: string[] = [];
+    let stoleLitLight = false;
     const { probability, hideOnMove = false, touchBit = false } = options;
 
     for (const itemId of itemIds) {
@@ -67,6 +71,11 @@ export class InventoryService {
       // Check probability if specified
       if (probability !== undefined && !this.random.nextBoolean(probability)) {
         continue;
+      }
+
+      // Check if this is a lit light source before moving
+      if (item.properties?.isLight && item.properties?.isLit) {
+        stoleLitLight = true;
       }
 
       // Move the item by updating its location
@@ -91,6 +100,7 @@ export class InventoryService {
     return {
       movedItemIds,
       anyMoved: movedItemIds.length > 0,
+      stoleLitLight,
     };
   }
 

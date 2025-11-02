@@ -289,4 +289,71 @@ describe('Light Stolen Integration (STOLE-LIGHT?)', () => {
       expect(result.message).toBe('The thief seems to have left you in the dark.');
     });
   });
+
+  describe('InventoryService.moveItems integration with stoleLitLight flag', () => {
+    it('should use stoleLitLight flag to optimize light checking', () => {
+      const playerInventory = ['lamp', 'sword'];
+      const wasLit = lightService.isPlayerLit(playerInventory, items);
+      expect(wasLit).toBe(true);
+
+      // Thief steals items
+      const moveResult = inventoryService.moveItems(['lamp', 'sword'], 'thief', items);
+
+      // The stoleLitLight flag tells us if we need to check light state
+      if (moveResult.stoleLitLight) {
+        // Only need to check light state if a lit light source was stolen
+        const newInventory = playerInventory.filter((id) => !moveResult.movedItemIds.includes(id));
+        const lightResult = lightService.updatePlayerLight(wasLit, newInventory, items);
+
+        expect(lightResult.leftInDark).toBe(true);
+        expect(lightResult.message).toBe('The thief seems to have left you in the dark.');
+      }
+
+      expect(moveResult.stoleLitLight).toBe(true);
+    });
+
+    it('should skip light checking when stoleLitLight is false', () => {
+      const playerInventory = ['lamp', 'sword'];
+      const wasLit = lightService.isPlayerLit(playerInventory, items);
+      expect(wasLit).toBe(true);
+
+      // Thief steals only non-light items
+      const moveResult = inventoryService.moveItems(['sword'], 'thief', items);
+
+      // stoleLitLight is false, so we can skip light state checking entirely
+      expect(moveResult.stoleLitLight).toBe(false);
+
+      // Player should still be lit (but we don't need to check since stoleLitLight is false)
+      const newInventory = ['lamp'];
+      const stillLit = lightService.isPlayerLit(newInventory, items);
+      expect(stillLit).toBe(true);
+    });
+
+    it('should handle complete robbery flow with light checking', () => {
+      // Complete example of thief robbery flow with STOLE-LIGHT? integration
+
+      // Setup: Player has lamp and valuable items
+      const playerInventory = ['lamp', 'sword', 'rope'];
+      const wasLit = lightService.isPlayerLit(playerInventory, items);
+      expect(wasLit).toBe(true);
+
+      // Step 1: Thief robs player (steals all items)
+      const moveResult = inventoryService.moveItems(playerInventory, 'thief', items);
+
+      // Step 2: Check if we need to run STOLE-LIGHT? logic
+      if (moveResult.stoleLitLight) {
+        const newInventory: string[] = []; // Player has nothing left
+        const lightResult = lightService.updatePlayerLight(wasLit, newInventory, items);
+
+        // Step 3: Display message if player was left in dark
+        if (lightResult.leftInDark) {
+          // This message would be added to the game output
+          expect(lightResult.message).toBe('The thief seems to have left you in the dark.');
+        }
+      }
+
+      expect(moveResult.anyMoved).toBe(true);
+      expect(moveResult.movedItemIds).toEqual(['lamp', 'sword', 'rope']);
+    });
+  });
 });

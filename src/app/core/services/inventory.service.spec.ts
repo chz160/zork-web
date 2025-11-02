@@ -177,6 +177,57 @@ describe('InventoryService', () => {
       expect(items.get('sword')?.properties?.['value']).toBe(10);
       expect(items.get('sword')?.properties?.['touched']).toBe(true);
     });
+
+    it('should detect when a lit light source is moved', () => {
+      // Make lamp a lit light source
+      items.get('lamp')!.properties = {
+        ...items.get('lamp')!.properties,
+        isLight: true,
+        isLit: true,
+      };
+
+      const result = service.moveItems(['lamp'], 'thief', items);
+
+      expect(result.stoleLitLight).toBe(true);
+    });
+
+    it('should not set stoleLitLight when moving unlit light source', () => {
+      // Make lamp an unlit light source
+      items.get('lamp')!.properties = {
+        ...items.get('lamp')!.properties,
+        isLight: true,
+        isLit: false,
+      };
+
+      const result = service.moveItems(['lamp'], 'thief', items);
+
+      expect(result.stoleLitLight).toBe(false);
+    });
+
+    it('should not set stoleLitLight when moving non-light items', () => {
+      const result = service.moveItems(['sword'], 'thief', items);
+
+      expect(result.stoleLitLight).toBe(false);
+    });
+
+    it('should set stoleLitLight when moving mixed items including lit light', () => {
+      // Make lamp a lit light source
+      items.get('lamp')!.properties = {
+        ...items.get('lamp')!.properties,
+        isLight: true,
+        isLit: true,
+      };
+
+      const result = service.moveItems(['sword', 'lamp', 'rope'], 'thief', items);
+
+      expect(result.stoleLitLight).toBe(true);
+    });
+
+    it('should set stoleLitLight false for empty move', () => {
+      const result = service.moveItems([], 'thief', items);
+
+      expect(result.stoleLitLight).toBe(false);
+    });
   });
 
   describe('stealJunk', () => {
