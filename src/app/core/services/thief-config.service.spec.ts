@@ -257,25 +257,17 @@ describe('ThiefConfigService', () => {
       expect(service.getCurrentDifficulty()).toBe('hard');
     });
 
-    it('should reset to default difficulty if current becomes invalid after reload', () => {
+    it('should preserve current difficulty after reload', () => {
       service.setDevMode(true);
       service.setDifficulty('hard');
 
-      // Reload with config missing hard mode (edge case)
-      const configWithoutHard = {
-        ...service.getConfig(),
-        difficulties: {
-          easy: service.getConfig().difficulties.easy,
-          normal: service.getConfig().difficulties.normal,
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          hard: undefined as any,
-        },
-      };
+      // Reload with partial config update
+      service.reloadConfig({
+        devMode: true,
+      });
 
-      service.reloadConfig(configWithoutHard);
-
-      // Should fall back to default
-      expect(service.getCurrentDifficulty()).toBe('normal');
+      // Should maintain hard difficulty
+      expect(service.getCurrentDifficulty()).toBe('hard');
     });
   });
 

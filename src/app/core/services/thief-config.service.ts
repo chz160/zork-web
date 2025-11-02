@@ -190,14 +190,31 @@ export class ThiefConfigService {
     }
 
     if (newConfig) {
-      // Merge new config with existing (shallow merge for safety)
+      // Deep merge for difficulty modes to preserve nested thief parameters
+      const mergedDifficulties = { ...this.config.difficulties };
+
+      if (newConfig.difficulties) {
+        // Merge each difficulty mode deeply
+        Object.entries(newConfig.difficulties).forEach(([key, mode]) => {
+          if (mode) {
+            const diffKey = key as 'easy' | 'normal' | 'hard';
+            mergedDifficulties[diffKey] = {
+              ...mergedDifficulties[diffKey],
+              ...mode,
+              thief: {
+                ...mergedDifficulties[diffKey].thief,
+                ...(mode.thief || {}),
+              },
+            };
+          }
+        });
+      }
+
+      // Merge new config with existing
       this.config = {
         ...this.config,
         ...newConfig,
-        difficulties: {
-          ...this.config.difficulties,
-          ...(newConfig.difficulties || {}),
-        },
+        difficulties: mergedDifficulties,
       };
     } else {
       // Reload from original source
