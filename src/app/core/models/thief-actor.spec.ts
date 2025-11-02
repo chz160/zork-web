@@ -360,4 +360,81 @@ describe('ThiefActor', () => {
       });
     });
   });
+
+  describe('telemetry integration', () => {
+    let telemetryService: jasmine.SpyObj<any>;
+
+    beforeEach(() => {
+      telemetryService = jasmine.createSpyObj('TelemetryService', [
+        'logThiefTick',
+        'logThiefDeath',
+        'logThiefRevived',
+        'logThiefGiftAccepted',
+      ]);
+      thief = new ThiefActor(undefined, telemetryService);
+    });
+
+    it('should log telemetry on tick', () => {
+      thief.onTick();
+
+      expect(telemetryService.logThiefTick).toHaveBeenCalledWith({
+        actorId: 'thief',
+        fromRoomId: 'round-room',
+        mode: 'CONSCIOUS',
+      });
+    });
+
+    it('should log telemetry on death', () => {
+      thief.onDeath();
+
+      expect(telemetryService.logThiefDeath).toHaveBeenCalledWith({
+        actorId: 'thief',
+        roomId: 'round-room',
+        strength: 5,
+      });
+    });
+
+    it('should log telemetry on revival', () => {
+      thief.onConscious();
+
+      expect(telemetryService.logThiefRevived).toHaveBeenCalledWith({
+        actorId: 'thief',
+        roomId: 'round-room',
+        newStrength: 5,
+      });
+    });
+
+    it('should log telemetry on gift acceptance', () => {
+      thief.acceptGift('gold-coin', 10);
+
+      expect(telemetryService.logThiefGiftAccepted).toHaveBeenCalledWith({
+        actorId: 'thief',
+        itemId: 'gold-coin',
+        itemValue: 10,
+        roomId: 'round-room',
+        engrossed: true,
+      });
+    });
+
+    it('should log telemetry with engrossed=false for worthless gifts', () => {
+      thief.acceptGift('rope', 0);
+
+      expect(telemetryService.logThiefGiftAccepted).toHaveBeenCalledWith({
+        actorId: 'thief',
+        itemId: 'rope',
+        itemValue: 0,
+        roomId: 'round-room',
+        engrossed: false,
+      });
+    });
+
+    it('should not log telemetry when service is not provided', () => {
+      const thiefWithoutTelemetry = new ThiefActor();
+      // Should not throw error
+      expect(() => thiefWithoutTelemetry.onTick()).not.toThrow();
+      expect(() => thiefWithoutTelemetry.onDeath()).not.toThrow();
+      expect(() => thiefWithoutTelemetry.onConscious()).not.toThrow();
+      expect(() => thiefWithoutTelemetry.acceptGift('sword', 0)).not.toThrow();
+    });
+  });
 });

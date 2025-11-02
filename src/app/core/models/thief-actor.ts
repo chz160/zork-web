@@ -1,5 +1,6 @@
 import { BaseActor } from './actor.model';
 import { MessageService } from '../services/message.service';
+import { TelemetryService } from '../services/telemetry.service';
 
 /**
  * Modes for the thief actor's state machine.
@@ -64,7 +65,10 @@ export class ThiefActor extends BaseActor {
   /** Optional message service for generating flavor text */
   private messageService?: MessageService;
 
-  constructor(messageService?: MessageService) {
+  /** Optional telemetry service for tracking thief behavior */
+  private telemetryService?: TelemetryService;
+
+  constructor(messageService?: MessageService, telemetryService?: TelemetryService) {
     super('thief', 'thief', {
       locationId: 'round-room',
       inventory: [],
@@ -76,6 +80,7 @@ export class ThiefActor extends BaseActor {
     this.flags.set('maxStrength', 5);
     this.flags.set('fighting', false);
     this.messageService = messageService;
+    this.telemetryService = telemetryService;
   }
 
   /**
@@ -118,6 +123,15 @@ export class ThiefActor extends BaseActor {
    * 5. Recover stiletto if on ground
    */
   override onTick(): void {
+    // Log telemetry for thief tick
+    if (this.telemetryService && this.locationId) {
+      this.telemetryService.logThiefTick({
+        actorId: this.id,
+        fromRoomId: this.locationId,
+        mode: this.mode,
+      });
+    }
+
     // TODO: Implement tick logic
     // This will require access to game state, room data, and player position
     // Implementation will be added after basic structure is in place
@@ -148,6 +162,15 @@ export class ThiefActor extends BaseActor {
   override onDeath(): void {
     this.mode = ThiefMode.DEAD;
     this.tickEnabled = false;
+
+    // Log telemetry for thief death
+    if (this.telemetryService && this.locationId) {
+      this.telemetryService.logThiefDeath({
+        actorId: this.id,
+        roomId: this.locationId,
+        strength: this.flags.get('strength') as number,
+      });
+    }
   }
 
   /**
@@ -191,6 +214,15 @@ export class ThiefActor extends BaseActor {
     this.tickEnabled = true;
     this.flags.set('fighting', true);
 
+    // Log telemetry for thief revival
+    if (this.telemetryService && this.locationId) {
+      this.telemetryService.logThiefRevived({
+        actorId: this.id,
+        roomId: this.locationId,
+        newStrength: this.flags.get('strength') as number,
+      });
+    }
+
     // TODO: Recover stiletto from ground if present
   }
 
@@ -216,6 +248,17 @@ export class ThiefActor extends BaseActor {
     // If item is valuable, thief becomes engrossed
     if (itemValue > 0) {
       this.engrossed = true;
+    }
+
+    // Log telemetry for gift acceptance
+    if (this.telemetryService && this.locationId) {
+      this.telemetryService.logThiefGiftAccepted({
+        actorId: this.id,
+        itemId,
+        itemValue,
+        roomId: this.locationId,
+        engrossed: this.engrossed,
+      });
     }
 
     // TODO: Return appropriate message based on item type and value

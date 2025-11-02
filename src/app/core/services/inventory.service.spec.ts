@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { InventoryService } from './inventory.service';
 import { RandomService } from './random.service';
+import { TelemetryService } from './telemetry.service';
 import { GameObject } from '../models/game-object.model';
 
 describe('InventoryService', () => {
@@ -695,6 +696,93 @@ describe('InventoryService', () => {
 
       expect(result.anyMoved).toBe(true);
       expect(items.get('crown')?.properties?.touched).toBeUndefined();
+    });
+  });
+
+  describe('telemetry integration', () => {
+    let items: Map<string, GameObject>;
+    let telemetryService: jasmine.SpyObj<any>;
+
+    beforeEach(() => {
+      items = new Map([
+        [
+          'sword',
+          {
+            id: 'sword',
+            name: 'sword',
+            description: 'A sword',
+            portable: true,
+            visible: true,
+            location: 'round-room',
+            properties: { value: 0 },
+          },
+        ],
+        [
+          'treasure',
+          {
+            id: 'treasure',
+            name: 'treasure',
+            description: 'A treasure',
+            portable: true,
+            visible: false,
+            location: 'thief',
+            properties: { value: 10 },
+          },
+        ],
+      ]);
+
+      telemetryService = TestBed.inject(TelemetryService) as jasmine.SpyObj<any>;
+      spyOn(telemetryService, 'logItemStolen');
+      spyOn(telemetryService, 'logItemDeposited');
+      spyOn(telemetryService, 'isEnabled').and.returnValue(true);
+    });
+
+    it('should log telemetry when items are stolen', () => {
+      randomService.setSeed(12345);
+      service.stealJunk('round-room', items, undefined, ['sword']);
+
+      expect(telemetryService.logItemStolen).toHaveBeenCalledWith({
+        actorId: 'thief',
+        itemIds: ['sword'],
+        fromRoomId: 'round-room',
+        toRoomId: 'thief',
+        probability: 0.1,
+      });
+    });
+
+    it('should not log telemetry when no items are stolen', () => {
+      randomService.setSeed(12345);
+      service.stealJunk('empty-room', items);
+
+      expect(telemetryService.logItemStolen).not.toHaveBeenCalled();
+    });
+
+    it('should log telemetry when items are deposited', () => {
+      const thiefInventory = ['treasure'];
+      service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(telemetryService.logItemDeposited).toHaveBeenCalledWith({
+        actorId: 'thief',
+        itemIds: ['treasure'],
+        fromRoomId: 'thief',
+        toRoomId: 'treasure-room',
+      });
+    });
+
+    it('should not log telemetry when no items are deposited', () => {
+      const thiefInventory = ['stiletto'];
+      service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(telemetryService.logItemDeposited).not.toHaveBeenCalled();
+    });
+
+    it('should not log telemetry when telemetry is disabled', () => {
+      (telemetryService.isEnabled as jasmine.Spy).and.returnValue(false);
+
+      randomService.setSeed(12345);
+      service.stealJunk('round-room', items, undefined, ['sword']);
+
+      expect(telemetryService.logItemStolen).not.toHaveBeenCalled();
     });
   });
 });
