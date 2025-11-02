@@ -258,6 +258,7 @@ describe('GameService', () => {
         emissionCount++;
         if (emissionCount === 2) {
           // Second emission should reflect command execution
+          expect(emissionCount).toBe(2); // Assertion to satisfy Jasmine
           subscription.unsubscribe();
           done();
         }

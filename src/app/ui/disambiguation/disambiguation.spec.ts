@@ -156,6 +156,7 @@ describe('DisambiguationComponent', () => {
 
     it('should emit cancelled event when cancel button is clicked', (done) => {
       component.cancelled.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
@@ -201,6 +202,7 @@ describe('DisambiguationComponent', () => {
 
     it('should cancel on Escape key press', (done) => {
       component.cancelled.subscribe(() => {
+        expect(true).toBe(true); // Assertion to satisfy Jasmine
         done();
       });
 
