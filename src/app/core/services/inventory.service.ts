@@ -73,7 +73,8 @@ export class InventoryService {
         continue;
       }
 
-      // Check if this is a lit light source before moving
+      // Check if this is a lit light source that will be moved (for STOLE-LIGHT? integration)
+      // Note: This check happens after probability check, so only items that will be moved are checked
       if (item.properties?.isLight && item.properties?.isLit) {
         stoleLitLight = true;
       }
