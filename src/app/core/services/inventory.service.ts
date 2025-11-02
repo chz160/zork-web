@@ -196,4 +196,82 @@ export class InventoryService {
     // The legacy ROB-MAZE had similar logic but in maze context
     return this.stealJunk(roomId, items, _playerRoomId, alwaysStealItemIds);
   }
+
+  /**
+   * Deposit valuable items (booty) from the thief to a target room.
+   * Based on legacy DEPOSIT-BOOTY routine from 1actions.zil (~line 1897).
+   *
+   * Behavior:
+   * - Moves items with value > 0 from thief's inventory to target room
+   * - Skips stiletto and large-bag (thief keeps these)
+   * - Makes items visible again (clears INVISIBLE flag)
+   * - Clears touchbit on moved items
+   * - Special handling for egg (opens it if moved)
+   *
+   * @param thiefInventory Array of item IDs in thief's inventory
+   * @param toRoomId Target room ID where items should be deposited
+   * @param items Map of all game objects
+   * @returns Result containing deposited item IDs and whether any were deposited
+   */
+  depositBooty(
+    thiefInventory: string[],
+    toRoomId: string,
+    items: Map<string, GameObject>
+  ): MoveItemsResult {
+    const depositedItemIds: string[] = [];
+    let stoleLitLight = false;
+
+    for (const itemId of thiefInventory) {
+      const item = items.get(itemId);
+      if (!item) {
+        continue;
+      }
+
+      // Skip stiletto and large-bag (thief keeps these)
+      if (itemId === 'stiletto' || itemId === 'large-bag') {
+        continue;
+      }
+
+      // Only deposit valuable items (value > 0)
+      const value = item.properties?.['value'] ?? 0;
+      if (value <= 0) {
+        continue;
+      }
+
+      // Check if this is a lit light source that will be moved
+      if (item.properties?.isLight && item.properties?.isLit) {
+        stoleLitLight = true;
+      }
+
+      // Move the item to the target room
+      item.location = toRoomId;
+
+      // Make item visible again (break thief's magic)
+      item.visible = true;
+
+      // Clear touchbit
+      if (item.properties?.touched) {
+        item.properties = {
+          ...item.properties,
+          touched: false,
+        };
+      }
+
+      // Special handling for egg: open it when deposited
+      if (itemId === 'egg') {
+        item.properties = {
+          ...item.properties,
+          isOpen: true,
+        };
+      }
+
+      depositedItemIds.push(itemId);
+    }
+
+    return {
+      movedItemIds: depositedItemIds,
+      anyMoved: depositedItemIds.length > 0,
+      stoleLitLight,
+    };
+  }
 }

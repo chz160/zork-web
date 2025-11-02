@@ -497,4 +497,204 @@ describe('InventoryService', () => {
       expect(result.movedItemIds).toEqual([]);
     });
   });
+
+  describe('depositBooty', () => {
+    let items: Map<string, GameObject>;
+
+    beforeEach(() => {
+      items = new Map([
+        [
+          'chalice',
+          {
+            id: 'chalice',
+            name: 'chalice',
+            description: 'A jeweled chalice',
+            portable: true,
+            visible: false, // Hidden by thief's magic
+            location: 'thief',
+            properties: { value: 10, touched: true },
+          },
+        ],
+        [
+          'painting',
+          {
+            id: 'painting',
+            name: 'painting',
+            description: 'A beautiful painting',
+            portable: true,
+            visible: false,
+            location: 'thief',
+            properties: { value: 6, touched: true },
+          },
+        ],
+        [
+          'stiletto',
+          {
+            id: 'stiletto',
+            name: 'stiletto',
+            description: 'A sharp stiletto',
+            portable: true,
+            visible: true,
+            location: 'thief',
+            properties: { value: 0, isWeapon: true },
+          },
+        ],
+        [
+          'large-bag',
+          {
+            id: 'large-bag',
+            name: 'large bag',
+            description: 'A large bag',
+            portable: true,
+            visible: true,
+            location: 'thief',
+            properties: { value: 0 },
+          },
+        ],
+        [
+          'junk',
+          {
+            id: 'junk',
+            name: 'junk',
+            description: 'Worthless junk',
+            portable: true,
+            visible: false,
+            location: 'thief',
+            properties: { value: 0 },
+          },
+        ],
+        [
+          'egg',
+          {
+            id: 'egg',
+            name: 'egg',
+            description: 'A jeweled egg',
+            portable: true,
+            visible: false,
+            location: 'thief',
+            properties: { value: 5, isOpen: false, touched: true },
+          },
+        ],
+      ]);
+    });
+
+    it('should deposit valuable items from thief to target room', () => {
+      const thiefInventory = ['chalice', 'painting', 'stiletto', 'junk'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.anyMoved).toBe(true);
+      expect(result.movedItemIds).toContain('chalice');
+      expect(result.movedItemIds).toContain('painting');
+      expect(items.get('chalice')?.location).toBe('treasure-room');
+      expect(items.get('painting')?.location).toBe('treasure-room');
+    });
+
+    it('should not deposit stiletto', () => {
+      const thiefInventory = ['chalice', 'stiletto'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.movedItemIds).not.toContain('stiletto');
+      expect(items.get('stiletto')?.location).toBe('thief');
+    });
+
+    it('should not deposit large-bag', () => {
+      const thiefInventory = ['chalice', 'large-bag'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.movedItemIds).not.toContain('large-bag');
+      expect(items.get('large-bag')?.location).toBe('thief');
+    });
+
+    it('should not deposit worthless items', () => {
+      const thiefInventory = ['chalice', 'junk'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.movedItemIds).not.toContain('junk');
+      expect(items.get('junk')?.location).toBe('thief');
+    });
+
+    it('should make deposited items visible', () => {
+      const thiefInventory = ['chalice', 'painting'];
+      service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(items.get('chalice')?.visible).toBe(true);
+      expect(items.get('painting')?.visible).toBe(true);
+    });
+
+    it('should clear touchbit on deposited items', () => {
+      const thiefInventory = ['chalice', 'painting'];
+      service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(items.get('chalice')?.properties?.touched).toBe(false);
+      expect(items.get('painting')?.properties?.touched).toBe(false);
+    });
+
+    it('should open egg when deposited', () => {
+      const thiefInventory = ['egg'];
+      service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(items.get('egg')?.properties?.isOpen).toBe(true);
+      expect(items.get('egg')?.location).toBe('treasure-room');
+      expect(items.get('egg')?.visible).toBe(true);
+    });
+
+    it('should return empty result when no valuable items', () => {
+      const thiefInventory = ['stiletto', 'large-bag', 'junk'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.anyMoved).toBe(false);
+      expect(result.movedItemIds).toEqual([]);
+    });
+
+    it('should skip non-existent items', () => {
+      const thiefInventory = ['chalice', 'nonexistent', 'painting'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.movedItemIds).toEqual(['chalice', 'painting']);
+    });
+
+    it('should detect when a lit light source is deposited', () => {
+      items.set('lamp', {
+        id: 'lamp',
+        name: 'lamp',
+        description: 'A brass lamp',
+        portable: true,
+        visible: false,
+        location: 'thief',
+        properties: { value: 5, isLight: true, isLit: true },
+      });
+
+      const thiefInventory = ['lamp'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.stoleLitLight).toBe(true);
+    });
+
+    it('should deposit to generic room (not just treasure room)', () => {
+      const thiefInventory = ['chalice', 'painting'];
+      const result = service.depositBooty(thiefInventory, 'round-room', items);
+
+      expect(result.anyMoved).toBe(true);
+      expect(items.get('chalice')?.location).toBe('round-room');
+      expect(items.get('painting')?.location).toBe('round-room');
+    });
+
+    it('should handle items without touched property', () => {
+      items.set('crown', {
+        id: 'crown',
+        name: 'crown',
+        description: 'A golden crown',
+        portable: true,
+        visible: false,
+        location: 'thief',
+        properties: { value: 15 },
+      });
+
+      const thiefInventory = ['crown'];
+      const result = service.depositBooty(thiefInventory, 'treasure-room', items);
+
+      expect(result.anyMoved).toBe(true);
+      expect(items.get('crown')?.properties?.touched).toBeUndefined();
+    });
+  });
 });
