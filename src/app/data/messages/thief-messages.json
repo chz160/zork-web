@@ -1,5 +1,4 @@
 {
-  "$schema": "../../schemas/messages-schema.json",
   "description": "Thief actor messages from legacy THIEF-MELEE and ROBBER-FUNCTION",
   "tables": {
     "THIEF_MELEE_MISS": [
@@ -55,7 +54,7 @@
       "You feel a light finger-touch, and turning, notice a grinning figure holding a large bag in one hand and a stiletto in the other."
     ],
     "THIEF_LEFT_ROBBED": [
-      "The thief just left, still carrying his large bag. You may not have noticed that he "
+      "The thief just left, still carrying his large bag. You may not have noticed that he robbed you blind first."
     ],
     "THIEF_LEFT_EMPTY": ["The thief, finding nothing of value, left disgusted."],
     "THIEF_LEFT_IN_DARK": ["The thief seems to have left you in the dark."],
@@ -64,10 +63,10 @@
       "The thief, being temporarily incapacitated, is unable to acknowledge your greeting with his usual graciousness."
     ],
     "THIEF_KNIFE_THROWN_FLEE": [
-      "You evidently frightened the robber, though you didn't hit him. He flees"
+      "You evidently frightened the robber, though you didn't hit him. He flees, but the contents of his bag fall on the floor."
     ],
     "THIEF_KNIFE_THROWN_MISS": [
-      "You missed. The thief makes no attempt to take the knife, though it would be a fine addition to the collection in his bag. He does seem"
+      "You missed. The thief makes no attempt to take the knife, though it would be a fine addition to the collection in his bag. He does seem angered by your attempt."
     ],
     "THIEF_GIFT_VALUABLE": [
       "The thief is taken aback by your unexpected generosity, but accepts the {item} and stops to admire its beauty."
