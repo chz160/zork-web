@@ -1,6 +1,7 @@
 import { BaseActor } from './actor.model';
 import { MessageService } from '../services/message.service';
 import { TelemetryService } from '../services/telemetry.service';
+import { ThiefConfigService } from '../services/thief-config.service';
 
 /**
  * Modes for the thief actor's state machine.
@@ -68,19 +69,33 @@ export class ThiefActor extends BaseActor {
   /** Optional telemetry service for tracking thief behavior */
   private telemetryService?: TelemetryService;
 
-  constructor(messageService?: MessageService, telemetryService?: TelemetryService) {
+  /** Optional config service for tunable parameters */
+  private configService?: ThiefConfigService;
+
+  constructor(
+    messageService?: MessageService,
+    telemetryService?: TelemetryService,
+    configService?: ThiefConfigService
+  ) {
     super('thief', 'thief', {
       locationId: 'round-room',
       inventory: [],
       tickEnabled: true,
     });
 
-    // Initialize strength flag (legacy P?STRENGTH)
-    this.flags.set('strength', 5);
-    this.flags.set('maxStrength', 5);
-    this.flags.set('fighting', false);
     this.messageService = messageService;
     this.telemetryService = telemetryService;
+    this.configService = configService;
+
+    // Initialize strength flag (legacy P?STRENGTH)
+    // Use config if available, otherwise default to legacy value (5)
+    const config = this.configService?.getThiefParameters();
+    const strength = config?.strength ?? 5;
+    const maxStrength = config?.maxStrength ?? 5;
+
+    this.flags.set('strength', strength);
+    this.flags.set('maxStrength', maxStrength);
+    this.flags.set('fighting', false);
   }
 
   /**
@@ -345,5 +360,50 @@ export class ThiefActor extends BaseActor {
       return this.messageService.getRandomMessage('thief', messageCategory, replacements);
     }
     return undefined;
+  }
+
+  /**
+   * Get a configurable probability parameter.
+   * Uses ThiefConfigService if available, otherwise returns default value.
+   *
+   * @param paramName The name of the probability parameter
+   * @param defaultValue Default value if config is not available
+   * @returns The probability value (0.0 to 1.0)
+   */
+  getProbability(
+    paramName:
+      | 'appearProbability'
+      | 'stealProbability'
+      | 'fleeWhenWeakProbability'
+      | 'dropWorthlessProbability'
+      | 'combatHitProbability'
+      | 'combatCriticalHitProbability'
+      | 'combatDisarmProbability'
+      | 'tickMovementProbability'
+      | 'depositBootyProbability',
+    defaultValue: number
+  ): number {
+    const config = this.configService?.getThiefParameters();
+    return config?.[paramName] ?? defaultValue;
+  }
+
+  /**
+   * Get the aggressiveness factor from config.
+   *
+   * @returns Aggressiveness (0.0 to 1.0), default 0.6
+   */
+  getAggressiveness(): number {
+    const config = this.configService?.getThiefParameters();
+    return config?.aggressiveness ?? 0.6;
+  }
+
+  /**
+   * Get the engrossed duration from config.
+   *
+   * @returns Number of ticks thief remains engrossed, default 2
+   */
+  getEngrossedDuration(): number {
+    const config = this.configService?.getThiefParameters();
+    return config?.engrossedDuration ?? 2;
   }
 }

@@ -1,0 +1,64 @@
+{
+  "description": "Configurable parameters for thief behavior and difficulty modes",
+  "devMode": false,
+  "currentDifficulty": "normal",
+  "difficulties": {
+    "easy": {
+      "name": "Easy",
+      "description": "Thief is less aggressive and easier to defeat",
+      "thief": {
+        "strength": 3,
+        "maxStrength": 3,
+        "aggressiveness": 0.4,
+        "appearProbability": 0.2,
+        "stealProbability": 0.3,
+        "fleeWhenWeakProbability": 0.6,
+        "dropWorthlessProbability": 0.8,
+        "engrossedDuration": 3,
+        "combatHitProbability": 0.4,
+        "combatCriticalHitProbability": 0.1,
+        "combatDisarmProbability": 0.05,
+        "tickMovementProbability": 0.5,
+        "depositBootyProbability": 0.7
+      }
+    },
+    "normal": {
+      "name": "Normal",
+      "description": "Thief behavior matches original Zork difficulty",
+      "thief": {
+        "strength": 5,
+        "maxStrength": 5,
+        "aggressiveness": 0.6,
+        "appearProbability": 0.3,
+        "stealProbability": 0.5,
+        "fleeWhenWeakProbability": 0.4,
+        "dropWorthlessProbability": 0.7,
+        "engrossedDuration": 2,
+        "combatHitProbability": 0.6,
+        "combatCriticalHitProbability": 0.2,
+        "combatDisarmProbability": 0.15,
+        "tickMovementProbability": 0.7,
+        "depositBootyProbability": 0.8
+      }
+    },
+    "hard": {
+      "name": "Hard",
+      "description": "Thief is more aggressive, cunning, and difficult to defeat",
+      "thief": {
+        "strength": 7,
+        "maxStrength": 7,
+        "aggressiveness": 0.8,
+        "appearProbability": 0.5,
+        "stealProbability": 0.7,
+        "fleeWhenWeakProbability": 0.2,
+        "dropWorthlessProbability": 0.5,
+        "engrossedDuration": 1,
+        "combatHitProbability": 0.75,
+        "combatCriticalHitProbability": 0.3,
+        "combatDisarmProbability": 0.25,
+        "tickMovementProbability": 0.9,
+        "depositBootyProbability": 0.9
+      }
+    }
+  }
+}

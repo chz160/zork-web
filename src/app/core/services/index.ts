@@ -15,3 +15,4 @@ export * from './random.service';
 export * from './inventory.service';
 export * from './light.service';
 export * from './message.service';
+export * from './thief-config.service';
