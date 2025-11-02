@@ -990,7 +990,7 @@ dtextc.dat structure:
 
 ### Additional Resources
 
-- **Entity Mapping Guide** (`/docs/entity-mapping.md`): Comprehensive entity catalog
+- **Entity Mapping Guide** (`/docs/reference/entity-mapping.md`): Comprehensive entity catalog
 - **JSON Schemas** (`/docs/schemas/`): Validation schemas for JSON files
 - **Existing JSON Files**: `/src/app/data/rooms.json`, `/src/app/data/objects.json`
 - **Original Source**: `/docs/original-src-c/` (Full C implementation)

@@ -213,7 +213,7 @@ When adding new conversion documentation:
 
 ## 📖 Additional Documentation
 
-- **Entity Mapping**: `/docs/entity-mapping.md` (catalog of all game entities)
+- **Entity Mapping**: `/docs/reference/entity-mapping.md` (catalog of all game entities)
 - **Architecture**: `/docs/architecture.md` (game engine design)
 - **Walkthroughs**: `/docs/walkthrough*.md` (full game transcripts)
 

@@ -323,7 +323,7 @@ If you find issues or want to improve the converter:
 
 ## References
 
-- [Entity Mapping Guide](/docs/entity-mapping.md) - Complete mapping reference
+- [Entity Mapping Guide](/docs/reference/entity-mapping.md) - Complete mapping reference
 - [JSON Schemas](/docs/schemas/) - Output format specifications
 - [ZIL Language Reference](https://www.inform-fiction.org/zmachine/standards/) - ZIL documentation
 - [Original Zork Source](/docs/original-src-1980/) - Sample source code
