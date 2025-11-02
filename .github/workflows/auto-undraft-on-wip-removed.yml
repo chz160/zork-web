@@ -1,0 +1,52 @@
+# .github/workflows/auto-undraft-on-wip-removed.yml
+name: Undraft PR when [WIP] is removed
+
+on:
+  pull_request:
+    types: [edited]         # fires when the title changes
+    branches: [main]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  undraft-when-wip-removed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skip if still [WIP]
+        id: gate
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          DRAFT="${{ github.event.pull_request.draft }}"
+          if [[ "$TITLE" =~ ^\[WIP\] ]]; then
+            echo "still_wip=true" >> $GITHUB_OUTPUT
+          fi
+          echo "is_draft=$DRAFT" >> $GITHUB_OUTPUT
+
+      - name: Resolve PR node id
+        if: steps.gate.outputs.still_wip != 'true' && steps.gate.outputs.is_draft == 'true'
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+            core.setOutput('node', pr.data.node_id);
+
+      - name: Mark Ready for review (GraphQL)
+        if: steps.pr.outputs.node != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const mutation = `
+              mutation($id:ID!) {
+                markPullRequestReadyForReview(input:{pullRequestId:$id}) {
+                  pullRequest { number isDraft title }
+                }
+              }
+            `;
+            await github.graphql(mutation, { id: "${{ steps.pr.outputs.node }}" });
