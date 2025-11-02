@@ -110,7 +110,7 @@ export class VisibilityInspectorService {
       // Skip visible items or hidden items when not requested
       if (
         info.effectiveVisibility === 'visible' ||
-        (!includeHidden && info.effectiveVisibility === 'hidden')
+        (info.effectiveVisibility === 'hidden' && !includeHidden)
       ) {
         continue;
       }
