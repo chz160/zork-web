@@ -68,6 +68,6 @@ The TypeScript interfaces in `/src/app/core/models/` should match these schemas:
 
 ## References
 
-- **Entity Mapping Documentation**: `/docs/entity-mapping.md`
+- **Entity Mapping Documentation**: `/docs/reference/entity-mapping.md`
 - **Architecture Documentation**: `/docs/architecture.md`
 - **JSON Schema Specification**: https://json-schema.org/

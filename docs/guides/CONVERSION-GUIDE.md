@@ -373,5 +373,5 @@ Before finalizing your conversion:
 
 - Check the full analysis document for technical details
 - Review existing JSON files for examples
-- Compare with entity mapping guide (`/docs/entity-mapping.md`)
+- Compare with entity mapping guide (`/docs/reference/entity-mapping.md`)
 - Test against walkthrough transcripts for accuracy

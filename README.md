@@ -19,7 +19,7 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 This project includes valuable reference materials in the `/docs` folder:
 
-- **Entity Mapping Guide** (`/docs/entity-mapping.md`) - Comprehensive mapping from original Zork entities (rooms, objects, verbs) to TypeScript/JSON schema. This is the primary reference for implementing game content and includes:
+- **Entity Mapping Guide** (`/docs/reference/entity-mapping.md`) - Comprehensive mapping from original Zork entities (rooms, objects, verbs) to TypeScript/JSON schema. This is the primary reference for implementing game content and includes:
   - Complete catalog of 110+ rooms, 150+ objects, and 109 verbs
   - TypeScript/JSON schema mapping for each entity type
   - Edge case handling strategies (containers, light/darkness, NPCs)
@@ -28,9 +28,9 @@ This project includes valuable reference materials in the `/docs` folder:
 
 - **Transcript Verification** (`/docs/TRANSCRIPT-VERIFICATION.md`) - Documentation of test results comparing engine output against legacy Zork transcripts. Includes known discrepancies, edge cases discovered, and compatibility summary.
 
-- **Original Zork Source Code** (`/docs/original-src-1977/`, `/docs/original-src-1980/`, `/docs/original-src-c/`) - The 1977-1980 MIT source code for Zork, written in MDL for the PDP-10. This historical code serves as a reference for understanding the original game mechanics, world design, and command parsing. See the [README](docs/original-src-1977/README.md) for details about the file organization and rights.
+- **Original Zork Source Code** (`/docs/original-src-1980/`, `/docs/original-src-c/`) - The 1980 MIT source code for Zork, written in MDL/ZIL for the PDP-10, and the C port. This historical code serves as a reference for understanding the original game mechanics, world design, and command parsing. See the [README](docs/original-src-1980/README.md) for details about the file organization and rights.
 
-- **Game Walkthroughs** (`/docs/walkthrough1.md`, `/docs/walkthrough2.md`, `/docs/walkthrough3.md`) - Complete game transcripts showing different approaches to solving Zork. These are useful for:
+- **Game Walkthrough** (`/docs/walkthrough.txt`) - Complete game transcript showing how to complete Zork. This is useful for:
   - Testing game implementation completeness
   - Verifying correct behavior of puzzles and interactions
   - Understanding the full scope of the game world
@@ -317,7 +317,7 @@ To run tests that verify room descriptions and exits meet quality standards:
 npm test -- --include='**/room-data-quality.spec.ts' --no-watch --browsers=ChromeHeadless
 ```
 
-See [docs/ROOM-DATA-QUALITY-FIX.md](docs/ROOM-DATA-QUALITY-FIX.md) for details on data quality issues and fixes.
+See [docs/archive/ROOM-DATA-QUALITY-FIX.md](docs/archive/ROOM-DATA-QUALITY-FIX.md) for details on data quality issues and fixes.
 
 ### Running E2E Tests
 
@@ -444,7 +444,7 @@ npm run fix:rooms
 
 #### Data Quality Documentation
 
-See [docs/ROOM-DATA-QUALITY-FIX.md](docs/ROOM-DATA-QUALITY-FIX.md) for:
+See [docs/archive/ROOM-DATA-QUALITY-FIX.md](docs/archive/ROOM-DATA-QUALITY-FIX.md) for:
 - Complete documentation of data quality issues
 - Examples of problems and solutions
 - Best practices for room data
@@ -899,7 +899,7 @@ The engine follows best practices:
 
 ## Data Conversion Tool
 
-A conversion tool is provided to transform legacy Zork source code (ZIL format) into TypeScript/JSON schema compatible with the game engine. See **[Converter Documentation](docs/CONVERTER.md)** for details.
+A conversion tool is provided to transform legacy Zork source code (ZIL format) into TypeScript/JSON schema compatible with the game engine. See **[Converter Documentation](docs/guides/CONVERTER.md)** for details.
 
 ### Quick Start
 
