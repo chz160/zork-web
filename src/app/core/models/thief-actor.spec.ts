@@ -217,4 +217,20 @@ describe('ThiefActor', () => {
       expect(() => thief.onEncounter('some-room')).not.toThrow();
     });
   });
+
+  describe('treasure room helpers', () => {
+    it('should detect when thief is in treasure room', () => {
+      thief.locationId = 'treasure-room';
+      expect(thief.isInTreasureRoom()).toBe(true);
+    });
+
+    it('should detect when thief is not in treasure room', () => {
+      thief.locationId = 'round-room';
+      expect(thief.isInTreasureRoom()).toBe(false);
+    });
+
+    it('should return treasure room ID', () => {
+      expect(thief.getTreasureRoomId()).toBe('treasure-room');
+    });
+  });
 });

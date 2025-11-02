@@ -119,18 +119,14 @@ export class ThiefActor extends BaseActor {
    *
    * Behavior:
    * - Disable ticking
-   * - Drop stiletto
-   * - Deposit all treasures in current location
-   * - If in treasure room, reveal all invisible items
+   * - Set mode to DEAD
+   *
+   * Note: The actual depositBooty operation should be called separately by the
+   * system that has access to the items map (e.g., GameEngine or CombatService).
    */
   override onDeath(): void {
     this.mode = ThiefMode.DEAD;
     this.tickEnabled = false;
-
-    // TODO: Implement death logic
-    // - Drop stiletto in current location
-    // - Deposit all valuable items (booty) in current location
-    // - If in treasure room, make all items visible (break magic)
   }
 
   /**
@@ -209,5 +205,19 @@ export class ThiefActor extends BaseActor {
    */
   hasStilettoInInventory(): boolean {
     return this.inventory.includes(this.stilettoId);
+  }
+
+  /**
+   * Check if thief is in the treasure room.
+   */
+  isInTreasureRoom(): boolean {
+    return this.locationId === this.treasureRoomId;
+  }
+
+  /**
+   * Get the treasure room ID.
+   */
+  getTreasureRoomId(): string {
+    return this.treasureRoomId;
   }
 }
