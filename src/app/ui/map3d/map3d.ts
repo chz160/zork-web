@@ -326,9 +326,11 @@ export class Map3DComponent implements OnInit, OnDestroy {
       group.add(marker);
     }
 
-    // Position the room group
-    group.position.set(node.x / 10, 0, node.y / 10); // Scale down positions
-    group.userData = { id: node.id, isCurrent: node.isCurrent };
+    // Position the room group in 3D space
+    // Scale coordinates for better visualization spacing
+    const scale = 15; // spacing between rooms
+    group.position.set(node.x * scale, node.z * scale, node.y * scale);
+    group.userData = { id: node.id, isCurrent: node.isCurrent, z: node.z };
 
     return group;
   }
@@ -377,18 +379,19 @@ export class Map3DComponent implements OnInit, OnDestroy {
       return null;
     }
 
+    const scale = 15; // Same scale as room positioning
     const points = [];
-    points.push(new THREE.Vector3(fromNode.x / 10, 0, fromNode.y / 10));
-    points.push(new THREE.Vector3(toNode.x / 10, 0, toNode.y / 10));
+    points.push(new THREE.Vector3(fromNode.x * scale, fromNode.z * scale, fromNode.y * scale));
+    points.push(new THREE.Vector3(toNode.x * scale, toNode.z * scale, toNode.y * scale));
 
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
 
     // Color based on direction
-    let color = 0x00ff00; // Default green
+    let color = 0x00ff00; // Default green for horizontal movement
     if (edge.direction === 'up') {
       color = 0xffff00; // Yellow for up
     } else if (edge.direction === 'down') {
-      color = 0x00ffff; // Cyan for down
+      color = 0xff00ff; // Magenta for down
     }
 
     const material = new THREE.LineBasicMaterial({
@@ -410,12 +413,14 @@ export class Map3DComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Update controls target to current room position
-    const targetX = currentNode.x / 10;
-    const targetZ = currentNode.y / 10;
+    // Update controls target to current room position in 3D
+    const scale = 15;
+    const targetX = currentNode.x * scale;
+    const targetY = currentNode.z * scale;
+    const targetZ = currentNode.y * scale;
 
     // Smoothly transition to new target
-    this.controls.target.set(targetX, 0, targetZ);
+    this.controls.target.set(targetX, targetY, targetZ);
   }
 
   /**

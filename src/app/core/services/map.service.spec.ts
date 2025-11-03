@@ -68,6 +68,7 @@ describe('MapService', () => {
     expect(nodes[0].id).toBe('room1');
     expect(nodes[0].name).toBe('Room 1');
     expect(nodes[0].visited).toBe(true);
+    expect(nodes[0].z).toBeDefined(); // Now includes Z coordinate
   });
 
   it('should mark current room in nodes', () => {
@@ -169,6 +170,8 @@ describe('MapService', () => {
     expect(bbox.maxX).toBe(0);
     expect(bbox.minY).toBe(0);
     expect(bbox.maxY).toBe(0);
+    expect(bbox.minZ).toBe(0);
+    expect(bbox.maxZ).toBe(0);
   });
 
   it('should compute bounding box for rooms', () => {
@@ -191,6 +194,8 @@ describe('MapService', () => {
     expect(bbox.maxX).toBeDefined();
     expect(bbox.minY).toBeDefined();
     expect(bbox.maxY).toBeDefined();
+    expect(bbox.minZ).toBeDefined();
+    expect(bbox.maxZ).toBeDefined();
   });
 
   it('should position rooms in grid layout', () => {
