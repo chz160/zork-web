@@ -229,6 +229,138 @@ describe('InventoryService', () => {
 
       expect(result.stoleLitLight).toBe(false);
     });
+
+    it('should update actor inventory when actor option is provided', () => {
+      const mockActor = {
+        id: 'thief',
+        name: 'thief',
+        locationId: 'round-room',
+        inventory: [] as string[],
+        flags: new Map(),
+        tickEnabled: true,
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onTick: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onEncounter: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDeath: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDamage: () => {},
+      };
+
+      const result = service.moveItems(['sword', 'lamp'], 'thief', items, {
+        actor: mockActor,
+      });
+
+      expect(result.anyMoved).toBe(true);
+      expect(result.movedItemIds).toEqual(['sword', 'lamp']);
+      expect(mockActor.inventory).toEqual(['sword', 'lamp']);
+      expect(items.get('sword')?.location).toBe('thief');
+      expect(items.get('lamp')?.location).toBe('thief');
+    });
+
+    it('should not duplicate items in actor inventory', () => {
+      const mockActor = {
+        id: 'thief',
+        name: 'thief',
+        locationId: 'round-room',
+        inventory: ['sword'] as string[], // Already has sword
+        flags: new Map(),
+        tickEnabled: true,
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onTick: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onEncounter: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDeath: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDamage: () => {},
+      };
+
+      const result = service.moveItems(['sword', 'lamp'], 'thief', items, {
+        actor: mockActor,
+      });
+
+      expect(result.anyMoved).toBe(true);
+      expect(result.movedItemIds).toEqual(['sword', 'lamp']);
+      // sword should not be duplicated, only lamp added
+      expect(mockActor.inventory).toEqual(['sword', 'lamp']);
+    });
+
+    it('should update actor inventory only for items that passed probability check', () => {
+      const mockActor = {
+        id: 'thief',
+        name: 'thief',
+        locationId: 'round-room',
+        inventory: [] as string[],
+        flags: new Map(),
+        tickEnabled: true,
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onTick: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onEncounter: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDeath: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDamage: () => {},
+      };
+
+      randomService.setSeed(12345);
+
+      const result = service.moveItems(['sword', 'lamp', 'rope'], 'thief', items, {
+        probability: 0.5,
+        actor: mockActor,
+      });
+
+      // Verify that only moved items are in actor inventory
+      expect(mockActor.inventory).toEqual(result.movedItemIds);
+
+      // Verify each item in actor inventory was actually moved
+      for (const itemId of mockActor.inventory) {
+        expect(items.get(itemId)?.location).toBe('thief');
+      }
+    });
+
+    it('should work without actor option (backward compatibility)', () => {
+      const result = service.moveItems(['sword', 'lamp'], 'thief', items);
+
+      expect(result.anyMoved).toBe(true);
+      expect(result.movedItemIds).toEqual(['sword', 'lamp']);
+      expect(items.get('sword')?.location).toBe('thief');
+      expect(items.get('lamp')?.location).toBe('thief');
+    });
+
+    it('should combine actor update with hideOnMove and touchBit options', () => {
+      const mockActor = {
+        id: 'thief',
+        name: 'thief',
+        locationId: 'round-room',
+        inventory: [] as string[],
+        flags: new Map(),
+        tickEnabled: true,
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onTick: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onEncounter: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDeath: () => {},
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onDamage: () => {},
+      };
+
+      const result = service.moveItems(['sword', 'lamp'], 'thief', items, {
+        hideOnMove: true,
+        touchBit: true,
+        actor: mockActor,
+      });
+
+      expect(result.anyMoved).toBe(true);
+      expect(mockActor.inventory).toEqual(['sword', 'lamp']);
+      expect(items.get('sword')?.visible).toBe(false);
+      expect(items.get('sword')?.properties?.touched).toBe(true);
+      expect(items.get('lamp')?.visible).toBe(false);
+      expect(items.get('lamp')?.properties?.touched).toBe(true);
+    });
   });
 
   describe('stealJunk', () => {

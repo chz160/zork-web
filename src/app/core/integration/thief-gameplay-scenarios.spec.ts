@@ -150,6 +150,7 @@ describe('Thief Gameplay Scenarios (E2E Integration)', () => {
     it('should maintain state parity: lamp invisible when in thief inventory', () => {
       inventoryService.moveItems(['lamp'], 'thief', items, {
         hideOnMove: true,
+        actor: thief,
       });
 
       // Legacy: Items stolen by thief are marked INVISIBLE
@@ -157,8 +158,7 @@ describe('Thief Gameplay Scenarios (E2E Integration)', () => {
       expect(lamp?.location).toBe('thief');
       expect(lamp?.visible).toBe(false);
 
-      // Thief carries lamp in his bag
-      thief.inventory.push('lamp');
+      // Thief carries lamp in his bag (inventory automatically updated by moveItems)
       expect(thief.inventory).toContain('lamp');
     });
   });
@@ -669,6 +669,35 @@ describe('Thief Gameplay Scenarios (E2E Integration)', () => {
       });
     });
 
+    it('should update thief inventory when actor is provided to stealJunk', () => {
+      // Set items in room (visible so they can be stolen)
+      items.get('rock')!.location = 'maze-1';
+      items.get('rock')!.visible = true;
+      items.get('rope')!.location = 'maze-1';
+      items.get('rope')!.visible = true;
+
+      // Clear thief inventory
+      thief.inventory = [];
+
+      // Call stealJunk with thief actor
+      const stealResult = inventoryService.stealJunk(
+        'maze-1',
+        items,
+        undefined,
+        ['stiletto'],
+        thief
+      );
+
+      // Verify that stolen items are in thief's inventory
+      expect(stealResult.anyMoved).toBeDefined();
+      stealResult.movedItemIds.forEach((itemId: string) => {
+        expect(thief.inventory).toContain(itemId);
+        const item = items.get(itemId);
+        expect(item?.location).toBe('thief');
+        expect(item?.visible).toBe(false);
+      });
+    });
+
     it('should handle complete tick cycle: steal -> move -> drop', () => {
       // Simulate one complete I-THIEF tick cycle
 
@@ -692,13 +721,7 @@ describe('Thief Gameplay Scenarios (E2E Integration)', () => {
 
       // Step 1: Steal worthless items from room
       if (roomItems.length > 0) {
-        const stealResult = inventoryService.stealJunk('maze-1', items);
-
-        stealResult.movedItemIds.forEach((itemId: string) => {
-          if (!thief.inventory.includes(itemId)) {
-            thief.inventory.push(itemId);
-          }
-        });
+        inventoryService.stealJunk('maze-1', items, undefined, ['stiletto'], thief);
       }
 
       // Step 2: Drop worthless items from inventory

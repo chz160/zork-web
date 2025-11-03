@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { RandomService } from './random.service';
 import { TelemetryService } from './telemetry.service';
 import { GameObject } from '../models/game-object.model';
+import { Actor } from '../models/actor.model';
 
 /**
  * Options for moveItems operation.
@@ -15,6 +16,16 @@ export interface MoveItemsOptions {
 
   /** Whether to set touchbit on moved items (marks them as having been interacted with). */
   touchBit?: boolean;
+
+  /**
+   * Optional actor to update inventory for when moving items to an actor-based location.
+   * When provided, the actor's inventory array will be updated with moved item IDs.
+   *
+   * **Important**: Caller is responsible for ensuring the `toOwnerId` parameter logically
+   * corresponds to this actor (e.g., if actor is thief, toOwnerId should be 'thief').
+   * This service does not validate the relationship between toOwnerId and actor.id.
+   */
+  actor?: Actor;
 }
 
 /**
@@ -48,11 +59,23 @@ export class InventoryService {
    * Move items from one location/owner to another with optional probability and hiding.
    * This is the core implementation of the legacy ROB routine.
    *
+   * When the `actor` option is provided, this method will automatically update the actor's
+   * inventory array to include moved item IDs. This ensures consistency between item locations
+   * and actor inventory state, preventing the need for manual inventory management.
+   *
    * @param itemIds Array of item IDs to potentially move
    * @param toOwnerId Destination owner/location ID (e.g., 'thief', 'round-room', 'inventory')
    * @param items Map of all game objects (to read/update item properties)
-   * @param options Options for probability, hiding, and touchbit
+   * @param options Options for probability, hiding, touchbit, and actor inventory updates
    * @returns Result containing moved item IDs, whether any were moved, and whether any lit light sources were moved
+   *
+   * @example
+   * // Move items to thief and update thief's inventory
+   * const result = inventoryService.moveItems(['lamp', 'sword'], 'thief', items, {
+   *   hideOnMove: true,
+   *   actor: thiefActor
+   * });
+   * // thiefActor.inventory now contains ['lamp', 'sword']
    */
   moveItems(
     itemIds: string[],
@@ -62,7 +85,7 @@ export class InventoryService {
   ): MoveItemsResult {
     const movedItemIds: string[] = [];
     let stoleLitLight = false;
-    const { probability, hideOnMove = false, touchBit = false } = options;
+    const { probability, hideOnMove = false, touchBit = false, actor } = options;
 
     for (const itemId of itemIds) {
       const item = items.get(itemId);
@@ -98,6 +121,11 @@ export class InventoryService {
       }
 
       movedItemIds.push(itemId);
+
+      // Update actor's inventory if provided
+      if (actor && !actor.inventory.includes(itemId)) {
+        actor.inventory.push(itemId);
+      }
     }
 
     return {
@@ -121,13 +149,15 @@ export class InventoryService {
    * @param items Map of all game objects
    * @param playerRoomId Current player room ID (for messages)
    * @param alwaysStealItemIds Optional array of item IDs that should always be stolen (defaults to ['stiletto'])
+   * @param actor Optional actor whose inventory should be updated when items are stolen
    * @returns Result containing stolen item IDs and whether any were stolen
    */
   stealJunk(
     roomId: string,
     items: Map<string, GameObject>,
     _playerRoomId?: string,
-    alwaysStealItemIds: string[] = ['stiletto']
+    alwaysStealItemIds: string[] = ['stiletto'],
+    actor?: Actor
   ): MoveItemsResult {
     const eligibleItems: string[] = [];
 
@@ -175,6 +205,7 @@ export class InventoryService {
     const result = this.moveItems(eligibleItems, 'thief', items, {
       hideOnMove: true,
       touchBit: true,
+      actor,
     });
 
     // Log telemetry for stolen items
@@ -199,17 +230,19 @@ export class InventoryService {
    * @param items Map of all game objects
    * @param playerRoomId Current player room ID (for messages)
    * @param alwaysStealItemIds Optional array of item IDs that should always be stolen (defaults to ['stiletto'])
+   * @param actor Optional actor whose inventory should be updated when items are stolen
    * @returns Result containing stolen item IDs and whether any were stolen
    */
   robMaze(
     roomId: string,
     items: Map<string, GameObject>,
     _playerRoomId?: string,
-    alwaysStealItemIds: string[] = ['stiletto']
+    alwaysStealItemIds: string[] = ['stiletto'],
+    actor?: Actor
   ): MoveItemsResult {
     // For now, robMaze uses the same logic as stealJunk
     // The legacy ROB-MAZE had similar logic but in maze context
-    return this.stealJunk(roomId, items, _playerRoomId, alwaysStealItemIds);
+    return this.stealJunk(roomId, items, _playerRoomId, alwaysStealItemIds, actor);
   }
 
   /**
