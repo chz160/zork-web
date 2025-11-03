@@ -6,7 +6,7 @@ A web-based clone of the classic text adventure game Zork, built with Angular 20
 
 - DOS-style terminal interface
 - Command-based text adventure gameplay
-- **Interactive world map** showing explored rooms and connections (Ctrl+M or `map` command)
+- **Interactive 3D wireframe map** showing explored rooms and connections in a retro holographic style (Ctrl+M or `map` command)
 - **ASCII art location details** with room descriptions, objects, and compass-style exits (console view)
 - **Interactive inventory panel** with object inspection and actions
 - **Status panel** with real-time game progress tracking
