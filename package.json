@@ -26,7 +26,9 @@
     "map:messages": "npm run build:tools && node dist/tools/map-canonical-messages.js",
     "populate:canonical": "npm run build:tools && node dist/tools/populate-canonical-data.js",
     "validate:mapping": "npm run build:tools && node dist/tools/validate-message-mapping.js",
-    "phase3:all": "npm run map:messages && npm run populate:canonical && npm run validate:mapping"
+    "phase3:all": "npm run map:messages && npm run populate:canonical && npm run validate:mapping",
+    "___comment_spatial___": "Spatial Coordinates Scripts - 3D Map Layout Generation",
+    "generate:spatial": "npm run build:tools && node dist/tools/generate-spatial-coordinates.js"
   },
   "lint-staged": {
     "*.{ts,html}": [
@@ -47,6 +49,7 @@
     "@angular/router": "^20.3.0",
     "rxjs": "~7.8.0",
     "serve-handler": "^6.1.6",
+    "three": "^0.181.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -62,6 +65,7 @@
     "@playwright/test": "^1.56.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^24.9.1",
+    "@types/three": "^0.181.0",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^9.38.0",

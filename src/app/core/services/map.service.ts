@@ -1,5 +1,6 @@
 import { Injectable, inject, computed } from '@angular/core';
 import { GameEngineService } from './game-engine.service';
+import { SpatialLayoutService } from './spatial-layout.service';
 import { Room } from '../models';
 
 /**
@@ -10,6 +11,7 @@ export interface RoomNode {
   name: string;
   x: number;
   y: number;
+  z: number;
   isCurrent: boolean;
   visited: boolean;
   exits: Map<string, string>; // direction -> targetRoomId
@@ -26,13 +28,17 @@ export interface RoomEdge {
 
 /**
  * MapService provides exploration data for map visualization.
- * Computes room graph with positions for visual display.
+ * Computes room graph with 3D positions for visual display.
+ *
+ * Uses SpatialLayoutService to compute accurate spatial coordinates
+ * based on room connections and directional metadata.
  */
 @Injectable({
   providedIn: 'root',
 })
 export class MapService {
   private readonly gameEngine = inject(GameEngineService);
+  private readonly spatialLayout = inject(SpatialLayoutService);
 
   /**
    * Get all visited rooms from the game engine
@@ -56,8 +62,8 @@ export class MapService {
   });
 
   /**
-   * Compute room nodes with positions for graph visualization
-   * Uses a simple force-directed layout algorithm
+   * Compute room nodes with 3D positions for graph visualization.
+   * Uses SpatialLayoutService to compute coordinates based on connections.
    */
   readonly roomNodes = computed<RoomNode[]>(() => {
     const visited = this.visitedRooms();
@@ -67,18 +73,24 @@ export class MapService {
       return [];
     }
 
-    // Simple grid layout based on discovery order
-    const positions = this.computeGridLayout(visited);
+    // Compute spatial layout using the spatial layout service
+    // Use currentId as starting room for coordinate computation to ensure
+    // the layout is centered around the player's current location
+    const layout = this.spatialLayout.computeLayout(visited, currentId);
 
-    return visited.map((room) => ({
-      id: room.id,
-      name: room.name,
-      x: positions.get(room.id)?.x ?? 0,
-      y: positions.get(room.id)?.y ?? 0,
-      isCurrent: room.id === currentId,
-      visited: true,
-      exits: room.exits,
-    }));
+    return visited.map((room) => {
+      const coords = layout.coordinates.get(room.id);
+      return {
+        id: room.id,
+        name: room.name,
+        x: coords?.x ?? 0,
+        y: coords?.y ?? 0,
+        z: coords?.z ?? 0,
+        isCurrent: room.id === currentId,
+        visited: true,
+        exits: room.exits,
+      };
+    });
   });
 
   /**
@@ -106,82 +118,38 @@ export class MapService {
   });
 
   /**
-   * Compute grid layout positions for rooms
-   * Uses a simple algorithm that places rooms relative to connections
+   * Get the bounding box of all room positions in 3D space
    */
-  private computeGridLayout(rooms: Room[]): Map<string, { x: number; y: number }> {
-    const positions = new Map<string, { x: number; y: number }>();
-    const gridSize = 120; // pixels between rooms
-
-    if (rooms.length === 0) {
-      return positions;
-    }
-
-    // Start with the first room at origin
-    const startRoom = rooms[0];
-    const queue: { room: Room; x: number; y: number }[] = [{ room: startRoom, x: 0, y: 0 }];
-    const processed = new Set<string>();
-
-    // Direction offsets for grid layout
-    const directionOffsets: Record<string, { dx: number; dy: number }> = {
-      north: { dx: 0, dy: -1 },
-      south: { dx: 0, dy: 1 },
-      east: { dx: 1, dy: 0 },
-      west: { dx: -1, dy: 0 },
-      up: { dx: 1, dy: -1 }, // diagonal up-right
-      down: { dx: -1, dy: 1 }, // diagonal down-left
-    };
-
-    // BFS to position rooms relative to each other
-    while (queue.length > 0) {
-      const { room, x, y } = queue.shift()!;
-
-      if (processed.has(room.id)) {
-        continue;
-      }
-
-      positions.set(room.id, { x: x * gridSize, y: y * gridSize });
-      processed.add(room.id);
-
-      // Process connected rooms
-      room.exits.forEach((targetId, direction) => {
-        const targetRoom = rooms.find((r) => r.id === targetId);
-        if (targetRoom && !processed.has(targetId)) {
-          const offset = directionOffsets[direction] || { dx: 0, dy: 0 };
-          queue.push({
-            room: targetRoom,
-            x: x + offset.dx,
-            y: y + offset.dy,
-          });
-        }
-      });
-    }
-
-    return positions;
-  }
-
-  /**
-   * Get the bounding box of all room positions
-   */
-  getBoundingBox(): { minX: number; maxX: number; minY: number; maxY: number } {
+  getBoundingBox(): {
+    minX: number;
+    maxX: number;
+    minY: number;
+    maxY: number;
+    minZ: number;
+    maxZ: number;
+  } {
     const nodes = this.roomNodes();
 
     if (nodes.length === 0) {
-      return { minX: 0, maxX: 0, minY: 0, maxY: 0 };
+      return { minX: 0, maxX: 0, minY: 0, maxY: 0, minZ: 0, maxZ: 0 };
     }
 
     let minX = Infinity;
     let maxX = -Infinity;
     let minY = Infinity;
     let maxY = -Infinity;
+    let minZ = Infinity;
+    let maxZ = -Infinity;
 
     nodes.forEach((node) => {
       minX = Math.min(minX, node.x);
       maxX = Math.max(maxX, node.x);
       minY = Math.min(minY, node.y);
       maxY = Math.max(maxY, node.y);
+      minZ = Math.min(minZ, node.z);
+      maxZ = Math.max(maxZ, node.z);
     });
 
-    return { minX, maxX, minY, maxY };
+    return { minX, maxX, minY, maxY, minZ, maxZ };
   }
 }
