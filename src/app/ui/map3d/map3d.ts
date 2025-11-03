@@ -74,6 +74,9 @@ export class Map3DComponent implements OnInit, OnDestroy {
   private sharedMarkerGeometry?: THREE.SphereGeometry;
   private sharedMarkerEdges?: THREE.EdgesGeometry;
 
+  /** Bound event handler for window resize (needed for cleanup) */
+  private readonly boundOnWindowResize = this.onWindowResize.bind(this);
+
   /** Room nodes for visualization */
   readonly nodes = this.mapService.roomNodes;
 
@@ -118,6 +121,8 @@ export class Map3DComponent implements OnInit, OnDestroy {
     if (this.renderer) {
       this.renderer.dispose();
     }
+    // Remove window resize event listener
+    window.removeEventListener('resize', this.boundOnWindowResize);
     // Clean up materials (geometries are shared and cleaned up separately)
     this.roomMeshes.forEach((group) => {
       group.traverse((obj: THREE.Object3D) => {
@@ -177,7 +182,7 @@ export class Map3DComponent implements OnInit, OnDestroy {
     this.controls.maxDistance = 200;
 
     // Handle window resize
-    window.addEventListener('resize', this.onWindowResize.bind(this));
+    window.addEventListener('resize', this.boundOnWindowResize);
   }
 
   /**
@@ -239,6 +244,16 @@ export class Map3DComponent implements OnInit, OnDestroy {
     // Remove rooms that are no longer in the list
     this.roomMeshes.forEach((group, roomId) => {
       if (!currentRoomIds.has(roomId)) {
+        // Dispose materials before removing
+        group.traverse((obj: THREE.Object3D) => {
+          if (obj instanceof THREE.Mesh || obj instanceof THREE.LineSegments) {
+            if (Array.isArray(obj.material)) {
+              obj.material.forEach((mat: THREE.Material) => mat.dispose());
+            } else {
+              obj.material.dispose();
+            }
+          }
+        });
         this.scene!.remove(group);
         this.roomMeshes.delete(roomId);
       }
@@ -262,6 +277,13 @@ export class Map3DComponent implements OnInit, OnDestroy {
     // Remove edges that are no longer in the list
     this.edgeMeshes.forEach((line, edgeKey) => {
       if (!currentEdgeKeys.has(edgeKey)) {
+        // Dispose geometry and materials before removing
+        line.geometry.dispose();
+        if (Array.isArray(line.material)) {
+          line.material.forEach((mat: THREE.Material) => mat.dispose());
+        } else {
+          line.material.dispose();
+        }
         this.scene!.remove(line);
         this.edgeMeshes.delete(edgeKey);
       }
