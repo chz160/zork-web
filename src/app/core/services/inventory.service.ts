@@ -56,11 +56,23 @@ export class InventoryService {
    * Move items from one location/owner to another with optional probability and hiding.
    * This is the core implementation of the legacy ROB routine.
    *
+   * When the `actor` option is provided, this method will automatically update the actor's
+   * inventory array to include moved item IDs. This ensures consistency between item locations
+   * and actor inventory state, preventing the need for manual inventory management.
+   *
    * @param itemIds Array of item IDs to potentially move
    * @param toOwnerId Destination owner/location ID (e.g., 'thief', 'round-room', 'inventory')
    * @param items Map of all game objects (to read/update item properties)
-   * @param options Options for probability, hiding, and touchbit
+   * @param options Options for probability, hiding, touchbit, and actor inventory updates
    * @returns Result containing moved item IDs, whether any were moved, and whether any lit light sources were moved
+   *
+   * @example
+   * // Move items to thief and update thief's inventory
+   * const result = inventoryService.moveItems(['lamp', 'sword'], 'thief', items, {
+   *   hideOnMove: true,
+   *   actor: thiefActor
+   * });
+   * // thiefActor.inventory now contains ['lamp', 'sword']
    */
   moveItems(
     itemIds: string[],
