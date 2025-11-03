@@ -14,7 +14,7 @@ The 3D wireframe map provides a spatial visualization of the explored Zork world
 - **Connections**: Line segments connecting room centers, colored by direction:
   - Green: Horizontal connections (north, south, east, west)
   - Yellow: Upward connections (up)
-  - Cyan: Downward connections (down)
+  - Magenta: Downward connections (down)
 
 ### Interactive Controls
 
