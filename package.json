@@ -26,7 +26,9 @@
     "map:messages": "npm run build:tools && node dist/tools/map-canonical-messages.js",
     "populate:canonical": "npm run build:tools && node dist/tools/populate-canonical-data.js",
     "validate:mapping": "npm run build:tools && node dist/tools/validate-message-mapping.js",
-    "phase3:all": "npm run map:messages && npm run populate:canonical && npm run validate:mapping"
+    "phase3:all": "npm run map:messages && npm run populate:canonical && npm run validate:mapping",
+    "___comment_spatial___": "Spatial Coordinates Scripts - 3D Map Layout Generation",
+    "generate:spatial": "npm run build:tools && node dist/tools/generate-spatial-coordinates.js"
   },
   "lint-staged": {
     "*.{ts,html}": [
