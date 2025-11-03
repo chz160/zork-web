@@ -45,8 +45,11 @@
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@types/three": "^0.181.0",
+    "3d-force-graph": "^1.79.0",
     "rxjs": "~7.8.0",
     "serve-handler": "^6.1.6",
+    "three": "^0.181.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

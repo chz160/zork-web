@@ -8,7 +8,7 @@ import { DisambiguationComponent } from './ui/disambiguation/disambiguation';
 import { AutocorrectConfirmationComponent } from './ui/autocorrect-confirmation/autocorrect-confirmation';
 import { InventoryComponent } from './ui/inventory/inventory';
 import { StatusComponent } from './ui/status/status';
-import { MapComponent } from './ui/map/map';
+import { MapGraph3DComponent } from './ui/map-graph3d/map-graph3d';
 import { ObjectCandidate } from './core/models';
 
 type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
@@ -23,7 +23,7 @@ type FontSize = 'small' | 'medium' | 'large' | 'xlarge';
     AutocorrectConfirmationComponent,
     InventoryComponent,
     StatusComponent,
-    MapComponent,
+    MapGraph3DComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

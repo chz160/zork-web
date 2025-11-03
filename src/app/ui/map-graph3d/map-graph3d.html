@@ -1,0 +1,54 @@
+<div class="map-container" role="region" [attr.aria-label]="getMapAriaLabel()">
+  <!-- Map stats -->
+  <div class="map-header">
+    <div class="map-stats">
+      <span class="map-stat">
+        <span class="map-stat-label">Rooms:</span>
+        <span class="map-stat-value">{{ exploredCount() }}</span>
+      </span>
+      <span class="map-stat">
+        <span class="map-stat-label">Connections:</span>
+        <span class="map-stat-value">{{ connectionCount() }}</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 3D graph container -->
+  <div
+    #graphContainer
+    class="graph-container"
+    role="img"
+    [attr.aria-label]="getMapAriaLabel()"
+  ></div>
+
+  <!-- Empty state when no rooms explored -->
+  @if (exploredCount() === 0) {
+    <div class="map-empty-state">
+      <p>No rooms explored yet. Start exploring to see the map!</p>
+    </div>
+  }
+
+  <!-- Legend -->
+  <div class="map-legend">
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--current"></span>
+      <span class="legend-label">Current Location</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--visited"></span>
+      <span class="legend-label">Explored Room</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--connection"></span>
+      <span class="legend-label">Connection</span>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="map-instructions">
+    <p>
+      <strong>Controls:</strong> Left-click and drag to rotate • Right-click and drag to pan •
+      Scroll to zoom
+    </p>
+  </div>
+</div>

@@ -1,0 +1,180 @@
+/**
+ * MapGraph3DComponent Styles
+ * 3D graph visualization with classic Zork terminal aesthetic
+ */
+
+.map-container {
+  background-color: var(--zork-background, #000);
+  border: var(--zork-border-width, 2px) solid var(--zork-primary, #00ff00);
+  border-radius: var(--zork-border-radius, 4px);
+  padding: var(--zork-spacing-lg, 1rem);
+  box-shadow: var(--zork-glow-subtle, 0 0 5px rgba(0, 255, 0, 0.3));
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zork-spacing-md, 0.75rem);
+}
+
+/* Header with stats */
+.map-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: var(--zork-spacing-md, 0.75rem);
+  border-bottom: 1px solid var(--zork-primary, #00ff00);
+}
+
+.map-stats {
+  display: flex;
+  gap: var(--zork-spacing-lg, 1rem);
+  font-family: var(--zork-font-family, 'Courier New', monospace);
+}
+
+.map-stat {
+  display: flex;
+  gap: var(--zork-spacing-xs, 0.25rem);
+}
+
+.map-stat-label {
+  color: var(--zork-primary-dim, #88ff88);
+  font-size: 0.875rem;
+}
+
+.map-stat-value {
+  color: var(--zork-primary-bright, #44ff44);
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+/* 3D graph container */
+.graph-container {
+  width: 100%;
+  height: 500px;
+  background-color: #0b0b0b;
+  border: 1px solid var(--zork-primary-faint, #00ff0066);
+  border-radius: var(--zork-border-radius, 4px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Empty state */
+.map-empty-state {
+  text-align: center;
+  padding: var(--zork-spacing-xl, 1.5rem);
+  color: var(--zork-primary-dim, #88ff88);
+  font-family: var(--zork-font-family, 'Courier New', monospace);
+  font-style: italic;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Legend */
+.map-legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--zork-spacing-lg, 1rem);
+  flex-wrap: wrap;
+  padding-top: var(--zork-spacing-md, 0.75rem);
+  border-top: 1px solid var(--zork-primary-faint, #00ff0066);
+  font-family: var(--zork-font-family, 'Courier New', monospace);
+  font-size: 0.875rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--zork-spacing-sm, 0.5rem);
+  color: var(--zork-primary-dim, #88ff88);
+}
+
+.legend-symbol {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-symbol--current {
+  background-color: #78c0ff;
+  box-shadow: 0 0 10px rgba(120, 192, 255, 0.8);
+}
+
+.legend-symbol--visited {
+  background-color: #7cffd4;
+  box-shadow: 0 0 5px rgba(124, 255, 212, 0.6);
+}
+
+.legend-symbol--connection {
+  width: 30px;
+  height: 3px;
+  border-radius: 0;
+  background-color: #7cffd4;
+  box-shadow: 0 0 3px rgba(124, 255, 212, 0.5);
+}
+
+/* Instructions */
+.map-instructions {
+  text-align: center;
+  padding-top: var(--zork-spacing-sm, 0.5rem);
+  color: var(--zork-primary-faint, #00ff0066);
+  font-family: var(--zork-font-family, 'Courier New', monospace);
+  font-size: 0.75rem;
+}
+
+.map-instructions strong {
+  color: var(--zork-primary-dim, #88ff88);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .graph-container {
+    height: 400px;
+  }
+
+  .map-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--zork-spacing-sm, 0.5rem);
+  }
+
+  .map-stats {
+    font-size: 0.75rem;
+  }
+
+  .map-instructions {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .graph-container {
+    height: 300px;
+  }
+
+  .map-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--zork-spacing-sm, 0.5rem);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .legend-symbol--current,
+  .legend-symbol--visited,
+  .legend-symbol--connection {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .graph-container {
+    /* Force graph animation is controlled via JavaScript */
+  }
+}
