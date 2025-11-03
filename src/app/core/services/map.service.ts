@@ -74,6 +74,8 @@ export class MapService {
     }
 
     // Compute spatial layout using the spatial layout service
+    // Use currentId as starting room for coordinate computation to ensure
+    // the layout is centered around the player's current location
     const layout = this.spatialLayout.computeLayout(visited, currentId);
 
     return visited.map((room) => {

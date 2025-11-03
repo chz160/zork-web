@@ -307,6 +307,7 @@ export class SpatialLayoutService {
         vector.dx === dx &&
         vector.dy === dy &&
         vector.dz === dz &&
+        // Validate Manhattan distance = 1 (only adjacent rooms)
         Math.abs(dx) + Math.abs(dy) + Math.abs(dz) === this.GRID_UNIT
       ) {
         return direction as Direction;
