@@ -19,8 +19,11 @@ export interface MoveItemsOptions {
 
   /**
    * Optional actor to update inventory for when moving items to an actor-based location.
-   * When provided and toOwnerId matches the actor's location identifier (e.g., 'thief'),
-   * the actor's inventory array will be updated with moved item IDs.
+   * When provided, the actor's inventory array will be updated with moved item IDs.
+   *
+   * **Important**: Caller is responsible for ensuring the `toOwnerId` parameter logically
+   * corresponds to this actor (e.g., if actor is thief, toOwnerId should be 'thief').
+   * This service does not validate the relationship between toOwnerId and actor.id.
    */
   actor?: Actor;
 }
