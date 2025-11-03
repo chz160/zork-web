@@ -11,7 +11,7 @@ import {
   effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MapGraphBuilderService } from '../../core/services/map-graph-builder.service';
+import { MapGraphBuilderService, GraphData } from '../../core/services/map-graph-builder.service';
 import ForceGraph3D, { ForceGraph3DInstance } from '3d-force-graph';
 
 /**
@@ -163,13 +163,13 @@ export class MapGraph3DComponent implements OnInit, AfterViewInit, OnDestroy {
   /**
    * Update the graph with new data
    */
-  private updateGraphData(data: { nodes: unknown[]; links: unknown[] }): void {
+  private updateGraphData(data: GraphData): void {
     if (!this.graph) {
       return;
     }
 
     // Update graph data
-    this.graph.graphData(data);
+    this.graph.graphData(data as never);
 
     // Briefly restart animation for new nodes
     this.graph.resumeAnimation();
