@@ -66,6 +66,14 @@ export class Map3DComponent implements OnInit, OnDestroy {
   /** Map of edge key to edge mesh */
   private edgeMeshes = new Map<string, THREE.Line>();
 
+  /** Shared geometries for performance */
+  private readonly roomSize = 10;
+  private readonly roomHeight = 8;
+  private sharedBoxGeometry?: THREE.BoxGeometry;
+  private sharedBoxEdges?: THREE.EdgesGeometry;
+  private sharedMarkerGeometry?: THREE.SphereGeometry;
+  private sharedMarkerEdges?: THREE.EdgesGeometry;
+
   /** Room nodes for visualization */
   readonly nodes = this.mapService.roomNodes;
 
@@ -94,6 +102,7 @@ export class Map3DComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initThreeJS();
+    this.initSharedGeometries();
     this.initialized.set(true);
     this.animate();
   }
@@ -109,11 +118,10 @@ export class Map3DComponent implements OnInit, OnDestroy {
     if (this.renderer) {
       this.renderer.dispose();
     }
-    // Clean up geometries and materials
+    // Clean up materials (geometries are shared and cleaned up separately)
     this.roomMeshes.forEach((group) => {
       group.traverse((obj: THREE.Object3D) => {
         if (obj instanceof THREE.Mesh || obj instanceof THREE.LineSegments) {
-          obj.geometry.dispose();
           if (Array.isArray(obj.material)) {
             obj.material.forEach((mat: THREE.Material) => mat.dispose());
           } else {
@@ -123,13 +131,18 @@ export class Map3DComponent implements OnInit, OnDestroy {
       });
     });
     this.edgeMeshes.forEach((line) => {
-      line.geometry.dispose();
+      line.geometry.dispose(); // Edge geometries are unique per edge
       if (Array.isArray(line.material)) {
         line.material.forEach((mat: THREE.Material) => mat.dispose());
       } else {
         line.material.dispose();
       }
     });
+    // Clean up shared geometries
+    this.sharedBoxEdges?.dispose();
+    this.sharedBoxGeometry?.dispose();
+    this.sharedMarkerEdges?.dispose();
+    this.sharedMarkerGeometry?.dispose();
   }
 
   /**
@@ -165,6 +178,19 @@ export class Map3DComponent implements OnInit, OnDestroy {
 
     // Handle window resize
     window.addEventListener('resize', this.onWindowResize.bind(this));
+  }
+
+  /**
+   * Initialize shared geometries for performance
+   */
+  private initSharedGeometries(): void {
+    // Box geometry for rooms
+    this.sharedBoxGeometry = new THREE.BoxGeometry(this.roomSize, this.roomHeight, this.roomSize);
+    this.sharedBoxEdges = new THREE.EdgesGeometry(this.sharedBoxGeometry);
+
+    // Sphere geometry for current location marker
+    this.sharedMarkerGeometry = new THREE.SphereGeometry(1.5, 8, 8);
+    this.sharedMarkerEdges = new THREE.EdgesGeometry(this.sharedMarkerGeometry);
   }
 
   /**
@@ -263,28 +289,18 @@ export class Map3DComponent implements OnInit, OnDestroy {
   private createRoomMesh(node: RoomNode): THREE.Group {
     const group = new THREE.Group();
 
-    // Room size constants
-    const roomSize = 10;
-    const roomHeight = 8;
-
-    // Create wireframe box for the room
-    const boxGeometry = new THREE.BoxGeometry(roomSize, roomHeight, roomSize);
-    const edges = new THREE.EdgesGeometry(boxGeometry);
-
-    // Color based on whether it's the current room
+    // Create wireframe box for the room using shared geometry
     const color = node.isCurrent ? 0x00ff00 : 0x00aaff; // Green for current, cyan for visited
     const material = new THREE.LineBasicMaterial({ color });
 
-    const wireframe = new THREE.LineSegments(edges, material);
+    const wireframe = new THREE.LineSegments(this.sharedBoxEdges!, material);
     group.add(wireframe);
 
     // Add a small marker for current location
     if (node.isCurrent) {
-      const markerGeometry = new THREE.SphereGeometry(1.5, 8, 8);
-      const markerEdges = new THREE.EdgesGeometry(markerGeometry);
       const markerMaterial = new THREE.LineBasicMaterial({ color: 0x44ff44 });
-      const marker = new THREE.LineSegments(markerEdges, markerMaterial);
-      marker.position.set(0, roomHeight / 2 + 2, 0);
+      const marker = new THREE.LineSegments(this.sharedMarkerEdges!, markerMaterial);
+      marker.position.set(0, this.roomHeight / 2 + 2, 0);
       group.add(marker);
     }
 
@@ -314,13 +330,14 @@ export class Map3DComponent implements OnInit, OnDestroy {
     // Update or add current location marker
     const existingMarker = group.children[1];
     if (node.isCurrent && !existingMarker) {
-      const markerGeometry = new THREE.SphereGeometry(1.5, 8, 8);
-      const markerEdges = new THREE.EdgesGeometry(markerGeometry);
       const markerMaterial = new THREE.LineBasicMaterial({ color: 0x44ff44 });
-      const marker = new THREE.LineSegments(markerEdges, markerMaterial);
-      marker.position.set(0, 4, 0);
+      const marker = new THREE.LineSegments(this.sharedMarkerEdges!, markerMaterial);
+      marker.position.set(0, this.roomHeight / 2 + 2, 0);
       group.add(marker);
     } else if (!node.isCurrent && existingMarker) {
+      // Dispose marker material before removing
+      const markerMaterial = (existingMarker as THREE.LineSegments).material as THREE.Material;
+      markerMaterial.dispose();
       group.remove(existingMarker);
     }
 
