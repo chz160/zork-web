@@ -8,6 +8,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MapService, RoomNode, RoomEdge } from '../../core/services/map.service';
@@ -84,6 +85,20 @@ export class VoxelMapComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly CURRENT_ROOM_COLOR = 0xffff00; // yellow
   private readonly EDGE_COLOR = 0x00ff00; // green for wireframe
 
+  constructor() {
+    // Watch for changes in nodes or edges and rebuild the scene
+    effect(() => {
+      // Access signals to register dependencies
+      this.nodes();
+      this.edges();
+
+      // Rebuild scene if it's initialized
+      if (this.scene) {
+        this.buildScene();
+      }
+    });
+  }
+
   ngOnInit(): void {
     // Component initialized
   }
@@ -142,7 +157,6 @@ export class VoxelMapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.scene.add(ambientLight);
 
     // Handle window resize
-    this.handleResize = this.handleResize.bind(this);
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -373,7 +387,7 @@ export class VoxelMapComponent implements OnInit, AfterViewInit, OnDestroy {
   /**
    * Handle window resize
    */
-  private handleResize(): void {
+  private handleResize = (): void => {
     if (!this.camera || !this.renderer || !this.canvasContainer) {
       return;
     }
@@ -385,7 +399,7 @@ export class VoxelMapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
-  }
+  };
 
   /**
    * Clean up Three.js resources
@@ -413,11 +427,6 @@ export class VoxelMapComponent implements OnInit, AfterViewInit, OnDestroy {
       if (this.canvasContainer?.nativeElement.contains(this.renderer.domElement)) {
         this.canvasContainer.nativeElement.removeChild(this.renderer.domElement);
       }
-    }
-
-    // Clear scene
-    if (this.scene) {
-      this.scene.clear();
     }
   }
 
