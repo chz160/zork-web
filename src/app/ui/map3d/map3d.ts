@@ -74,6 +74,9 @@ export class Map3DComponent implements OnInit, OnDestroy {
   private sharedMarkerGeometry?: THREE.SphereGeometry;
   private sharedMarkerEdges?: THREE.EdgesGeometry;
 
+  /** Scale factor for room spacing in 3D visualization */
+  private readonly visualizationScale = 15;
+
   /** Bound event handler for window resize (needed for cleanup) */
   private readonly boundOnWindowResize = this.onWindowResize.bind(this);
 
@@ -328,8 +331,11 @@ export class Map3DComponent implements OnInit, OnDestroy {
 
     // Position the room group in 3D space
     // Scale coordinates for better visualization spacing
-    const scale = 15; // spacing between rooms
-    group.position.set(node.x * scale, node.z * scale, node.y * scale);
+    group.position.set(
+      node.x * this.visualizationScale,
+      node.z * this.visualizationScale,
+      node.y * this.visualizationScale
+    );
     group.userData = { id: node.id, isCurrent: node.isCurrent, z: node.z };
 
     return group;
@@ -379,10 +385,21 @@ export class Map3DComponent implements OnInit, OnDestroy {
       return null;
     }
 
-    const scale = 15; // Same scale as room positioning
     const points = [];
-    points.push(new THREE.Vector3(fromNode.x * scale, fromNode.z * scale, fromNode.y * scale));
-    points.push(new THREE.Vector3(toNode.x * scale, toNode.z * scale, toNode.y * scale));
+    points.push(
+      new THREE.Vector3(
+        fromNode.x * this.visualizationScale,
+        fromNode.z * this.visualizationScale,
+        fromNode.y * this.visualizationScale
+      )
+    );
+    points.push(
+      new THREE.Vector3(
+        toNode.x * this.visualizationScale,
+        toNode.z * this.visualizationScale,
+        toNode.y * this.visualizationScale
+      )
+    );
 
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
 
@@ -414,10 +431,9 @@ export class Map3DComponent implements OnInit, OnDestroy {
     }
 
     // Update controls target to current room position in 3D
-    const scale = 15;
-    const targetX = currentNode.x * scale;
-    const targetY = currentNode.z * scale;
-    const targetZ = currentNode.y * scale;
+    const targetX = currentNode.x * this.visualizationScale;
+    const targetY = currentNode.z * this.visualizationScale;
+    const targetZ = currentNode.y * this.visualizationScale;
 
     // Smoothly transition to new target
     this.controls.target.set(targetX, targetY, targetZ);

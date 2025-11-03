@@ -44,6 +44,11 @@ interface RoomsData {
   rooms: Room[];
 }
 
+/**
+ * Valid navigation directions matching core models (room.model.ts).
+ * Note: This duplicates the Direction type from core models since tools
+ * cannot import from the Angular app source.
+ */
 type Direction = 'north' | 'south' | 'east' | 'west' | 'up' | 'down';
 
 interface DirectionVector {
@@ -52,10 +57,13 @@ interface DirectionVector {
   dz: number;
 }
 
-// Path resolution
-const ROOMS_PATH = fs.existsSync(path.join(__dirname, '..', 'src', 'app', 'data', 'rooms.json'))
-  ? path.join(__dirname, '..', 'src', 'app', 'data', 'rooms.json')
-  : path.join(__dirname, '..', '..', 'src', 'app', 'data', 'rooms.json');
+// Path segments for rooms.json location
+const ROOMS_PATH_SEGMENTS = ['src', 'app', 'data', 'rooms.json'];
+
+// Path resolution: try one level up, then two levels up
+const ROOMS_PATH = fs.existsSync(path.join(__dirname, '..', ...ROOMS_PATH_SEGMENTS))
+  ? path.join(__dirname, '..', ...ROOMS_PATH_SEGMENTS)
+  : path.join(__dirname, '..', '..', ...ROOMS_PATH_SEGMENTS);
 
 /**
  * Direction-to-vector mapping
