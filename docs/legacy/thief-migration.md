@@ -36,11 +36,13 @@ This document provides a comprehensive mapping between the original Zork ZIL (Zo
 The legacy thief system consists of:
 
 ### Objects (1dungeon.zil)
+
 - **THIEF** (lines 968-983): The thief actor object
 - **STILETTO** (lines 882-888): The thief's weapon
 - **LARGE-BAG** (lines 890-893): The thief's container for stolen goods
 
 ### Routines (1actions.zil)
+
 - **I-THIEF** (lines 3890-3931): Main tick/interrupt function for thief AI
 - **THIEF-VS-ADVENTURER** (lines 1764-1873): Encounter logic when player meets thief
 - **ROBBER-FUNCTION** (lines 1947-2084): Action handler for thief interactions
@@ -58,6 +60,7 @@ The legacy thief system consists of:
 - **CHALICE-FCN** (lines 2123-2136): Handler for chalice in treasure room
 
 ### Global Variables
+
 - **THIEF-HERE** (line 1754): Boolean tracking if thief is present
 - **THIEF-ENGROSSED** (line 1945): Boolean tracking if thief is distracted
 - **ROBBER-C-DESC** (lines 2086-2088): Conscious thief description
@@ -74,6 +77,7 @@ The legacy thief system consists of:
 **Purpose**: Main interrupt routine that controls thief's autonomous behavior on each game tick.
 
 **Legacy Code Behavior**:
+
 1. Determines if thief is visible (HERE?)
 2. If in treasure room and not visible: deposits treasures silently via DEPOSIT-BOOTY
 3. If in same room as player and room is not lit and troll is not present: calls THIEF-VS-ADVENTURER
@@ -87,14 +91,15 @@ The legacy thief system consists of:
 **Returns**: Boolean indicating if theft occurred
 
 **Key Logic**:
+
 ```zil
-<COND 
+<COND
   (<AND <EQUAL? .RM ,TREASURE-ROOM> <NOT <EQUAL? .RM ,HERE>>>
    <DEPOSIT-BOOTY ,TREASURE-ROOM>)  ; Silent deposit
-  
+
   (<AND <EQUAL? .RM ,HERE> <NOT <FSET? .RM ,ONBIT>> <NOT <IN? ,TROLL ,HERE>>>
    <THIEF-VS-ADVENTURER .HERE?>)    ; Encounter logic
-  
+
   (T
    <ROB .RM ,THIEF 75>               ; Steal from room
    <STEAL-JUNK .RM>                  ; Steal worthless items
@@ -103,6 +108,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **File**: `src/app/core/models/thief-actor.ts`
 - **Method**: `onTick()` (lines 140-153)
 - **Status**: ⚠️ STUB - TODO implementation
@@ -117,6 +123,7 @@ The legacy thief system consists of:
 **Purpose**: Handles thief encounters when player enters or is in the same room. Controls thief appearing, stealing, fleeing, and combat decisions.
 
 **Legacy Code Behavior**:
+
 1. If player is in treasure room: returns immediately (thief protected by TREASURE-ROOM-FCN)
 2. **If thief not present** (THIEF-HERE is false):
    - 30% chance to appear with stiletto, becomes visible
@@ -129,11 +136,13 @@ The legacy thief system consists of:
    - Checks if player's light source was stolen via STOLE-LIGHT?
 
 **Parameters**:
+
 - `HERE?`: Boolean indicating if player is in same room as thief
 
 **Returns**: Boolean indicating if encounter completed
 
 **Key Probabilities**:
+
 - 30% to appear when not present
 - 90% to continue fighting if already fighting
 - 30% to leave without stealing
@@ -141,6 +150,7 @@ The legacy thief system consists of:
 - 30% to steal when already present
 
 **Messages**:
+
 - Appears with bag: "Someone carrying a large bag is casually leaning..."
 - Flees when losing: "Your opponent, determining discretion to be the better part of valor..."
 - Leaves disgusted: "The holder of the large bag just left, looking disgusted..."
@@ -148,10 +158,11 @@ The legacy thief system consists of:
 - Steals from player: "The thief just left, still carrying his large bag..."
 
 **New Implementation**:
+
 - **File**: `src/app/core/models/thief-actor.ts`
 - **Method**: `onEncounter()` (lines 161-164)
 - **Status**: ⚠️ STUB - TODO implementation
-- **Config Mapping**: 
+- **Config Mapping**:
   - appearProbability (0.3) → 30% appear chance
   - stealProbability (0.5) → used in ROB calls
   - fleeWhenWeakProbability (0.4) → flee when losing
@@ -167,10 +178,11 @@ The legacy thief system consists of:
 **Legacy Code Behavior**:
 
 #### Verb Handling (no MODE)
+
 - **TELL**: "The thief is a strong, silent type."
 - **HELLO**: Special message if unconscious
 - **THROW KNIFE**: 10% chance to frighten thief away, drops bag contents; else angers thief
-- **THROW/GIVE item**: 
+- **THROW/GIVE item**:
   - Revives if unconscious (negative strength becomes positive)
   - If valuable (TVALUE > 0): sets THIEF-ENGROSSED, admires gift
   - If worthless: accepts politely, adds to bag
@@ -179,8 +191,9 @@ The legacy thief system consists of:
 - **LISTEN**: "The thief says nothing, as you have not been formally introduced."
 
 #### Mode Transitions
+
 - **F-BUSY**: Recovers stiletto if in same location
-- **F-DEAD**: 
+- **F-DEAD**:
   - Drops stiletto in room
   - Deposits booty via DEPOSIT-BOOTY
   - If in treasure room: reveals all invisible items via HACK-TREASURES
@@ -198,12 +211,13 @@ The legacy thief system consists of:
 - **F-FIRST?**: 20% chance to set FIGHTBIT when thief is present
 
 **New Implementation**:
+
 - **File**: `src/app/core/models/thief-actor.ts`
 - **Methods**:
   - Mode transitions: `onDeath()` (lines 177-189), `onDamage()` (lines 197-221), `onConscious()` (lines 227-242)
   - Gift handling: `acceptGift()` (lines 252-280)
 - **Status**: ✅ Partially implemented (modes and gift acceptance)
-- **TODOs**: 
+- **TODOs**:
   - Stiletto dropping in onDamage
   - Stiletto recovery in onConscious
   - Message generation for gift acceptance
@@ -218,6 +232,7 @@ The legacy thief system consists of:
 **Purpose**: Core routine to steal valuable items from a source (room or player) to a destination (thief).
 
 **Legacy Code Behavior**:
+
 1. Iterates through all objects in source (WHAT)
 2. For each object, checks:
    - Not invisible
@@ -231,6 +246,7 @@ The legacy thief system consists of:
    - Returns true if any item was stolen
 
 **Parameters**:
+
 - `WHAT`: Source location (room or player/adventurer)
 - `WHERE`: Destination (typically THIEF)
 - `PROB`: Optional probability percentage (e.g., 75, 100)
@@ -238,6 +254,7 @@ The legacy thief system consists of:
 **Returns**: Boolean indicating if any items were robbed
 
 **Key Logic**:
+
 ```zil
 <COND (<AND <NOT <FSET? .X ,INVISIBLE>>
             <NOT <FSET? .X ,SACREDBIT>>
@@ -250,6 +267,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **File**: Not yet implemented as standalone method
 - **Expected Location**: InventoryService or ThiefActor helper method
 - **Status**: ⚠️ TODO - needs implementation
@@ -264,6 +282,7 @@ The legacy thief system consists of:
 **Purpose**: Steal worthless items (TVALUE = 0) from a room.
 
 **Legacy Code Behavior**:
+
 1. Iterates through all objects in room (RM)
 2. For each object, checks:
    - Has TVALUE = 0 (worthless)
@@ -278,11 +297,13 @@ The legacy thief system consists of:
    - If in player's current room: announces "You suddenly notice that the X vanished."
 
 **Parameters**:
+
 - `RM`: Room to steal from
 
 **Returns**: Boolean indicating if any junk was stolen
 
 **Key Logic**:
+
 ```zil
 <COND (<AND <0? <GETP .X ,P?TVALUE>>
             <FSET? .X ,TAKEBIT>
@@ -296,6 +317,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO - needs implementation
 - **Expected Location**: ThiefActor helper method or InventoryService
 - **Config Mapping**: Uses custom 10% probability for worthless items
@@ -309,6 +331,7 @@ The legacy thief system consists of:
 **Purpose**: Drop worthless items from thief's inventory into the current room.
 
 **Legacy Code Behavior**:
+
 1. Iterates through thief's inventory
 2. For each item, checks:
    - Not stiletto or large bag
@@ -320,14 +343,17 @@ The legacy thief system consists of:
    - If in player's room: announces "The robber, rummaging through his bag, dropped a few items..."
 
 **Parameters**:
+
 - `RM`: Room to drop items in
 
 **Returns**: Boolean indicating if any items were dropped
 
 **Key Probabilities**:
+
 - 30% chance per worthless item
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO - needs implementation
 - **Expected Location**: ThiefActor helper method
 - **Config Mapping**: dropWorthlessProbability (0.7 in config, but legacy uses 0.3 - note discrepancy!)
@@ -343,6 +369,7 @@ The legacy thief system consists of:
 **Purpose**: Pick up stiletto if it's lying on the ground in thief's current room.
 
 **Legacy Code Behavior**:
+
 1. Checks if stiletto is in thief's current location
 2. If yes:
    - Sets NDESCBIT flag on stiletto (no longer described separately)
@@ -353,6 +380,7 @@ The legacy thief system consists of:
 **Returns**: Implicit (no return value)
 
 **Key Logic**:
+
 ```zil
 <COND (<IN? ,STILETTO <LOC ,THIEF>>
        <FSET ,STILETTO ,NDESCBIT>
@@ -360,6 +388,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO in multiple places
 - **Referenced in**:
   - onConscious() line 241: "TODO: Recover stiletto from ground if present"
@@ -376,6 +405,7 @@ The legacy thief system consists of:
 **Purpose**: Transfer all valuable items from thief's inventory to the treasure room.
 
 **Legacy Code Behavior**:
+
 1. Iterates through thief's inventory
 2. For each item, checks:
    - Not stiletto or large bag
@@ -386,11 +416,13 @@ The legacy thief system consists of:
    - Returns true if any items were deposited
 
 **Parameters**:
+
 - `RM`: Destination room (typically TREASURE-ROOM)
 
 **Returns**: Boolean indicating if any treasures were deposited
 
 **Key Logic**:
+
 ```zil
 <COND (<EQUAL? .X ,STILETTO ,LARGE-BAG>)  ; Skip these
       (<G? <GETP .X ,P?TVALUE> 0>
@@ -402,6 +434,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **Status**: ⚠️ Referenced but not implemented
 - **Called from**: onDeath() comment (line 172-173): "The actual depositBooty operation should be called separately"
 - **Expected Location**: InventoryService or GameEngineService
@@ -416,6 +449,7 @@ The legacy thief system consists of:
 **Purpose**: Make all invisible items in treasure room visible when thief dies there.
 
 **Legacy Code Behavior**:
+
 1. Calls RECOVER-STILETTO to pick up stiletto
 2. Makes thief invisible
 3. Iterates through all objects in treasure room
@@ -426,6 +460,7 @@ The legacy thief system consists of:
 **Returns**: Implicit (no return value)
 
 **Key Logic**:
+
 ```zil
 <RECOVER-STILETTO>
 <FSET ,THIEF ,INVISIBLE>
@@ -437,6 +472,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO
 - **Expected Location**: Called from ROBBER-FUNCTION F-DEAD handler
 - **New Location**: GameEngineService or death handler in combat system
@@ -451,6 +487,7 @@ The legacy thief system consists of:
 **Purpose**: Special variant of stealing for maze rooms, handles maze-specific item theft.
 
 **Legacy Code Behavior**:
+
 1. Iterates through all objects in maze room
 2. For each object, checks:
    - Has TAKEBIT (can be picked up)
@@ -462,14 +499,17 @@ The legacy thief system consists of:
    - Sets TOUCHBIT and INVISIBLE flags
 
 **Parameters**:
+
 - `RM`: Maze room to steal from
 
 **Returns**: Boolean indicating if any items were stolen
 
 **Key Probabilities**:
+
 - 40% chance per item
 
 **Key Logic**:
+
 ```zil
 <COND (<AND <FSET? .X ,TAKEBIT>
             <NOT <FSET? .X ,SACREDBIT>>
@@ -482,6 +522,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO
 - **Expected Location**: ThiefActor helper method or InventoryService
 - **Notes**: Called from I-THIEF when both room and HERE have MAZEBIT flag
@@ -495,6 +536,7 @@ The legacy thief system consists of:
 **Purpose**: Check if thief stole player's light source and announce if player is now in darkness.
 
 **Legacy Code Behavior**:
+
 1. Saves current LIT state (OLD-LIT)
 2. Recalculates LIT state for current room
 3. If was lit before but not now: announces "The thief seems to have left you in the dark."
@@ -504,6 +546,7 @@ The legacy thief system consists of:
 **Returns**: True (always)
 
 **Key Logic**:
+
 ```zil
 <SET OLD-LIT ,LIT>
 <SETG LIT <LIT? ,HERE>>
@@ -512,6 +555,7 @@ The legacy thief system consists of:
 ```
 
 **New Implementation**:
+
 - **Status**: ⚠️ Implemented in separate spec
 - **File**: `src/app/core/services/light-stolen.spec.ts`
 - **Test Coverage**: ✅ Full test harness for light theft detection
@@ -526,6 +570,7 @@ The legacy thief system consists of:
 **Purpose**: Handler for player entering the treasure room. Ensures thief defends his hoard.
 
 **Legacy Code Behavior**:
+
 1. If I-THIEF is enabled and player is not dead:
    - If thief not in room: teleports thief to treasure room with announcement
    - Sets thief to FIGHTBIT (attack mode)
@@ -533,14 +578,17 @@ The legacy thief system consists of:
    - Calls THIEF-IN-TREASURE
 
 **Parameters**:
+
 - `RARG`: Room argument (checks for M-ENTER)
 
 **Returns**: Implicit (no return value)
 
 **Messages**:
+
 - "You hear a scream of anguish as you violate the robber's hideaway. Using passages unknown to you, he rushes to its defense."
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO
 - **Expected Location**: Room action handler or GameEngineService
 - **Notes**: Provides special protection for thief's treasure room
@@ -554,6 +602,7 @@ The legacy thief system consists of:
 **Purpose**: Handle thief's magic when player enters treasure room with multiple items present.
 
 **Legacy Code Behavior**:
+
 1. Checks if treasure room has 2+ objects
 2. If yes: announces "The thief gestures mysteriously, and the treasures in the room suddenly vanish."
 3. Items become invisible via thief's magic
@@ -563,9 +612,11 @@ The legacy thief system consists of:
 **Returns**: Implicit (no return value)
 
 **Messages**:
+
 - "The thief gestures mysteriously, and the treasures in the room suddenly vanish."
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO
 - **Expected Location**: Called from TREASURE-ROOM-FCN
 - **Notes**: Demonstrates thief's magical protection of his hoard
@@ -581,7 +632,8 @@ The legacy thief system consists of:
 **Legacy Code Behavior**:
 
 #### Verb Handling
-- **TAKE**: 
+
+- **TAKE**:
   - If thief unconscious: "Sadly for you, the robber collapsed on top of the bag. Trying to take it would wake him."
   - If thief conscious: "The bag will be taken over his dead body."
 - **PUT**: "It would be a good trick."
@@ -593,6 +645,7 @@ The legacy thief system consists of:
 **Returns**: Implicit (no return value)
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO
 - **Expected Location**: Object action handler in GameEngineService
 - **Notes**: Bag is always protected by thief's presence
@@ -608,6 +661,7 @@ The legacy thief system consists of:
 **Legacy Code Behavior**:
 
 #### Verb Handling
+
 - **TAKE**: If in treasure room with conscious thief: "You'd be stabbed in the back first."
 - **PUT**: "You can't. It's not a very good chalice, is it?"
 - **Other verbs**: Delegates to DUMB-CONTAINER
@@ -617,6 +671,7 @@ The legacy thief system consists of:
 **Returns**: Implicit (no return value)
 
 **New Implementation**:
+
 - **Status**: ⚠️ TODO
 - **Expected Location**: Object action handler in GameEngineService
 - **Notes**: Chalice is specifically protected in treasure room
@@ -627,68 +682,68 @@ The legacy thief system consists of:
 
 ### Core Actor Implementation
 
-| Legacy Component | New TypeScript Location | Status |
-|-----------------|------------------------|--------|
-| OBJECT THIEF | `src/app/core/models/thief-actor.ts` class ThiefActor | ✅ Implemented |
-| THIEF location | ThiefActor.locationId | ✅ Implemented |
-| THIEF inventory | ThiefActor.inventory | ✅ Implemented |
-| P?STRENGTH property | ThiefActor.flags.get('strength') | ✅ Implemented |
-| FIGHTBIT flag | ThiefActor.flags.get('fighting') | ✅ Implemented |
-| INVISIBLE flag | ThiefActor.visible property | ✅ Implemented (inverted) |
+| Legacy Component    | New TypeScript Location                               | Status                    |
+| ------------------- | ----------------------------------------------------- | ------------------------- |
+| OBJECT THIEF        | `src/app/core/models/thief-actor.ts` class ThiefActor | ✅ Implemented            |
+| THIEF location      | ThiefActor.locationId                                 | ✅ Implemented            |
+| THIEF inventory     | ThiefActor.inventory                                  | ✅ Implemented            |
+| P?STRENGTH property | ThiefActor.flags.get('strength')                      | ✅ Implemented            |
+| FIGHTBIT flag       | ThiefActor.flags.get('fighting')                      | ✅ Implemented            |
+| INVISIBLE flag      | ThiefActor.visible property                           | ✅ Implemented (inverted) |
 
 ### State Management
 
-| Legacy State | New TypeScript Equivalent | Status |
-|-------------|--------------------------|--------|
-| F-CONSCIOUS mode | ThiefMode.CONSCIOUS | ✅ Implemented |
-| F-UNCONSCIOUS mode | ThiefMode.UNCONSCIOUS | ✅ Implemented |
-| F-DEAD mode | ThiefMode.DEAD | ✅ Implemented |
-| F-BUSY mode | ThiefMode.BUSY | ✅ Implemented (reserved) |
-| THIEF-HERE global | Actor visibility state | ✅ Tracked via visible property |
-| THIEF-ENGROSSED global | ThiefActor.engrossed | ✅ Implemented |
+| Legacy State           | New TypeScript Equivalent | Status                          |
+| ---------------------- | ------------------------- | ------------------------------- |
+| F-CONSCIOUS mode       | ThiefMode.CONSCIOUS       | ✅ Implemented                  |
+| F-UNCONSCIOUS mode     | ThiefMode.UNCONSCIOUS     | ✅ Implemented                  |
+| F-DEAD mode            | ThiefMode.DEAD            | ✅ Implemented                  |
+| F-BUSY mode            | ThiefMode.BUSY            | ✅ Implemented (reserved)       |
+| THIEF-HERE global      | Actor visibility state    | ✅ Tracked via visible property |
+| THIEF-ENGROSSED global | ThiefActor.engrossed      | ✅ Implemented                  |
 
 ### Behavior Routines
 
-| Legacy Routine | New Method/Service | Implementation Status |
-|---------------|-------------------|---------------------|
-| I-THIEF | ThiefActor.onTick() | ⚠️ Stub only |
-| THIEF-VS-ADVENTURER | ThiefActor.onEncounter() | ⚠️ Stub only |
-| ROBBER-FUNCTION (verbs) | ThiefActor.acceptGift() | ✅ Partial (gift only) |
-| ROBBER-FUNCTION (modes) | ThiefActor mode methods | ✅ Implemented |
-| ROB | InventoryService (TBD) | ⚠️ Not implemented |
-| STEAL-JUNK | ThiefActor helper (TBD) | ⚠️ Not implemented |
-| DROP-JUNK | ThiefActor helper (TBD) | ⚠️ Not implemented |
-| RECOVER-STILETTO | ThiefActor helper (TBD) | ⚠️ Not implemented |
-| DEPOSIT-BOOTY | InventoryService (TBD) | ⚠️ Not implemented |
-| HACK-TREASURES | GameEngineService (TBD) | ⚠️ Not implemented |
-| ROB-MAZE | ThiefActor helper (TBD) | ⚠️ Not implemented |
-| STOLE-LIGHT? | Light service (TBD) | ✅ Test spec exists |
-| TREASURE-ROOM-FCN | Room action handler | ⚠️ Not implemented |
-| THIEF-IN-TREASURE | Room action handler | ⚠️ Not implemented |
-| LARGE-BAG-F | Object action handler | ⚠️ Not implemented |
-| CHALICE-FCN | Object action handler | ⚠️ Not implemented |
+| Legacy Routine          | New Method/Service       | Implementation Status  |
+| ----------------------- | ------------------------ | ---------------------- |
+| I-THIEF                 | ThiefActor.onTick()      | ⚠️ Stub only           |
+| THIEF-VS-ADVENTURER     | ThiefActor.onEncounter() | ⚠️ Stub only           |
+| ROBBER-FUNCTION (verbs) | ThiefActor.acceptGift()  | ✅ Partial (gift only) |
+| ROBBER-FUNCTION (modes) | ThiefActor mode methods  | ✅ Implemented         |
+| ROB                     | InventoryService (TBD)   | ⚠️ Not implemented     |
+| STEAL-JUNK              | ThiefActor helper (TBD)  | ⚠️ Not implemented     |
+| DROP-JUNK               | ThiefActor helper (TBD)  | ⚠️ Not implemented     |
+| RECOVER-STILETTO        | ThiefActor helper (TBD)  | ⚠️ Not implemented     |
+| DEPOSIT-BOOTY           | InventoryService (TBD)   | ⚠️ Not implemented     |
+| HACK-TREASURES          | GameEngineService (TBD)  | ⚠️ Not implemented     |
+| ROB-MAZE                | ThiefActor helper (TBD)  | ⚠️ Not implemented     |
+| STOLE-LIGHT?            | Light service (TBD)      | ✅ Test spec exists    |
+| TREASURE-ROOM-FCN       | Room action handler      | ⚠️ Not implemented     |
+| THIEF-IN-TREASURE       | Room action handler      | ⚠️ Not implemented     |
+| LARGE-BAG-F             | Object action handler    | ⚠️ Not implemented     |
+| CHALICE-FCN             | Object action handler    | ⚠️ Not implemented     |
 
 ### Configuration System
 
-| Legacy Mechanism | New TypeScript Equivalent | Status |
-|-----------------|--------------------------|--------|
-| PROB calls (hardcoded) | ThiefConfigService.getThiefParameters() | ✅ Implemented |
-| PROB 30 (appear) | appearProbability: 0.3 | ✅ Configured |
-| PROB 50 (steal) | stealProbability: 0.5 | ✅ Configured |
-| PROB 70 (various) | tickMovementProbability: 0.7 | ✅ Configured |
-| PROB 40 (flee) | fleeWhenWeakProbability: 0.4 | ✅ Configured |
-| PROB 10 (frighten) | combatSpecialProbability (TBD) | ⚠️ Not yet in config |
-| PROB 20 (attack) | combatInitiateProbability (TBD) | ⚠️ Not yet in config |
+| Legacy Mechanism       | New TypeScript Equivalent               | Status               |
+| ---------------------- | --------------------------------------- | -------------------- |
+| PROB calls (hardcoded) | ThiefConfigService.getThiefParameters() | ✅ Implemented       |
+| PROB 30 (appear)       | appearProbability: 0.3                  | ✅ Configured        |
+| PROB 50 (steal)        | stealProbability: 0.5                   | ✅ Configured        |
+| PROB 70 (various)      | tickMovementProbability: 0.7            | ✅ Configured        |
+| PROB 40 (flee)         | fleeWhenWeakProbability: 0.4            | ✅ Configured        |
+| PROB 10 (frighten)     | combatSpecialProbability (TBD)          | ⚠️ Not yet in config |
+| PROB 20 (attack)       | combatInitiateProbability (TBD)         | ⚠️ Not yet in config |
 
 ### Message System
 
-| Legacy Messages | New TypeScript Location | Status |
-|----------------|------------------------|--------|
-| Combat messages | `src/app/data/messages/thief-messages.json` | ✅ Implemented |
-| ROBBER-C-DESC | ThiefCombatMessageType constants | ✅ Implemented |
-| ROBBER-U-DESC | ThiefCombatMessageType constants | ✅ Implemented |
-| Encounter messages | MessageService | ✅ Infrastructure exists |
-| Gift messages | MessageService | ⚠️ TODO in acceptGift |
+| Legacy Messages    | New TypeScript Location                     | Status                   |
+| ------------------ | ------------------------------------------- | ------------------------ |
+| Combat messages    | `src/app/data/messages/thief-messages.json` | ✅ Implemented           |
+| ROBBER-C-DESC      | ThiefCombatMessageType constants            | ✅ Implemented           |
+| ROBBER-U-DESC      | ThiefCombatMessageType constants            | ✅ Implemented           |
+| Encounter messages | MessageService                              | ✅ Infrastructure exists |
+| Gift messages      | MessageService                              | ⚠️ TODO in acceptGift    |
 
 ---
 
@@ -696,24 +751,24 @@ The legacy thief system consists of:
 
 ### Thief State Transitions
 
-| From State | Event | To State | Legacy Location | New Location |
-|-----------|-------|----------|-----------------|--------------|
-| CONSCIOUS | Take damage (strength → 0) | DEAD | ROBBER-FUNCTION F-DEAD | onDeath() |
-| CONSCIOUS | Take damage (strength < 0) | UNCONSCIOUS | ROBBER-FUNCTION F-UNCONSCIOUS | onDamage() |
-| UNCONSCIOUS | Receive gift | CONSCIOUS | ROBBER-FUNCTION (gift handler) | onConscious() |
-| UNCONSCIOUS | Time passes | CONSCIOUS | ROBBER-FUNCTION F-CONSCIOUS | onConscious() |
-| DEAD | - | - | Permanent state | Permanent state |
+| From State  | Event                      | To State    | Legacy Location                | New Location    |
+| ----------- | -------------------------- | ----------- | ------------------------------ | --------------- |
+| CONSCIOUS   | Take damage (strength → 0) | DEAD        | ROBBER-FUNCTION F-DEAD         | onDeath()       |
+| CONSCIOUS   | Take damage (strength < 0) | UNCONSCIOUS | ROBBER-FUNCTION F-UNCONSCIOUS  | onDamage()      |
+| UNCONSCIOUS | Receive gift               | CONSCIOUS   | ROBBER-FUNCTION (gift handler) | onConscious()   |
+| UNCONSCIOUS | Time passes                | CONSCIOUS   | ROBBER-FUNCTION F-CONSCIOUS    | onConscious()   |
+| DEAD        | -                          | -           | Permanent state                | Permanent state |
 
 ### Thief Flags and Properties
 
-| Property | Legacy Implementation | New Implementation | Notes |
-|----------|---------------------|-------------------|-------|
-| Strength | P?STRENGTH property | flags.get('strength') | Number, 0 = dead, < 0 = unconscious |
-| Fighting | FIGHTBIT flag | flags.get('fighting') | Boolean |
-| Visible | INVISIBLE flag (inverted) | visible property | Boolean, inverted logic |
-| Engrossed | THIEF-ENGROSSED global | engrossed field | Boolean |
-| Has stiletto | <IN? ,STILETTO ,THIEF> | hasStilettoInInventory() | Boolean method |
-| In treasure room | <EQUAL? <LOC ,THIEF> ,TREASURE-ROOM> | isInTreasureRoom() | Boolean method |
+| Property         | Legacy Implementation                | New Implementation       | Notes                               |
+| ---------------- | ------------------------------------ | ------------------------ | ----------------------------------- |
+| Strength         | P?STRENGTH property                  | flags.get('strength')    | Number, 0 = dead, < 0 = unconscious |
+| Fighting         | FIGHTBIT flag                        | flags.get('fighting')    | Boolean                             |
+| Visible          | INVISIBLE flag (inverted)            | visible property         | Boolean, inverted logic             |
+| Engrossed        | THIEF-ENGROSSED global               | engrossed field          | Boolean                             |
+| Has stiletto     | <IN? ,STILETTO ,THIEF>               | hasStilettoInInventory() | Boolean method                      |
+| In treasure room | <EQUAL? <LOC ,THIEF> ,TREASURE-ROOM> | isInTreasureRoom()       | Boolean method                      |
 
 ---
 
@@ -723,32 +778,32 @@ The legacy system used `PROB` macro with percentages. The new system uses decima
 
 ### Legacy PROB Calls → New Config Properties
 
-| Legacy Code | Probability % | New Config Property | Default Value |
-|------------|---------------|---------------------|---------------|
-| `<PROB 30>` (appear) | 30% | appearProbability | 0.3 |
-| `<PROB 50>` (steal) | 50% | stealProbability | 0.5 |
-| `<PROB 75>` (steal items) | 75% | Used in ROB calls | 0.75 |
-| `<PROB 70>` (move/drop) | 70% | tickMovementProbability | 0.7 |
-| `<PROB 40>` (flee/rob maze) | 40% | fleeWhenWeakProbability | 0.4 |
-| `<PROB 30 T>` (drop junk) | 30% | dropWorthlessProbability | 0.7 ⚠️ |
-| `<PROB 10 T>` (steal junk) | 10% | Not yet configurable | 0.1 |
-| `<PROB 10 0>` (frighten) | 10% | Not yet configurable | 0.1 |
-| `<PROB 20>` (attack) | 20% | Not yet configurable | 0.2 |
-| `<PROB 60>` (hit) | 60% | combatHitProbability | 0.6 |
-| `<PROB 15>` (disarm) | 15% | combatDisarmProbability | 0.15 |
-| `<PROB 20>` (crit) | 20% | combatCriticalHitProbability | 0.2 |
-| `<PROB 80>` (deposit) | 80% | depositBootyProbability | 0.8 |
-| `<PROB 90>` (continue fight) | 90% | Not yet configurable | 0.9 |
+| Legacy Code                  | Probability % | New Config Property          | Default Value |
+| ---------------------------- | ------------- | ---------------------------- | ------------- |
+| `<PROB 30>` (appear)         | 30%           | appearProbability            | 0.3           |
+| `<PROB 50>` (steal)          | 50%           | stealProbability             | 0.5           |
+| `<PROB 75>` (steal items)    | 75%           | Used in ROB calls            | 0.75          |
+| `<PROB 70>` (move/drop)      | 70%           | tickMovementProbability      | 0.7           |
+| `<PROB 40>` (flee/rob maze)  | 40%           | fleeWhenWeakProbability      | 0.4           |
+| `<PROB 30 T>` (drop junk)    | 30%           | dropWorthlessProbability     | 0.7 ⚠️        |
+| `<PROB 10 T>` (steal junk)   | 10%           | Not yet configurable         | 0.1           |
+| `<PROB 10 0>` (frighten)     | 10%           | Not yet configurable         | 0.1           |
+| `<PROB 20>` (attack)         | 20%           | Not yet configurable         | 0.2           |
+| `<PROB 60>` (hit)            | 60%           | combatHitProbability         | 0.6           |
+| `<PROB 15>` (disarm)         | 15%           | combatDisarmProbability      | 0.15          |
+| `<PROB 20>` (crit)           | 20%           | combatCriticalHitProbability | 0.2           |
+| `<PROB 80>` (deposit)        | 80%           | depositBootyProbability      | 0.8           |
+| `<PROB 90>` (continue fight) | 90%           | Not yet configurable         | 0.9           |
 
 ⚠️ **Note**: DROP-JUNK has inverted semantics. Legacy PROB 30 means "30% keep, 70% process". New config dropWorthlessProbability 0.7 means "70% drop". Verify implementation matches intention.
 
 ### Random Number Generation
 
-| Legacy Mechanism | New Mechanism | Notes |
-|-----------------|---------------|-------|
-| PROB macro | RandomService.nextBoolean() | Deterministic with seed |
-| Random seed | RandomService.setSeed() | For testing/replay |
-| No seed management | RandomService.getSeed() | Can retrieve current seed |
+| Legacy Mechanism   | New Mechanism               | Notes                     |
+| ------------------ | --------------------------- | ------------------------- |
+| PROB macro         | RandomService.nextBoolean() | Deterministic with seed   |
+| Random seed        | RandomService.setSeed()     | For testing/replay        |
+| No seed management | RandomService.getSeed()     | Can retrieve current seed |
 
 ---
 
@@ -757,12 +812,14 @@ The legacy system used `PROB` macro with percentages. The new system uses decima
 This checklist ensures the new TypeScript implementation maintains behavioral parity with the legacy ZIL code.
 
 ### Setup and Configuration
+
 - [ ] **Config Loading**: Verify `thief-config.json` loads correctly
 - [ ] **Difficulty Modes**: Test easy/normal/hard mode switching
 - [ ] **Default Values**: Confirm all probabilities match legacy PROB values
 - [ ] **Dev Mode**: Test runtime config reload in development mode
 
 ### Actor Initialization
+
 - [ ] **Initial State**: Thief starts in CONSCIOUS mode
 - [ ] **Starting Location**: Thief spawns in correct room (round-room)
 - [ ] **Starting Inventory**: Thief has stiletto and large bag
@@ -770,6 +827,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Tick Enabled**: Thief ticking is enabled at start
 
 ### State Transitions
+
 - [ ] **Damage → Unconscious**: Taking damage with strength > 0 → UNCONSCIOUS
 - [ ] **Damage → Death**: Taking damage with strength = 0 → DEAD
 - [ ] **Revival**: Giving gift to unconscious thief → CONSCIOUS
@@ -778,6 +836,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Tick Enable**: Revival re-enables ticking
 
 ### Gift Acceptance
+
 - [ ] **Worthless Gift**: Thief accepts, does not become engrossed
 - [ ] **Valuable Gift**: Thief accepts, becomes engrossed
 - [ ] **Engrossed State**: Thief remains engrossed for configured duration
@@ -785,6 +844,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Stiletto Return**: Thief properly handles receiving his own stiletto back
 
 ### Encounter Behavior (THIEF-VS-ADVENTURER)
+
 - [ ] **Appear Probability**: Thief appears ~30% of time when hidden
 - [ ] **Appear Message**: Correct message displayed when thief appears
 - [ ] **Flee When Losing**: Thief flees when losing combat (~40% when weak)
@@ -798,6 +858,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Combat Continuation**: 90% chance to continue fighting when already fighting
 
 ### Tick Behavior (I-THIEF)
+
 - [ ] **Treasure Room Deposit**: Thief deposits treasures when alone in treasure room
 - [ ] **Silent Deposit**: No message when depositing while invisible
 - [ ] **Room Movement**: Thief moves to next valid room per tick
@@ -809,6 +870,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Recover Stiletto**: Thief picks up stiletto if on ground
 
 ### Stealing Mechanics (ROB)
+
 - [ ] **Value Check**: Only steals items with TVALUE > 0
 - [ ] **Visibility Check**: Only steals visible items
 - [ ] **Sacred Check**: Never steals sacred items
@@ -818,6 +880,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Empty Result**: Returns false when nothing to steal
 
 ### Worthless Item Handling
+
 - [ ] **Steal Junk**: Steals worthless items from room (10% per item)
 - [ ] **Drop Junk**: Drops worthless items (configured probability)
 - [ ] **Junk Message**: Displays message when dropping in player's room
@@ -826,11 +889,13 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Rope Special Case**: DOME-FLAG cleared when rope stolen
 
 ### Maze Handling (ROB-MAZE)
+
 - [ ] **Maze Detection**: Correctly identifies maze rooms
 - [ ] **Maze Probability**: Uses 40% probability for maze theft
 - [ ] **Maze vs Normal**: ROB-MAZE called instead of STEAL-JUNK in mazes
 
 ### Treasure Room Mechanics
+
 - [ ] **Defense Trigger**: Thief teleports to treasure room when player enters
 - [ ] **Defense Message**: "You hear a scream of anguish..." displayed
 - [ ] **Attack Mode**: Thief enters combat when defending treasure room
@@ -839,6 +904,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Chalice Protection**: Chalice cannot be taken when thief is fighting
 
 ### Death Handling (F-DEAD)
+
 - [ ] **Stiletto Drop**: Stiletto dropped in room on death
 - [ ] **Booty Deposit**: All treasures deposited in death room
 - [ ] **Tick Disable**: I-THIEF interrupt disabled on death
@@ -846,6 +912,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Egg Special Case**: EGG-SOLVE flag set and EGG opened if in inventory
 
 ### Combat Integration
+
 - [ ] **Hit Probability**: Combat hits occur at configured rate (~60%)
 - [ ] **Critical Hits**: Critical hits occur at configured rate (~20%)
 - [ ] **Disarm Probability**: Disarm occurs at configured rate (~15%)
@@ -854,6 +921,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Weapon Function**: Stiletto damage properly applied
 
 ### Object Interactions
+
 - [ ] **Large Bag - Take**: Cannot take bag while thief alive
 - [ ] **Large Bag - Unconscious**: Cannot take bag when thief collapsed on it
 - [ ] **Large Bag - Examine**: Correct description displayed
@@ -862,6 +930,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Stiletto - Return**: Thief accepts stiletto back with salute message
 
 ### Message Consistency
+
 - [ ] **Appear Messages**: Match legacy text exactly
 - [ ] **Steal Messages**: Match legacy text exactly
 - [ ] **Flee Messages**: Match legacy text exactly
@@ -870,6 +939,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Death Messages**: Match legacy text exactly
 
 ### Probability Distribution Testing
+
 - [ ] **30% Appear**: Over 1000 trials, ~300 appearances (±5%)
 - [ ] **50% Steal**: Over 1000 trials, ~500 steals (±5%)
 - [ ] **70% Movement**: Over 1000 trials, ~700 movements (±5%)
@@ -877,6 +947,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Deterministic Replay**: Same seed produces identical sequence
 
 ### Edge Cases
+
 - [ ] **Zero Items**: Handles rooms with no items
 - [ ] **All Sacred Items**: Handles rooms with only sacred items
 - [ ] **Unconscious in Treasure Room**: Correct behavior when unconscious in lair
@@ -885,6 +956,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Negative Strength Clamping**: Strength clamped at -1, not increasingly negative
 
 ### Performance and Integration
+
 - [ ] **Tick Performance**: Each tick completes in reasonable time (<100ms)
 - [ ] **Memory Leaks**: No memory leaks over extended gameplay
 - [ ] **Save/Load**: Thief state persists correctly across save/load
@@ -892,6 +964,7 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 - [ ] **Concurrent Actions**: Handles player actions during thief tick correctly
 
 ### Telemetry Validation
+
 - [ ] **Tick Events**: Logged correctly with room and mode
 - [ ] **Encounter Events**: Logged with outcome
 - [ ] **Gift Events**: Logged with item and value
@@ -1040,40 +1113,40 @@ This checklist ensures the new TypeScript implementation maintains behavioral pa
 
 ### Key Constants
 
-| Constant | Legacy Value | New Value | Location |
-|----------|-------------|-----------|----------|
-| STILETTO ID | ,STILETTO | 'stiletto' | ThiefActor |
-| LARGE-BAG ID | ,LARGE-BAG | 'large-bag' | ThiefActor |
-| TREASURE-ROOM ID | ,TREASURE-ROOM | 'treasure-room' | ThiefActor |
-| Initial Strength | 5 | 5 (configurable) | ThiefConfig |
-| Max Strength | 5 | 5 (configurable) | ThiefConfig |
+| Constant         | Legacy Value   | New Value        | Location    |
+| ---------------- | -------------- | ---------------- | ----------- |
+| STILETTO ID      | ,STILETTO      | 'stiletto'       | ThiefActor  |
+| LARGE-BAG ID     | ,LARGE-BAG     | 'large-bag'      | ThiefActor  |
+| TREASURE-ROOM ID | ,TREASURE-ROOM | 'treasure-room'  | ThiefActor  |
+| Initial Strength | 5              | 5 (configurable) | ThiefConfig |
+| Max Strength     | 5              | 5 (configurable) | ThiefConfig |
 
 ### File Locations
 
-| Component | File Path | Lines |
-|-----------|-----------|-------|
-| ThiefActor class | `src/app/core/models/thief-actor.ts` | 1-409 |
-| ThiefConfigService | `src/app/core/services/thief-config.service.ts` | 1-200+ |
-| Thief config JSON | `src/app/data/thief-config.json` | Full file |
-| Thief messages | `src/app/data/messages/thief-messages.json` | Full file |
-| Light stolen spec | `src/app/core/services/light-stolen.spec.ts` | Full file |
-| Thief unit tests | `src/app/core/models/thief-actor.spec.ts` | Full file |
-| Thief integration tests | `src/app/core/integration/thief-*.spec.ts` | Multiple files |
+| Component               | File Path                                       | Lines          |
+| ----------------------- | ----------------------------------------------- | -------------- |
+| ThiefActor class        | `src/app/core/models/thief-actor.ts`            | 1-409          |
+| ThiefConfigService      | `src/app/core/services/thief-config.service.ts` | 1-200+         |
+| Thief config JSON       | `src/app/data/thief-config.json`                | Full file      |
+| Thief messages          | `src/app/data/messages/thief-messages.json`     | Full file      |
+| Light stolen spec       | `src/app/core/services/light-stolen.spec.ts`    | Full file      |
+| Thief unit tests        | `src/app/core/models/thief-actor.spec.ts`       | Full file      |
+| Thief integration tests | `src/app/core/integration/thief-*.spec.ts`      | Multiple files |
 
 ### Legacy ZIL Locations
 
-| Component | File | Line Range |
-|-----------|------|------------|
-| OBJECT THIEF | 1dungeon.zil | 968-983 |
-| I-THIEF | 1actions.zil | 3890-3931 |
-| THIEF-VS-ADVENTURER | 1actions.zil | 1764-1873 |
-| ROBBER-FUNCTION | 1actions.zil | 1947-2084 |
-| ROB | 1actions.zil | 3976-3989 |
-| STEAL-JUNK | 1actions.zil | 3954-3974 |
-| DROP-JUNK | 1actions.zil | 3933-3947 |
-| RECOVER-STILETTO | 1actions.zil | 3949-3952 |
-| DEPOSIT-BOOTY | 1actions.zil | 1897-1909 |
-| HACK-TREASURES | 1actions.zil | 1888-1895 |
+| Component           | File         | Line Range |
+| ------------------- | ------------ | ---------- |
+| OBJECT THIEF        | 1dungeon.zil | 968-983    |
+| I-THIEF             | 1actions.zil | 3890-3931  |
+| THIEF-VS-ADVENTURER | 1actions.zil | 1764-1873  |
+| ROBBER-FUNCTION     | 1actions.zil | 1947-2084  |
+| ROB                 | 1actions.zil | 3976-3989  |
+| STEAL-JUNK          | 1actions.zil | 3954-3974  |
+| DROP-JUNK           | 1actions.zil | 3933-3947  |
+| RECOVER-STILETTO    | 1actions.zil | 3949-3952  |
+| DEPOSIT-BOOTY       | 1actions.zil | 1897-1909  |
+| HACK-TREASURES      | 1actions.zil | 1888-1895  |
 
 ---
 
@@ -1089,6 +1162,7 @@ This migration guide is a living document. When implementing thief functionality
 6. Document any new config properties or message keys added
 
 For questions or clarifications, refer to:
+
 - Existing documentation in `docs/actors/THIEF-ACTOR.md`
 - Thief configuration guide in `docs/THIEF-DIFFICULTY-CONFIG.md`
 - Test harness documentation in `docs/THIEF-PROBABILITY-TEST-HARNESS.md`

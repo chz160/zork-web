@@ -5,9 +5,11 @@ This directory contains migration guides and reference documentation for convert
 ## Documents
 
 ### [Thief Migration Guide](./thief-migration.md)
+
 Comprehensive mapping of the legacy thief system (ROBBER/THIEF actor) from the original 1980 ZIL source code to the new TypeScript implementation.
 
 **Contents:**
+
 - Complete reference of all 15 legacy thief routines with source locations
 - Line-by-line mapping from ZIL to TypeScript
 - State management and probability system migration
@@ -16,6 +18,7 @@ Comprehensive mapping of the legacy thief system (ROBBER/THIEF actor) from the o
 - Quick reference tables for constants, files, and locations
 
 **Use Cases:**
+
 - Implementing remaining thief behavior (onTick, onEncounter)
 - Verifying behavioral parity with original game
 - Understanding legacy code structure and intent
@@ -40,16 +43,19 @@ This new implementation uses TypeScript and Angular, requiring careful translati
 ## Related Documentation
 
 ### Thief System
+
 - [ThiefActor Implementation](../actors/THIEF-ACTOR.md) - Technical documentation of the new TypeScript class
 - [Thief Configuration Guide](../THIEF-DIFFICULTY-CONFIG.md) - Configurable behavior and difficulty modes
 - [Thief Probability Test Harness](../THIEF-PROBABILITY-TEST-HARNESS.md) - Deterministic testing infrastructure
 
 ### Legacy Source Code
+
 - `docs/original-src-1980/1actions.zil` - Original action routines including thief behavior
 - `docs/original-src-1980/1dungeon.zil` - Original object definitions including THIEF
 - `docs/original-src-1980/gmain.zil` - Main game loop and interrupt system
 
 ### Architecture
+
 - [Architecture Overview](../architecture.md) - High-level system design
 - [Actor System Usage](../guides/ACTOR-SYSTEM-USAGE.md) - Actor pattern documentation
 
@@ -69,6 +75,7 @@ When adding new migration guides to this directory:
 ### Naming Convention
 
 Migration guides should follow this pattern:
+
 - `{system-name}-migration.md` - e.g., `thief-migration.md`, `troll-migration.md`
 - Focus on significant game systems or actors
 - One guide per major legacy component/subsystem
