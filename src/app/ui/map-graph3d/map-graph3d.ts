@@ -168,8 +168,9 @@ export class MapGraph3DComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    // Update graph data
-    this.graph.graphData(data as never);
+    // Update graph data - the library accepts any object with nodes and links arrays
+    // Our GraphData interface is compatible with the library's expected format
+    this.graph.graphData(data as { nodes: object[]; links: object[] });
 
     // Briefly restart animation for new nodes
     this.graph.resumeAnimation();
