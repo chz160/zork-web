@@ -51,6 +51,30 @@ export interface Room {
 
   /** Conditional exits that require certain conditions to be met */
   conditionalExits?: Map<Direction, ExitCondition>;
+
+  /** 3D spatial coordinates for map visualization */
+  spatialCoordinates?: SpatialCoordinates;
+}
+
+/**
+ * 3D spatial coordinates for room positioning in map visualization.
+ * Used to accurately represent the physical layout of the game world.
+ */
+export interface SpatialCoordinates {
+  /** X coordinate (east-west axis: east is positive) */
+  x: number;
+
+  /** Y coordinate (north-south axis: north is negative, south is positive) */
+  y: number;
+
+  /** Z coordinate (vertical axis: up is positive) */
+  z: number;
+
+  /**
+   * Whether coordinates were manually specified (true) or auto-computed (false).
+   * Manual coordinates take precedence in layout resolution.
+   */
+  isManual?: boolean;
 }
 
 /**

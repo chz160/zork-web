@@ -131,8 +131,8 @@
   width: 30px;
   height: 2px;
   border-radius: 0;
-  background-color: var(--zork-info, #00ffff);
-  box-shadow: 0 0 2px rgba(0, 255, 255, 0.5);
+  background-color: #ff00ff; /* Magenta for down */
+  box-shadow: 0 0 2px rgba(255, 0, 255, 0.5);
 }
 
 /* Instructions */

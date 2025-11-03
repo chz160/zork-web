@@ -74,6 +74,9 @@ export class Map3DComponent implements OnInit, OnDestroy {
   private sharedMarkerGeometry?: THREE.SphereGeometry;
   private sharedMarkerEdges?: THREE.EdgesGeometry;
 
+  /** Scale factor for room spacing in 3D visualization */
+  private readonly visualizationScale = 15;
+
   /** Bound event handler for window resize (needed for cleanup) */
   private readonly boundOnWindowResize = this.onWindowResize.bind(this);
 
@@ -326,9 +329,14 @@ export class Map3DComponent implements OnInit, OnDestroy {
       group.add(marker);
     }
 
-    // Position the room group
-    group.position.set(node.x / 10, 0, node.y / 10); // Scale down positions
-    group.userData = { id: node.id, isCurrent: node.isCurrent };
+    // Position the room group in 3D space
+    // Scale coordinates for better visualization spacing
+    group.position.set(
+      node.x * this.visualizationScale,
+      node.z * this.visualizationScale,
+      node.y * this.visualizationScale
+    );
+    group.userData = { id: node.id, isCurrent: node.isCurrent, z: node.z };
 
     return group;
   }
@@ -378,17 +386,29 @@ export class Map3DComponent implements OnInit, OnDestroy {
     }
 
     const points = [];
-    points.push(new THREE.Vector3(fromNode.x / 10, 0, fromNode.y / 10));
-    points.push(new THREE.Vector3(toNode.x / 10, 0, toNode.y / 10));
+    points.push(
+      new THREE.Vector3(
+        fromNode.x * this.visualizationScale,
+        fromNode.z * this.visualizationScale,
+        fromNode.y * this.visualizationScale
+      )
+    );
+    points.push(
+      new THREE.Vector3(
+        toNode.x * this.visualizationScale,
+        toNode.z * this.visualizationScale,
+        toNode.y * this.visualizationScale
+      )
+    );
 
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
 
     // Color based on direction
-    let color = 0x00ff00; // Default green
+    let color = 0x00ff00; // Default green for horizontal movement
     if (edge.direction === 'up') {
       color = 0xffff00; // Yellow for up
     } else if (edge.direction === 'down') {
-      color = 0x00ffff; // Cyan for down
+      color = 0xff00ff; // Magenta for down
     }
 
     const material = new THREE.LineBasicMaterial({
@@ -410,12 +430,13 @@ export class Map3DComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Update controls target to current room position
-    const targetX = currentNode.x / 10;
-    const targetZ = currentNode.y / 10;
+    // Update controls target to current room position in 3D
+    const targetX = currentNode.x * this.visualizationScale;
+    const targetY = currentNode.z * this.visualizationScale;
+    const targetZ = currentNode.y * this.visualizationScale;
 
     // Smoothly transition to new target
-    this.controls.target.set(targetX, 0, targetZ);
+    this.controls.target.set(targetX, targetY, targetZ);
   }
 
   /**
