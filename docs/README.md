@@ -58,6 +58,16 @@ Historical reference materials from the original Zork:
 - **[Original Source C](original-src-c/README.md)** - C language port
 - **[Walkthrough](walkthrough.txt)** - Complete game transcript for testing
 
+### Legacy Migration Guides
+
+- **[Legacy Migration Documentation](legacy/README.md)** - Comprehensive guides for migrating legacy ZIL code to TypeScript
+  - **[Thief Migration Guide](legacy/thief-migration.md)** ⭐ *Complete mapping of legacy thief system to new implementation*
+    - All 15 legacy thief routines documented with source locations
+    - Line-by-line mapping from ZIL to TypeScript
+    - 50+ QA test cases for parity validation
+    - State management and probability system migration
+    - Known gaps and implementation TODOs
+
 ## 📖 Implementation Guides
 
 ### Conversion & Data Tools
@@ -116,6 +126,8 @@ Historical reference materials from the original Zork:
 - **Check original implementation** → [Original Source 1980](original-src-1980/) or [C Source](original-src-c/)
 - **Convert legacy data** → [Conversion Guide](guides/CONVERSION-GUIDE.md)
 - **Understand conversational parser** → [Conversational Parser](CONVERSATIONAL-PARSER.md)
+- **Migrate legacy ZIL code** → [Legacy Migration Guides](legacy/), [Thief Migration](legacy/thief-migration.md)
+- **Understand legacy thief behavior** → [Thief Migration Guide](legacy/thief-migration.md)
 
 ### By Entity Type
 
@@ -206,6 +218,7 @@ npm run build
 - **[reference/](reference/)** - Reference documentation (entity mappings, quick references, samples)
 - **[schemas/](schemas/)** - JSON schemas for data validation
 - **[actors/](actors/)** - NPC actor implementation documentation
+- **[legacy/](legacy/)** - Legacy ZIL to TypeScript migration guides
 - **[original-src-1980/](original-src-1980/)** - Original Zork ZIL source code
 - **[original-src-c/](original-src-c/)** - Original Zork C port source code
 
