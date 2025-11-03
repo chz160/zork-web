@@ -1,0 +1,164 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--zork-background);
+  color: var(--zork-primary);
+  font-family: var(--zork-font-family);
+  position: relative;
+}
+
+/* Map header with statistics */
+.map-header {
+  padding: var(--zork-spacing-md);
+  border-bottom: 1px solid var(--zork-primary);
+  background: var(--zork-background-alt);
+}
+
+.map-stats {
+  display: flex;
+  gap: var(--zork-spacing-lg);
+  flex-wrap: wrap;
+}
+
+.map-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--zork-spacing-xs);
+}
+
+.map-stat-label {
+  color: var(--zork-primary-dim);
+  font-size: 0.9rem;
+}
+
+.map-stat-value {
+  color: var(--zork-primary);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Three.js canvas container */
+.canvas-container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000000;
+  min-height: 400px;
+}
+
+/* Empty state */
+.map-empty-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--zork-primary-dim);
+  padding: var(--zork-spacing-lg);
+  z-index: 10;
+}
+
+.map-empty-state p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Legend */
+.map-legend {
+  padding: var(--zork-spacing-md);
+  border-top: 1px solid var(--zork-primary);
+  background: var(--zork-background-alt);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zork-spacing-md);
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--zork-spacing-xs);
+}
+
+.legend-symbol {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--zork-primary);
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.legend-symbol--current {
+  background: #ffff00; /* yellow - current room */
+}
+
+.legend-symbol--visited {
+  background: #78c0ff; /* light blue - visited room */
+}
+
+.legend-symbol--connection {
+  background: #7cffd4; /* cyan - corridor */
+  width: 30px;
+  height: 10px;
+}
+
+.legend-label {
+  color: var(--zork-primary-dim);
+  font-size: 0.85rem;
+}
+
+.legend-hint {
+  color: var(--zork-primary-faint);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map-header {
+    padding: var(--zork-spacing-sm);
+  }
+
+  .map-stats {
+    gap: var(--zork-spacing-md);
+  }
+
+  .map-legend {
+    padding: var(--zork-spacing-sm);
+    gap: var(--zork-spacing-sm);
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+  }
+
+  .canvas-container {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .canvas-container {
+    min-height: 250px;
+  }
+
+  .legend-hint {
+    width: 100%;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .legend-symbol {
+    border-width: 2px;
+  }
+}

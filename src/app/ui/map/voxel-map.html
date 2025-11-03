@@ -1,0 +1,44 @@
+<div class="map-container" role="region" [attr.aria-label]="getMapAriaLabel()">
+  <!-- Map stats -->
+  <div class="map-header">
+    <div class="map-stats">
+      <span class="map-stat">
+        <span class="map-stat-label">Rooms:</span>
+        <span class="map-stat-value">{{ exploredCount() }}</span>
+      </span>
+      <span class="map-stat">
+        <span class="map-stat-label">Connections:</span>
+        <span class="map-stat-value">{{ connectionCount() }}</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Three.js canvas container -->
+  <div #canvasContainer class="canvas-container" [attr.aria-label]="getMapAriaLabel()"></div>
+
+  <!-- Empty state when no rooms explored -->
+  @if (exploredCount() === 0) {
+    <div class="map-empty-state">
+      <p>No rooms explored yet. Start exploring to see the map!</p>
+    </div>
+  }
+
+  <!-- Legend -->
+  <div class="map-legend">
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--current"></span>
+      <span class="legend-label">Current Location</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--visited"></span>
+      <span class="legend-label">Explored Room</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-symbol legend-symbol--connection"></span>
+      <span class="legend-label">Corridor</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-hint">💡 Use mouse to orbit, zoom, and pan the map</span>
+    </div>
+  </div>
+</div>
