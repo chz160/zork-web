@@ -239,7 +239,7 @@ describe('TrollBehaviorStrategy', () => {
   });
 
   describe('handleFoodOffer', () => {
-    it('should accept eatable item', () => {
+    it('should accept edible item', () => {
       const state = strategy.createInitialState();
       const result = strategy.handleFoodOffer(state, 'sandwich');
 
@@ -248,7 +248,7 @@ describe('TrollBehaviorStrategy', () => {
       expect(result.messageKey).toBe('TROLL_EATS_FOOD');
     });
 
-    it('should refuse non-eatable item', () => {
+    it('should refuse non-edible item', () => {
       const state = strategy.createInitialState();
       const result = strategy.handleFoodOffer(state, 'rock');
 

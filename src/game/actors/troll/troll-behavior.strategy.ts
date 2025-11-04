@@ -113,8 +113,8 @@ export class TrollBehaviorStrategy {
       };
     }
 
-    // Check if item is eatable
-    if (this.config.eatableItems.includes(itemId)) {
+    // Check if item is edible
+    if (this.config.edibleItems.includes(itemId)) {
       return {
         success: true,
         newState: {

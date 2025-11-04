@@ -23,7 +23,7 @@ export interface TrollConfig {
   minBribeValue: number;
 
   /** List of item IDs that the troll will eat (e.g., food items) */
-  eatableItems: string[];
+  edibleItems: string[];
 
   /** Probability troll counterattacks when attacked (0.0 to 1.0) */
   counterattackProbability: number;
@@ -43,7 +43,7 @@ export const DEFAULT_TROLL_CONFIG: TrollConfig = {
   maxStrength: 2,
   tollAmount: 10,
   minBribeValue: 5,
-  eatableItems: ['sandwich', 'lunch', 'garlic', 'clove-of-garlic'],
+  edibleItems: ['sandwich', 'lunch', 'garlic', 'clove-of-garlic'],
   counterattackProbability: 0.7,
   combatHitProbability: 0.6,
   axeDamage: 1,
