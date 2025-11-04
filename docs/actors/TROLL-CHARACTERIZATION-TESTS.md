@@ -35,7 +35,7 @@ npm test -- --include='**/integration/*.spec.ts' --browsers=ChromeHeadless
 
 ### 2. Passage Blocking (3 tests)
 
-- **Blocks east passage**: When the troll is armed, attempting to go east results in: "The troll fends you off with a menacing gesture."
+- **Blocks east passage**: When the troll is armed, attempting to go east results in: "The troll fends you off with a menacing gesture." (Note: Tests check for partial match "troll fends you off")
 
 - **Blocks west passage**: Same blocking behavior for west direction.
 
@@ -186,7 +186,7 @@ These features are not part of the current codebase and therefore not covered by
 
 **Execution time**: ~0.226 seconds
 
-**Last verified**: 2025-11-04
+**Last verified**: 2024-11-04
 
 ## Future Considerations
 
