@@ -181,7 +181,10 @@ export class TrollActor extends BaseActor {
       this.conversationStrategy.getMessage(damageResult.messageKey || 'TROLL_HIT') ||
       'You hit the troll.';
 
-    // Check for counterattack
+    // Check for counterattack.
+    // Note: We intentionally update trollState before this check.
+    // If the troll was knocked unconscious by this attack, isConscious will be false,
+    // and the troll will not counterattack. This ordering is intentional.
     const counterattack = this.behaviorStrategy.shouldCounterattack(this.trollState, randomValue);
 
     let counterattackMessage: string | undefined;

@@ -13,7 +13,10 @@ export interface TrollConfig {
   /** Initial strength of the troll (default: 2) */
   initialStrength: number;
 
-  /** Maximum strength of the troll */
+  /**
+   * Maximum strength of the troll.
+   * Reserved for future use (e.g., healing/regeneration mechanics).
+   */
   maxStrength: number;
 
   /** Amount of toll required to pass (in treasure value) */
