@@ -201,6 +201,82 @@ describe('Troll Actor Migration Adapter', () => {
     });
   });
 
+  describe('Passage Blocking', () => {
+    beforeEach(() => {
+      localStorage.clear();
+    });
+
+    afterEach(() => {
+      localStorage.clear();
+    });
+
+    it('should block passages when troll is armed - legacy path', () => {
+      TestBed.configureTestingModule({
+        providers: [GameEngineService, CommandParserService, FeatureFlagService],
+      });
+      engine = TestBed.inject(GameEngineService);
+      parser = TestBed.inject(CommandParserService);
+      featureFlags = TestBed.inject(FeatureFlagService);
+
+      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
+      engine.initializeGame();
+      navigateToTrollRoom();
+
+      // Try to go east (should be blocked)
+      const result = engine.executeCommand(parser.parse('east'));
+      expect(result.success).toBe(false);
+      const output = result.messages.join(' ');
+      expect(output).toContain('troll');
+    });
+
+    it('should block passages when troll is armed - actor path', () => {
+      TestBed.configureTestingModule({
+        providers: [GameEngineService, CommandParserService, FeatureFlagService],
+      });
+      engine = TestBed.inject(GameEngineService);
+      parser = TestBed.inject(CommandParserService);
+      featureFlags = TestBed.inject(FeatureFlagService);
+
+      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
+      engine.initializeGame();
+      navigateToTrollRoom();
+
+      // Try to go east (should be blocked)
+      const result = engine.executeCommand(parser.parse('east'));
+      expect(result.success).toBe(false);
+      const output = result.messages.join(' ');
+      expect(output).toContain('troll');
+    });
+
+    it('should allow passage when troll is unconscious - actor path', () => {
+      TestBed.configureTestingModule({
+        providers: [GameEngineService, CommandParserService, FeatureFlagService],
+      });
+      engine = TestBed.inject(GameEngineService);
+      parser = TestBed.inject(CommandParserService);
+      featureFlags = TestBed.inject(FeatureFlagService);
+
+      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
+      engine.initializeGame();
+      navigateToTrollRoom();
+
+      // Attack troll multiple times to knock it unconscious
+      for (let i = 0; i < 10; i++) {
+        engine.executeCommand(parser.parse('attack troll with sword'));
+      }
+
+      // Check troll state
+      const troll = engine.getObject('troll');
+      if (troll?.properties?.actorState === 'unconscious') {
+        // Try to go east (should now succeed)
+        const result = engine.executeCommand(parser.parse('east'));
+        expect(result.success).toBe(true);
+        const output = result.messages.join(' ');
+        expect(output).toContain('Passage');
+      }
+    });
+  });
+
   describe('Message Consistency', () => {
     it('should produce similar attack messages in both modes', () => {
       // Test legacy mode
