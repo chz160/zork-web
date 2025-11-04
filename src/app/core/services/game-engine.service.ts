@@ -1570,6 +1570,12 @@ export class GameEngineService {
    * loaded from data files instead of being manually instantiated.
    */
   private initializeTrollActor(): void {
+    // Check if troll actor is already registered (e.g., game re-initialization)
+    const existing = this.actorManager.getActor('troll');
+    if (existing) {
+      return; // Already initialized
+    }
+
     const trollActor = new TrollActor();
     this.actorManager.register(trollActor);
   }
@@ -1581,10 +1587,18 @@ export class GameEngineService {
    * TODO: Once migration is complete, this should replace handleTrollCombat entirely.
    */
   private handleTrollCombatViaActor(weaponName: string | null): CommandOutput {
-    const trollActor = this.actorManager.getActor('troll') as TrollActor | undefined;
-    if (!trollActor) {
+    const actor = this.actorManager.getActor('troll');
+    if (!actor) {
       return { messages: ['The troll is not here.'], success: false, type: 'error' };
     }
+
+    // Type guard: verify this is actually a TrollActor
+    if (!(actor instanceof TrollActor)) {
+      console.error('[GameEngine] Actor "troll" is not a TrollActor instance');
+      return { messages: ['The troll is not here.'], success: false, type: 'error' };
+    }
+
+    const trollActor = actor;
 
     // Check if player is in the same room as the troll
     const playerRoomId = this.playerState().currentRoomId;
@@ -1684,8 +1698,9 @@ export class GameEngineService {
 
       updated.set('troll', updatedTroll);
 
-      // Handle axe dropping
-      if (!trollState.isConscious && !trollActor.hasAxe()) {
+      // Handle axe dropping when troll becomes unconscious
+      // The TrollActor already removes axe from its inventory, we need to sync to GameObject
+      if (!trollState.isConscious) {
         const axe = objects.get('axe');
         if (axe && axe.location === 'troll') {
           const droppedAxe = { ...axe, location: 'troll-room' };
