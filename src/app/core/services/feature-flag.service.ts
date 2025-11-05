@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export enum FeatureFlag {
   /** Conversational parser enhancements including fuzzy matching, multi-command, disambiguation */
   COMMAND_PARSER_ENHANCEMENTS = 'COMMAND_PARSER_ENHANCEMENTS',
+  /** Actor migration: Route troll commands to TrollActor instead of legacy code */
+  ACTOR_MIGRATION_TROLL = 'ACTOR_MIGRATION_TROLL',
 }
 
 /**
@@ -52,6 +54,8 @@ export class FeatureFlagService {
   private flags: FeatureFlagConfig = {
     // Conversational parser features - enabled by default (Phase 5-7 complete)
     [FeatureFlag.COMMAND_PARSER_ENHANCEMENTS]: true,
+    // Actor migration for troll - disabled by default (staged rollout)
+    [FeatureFlag.ACTOR_MIGRATION_TROLL]: false,
   };
 
   private readonly STORAGE_KEY = 'zork_feature_flags';
@@ -107,6 +111,7 @@ export class FeatureFlagService {
   resetToDefaults(): void {
     this.flags = {
       [FeatureFlag.COMMAND_PARSER_ENHANCEMENTS]: true,
+      [FeatureFlag.ACTOR_MIGRATION_TROLL]: false,
     };
     this.saveToStorage();
   }

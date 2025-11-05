@@ -17,6 +17,9 @@ import { ObjectResolverService, ResolutionContext } from './object-resolver.serv
 import { TelemetryService } from './telemetry.service';
 import { CommandDispatcherService } from './command-dispatcher.service';
 import { VisibilityInspectorService } from './visibility-inspector.service';
+import { ActorManagerService } from './actor-manager.service';
+import { FeatureFlagService, FeatureFlag } from './feature-flag.service';
+import { TrollActor } from '../../../game/actors/troll/troll-actor';
 
 /**
  * Core game engine service that manages game state and processes commands.
@@ -38,6 +41,8 @@ export class GameEngineService {
   private readonly telemetry = inject(TelemetryService);
   private readonly dispatcher = inject(CommandDispatcherService);
   private readonly visibilityInspector = inject(VisibilityInspectorService);
+  private readonly actorManager = inject(ActorManagerService);
+  private readonly featureFlags = inject(FeatureFlagService);
 
   /** Current player state */
   private readonly playerState = signal<Player>({
@@ -75,6 +80,11 @@ export class GameEngineService {
     // Populate the game world
     rooms.forEach((room) => this.addRoom(room));
     objects.forEach((obj) => this.addObject(obj));
+
+    // Initialize actors if feature flag is enabled
+    if (this.featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)) {
+      this.initializeTrollActor();
+    }
 
     // Set the starting room
     const startingRoomId = this.playerState().currentRoomId;
@@ -1410,8 +1420,17 @@ export class GameEngineService {
 
   /**
    * Handle combat with the troll based on original Zork behavior.
+   *
+   * TODO: Remove this method once actor migration is complete.
+   * This is the legacy path maintained for backwards compatibility.
    */
   private handleTrollCombat(weaponName: string | null): CommandOutput {
+    // Adapter: Route to TrollActor if feature flag is enabled
+    if (this.featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)) {
+      return this.handleTrollCombatViaActor(weaponName);
+    }
+
+    // Legacy code path
     const troll = this.gameObjects().get('troll');
     if (!troll) {
       return { messages: ['The troll is not here.'], success: false, type: 'error' };
@@ -1539,6 +1558,156 @@ export class GameEngineService {
       };
 
       updated.set('troll', updatedTroll);
+      return updated;
+    });
+  }
+
+  /**
+   * Initialize the TrollActor for the new actor-based system.
+   * This is called during game initialization when the feature flag is enabled.
+   *
+   * TODO: Remove this initialization once migration is complete and actors are
+   * loaded from data files instead of being manually instantiated.
+   */
+  private initializeTrollActor(): void {
+    // Check if troll actor is already registered (e.g., game re-initialization)
+    const existing = this.actorManager.getActor('troll');
+    if (existing) {
+      return; // Already initialized
+    }
+
+    const trollActor = new TrollActor();
+    this.actorManager.register(trollActor);
+  }
+
+  /**
+   * Handle troll combat using the new TrollActor system.
+   * This is the new actor-based path.
+   *
+   * TODO: Once migration is complete, this should replace handleTrollCombat entirely.
+   */
+  private handleTrollCombatViaActor(weaponName: string | null): CommandOutput {
+    const actor = this.actorManager.getActor('troll');
+    if (!actor) {
+      return { messages: ['The troll is not here.'], success: false, type: 'error' };
+    }
+
+    // Type guard: verify this is actually a TrollActor
+    if (!(actor instanceof TrollActor)) {
+      console.error('[GameEngine] Actor "troll" is not a TrollActor instance');
+      return { messages: ['The troll is not here.'], success: false, type: 'error' };
+    }
+
+    // Check if player is in the same room as the troll
+    const playerRoomId = this.playerState().currentRoomId;
+    if (actor.locationId !== playerRoomId) {
+      return { messages: ['The troll is not here.'], success: false, type: 'error' };
+    }
+
+    const trollState = actor.getState();
+
+    // Can't attack unconscious troll
+    if (!trollState.isConscious) {
+      return {
+        messages: ['The troll is unconscious.'],
+        success: false,
+        type: 'info',
+      };
+    }
+
+    // Get weapon if specified
+    let weapon: GameObject | null = null;
+    let weaponDamage = 0;
+    if (weaponName) {
+      weapon = this.findObjectInInventory(weaponName);
+      if (!weapon) {
+        return {
+          messages: [`You don't have any ${weaponName}.`],
+          success: false,
+          type: 'error',
+        };
+      }
+      // Calculate weapon damage (sword does 1 damage)
+      if (weapon.properties?.isWeapon) {
+        weaponDamage = 1;
+      }
+    }
+
+    const messages: string[] = [];
+
+    // Player attacks troll
+    if (weapon?.properties?.isWeapon) {
+      messages.push(`Attacking the troll with the ${weapon.name}...`);
+
+      // Use separate random value for counterattack to match legacy behavior
+      // Legacy code uses one random roll for attack outcome and a separate roll for counterattack
+      const counterattackRandomValue = Math.random();
+      const attackResult = actor.attack(weaponDamage, counterattackRandomValue);
+
+      messages.push(attackResult.message);
+
+      // Sync actor state back to game object for compatibility
+      this.syncTrollActorToGameObject(actor);
+
+      // Handle counterattack
+      if (attackResult.counterattack && attackResult.counterattackMessage) {
+        messages.push(attackResult.counterattackMessage);
+      }
+    } else {
+      messages.push('Attacking the troll with your bare hands...');
+      messages.push('The troll laughs at your puny gesture.');
+    }
+
+    return {
+      messages,
+      success: true,
+      type: 'info',
+    };
+  }
+
+  /**
+   * Sync TrollActor state back to the legacy GameObject representation.
+   * This ensures compatibility with existing code that reads troll state.
+   *
+   * TODO: Remove once all code uses TrollActor directly.
+   */
+  private syncTrollActorToGameObject(trollActor: TrollActor): void {
+    const trollState = trollActor.getState();
+    const troll = this.gameObjects().get('troll');
+
+    if (!troll) return;
+
+    this.gameObjects.update((objects) => {
+      const updated = new Map(objects);
+      const actorState: 'armed' | 'unconscious' = trollState.isConscious ? 'armed' : 'unconscious';
+      const description = trollState.isConscious
+        ? 'A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the room.'
+        : 'An unconscious troll is sprawled on the floor. All passages out of the room are open.';
+
+      const updatedTroll: GameObject = {
+        ...troll,
+        description,
+        properties: {
+          ...troll.properties,
+          strength: trollState.strength,
+          actorState,
+          isFighting: trollState.isFighting,
+          blocksPassage: trollState.blocksPassage,
+        },
+      };
+
+      updated.set('troll', updatedTroll);
+
+      // Handle axe dropping when troll becomes unconscious
+      // The TrollActor already removes axe from its inventory, we need to sync to GameObject
+      if (!trollState.isConscious) {
+        const axe = objects.get('axe');
+        if (axe && axe.location === 'troll') {
+          const droppedAxe = { ...axe, location: 'troll-room' };
+          updated.set('axe', droppedAxe);
+        }
+      }
+
       return updated;
     });
   }

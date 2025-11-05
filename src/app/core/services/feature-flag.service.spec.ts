@@ -23,6 +23,7 @@ describe('FeatureFlagService', () => {
 
     it('should have default flag values', () => {
       expect(service.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS)).toBe(true);
+      expect(service.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(false);
     });
 
     it('should load flags from localStorage if available', () => {
@@ -131,10 +132,12 @@ describe('FeatureFlagService', () => {
   describe('resetToDefaults()', () => {
     it('should reset all flags to default values', () => {
       service.setFlag(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS, false);
+      service.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
 
       service.resetToDefaults();
 
       expect(service.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS)).toBe(true);
+      expect(service.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(false);
     });
 
     it('should persist reset to localStorage', () => {
