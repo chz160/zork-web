@@ -84,7 +84,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
       const legacyMessages: string[] = [];
       const actorMessages: string[] = [];
 
-      runInBothModes((_mode) => {
+      runInBothModes((mode) => {
         navigateToTrollRoom();
 
         // Try to go east (should be blocked)
@@ -123,7 +123,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
       const legacyMessages: string[] = [];
       const actorMessages: string[] = [];
 
-      runInBothModes((_mode) => {
+      runInBothModes((mode) => {
         navigateToTrollRoom();
 
         // Try to go west (should be blocked)
@@ -162,7 +162,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
       const legacyMessages: string[] = [];
       const actorMessages: string[] = [];
 
-      runInBothModes((_mode) => {
+      runInBothModes((mode) => {
         navigateToTrollRoom();
 
         // Attack troll once
@@ -198,7 +198,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
       const legacyFinalState: Record<string, unknown> = {};
       const actorFinalState: Record<string, unknown> = {};
 
-      runInBothModes((_mode) => {
+      runInBothModes((mode) => {
         navigateToTrollRoom();
 
         // Attack until unconscious (max 20 attempts)
@@ -277,7 +277,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
       const legacyMessages: string[] = [];
       const actorMessages: string[] = [];
 
-      runInBothModes((_mode) => {
+      runInBothModes((mode) => {
         navigateToTrollRoom();
 
         // Drop the sword
@@ -464,7 +464,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
       const legacyMessages: string[] = [];
       const actorMessages: string[] = [];
 
-      runInBothModes((_mode) => {
+      runInBothModes((mode) => {
         navigateToTrollRoom();
 
         // Attack until unconscious
