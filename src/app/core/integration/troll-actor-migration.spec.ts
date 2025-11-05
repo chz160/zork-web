@@ -278,6 +278,18 @@ describe('Troll Actor Migration Adapter', () => {
   });
 
   describe('Message Consistency', () => {
+    beforeEach(() => {
+      localStorage.clear();
+
+      TestBed.configureTestingModule({
+        providers: [GameEngineService, CommandParserService, FeatureFlagService],
+      });
+    });
+
+    afterEach(() => {
+      localStorage.clear();
+    });
+
     it('should produce similar attack messages in both modes', () => {
       // Test legacy mode
       const legacyEngine = TestBed.inject(GameEngineService);

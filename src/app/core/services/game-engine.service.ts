@@ -1598,15 +1598,13 @@ export class GameEngineService {
       return { messages: ['The troll is not here.'], success: false, type: 'error' };
     }
 
-    const trollActor = actor;
-
     // Check if player is in the same room as the troll
     const playerRoomId = this.playerState().currentRoomId;
-    if (trollActor.locationId !== playerRoomId) {
+    if (actor.locationId !== playerRoomId) {
       return { messages: ['The troll is not here.'], success: false, type: 'error' };
     }
 
-    const trollState = trollActor.getState();
+    const trollState = actor.getState();
 
     // Can't attack unconscious troll
     if (!trollState.isConscious) {
@@ -1641,13 +1639,15 @@ export class GameEngineService {
     if (weapon?.properties?.isWeapon) {
       messages.push(`Attacking the troll with the ${weapon.name}...`);
 
-      const randomValue = Math.random();
-      const attackResult = trollActor.attack(weaponDamage, randomValue);
+      // Use separate random value for counterattack to match legacy behavior
+      // Legacy code uses one random roll for attack outcome and a separate roll for counterattack
+      const counterattackRandomValue = Math.random();
+      const attackResult = actor.attack(weaponDamage, counterattackRandomValue);
 
       messages.push(attackResult.message);
 
       // Sync actor state back to game object for compatibility
-      this.syncTrollActorToGameObject(trollActor);
+      this.syncTrollActorToGameObject(actor);
 
       // Handle counterattack
       if (attackResult.counterattack && attackResult.counterattackMessage) {
