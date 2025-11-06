@@ -369,12 +369,14 @@ function saveReport(report: ComparisonReport): void {
   // Save JSON report
   const jsonPath = path.join(artifactsDir, 'troll-comparison-report.json');
   fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2));
+  // eslint-disable-next-line no-console
   console.log(`✓ JSON report saved to: ${jsonPath}`);
 
   // Save text report
   const textPath = path.join(artifactsDir, 'troll-comparison-report.txt');
   const textReport = formatReportAsText(report);
   fs.writeFileSync(textPath, textReport);
+  // eslint-disable-next-line no-console
   console.log(`✓ Text report saved to: ${textPath}`);
 }
 
