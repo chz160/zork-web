@@ -582,24 +582,10 @@ export class GameEngineService {
 
       // Handle actor migration and restoration
       if (this.featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)) {
-        // Check if we need to migrate from legacy format
-        const needsMigration = isLegacyTrollData(objectsMap);
+        // Check if save data has new actor format first
+        const hasActorData = data.actors && Array.isArray(data.actors) && data.actors.length > 0;
 
-        if (needsMigration) {
-          // Migrate from legacy GameObject format to TrollActor
-          const legacyTroll = objectsMap.get('troll');
-          if (legacyTroll) {
-            const migratedData = migrateLegacyTrollData(legacyTroll);
-            const trollActor = deserializeTrollActor(migratedData);
-
-            // Clear existing troll actor if present and register migrated one
-            this.actorManager.unregister('troll');
-            this.actorManager.register(trollActor);
-
-            // Sync back to GameObject for compatibility
-            this.syncTrollActorToGameObject(trollActor);
-          }
-        } else if (data.actors && Array.isArray(data.actors)) {
+        if (hasActorData) {
           // Load from new actor format
           const trollData = data.actors.find((actor: SerializedTrollActor) => actor.id === 'troll');
           if (trollData) {
@@ -611,6 +597,25 @@ export class GameEngineService {
 
             // Sync back to GameObject for compatibility
             this.syncTrollActorToGameObject(trollActor);
+          }
+        } else {
+          // Check if we need to migrate from legacy format
+          const needsMigration = isLegacyTrollData(objectsMap);
+
+          if (needsMigration) {
+            // Migrate from legacy GameObject format to TrollActor
+            const legacyTroll = objectsMap.get('troll');
+            if (legacyTroll) {
+              const migratedData = migrateLegacyTrollData(legacyTroll);
+              const trollActor = deserializeTrollActor(migratedData);
+
+              // Clear existing troll actor if present and register migrated one
+              this.actorManager.unregister('troll');
+              this.actorManager.register(trollActor);
+
+              // Sync back to GameObject for compatibility
+              this.syncTrollActorToGameObject(trollActor);
+            }
           }
         }
       }
