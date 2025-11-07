@@ -627,7 +627,9 @@ export class GameEngineService {
       }
     } catch (error) {
       console.error('Failed to load game:', error);
-      throw error;
+      throw new Error(
+        'Failed to load saved game: ' + (error instanceof Error ? error.message : 'Unknown error')
+      );
     }
   }
 

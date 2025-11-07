@@ -185,19 +185,37 @@ export function migrateLegacyTrollData(legacyData: unknown): SerializedTrollActo
 
   const properties = data.properties || {};
   const strength = typeof properties['strength'] === 'number' ? properties['strength'] : 2;
-  const actorState = properties['actorState'] === 'unconscious' ? 'unconscious' : 'armed';
+
+  // Preserve the actual actorState from legacy data, defaulting to 'armed'
+  const rawActorState = properties['actorState'];
+  const actorState: 'armed' | 'unconscious' | 'dead' | 'disarmed' | 'awake' =
+    rawActorState === 'unconscious' ||
+    rawActorState === 'dead' ||
+    rawActorState === 'disarmed' ||
+    rawActorState === 'awake'
+      ? rawActorState
+      : 'armed';
+
   const isFighting =
     typeof properties['isFighting'] === 'boolean' ? properties['isFighting'] : true;
   const blocksPassage =
     typeof properties['blocksPassage'] === 'boolean' ? properties['blocksPassage'] : true;
+
+  // Determine if troll is conscious based on actorState
+  // Conscious states: 'armed', 'awake', 'disarmed'
+  // Unconscious states: 'unconscious', 'dead'
+  const isConscious = actorState !== 'unconscious' && actorState !== 'dead';
+
+  // Troll has axe when armed or awake
+  const inventory = actorState === 'armed' || actorState === 'awake' ? ['axe'] : [];
 
   return {
     id: 'troll',
     type: 'TrollActor',
     locationId: data.location || 'troll-room',
     health: strength,
-    inventory: actorState === 'armed' ? ['axe'] : [], // Troll has axe when armed
-    isConscious: actorState === 'armed',
+    inventory,
+    isConscious,
     isFighting,
     blocksPassage,
     flags: {
