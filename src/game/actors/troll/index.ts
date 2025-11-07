@@ -11,3 +11,10 @@ export { TrollBehaviorStrategy } from './troll-behavior.strategy';
 export type { TrollState, BehaviorResult } from './troll-behavior.strategy';
 export { TrollPerceptionStrategy } from './troll-perception.strategy';
 export { TrollConversationStrategy } from './troll-conversation.strategy';
+export {
+  serializeTrollActor,
+  deserializeTrollActor,
+  isLegacyTrollData,
+  migrateLegacyTrollData,
+} from './troll-serializer';
+export type { SerializedTrollActor, LegacyTrollData } from './troll-serializer';

@@ -263,6 +263,17 @@ export class TrollActor extends BaseActor {
   }
 
   /**
+   * Restore troll state from serialized data.
+   * Used for deserialization during game load.
+   *
+   * @param state The troll state to restore
+   * @internal
+   */
+  restoreState(state: TrollState): void {
+    this.updateState(state);
+  }
+
+  /**
    * Update internal state and sync with Actor interface flags.
    *
    * @param newState New troll state
