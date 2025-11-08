@@ -447,9 +447,19 @@ export class GameEngineService {
     const player = this.playerState();
 
     // Convert Maps to serializable objects
-    const roomsData: Record<string, Room> = {};
+    const roomsData: Record<string, unknown> = {};
     this.rooms().forEach((room, id) => {
-      roomsData[id] = room;
+      // Convert room Maps to plain objects for JSON serialization
+      const serializedRoom: Record<string, unknown> = {
+        ...room,
+        // Convert exits Map to plain object
+        exits: room.exits ? Object.fromEntries(room.exits) : {},
+        // Convert conditionalExits Map to plain object
+        conditionalExits: room.conditionalExits
+          ? Object.fromEntries(room.conditionalExits)
+          : undefined,
+      };
+      roomsData[id] = serializedRoom;
     });
 
     const objectsData: Record<string, GameObject> = {};
