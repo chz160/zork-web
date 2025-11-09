@@ -189,12 +189,17 @@ describe('FeatureFlagService', () => {
     it('should handle corrupted localStorage data', () => {
       localStorage.setItem('zork_feature_flags', 'invalid json');
 
+      // Mock console.warn to suppress expected error output during test
+      const consoleWarnSpy = spyOn(console, 'warn');
+
       // Create new service - should not crash
       const newService = new FeatureFlagService();
 
       expect(newService).toBeTruthy();
       // Should fall back to defaults
       expect(newService.isEnabled(FeatureFlag.COMMAND_PARSER_ENHANCEMENTS)).toBe(true);
+      // Verify that warning was logged
+      expect(consoleWarnSpy).toHaveBeenCalled();
     });
   });
 

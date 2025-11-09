@@ -635,6 +635,9 @@ export class GameEngineService {
       if (currentRoom) {
         this.currentRoom.set(currentRoom);
       }
+
+      // Notify user that game was loaded successfully
+      this.addOutput('Game loaded.');
     } catch (error) {
       console.error('Failed to load game:', error);
       throw new Error(
