@@ -20,6 +20,13 @@ import { VisibilityInspectorService } from './visibility-inspector.service';
 import { ActorManagerService } from './actor-manager.service';
 import { FeatureFlagService, FeatureFlag } from './feature-flag.service';
 import { TrollActor } from '../../../game/actors/troll/troll-actor';
+import {
+  serializeTrollActor,
+  deserializeTrollActor,
+  isLegacyTrollData,
+  migrateLegacyTrollData,
+  SerializedTrollActor,
+} from '../../../game/actors/troll/troll-serializer';
 
 /**
  * Core game engine service that manages game state and processes commands.
@@ -431,25 +438,209 @@ export class GameEngineService {
 
   /**
    * Save the current game state.
+   * Serializes player state, game objects, rooms, and actors.
+   * Includes migration path for TrollActor serialization.
+   *
    * @returns A JSON string representing the game state
    */
   saveGame(): string {
-    // TODO: Implement game state serialization
-    return JSON.stringify({
-      player: this.playerState(),
-      timestamp: new Date().toISOString(),
+    const player = this.playerState();
+
+    // Convert Maps to serializable objects
+    const roomsData: Record<string, unknown> = {};
+    this.rooms().forEach((room, id) => {
+      // Convert room Maps to plain objects for JSON serialization
+      const serializedRoom: Record<string, unknown> = {
+        ...room,
+        // Convert exits Map to plain object
+        exits: room.exits ? Object.fromEntries(room.exits) : {},
+        // Convert conditionalExits Map to plain object
+        conditionalExits: room.conditionalExits
+          ? Object.fromEntries(room.conditionalExits)
+          : undefined,
+      };
+      roomsData[id] = serializedRoom;
     });
+
+    const objectsData: Record<string, GameObject> = {};
+    this.gameObjects().forEach((obj, id) => {
+      objectsData[id] = obj;
+    });
+
+    // Serialize player flags
+    const playerFlags: Record<string, boolean> = {};
+    player.flags.forEach((value, key) => {
+      playerFlags[key] = value;
+    });
+
+    // Serialize actors if feature flag is enabled
+    const actors: SerializedTrollActor[] = [];
+    if (this.featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)) {
+      const trollActor = this.actorManager.getActor('troll') as TrollActor | undefined;
+      if (trollActor) {
+        actors.push(serializeTrollActor(trollActor));
+      }
+    }
+
+    const saveData = {
+      version: '1.0',
+      timestamp: new Date().toISOString(),
+      player: {
+        currentRoomId: player.currentRoomId,
+        inventory: player.inventory,
+        score: player.score,
+        moveCount: player.moveCount,
+        isAlive: player.isAlive,
+        flags: playerFlags,
+      },
+      rooms: roomsData,
+      gameObjects: objectsData,
+      actors,
+    };
+
+    return JSON.stringify(saveData);
   }
 
   /**
    * Load a saved game state.
-   * @param _saveData The saved game data
+   * Deserializes player state, game objects, rooms, and actors.
+   * Handles migration from legacy save formats.
+   *
+   * @param saveData The saved game data as JSON string
+   * @throws Error if save data is invalid or corrupted
    */
-  loadGame(_saveData: string): void {
-    // TODO: Implement game state deserialization
-    // TODO: Validate save data
-    // TODO: Restore game state
-    this.addOutput('Game loaded.');
+  loadGame(saveData: string): void {
+    try {
+      const data = JSON.parse(saveData);
+
+      // Validate save data structure
+      if (!data.player || !data.gameObjects) {
+        throw new Error('Invalid save data: missing required fields');
+      }
+
+      // Restore player state
+      const playerFlags = new Map<string, boolean>();
+      if (data.player.flags) {
+        Object.entries(data.player.flags).forEach(([key, value]) => {
+          playerFlags.set(key, value as boolean);
+        });
+      }
+
+      this.playerState.set({
+        currentRoomId: data.player.currentRoomId,
+        inventory: data.player.inventory || [],
+        score: data.player.score || 0,
+        moveCount: data.player.moveCount || 0,
+        isAlive: data.player.isAlive ?? true,
+        flags: playerFlags,
+      });
+
+      // Restore rooms if present
+      if (data.rooms) {
+        const roomsMap = new Map<string, Room>();
+        Object.entries(data.rooms).forEach(([id, roomData]: [string, unknown]) => {
+          const room = roomData as Room & { exits: unknown; conditionalExits?: unknown };
+
+          // Reconstruct exits Map
+          const exits = new Map<Direction, string>();
+          if (room.exits) {
+            if (room.exits instanceof Map) {
+              room.exits.forEach((value, key) => exits.set(key, value));
+            } else {
+              // exits was serialized as a plain object
+              Object.entries(room.exits as Record<string, string>).forEach(
+                ([direction, roomId]) => {
+                  exits.set(direction as Direction, roomId);
+                }
+              );
+            }
+          }
+
+          // Reconstruct conditionalExits Map if present
+          let conditionalExits: Map<Direction, ExitCondition> | undefined;
+          if (room.conditionalExits) {
+            conditionalExits = new Map<Direction, ExitCondition>();
+            if (room.conditionalExits instanceof Map) {
+              room.conditionalExits.forEach((value, key) => conditionalExits!.set(key, value));
+            } else {
+              // conditionalExits was serialized as a plain object
+              Object.entries(room.conditionalExits as Record<string, ExitCondition>).forEach(
+                ([direction, condition]) => {
+                  conditionalExits!.set(direction as Direction, condition);
+                }
+              );
+            }
+          }
+
+          const reconstructedRoom: Room = {
+            ...room,
+            exits,
+            conditionalExits,
+          };
+
+          roomsMap.set(id, reconstructedRoom);
+        });
+        this.rooms.set(roomsMap);
+      }
+
+      // Restore game objects
+      const objectsMap = new Map<string, GameObject>();
+      Object.entries(data.gameObjects).forEach(([id, obj]) => {
+        objectsMap.set(id, obj as GameObject);
+      });
+      this.gameObjects.set(objectsMap);
+
+      // Handle actor migration and restoration
+      if (this.featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)) {
+        // Check if save data has new actor format first
+        const hasActorData = data.actors && Array.isArray(data.actors) && data.actors.length > 0;
+
+        if (hasActorData) {
+          // Load from new actor format
+          const trollData = data.actors.find((actor: SerializedTrollActor) => actor.id === 'troll');
+          if (trollData) {
+            const trollActor = deserializeTrollActor(trollData);
+
+            // Clear existing and register restored actor
+            this.actorManager.unregister('troll');
+            this.actorManager.register(trollActor);
+
+            // Sync back to GameObject for compatibility
+            this.syncTrollActorToGameObject(trollActor);
+          }
+        } else {
+          // Check if we need to migrate from legacy format
+          const needsMigration = isLegacyTrollData(objectsMap);
+
+          if (needsMigration) {
+            // Migrate from legacy GameObject format to TrollActor
+            const legacyTroll = objectsMap.get('troll');
+            if (legacyTroll) {
+              const migratedData = migrateLegacyTrollData(legacyTroll);
+              const trollActor = deserializeTrollActor(migratedData);
+
+              // Clear existing troll actor if present and register migrated one
+              this.actorManager.unregister('troll');
+              this.actorManager.register(trollActor);
+
+              // Sync back to GameObject for compatibility
+              this.syncTrollActorToGameObject(trollActor);
+            }
+          }
+        }
+      }
+
+      // Update current room
+      const currentRoom = this.rooms().get(this.playerState().currentRoomId);
+      if (currentRoom) {
+        this.currentRoom.set(currentRoom);
+      }
+    } catch (error) {
+      console.error('Failed to load game:', error);
+      throw new Error(
+        'Failed to load saved game: ' + (error instanceof Error ? error.message : 'Unknown error')
+      );
+    }
   }
 
   /**
