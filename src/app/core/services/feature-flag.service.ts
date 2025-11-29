@@ -54,8 +54,8 @@ export class FeatureFlagService {
   private flags: FeatureFlagConfig = {
     // Conversational parser features - enabled by default (Phase 5-7 complete)
     [FeatureFlag.COMMAND_PARSER_ENHANCEMENTS]: true,
-    // Actor migration for troll - disabled by default (staged rollout)
-    [FeatureFlag.ACTOR_MIGRATION_TROLL]: false,
+    // Actor migration for troll - enabled by default (migration complete)
+    [FeatureFlag.ACTOR_MIGRATION_TROLL]: true,
   };
 
   private readonly STORAGE_KEY = 'zork_feature_flags';
@@ -111,7 +111,7 @@ export class FeatureFlagService {
   resetToDefaults(): void {
     this.flags = {
       [FeatureFlag.COMMAND_PARSER_ENHANCEMENTS]: true,
-      [FeatureFlag.ACTOR_MIGRATION_TROLL]: false,
+      [FeatureFlag.ACTOR_MIGRATION_TROLL]: true,
     };
     this.saveToStorage();
   }
