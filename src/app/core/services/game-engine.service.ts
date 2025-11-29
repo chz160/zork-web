@@ -1613,174 +1613,12 @@ export class GameEngineService {
   }
 
   /**
-   * Handle combat with the troll based on original Zork behavior.
+   * Handle combat with the troll using the TrollActor system.
    *
-   * TODO: Remove this method once actor migration is complete.
-   * This is the legacy path maintained for backwards compatibility.
+   * Uses the new actor-based system for all troll combat behavior.
+   * The TrollActor handles damage, state transitions, and counterattacks.
    */
   private handleTrollCombat(weaponName: string | null): CommandOutput {
-    // Adapter: Route to TrollActor if feature flag is enabled
-    if (this.featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)) {
-      return this.handleTrollCombatViaActor(weaponName);
-    }
-
-    // Legacy code path
-    const troll = this.gameObjects().get('troll');
-    if (!troll) {
-      return { messages: ['The troll is not here.'], success: false, type: 'error' };
-    }
-
-    // Check troll state
-    const trollState = troll.properties?.actorState;
-    const trollStrength = troll.properties?.strength || 0;
-
-    // Can't attack unconscious or dead troll
-    if (trollState === 'unconscious') {
-      return {
-        messages: ['The troll is unconscious.'],
-        success: false,
-        type: 'info',
-      };
-    }
-
-    if (trollState === 'dead' || trollStrength <= 0) {
-      return {
-        messages: ['The troll is already dead.'],
-        success: false,
-        type: 'info',
-      };
-    }
-
-    // Get weapon if specified
-    let weapon: GameObject | null = null;
-    if (weaponName) {
-      weapon = this.findObjectInInventory(weaponName);
-      if (!weapon) {
-        return {
-          messages: [`You don't have any ${weaponName}.`],
-          success: false,
-          type: 'error',
-        };
-      }
-    }
-
-    // Simulate combat - random outcome
-    const attackRoll = Math.random();
-    const messages: string[] = [];
-
-    // Player attacks troll
-    if (weapon?.properties?.isWeapon) {
-      messages.push(`Attacking the troll with the ${weapon.name}...`);
-
-      if (attackRoll > 0.7) {
-        // Good hit - damage troll
-        const newStrength = (troll.properties?.strength || 2) - 1;
-        this.updateTrollState(newStrength);
-
-        if (newStrength <= 0) {
-          messages.push('Your blow knocks the troll unconscious!');
-        } else {
-          messages.push(`You strike the troll! The troll looks injured.`);
-        }
-      } else if (attackRoll > 0.3) {
-        messages.push('You hit the troll with a glancing blow.');
-      } else {
-        messages.push('Your blow misses the troll.');
-      }
-    } else {
-      messages.push('Attacking the troll with your bare hands...');
-      messages.push('The troll laughs at your puny gesture.');
-    }
-
-    // Troll counterattacks if still conscious
-    if (trollStrength > 0 && (trollState as string) !== 'unconscious') {
-      const trollAttackRoll = Math.random();
-      if (trollAttackRoll > 0.6) {
-        messages.push('The troll swings his axe, but it misses.');
-      } else if (trollAttackRoll > 0.3) {
-        messages.push("The troll's axe barely misses your ear.");
-      } else {
-        messages.push(
-          'The troll swings.  The blade turns on your armor but crashes broadside into your head.'
-        );
-      }
-    }
-
-    return {
-      messages,
-      success: true,
-      type: 'info',
-    };
-  }
-
-  /**
-   * Update troll's state based on strength.
-   */
-  private updateTrollState(newStrength: number): void {
-    this.gameObjects.update((objects) => {
-      const troll = objects.get('troll');
-      if (!troll) return objects;
-
-      const updated = new Map(objects);
-      let newState: 'armed' | 'disarmed' | 'unconscious' | 'dead' = 'armed';
-      let newDescription = troll.description;
-
-      if (newStrength <= 0) {
-        // Troll is unconscious
-        newState = 'unconscious';
-        newDescription =
-          'An unconscious troll is sprawled on the floor. All passages out of the room are open.';
-
-        // Drop axe if troll had it
-        const axe = objects.get('axe');
-        if (axe && axe.location === 'troll') {
-          const droppedAxe = { ...axe, location: 'troll-room' };
-          updated.set('axe', droppedAxe);
-        }
-      }
-
-      const updatedTroll = {
-        ...troll,
-        description: newDescription,
-        properties: {
-          ...troll.properties,
-          strength: newStrength,
-          actorState: newState,
-          isFighting: newStrength > 0,
-          blocksPassage: newStrength > 0,
-        },
-      };
-
-      updated.set('troll', updatedTroll);
-      return updated;
-    });
-  }
-
-  /**
-   * Initialize the TrollActor for the new actor-based system.
-   * This is called during game initialization when the feature flag is enabled.
-   *
-   * TODO: Remove this initialization once migration is complete and actors are
-   * loaded from data files instead of being manually instantiated.
-   */
-  private initializeTrollActor(): void {
-    // Check if troll actor is already registered (e.g., game re-initialization)
-    const existing = this.actorManager.getActor('troll');
-    if (existing) {
-      return; // Already initialized
-    }
-
-    const trollActor = new TrollActor();
-    this.actorManager.register(trollActor);
-  }
-
-  /**
-   * Handle troll combat using the new TrollActor system.
-   * This is the new actor-based path.
-   *
-   * TODO: Once migration is complete, this should replace handleTrollCombat entirely.
-   */
-  private handleTrollCombatViaActor(weaponName: string | null): CommandOutput {
     const actor = this.actorManager.getActor('troll');
     if (!actor) {
       return { messages: ['The troll is not here.'], success: false, type: 'error' };
@@ -1833,8 +1671,7 @@ export class GameEngineService {
     if (weapon?.properties?.isWeapon) {
       messages.push(`Attacking the troll with the ${weapon.name}...`);
 
-      // Use separate random value for counterattack to match legacy behavior
-      // Legacy code uses one random roll for attack outcome and a separate roll for counterattack
+      // Use separate random value for counterattack
       const counterattackRandomValue = Math.random();
       const attackResult = actor.attack(weaponDamage, counterattackRandomValue);
 
@@ -1860,10 +1697,27 @@ export class GameEngineService {
   }
 
   /**
-   * Sync TrollActor state back to the legacy GameObject representation.
-   * This ensures compatibility with existing code that reads troll state.
+   * Initialize the TrollActor for the actor-based system.
+   * This is called during game initialization when the feature flag is enabled.
+   */
+  private initializeTrollActor(): void {
+    // Check if troll actor is already registered (e.g., game re-initialization)
+    const existing = this.actorManager.getActor('troll');
+    if (existing) {
+      return; // Already initialized
+    }
+
+    const trollActor = new TrollActor();
+    this.actorManager.register(trollActor);
+  }
+
+  /**
+   * Sync TrollActor state back to the GameObject representation.
+   * This ensures compatibility with existing code that reads troll state from game objects,
+   * such as room descriptions, conditional exits, and sword glow behavior.
    *
-   * TODO: Remove once all code uses TrollActor directly.
+   * Note: This synchronization is maintained for compatibility with the broader game engine,
+   * which expects troll state to be available in the gameObjects map for UI and game logic.
    */
   private syncTrollActorToGameObject(trollActor: TrollActor): void {
     const trollState = trollActor.getState();

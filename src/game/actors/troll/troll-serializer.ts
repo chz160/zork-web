@@ -5,18 +5,18 @@
  * Provides serialization/deserialization for TrollActor state, including migration
  * from legacy save formats to the new actor-based model.
  *
- * Migration Strategy:
- * - Detects legacy troll GameObject representation in save data
- * - Converts legacy properties to TrollActor state
- * - Handles both legacy and new save formats transparently
+ * Current Status:
+ * The TrollActor migration is complete. All new games use the actor-based system.
+ * Legacy migration utilities (isLegacyTrollData, migrateLegacyTrollData, LegacyTrollData)
+ * are retained only for backward compatibility with old save files.
  *
- * Migration Path:
- * Legacy format (GameObject-based) -> Current format (Actor-based)
+ * Migration Utilities (Backward Compatibility):
+ * - isLegacyTrollData: Detects pre-migration save format
+ * - migrateLegacyTrollData: Converts legacy saves to actor format
+ * - LegacyTrollData: Type definition for pre-migration format
  *
- * Cleanup Timeline:
- * This migration logic should be removed after all known save files have been migrated.
- * Target: 6 months after release (track in issue #XXX)
- * TODO: Add issue reference when created
+ * These utilities will be removed in a future major version after sufficient
+ * time has passed for users to migrate their save files.
  */
 
 import { TrollActor } from './troll-actor';
@@ -58,7 +58,10 @@ export interface SerializedTrollActor {
 
 /**
  * Legacy GameObject-based troll representation.
- * This format was used before the Actor migration.
+ *
+ * @deprecated This format was used before the Actor migration.
+ * Retained only for backward compatibility with old save files.
+ * Will be removed in a future major version.
  */
 export interface LegacyTrollData {
   id: string;
@@ -141,6 +144,9 @@ export function deserializeTrollActor(
 /**
  * Detect if save data contains legacy troll format.
  *
+ * @deprecated Retained for backward compatibility with old save files.
+ * Will be removed in a future major version.
+ *
  * @param gameObjects Map of game objects from save data
  * @returns True if legacy troll data is detected
  */
@@ -162,6 +168,9 @@ export function isLegacyTrollData(gameObjects: Map<string, unknown>): boolean {
 
 /**
  * Migrate legacy troll GameObject to TrollActor format.
+ *
+ * @deprecated Retained for backward compatibility with old save files.
+ * Will be removed in a future major version.
  *
  * @param legacyData Legacy troll object data
  * @returns Serialized TrollActor data

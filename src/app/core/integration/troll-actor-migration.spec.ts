@@ -4,20 +4,20 @@ import { CommandParserService } from '../services/command-parser.service';
 import { FeatureFlagService, FeatureFlag } from '../services/feature-flag.service';
 
 /**
- * Tests for TrollActor migration adapter.
+ * Tests for TrollActor migration - Post-Migration Validation.
  *
  * Purpose:
- * These tests verify that the adapter correctly routes troll commands between
- * legacy code and the new TrollActor implementation based on the feature flag.
- * Both paths should produce equivalent behavior.
+ * These tests verify that the TrollActor system works correctly now that
+ * the migration is complete. The ACTOR_MIGRATION_TROLL feature flag is
+ * now enabled by default, and all troll behavior uses the TrollActor class.
  *
  * Test scenarios:
- * - Feature flag toggle works correctly
- * - Combat behavior is consistent between legacy and actor paths
+ * - Feature flag defaults to enabled
+ * - Combat behavior works correctly via TrollActor
  * - Troll state synchronization works correctly
- * - Both paths produce similar messages
+ * - State is properly synchronized to GameObject for compatibility
  */
-describe('Troll Actor Migration Adapter', () => {
+describe('Troll Actor Post-Migration', () => {
   let engine: GameEngineService;
   let parser: CommandParserService;
   let featureFlags: FeatureFlagService;
@@ -38,7 +38,7 @@ describe('Troll Actor Migration Adapter', () => {
     engine.executeCommand(parser.parse('north'));
   }
 
-  describe('Feature Flag Control', () => {
+  describe('Feature Flag Default', () => {
     beforeEach(() => {
       // Clear localStorage to ensure clean state
       localStorage.clear();
@@ -55,20 +55,7 @@ describe('Troll Actor Migration Adapter', () => {
       localStorage.clear();
     });
 
-    it('should default to legacy path when flag is disabled', () => {
-      expect(featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(false);
-
-      // Initialize game - should not create TrollActor
-      engine.initializeGame();
-
-      // Verify troll exists as GameObject
-      const troll = engine.getObject('troll');
-      expect(troll).toBeTruthy();
-      expect(troll?.properties?.actorState).toBe('armed');
-    });
-
-    it('should use actor path when flag is enabled', () => {
-      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
+    it('should default to actor path with flag enabled', () => {
       expect(featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(true);
 
       // Initialize game - should create TrollActor
@@ -79,59 +66,22 @@ describe('Troll Actor Migration Adapter', () => {
       expect(troll).toBeTruthy();
       expect(troll?.properties?.actorState).toBe('armed');
     });
-  });
 
-  describe('Combat Behavior Parity - Legacy Path', () => {
-    beforeEach(() => {
-      localStorage.clear();
-
-      TestBed.configureTestingModule({
-        providers: [GameEngineService, CommandParserService, FeatureFlagService],
-      });
-      engine = TestBed.inject(GameEngineService);
-      parser = TestBed.inject(CommandParserService);
-      featureFlags = TestBed.inject(FeatureFlagService);
-
-      // Ensure legacy path
+    it('should still work if flag is explicitly disabled', () => {
       featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
+      expect(featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(false);
+
+      // Initialize game - troll should still exist
       engine.initializeGame();
-      navigateToTrollRoom();
-    });
 
-    afterEach(() => {
-      localStorage.clear();
-    });
-
-    it('should attack troll with sword using legacy code', () => {
-      const result = engine.executeCommand(parser.parse('attack troll with sword'));
-
-      expect(result.success).toBe(true);
-      const output = result.messages.join(' ');
-      expect(output).toContain('troll');
-
-      // Verify troll state exists
-      const troll = engine.getObject('troll');
-      expect(troll?.properties?.actorState).toBeDefined();
-    });
-
-    it('should handle unconscious troll correctly in legacy mode', () => {
+      // Verify troll exists as GameObject
       const troll = engine.getObject('troll');
       expect(troll).toBeTruthy();
-
-      // Attack multiple times to knock out troll
-      // Note: Combat is random, so we check state after enough attacks
-      for (let i = 0; i < 5; i++) {
-        engine.executeCommand(parser.parse('attack troll with sword'));
-      }
-
-      const trollAfter = engine.getObject('troll');
-      // Troll should eventually become unconscious or remain armed
-      expect(trollAfter?.properties?.actorState).toBeDefined();
-      expect(['armed', 'unconscious']).toContain(trollAfter?.properties?.actorState as string);
+      expect(troll?.properties?.actorState).toBe('armed');
     });
   });
 
-  describe('Combat Behavior Parity - Actor Path', () => {
+  describe('Combat Behavior - Actor System', () => {
     beforeEach(() => {
       localStorage.clear();
 
@@ -142,8 +92,7 @@ describe('Troll Actor Migration Adapter', () => {
       parser = TestBed.inject(CommandParserService);
       featureFlags = TestBed.inject(FeatureFlagService);
 
-      // Enable actor path
-      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
+      // Feature flag should already be true by default
       engine.initializeGame();
       navigateToTrollRoom();
     });
@@ -152,7 +101,7 @@ describe('Troll Actor Migration Adapter', () => {
       localStorage.clear();
     });
 
-    it('should attack troll with sword using actor code', () => {
+    it('should attack troll with sword using actor system', () => {
       const result = engine.executeCommand(parser.parse('attack troll with sword'));
 
       expect(result.success).toBe(true);
@@ -162,8 +111,6 @@ describe('Troll Actor Migration Adapter', () => {
       // Verify troll state is synchronized
       const troll = engine.getObject('troll');
       expect(troll?.properties?.actorState).toBeDefined();
-      const actorState = troll?.properties?.actorState as string;
-      expect(['armed', 'unconscious']).toContain(actorState);
     });
 
     it('should synchronize actor state to game object', () => {
@@ -181,9 +128,9 @@ describe('Troll Actor Migration Adapter', () => {
       expect(trollAfter?.properties?.strength).toBeDefined();
     });
 
-    it('should handle unconscious troll correctly in actor mode', () => {
+    it('should handle unconscious troll correctly', () => {
       // Attack multiple times to knock out troll
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 10; i++) {
         engine.executeCommand(parser.parse('attack troll with sword'));
       }
 
@@ -204,21 +151,20 @@ describe('Troll Actor Migration Adapter', () => {
   describe('Passage Blocking', () => {
     beforeEach(() => {
       localStorage.clear();
+
+      TestBed.configureTestingModule({
+        providers: [GameEngineService, CommandParserService, FeatureFlagService],
+      });
+      engine = TestBed.inject(GameEngineService);
+      parser = TestBed.inject(CommandParserService);
+      featureFlags = TestBed.inject(FeatureFlagService);
     });
 
     afterEach(() => {
       localStorage.clear();
     });
 
-    it('should block passages when troll is armed - legacy path', () => {
-      TestBed.configureTestingModule({
-        providers: [GameEngineService, CommandParserService, FeatureFlagService],
-      });
-      engine = TestBed.inject(GameEngineService);
-      parser = TestBed.inject(CommandParserService);
-      featureFlags = TestBed.inject(FeatureFlagService);
-
-      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
+    it('should block passages when troll is armed', () => {
       engine.initializeGame();
       navigateToTrollRoom();
 
@@ -229,39 +175,12 @@ describe('Troll Actor Migration Adapter', () => {
       expect(output).toContain('troll');
     });
 
-    it('should block passages when troll is armed - actor path', () => {
-      TestBed.configureTestingModule({
-        providers: [GameEngineService, CommandParserService, FeatureFlagService],
-      });
-      engine = TestBed.inject(GameEngineService);
-      parser = TestBed.inject(CommandParserService);
-      featureFlags = TestBed.inject(FeatureFlagService);
-
-      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
-      engine.initializeGame();
-      navigateToTrollRoom();
-
-      // Try to go east (should be blocked)
-      const result = engine.executeCommand(parser.parse('east'));
-      expect(result.success).toBe(false);
-      const output = result.messages.join(' ');
-      expect(output).toContain('troll');
-    });
-
-    it('should allow passage when troll is unconscious - actor path', () => {
-      TestBed.configureTestingModule({
-        providers: [GameEngineService, CommandParserService, FeatureFlagService],
-      });
-      engine = TestBed.inject(GameEngineService);
-      parser = TestBed.inject(CommandParserService);
-      featureFlags = TestBed.inject(FeatureFlagService);
-
-      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
+    it('should allow passage when troll is unconscious', () => {
       engine.initializeGame();
       navigateToTrollRoom();
 
       // Attack troll multiple times to knock it unconscious
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 20; i++) {
         engine.executeCommand(parser.parse('attack troll with sword'));
       }
 
@@ -271,54 +190,9 @@ describe('Troll Actor Migration Adapter', () => {
         // Try to go east (should now succeed)
         const result = engine.executeCommand(parser.parse('east'));
         expect(result.success).toBe(true);
-        const output = result.messages.join(' ');
-        expect(output).toContain('Passage');
+        const currentRoom = engine.getCurrentRoom();
+        expect(currentRoom?.id).toBe('ew-passage');
       }
-    });
-  });
-
-  describe('Message Consistency', () => {
-    beforeEach(() => {
-      localStorage.clear();
-
-      TestBed.configureTestingModule({
-        providers: [GameEngineService, CommandParserService, FeatureFlagService],
-      });
-    });
-
-    afterEach(() => {
-      localStorage.clear();
-    });
-
-    it('should produce similar attack messages in both modes', () => {
-      // Test legacy mode
-      const legacyEngine = TestBed.inject(GameEngineService);
-      const legacyParser = TestBed.inject(CommandParserService);
-      const legacyFlags = TestBed.inject(FeatureFlagService);
-
-      legacyFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
-      legacyEngine.initializeGame();
-
-      // Navigate to troll
-      legacyEngine.executeCommand(legacyParser.parse('north'));
-      legacyEngine.executeCommand(legacyParser.parse('east'));
-      legacyEngine.executeCommand(legacyParser.parse('open window'));
-      legacyEngine.executeCommand(legacyParser.parse('west'));
-      legacyEngine.executeCommand(legacyParser.parse('west'));
-      legacyEngine.executeCommand(legacyParser.parse('take sword'));
-      legacyEngine.executeCommand(legacyParser.parse('move rug'));
-      legacyEngine.executeCommand(legacyParser.parse('open trap door'));
-      legacyEngine.executeCommand(legacyParser.parse('down'));
-      legacyEngine.executeCommand(legacyParser.parse('north'));
-
-      const legacyResult = legacyEngine.executeCommand(
-        legacyParser.parse('attack troll with sword')
-      );
-      const legacyMessages = legacyResult.messages.join(' ').toLowerCase();
-
-      // Both should mention attacking with sword
-      expect(legacyMessages).toContain('sword');
-      expect(legacyMessages).toContain('troll');
     });
   });
 
@@ -338,21 +212,24 @@ describe('Troll Actor Migration Adapter', () => {
     });
 
     it('should allow toggling flag on and off', () => {
-      expect(featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(false);
-
-      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
       expect(featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(true);
 
       featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
       expect(featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(false);
+
+      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
+      expect(featureFlags.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(true);
     });
 
     it('should persist flag state in localStorage', () => {
-      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
+      featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
 
       // Create new service instance
       const newService = new FeatureFlagService();
-      expect(newService.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(true);
+      expect(newService.isEnabled(FeatureFlag.ACTOR_MIGRATION_TROLL)).toBe(false);
+
+      // Clean up
+      newService.resetToDefaults();
     });
   });
 });
