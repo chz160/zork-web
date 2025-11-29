@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { GameEngineService } from '../services/game-engine.service';
 import { CommandParserService } from '../services/command-parser.service';
 import { FeatureFlagService, FeatureFlag } from '../services/feature-flag.service';
+import { RandomService } from '../services/random.service';
 
 /**
  * Integration tests for TrollActor behavior parity.
@@ -44,17 +45,20 @@ describe('Troll Integration Tests - Behavior Parity', () => {
   /**
    * Helper to run a test in both legacy and actor modes.
    * Captures outputs from both modes for comparison.
+   * Uses a deterministic random seed for consistent test results.
    */
   function runInBothModes(testFn: (mode: 'legacy' | 'actor') => void): void {
     // Test in legacy mode
     localStorage.clear();
     TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      providers: [GameEngineService, CommandParserService, FeatureFlagService],
+      providers: [GameEngineService, CommandParserService, FeatureFlagService, RandomService],
     });
     engine = TestBed.inject(GameEngineService);
     parser = TestBed.inject(CommandParserService);
     featureFlags = TestBed.inject(FeatureFlagService);
+    const randomService = TestBed.inject(RandomService);
+    randomService.setSeed(12345); // Deterministic seed for consistent combat outcomes
     featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
     engine.initializeGame();
 
@@ -64,11 +68,13 @@ describe('Troll Integration Tests - Behavior Parity', () => {
     localStorage.clear();
     TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      providers: [GameEngineService, CommandParserService, FeatureFlagService],
+      providers: [GameEngineService, CommandParserService, FeatureFlagService, RandomService],
     });
     engine = TestBed.inject(GameEngineService);
     parser = TestBed.inject(CommandParserService);
     featureFlags = TestBed.inject(FeatureFlagService);
+    const randomService2 = TestBed.inject(RandomService);
+    randomService2.setSeed(12345); // Same seed for both modes
     featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
     engine.initializeGame();
 
