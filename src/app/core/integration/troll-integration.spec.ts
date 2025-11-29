@@ -5,6 +5,12 @@ import { FeatureFlagService, FeatureFlag } from '../services/feature-flag.servic
 import { RandomService } from '../services/random.service';
 
 /**
+ * Deterministic seed for random number generator.
+ * Ensures consistent combat outcomes across test runs.
+ */
+const DETERMINISTIC_SEED = 12345;
+
+/**
  * Integration tests for TrollActor behavior parity.
  *
  * Purpose:
@@ -58,7 +64,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
     parser = TestBed.inject(CommandParserService);
     featureFlags = TestBed.inject(FeatureFlagService);
     const randomService = TestBed.inject(RandomService);
-    randomService.setSeed(12345); // Deterministic seed for consistent combat outcomes
+    randomService.setSeed(DETERMINISTIC_SEED);
     featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, false);
     engine.initializeGame();
 
@@ -74,7 +80,7 @@ describe('Troll Integration Tests - Behavior Parity', () => {
     parser = TestBed.inject(CommandParserService);
     featureFlags = TestBed.inject(FeatureFlagService);
     const randomService2 = TestBed.inject(RandomService);
-    randomService2.setSeed(12345); // Same seed for both modes
+    randomService2.setSeed(DETERMINISTIC_SEED);
     featureFlags.setFlag(FeatureFlag.ACTOR_MIGRATION_TROLL, true);
     engine.initializeGame();
 
